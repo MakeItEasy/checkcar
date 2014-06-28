@@ -1,0 +1,52 @@
+<html style="min-height: 229px;">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= t('view.site.back_title_long') %></title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <%= stylesheet_link_tag    'back', media: 'all', 'data-turbolinks-track' => true %>
+    <%= yield :head_stylesheet %>
+    <%= javascript_include_tag 'back', 'data-turbolinks-track' => true %>
+    <%= yield :head_javascript %>
+
+    <%= csrf_meta_tags %>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="skin-blue  pace-done fixed" style="min-height: 229px;">
+    <div class="pace  pace-inactive">
+      <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+        <div class="pace-progress-inner"></div>
+      </div>
+      <div class="pace-activity"></div>
+    </div>
+    <!-- header logo: style can be found in header.less -->
+    <header class="header">
+      <%= render 'layouts/back/header' %>
+    </header>
+    <div class="wrapper row-offcanvas row-offcanvas-left" style="min-height: 229px;">
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="left-side sidebar-offcanvas" style="min-height: 229px;">
+        <%= render 'layouts/back/left_side' %>
+      </aside>
+
+      <!-- Right side column. Contains the navbar and content of the page -->
+      <aside class="right-side">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <%= render 'layouts/back/page_header' %>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <%= render 'layouts/back/notice_alert' %>
+          <%= yield %>
+        </section>
+      </aside><!-- /.right-side -->
+    </div><!-- ./wrapper -->
+  </body>
+</html>

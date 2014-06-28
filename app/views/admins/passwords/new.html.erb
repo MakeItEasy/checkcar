@@ -1,0 +1,23 @@
+<div class="form-box" id="login-box">
+  <div class="header"><%= t('view.confirm.forget_password') %></div>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <div class="body bg-gray">
+      <% if devise_error_messages!.present? %>
+      <div class="alert alert-danger">
+        <%= devise_error_messages! %>
+      </div>
+      <% end %>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class='fa fa-envelope'></i>
+        </span>
+        <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+      </div>
+    </div>
+    <div class="footer">                                                               
+      <button type="submit" class="btn bg-olive btn-block"><%= t('view.devise.send_reset_mail') %></button>  
+      <p>
+        <%= render "admins/shared/links" %>
+      </p>
+    </div>
+  <% end %>

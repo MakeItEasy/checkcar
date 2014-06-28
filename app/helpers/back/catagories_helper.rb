@@ -1,0 +1,2 @@
+module Back::CatagoriesHelper
+end

@@ -1,0 +1,98 @@
+'zh-CN':
+  view:
+    site:
+      front_title: 西安车辆年审网
+      back_title: 车审后台管理系统
+      back_title_long: 陕西车辆年审网后台管理系统
+    action:
+      new: 新建
+      edit: 编辑
+      show: 明细
+      delete: 删除
+      list: 一览
+      publish: 发布
+      reject: 拒绝
+      complete: 完成
+      review: 审核通过
+      lock: 锁定
+      unlock: 解锁
+      preview: 预览
+      cancel: 取消
+      sign_in: 登录
+      sign_up: 注册
+      sign_out: 安全退出
+      back: 返回
+      back_to_list: 返回一览
+      show_detail: 查看明细
+      modify_password: 更新密码
+      modify: 更新
+      pre_post: "上一篇："
+      next_post: "下一篇："
+      index: 一览
+      create: 新建
+      update: 编辑
+      more_info: '查看更多 <i class="fa fa-arrow-circle-right"></i>'
+      personal:
+        show: 个人信息
+        password: 修改密码
+    notice:
+      created: "新建成功!"
+      updated: "更新成功!"
+      deleted: "删除成功!"
+      modify_password_success: 密码修改成功，已重新登录！
+      post:
+        published: 文章发布成功.
+        completed: 文章已经提交,等待审核.
+        rejected: 文章已经拒绝成功.
+        locked: 文章已经锁定成功.
+        unlocked: 文章已经解锁成功.
+      station:
+        reviewed: 车检站信息审核通过.
+        rejected: 车检站信息审核拒绝成功.
+        locked: 车检站已经锁定成功.
+        unlocked: 车检站已经解锁成功.
+    alert:
+      create: "新建失败!"
+      update: "更新失败!"
+      delete: "删除失败!"
+      status_error: 当前状态下不能完成此操作!
+      access_denied: 您没有权限进行此操作!
+      header_status_error: "%{code}错误页面"
+      post:
+        status_error: 当前文章状态下不能完成此操作!
+    confirm:
+      delete: 您确定要删除吗？
+      forget_password: 忘记密码？
+      not_receive_confirmation: 没有收到确认邮件？
+      not_receive_unlock: 没有收到解锁邮件？
+      post:
+        complete: 您确认要完成该文章并提交审核吗？
+        publish: 您确认发布该文章吗？
+        reject: 您确认拒绝该文章吗？
+        lock: 您确认锁定该文章吗？
+        unlock: 您确认解锁该文章吗？
+    label:
+      homepage: 主页
+      welcome: "欢迎，%{name}"
+      basic_info: 基本信息
+      password_info: 密码信息
+      option_for_china_city: "--%{text}--"
+      blank_item_default_show_value: "<p class='car-blank-item'><未设定></p>"
+      links_split: ' | '
+    # 主要用于page header
+    controller:
+      admins: 后台管理员
+      dashboard: 控制面板
+      personal: 个人中心
+      catagories: 文章分类
+      posts: 文章
+      stations: 车检站
+    devise:
+      send_reset_mail: 发送重置密码邮件
+      send_unlock_mail: 发送解锁邮件
+    placeholder:
+      email: "例：zhangsan@car.com"
+      name: '例：张三'
+    unit:
+      pian: 篇
+      jian: 件

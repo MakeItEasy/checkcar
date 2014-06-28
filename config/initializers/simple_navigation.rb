@@ -1,0 +1,2 @@
+SimpleNavigation.register_renderer list_bootstrap_render: ListBootstrap
+SimpleNavigation.register_renderer breadcrumb_bootstrap_render: BreadcrumbBootstrap

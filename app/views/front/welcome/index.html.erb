@@ -1,0 +1,74 @@
+    <style>
+      #main-content {
+        background: url(<%= asset_path 'main_bg_image2.jpg' %>)
+                    repeat-x transparent 50% 50%;
+        height: 400px;
+        width: 100%;
+        color: white;
+        text-align: center;
+      }
+
+      #main-content .bottom {
+        margin: auto;
+        margin-top: 60px;
+      }
+
+      #nav_circle {
+        text-align: center;
+      }
+
+    </style>
+
+    <!-- jumbotron -->
+    <div id="main-content" class="jumbotron wrapped-content">
+      <div class="container">
+        <p style="width: 130px; margin-top: 98px; margin-left: -60px; font-weight: bold;" class="btn">在线预约检车</p>
+        <!--
+        <h1 style="font-size:50px; margin-top:50px;">一站式服务</h1>
+        <h2 style="margin-top:30px;">
+          <p>轻松预约，不用排队，个性服务，保您满意</p>
+          <div class="bottom clearfix">
+            <p>
+            <a class="btn btn-lg btn-primary" href="<%= front_order_path(1) %>" role="button" style="font-size:30px;">在线预约检车 &raquo;</a>
+            </p>
+          </div>
+        </h2>
+        -->
+      </div>
+    </div>
+    <!-- END jumbotron -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div id="nav_circle" class="container marketing wrapped-content">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="big-nav-icon-telephone"></div>
+          <h2>手机预约</h2>
+          <p>ios, android应用.</p>
+          <p><a class="btn btn-success" href="#" role="button">进入 &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <div class="big-nav-icon-call"></div>
+          <h2>电话预约</h2>
+          <p>拨打400-400-400.</p>
+          <p><a class="btn btn-success" href="#" role="button">进入 &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <div class="big-nav-icon-weixin"></div>
+          <h2>官方微信</h2>
+          <p>扫一扫，关注我们.</p>
+          <p><a class="btn btn-success" href="#" role="button">进入 &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->

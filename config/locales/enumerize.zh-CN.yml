@@ -1,0 +1,18 @@
+zh-CN:
+  enumerize:
+    post:
+      status:
+        draft: 草稿
+        waiting: 待审核
+        published: 发布(审核通过)
+        rejected: 审核拒绝
+        locked: 已锁定
+    station:
+      status:
+        waiting: 待审核
+        reviewed: 审核通过
+        rejected: 审核拒绝
+        locked: 已锁定
+    sex:
+      male: 男
+      female: 女

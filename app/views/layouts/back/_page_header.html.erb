@@ -1,0 +1,22 @@
+<!-- page title -->
+<% if [404, 403, 500].include?(response.status) %>
+<h1>
+  <%= t("view.alert.header_status_error", code: response.status) %>
+</h1>
+<% else %>
+<h1>
+  <%= t("view.controller.#{controller.controller_name}") %>
+
+  <% unless Car::Constants::NO_SUB_TITLE_CONTROLLER_LIST.include?(controller.controller_name) %>
+    <small>
+      <%= t("view.action.#{controller.controller_name}.#{controller.action_name}", 
+        default: t("view.action.#{controller.action_name}") ) %>
+    </small>
+  <% end -%>
+</h1>
+<% end %>
+
+<!-- breadcrumb -->
+<ol class="breadcrumb">
+  <%= render_breadcrumbs tag: :li, separator: "" %>
+</ol>

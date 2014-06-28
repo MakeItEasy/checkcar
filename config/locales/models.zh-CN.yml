@@ -1,0 +1,57 @@
+'zh-CN':
+  activerecord:
+    models:
+      admin: "后台管理员"
+      admin_console: "管理员控制台"
+      catagory: "文章分类"
+      post: "文章"
+      station: "车检站"
+
+    attributes:
+      default: &default
+        created_at: 创建时间
+        updated_at: 更新时间
+        id: ID
+      admin:
+        email: Email
+        name: 姓名
+        sex: 性别
+        current_password: 当前密码
+        password: 密码
+        password_confirmation: 确认密码
+        telephone: 手机号码
+        sign_in_count: 登录次数
+        current_sign_in_at: 当前登录时间
+        last_sign_in_at: 上次登录时间
+        current_sign_in_ip: 当前登录IP地址
+        last_sign_in_ip: 上次登录IP地址
+        roles: 角色
+        remember_me: 记住我
+        <<: *default
+      catagory:
+        name: 名称
+        order: 顺序
+        memo: 备注
+        <<: *default
+      post:
+        title: 标题
+        content: 内容
+        status: 状态
+        create_user_id: 创建者
+        catagory_id: 分类
+        catagory: 分类
+        create_user_id: 创建者
+        check_user_id: 审核者
+        reject_reason: 拒绝理由
+        lock_user_id: 锁定者
+        <<: *default
+      station:
+        name: 车检站名称
+        status: 状态
+        telephone: 联系电话
+        province: 省份
+        city: 城市
+        district: 地区
+        address: 详细地址
+        recommend: 简介
+        <<: *default
