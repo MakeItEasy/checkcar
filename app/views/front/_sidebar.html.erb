@@ -1,9 +1,12 @@
           <div class="bs-sidebar hidden-print affix" role="complementary">
             <ul class="nav bs-sidenav">
             <% @catagories.each do |catagory|  %>
-              <li class="<%= catagory.id == @catagory.id ? 'active' : ''%>">
+              <li class="<%= @catagory && catagory.id == @catagory.id ? 'active' : ''%>">
                 <%= link_to catagory.name, front_catagory_path(catagory) %>
               </li>
             <% end %>
+              <li class="<%= current_nav_class(front_station_index_path)%>">
+                <%= link_to Station.model_name.human, front_station_index_path %>
+              </li>
             </ul>
           </div>

@@ -26,7 +26,9 @@
   <body>
 
     <%= render "layouts/front/navbar" %>
-    <%= yield %>
+    <div id='main-content'>
+      <%= yield %>
+    </div>
     <%= render "layouts/front/footer" %>
 
   </body>

@@ -11,11 +11,6 @@
 .navbar-fixed-top {
   border: none;
 }
-.wrapped-content {
-  // width: 960px;
-  text-align: center;
-}
-
 .big-nav-icon-telephone {
   .big-nav-icon('shouji4.png')
 }
@@ -65,6 +60,7 @@
   -moz-transition: 0.1s linear;
   -webkit-transition: 0.1s linear;
 }
+
 #user-action .button {
   text-decoration: none !important;
   -moz-border-radius: 0px;
@@ -104,6 +100,7 @@
   text-shadow: 0 1px 0 #fff;
   background-color: #f7f5fa;
   border-radius: 5px;
+  text-align: center;
 }
 
 /* All levels of nav */
@@ -213,4 +210,18 @@ a.list-group-item:hover > * {
   border-bottom: solid gray 1px;
   padding-bottom: 5px;
   margin-bottom: 10px;
+}
+
+
+// =========================================
+// 主要内容部分，因为顶部菜单固定，所以要设置margin-top
+// =========================================
+#main-content {
+  margin-top: 50px;
+  text-align: left;
+}
+
+// 右侧的内容
+.car-content-side {
+  min-height: 300px;
 }

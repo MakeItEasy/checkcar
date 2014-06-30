@@ -12,9 +12,15 @@ Rails.application.routes.draw do
   namespace :front, path: '/' do
     get 'catagory/:catagory_id' => 'welcome#list_posts', as: :catagory
     get 'catagory/:catagory_id/post/:post_id' => 'welcome#show_post', as: :post
-    get 'station/:id/order' => 'station#order', as: :order
-    # TODO dairg delete
-    get 'station/:id/step/:type' => 'station#step', as: :step
+
+    # 车检站
+    namespace :station do
+      get 'index'
+
+      # TODO dairg delete
+      get 'station/:id/step/:type' => 'station#step', as: :step
+      get 'station/:id/order' => 'station#order', as: :order
+    end
   end
 
   ## 后台site
