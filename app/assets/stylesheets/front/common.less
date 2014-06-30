@@ -1,6 +1,6 @@
-@mixin big-nav-icon($iconurl) {
+.big-nav-icon(@iconurl) {
   display: inline-block;
-  background: asset-url($iconurl) no-repeat transparent;
+  background: asset-url(@iconurl) no-repeat transparent;
   background-size: 123px 123px;
   height: 123px;
   width: 123px;
@@ -17,13 +17,13 @@
 }
 
 .big-nav-icon-telephone {
-  @include big-nav-icon('shouji4.png')
+  .big-nav-icon('shouji4.png')
 }
 .big-nav-icon-call {
-  @include big-nav-icon('dianhua4.png')
+  .big-nav-icon('dianhua4.png')
 }
 .big-nav-icon-weixin {
-  @include big-nav-icon('weixin4.png')
+  .big-nav-icon('weixin4.png')
 }
 
 .flat-blue-button {
