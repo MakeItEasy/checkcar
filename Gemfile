@@ -54,7 +54,8 @@ gem 'rolify'
 
 gem 'rails-i18n', '~> 4.0.0' 
 
-gem 'bootstrap-sass'                                        
+# 这次都用less版本的bootstrap
+# gem 'bootstrap-sass'                                        
 
 ## 生成rake doc:guides 用
 # gem 'redcarpet', '~> 2.1.1'
