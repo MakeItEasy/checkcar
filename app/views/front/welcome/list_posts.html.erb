@@ -14,9 +14,7 @@
 
         <div class="col-md-9" style="min-height: 300px;">
           <div class="info-list list-group">
-            <%# @catagory.posts.published.each do |post| %>
-            <%# TODO dairg .published 条件追加 %>
-            <% @catagory.posts.each do |post| %>
+            <% @catagory.posts.published.each do |post| %>
             <a href="<%= front_post_path(@catagory, post) %>" class="list-group-item">
               <%= post.title %>
               <span class="tips-date pull-right">
