@@ -1,182 +1,15 @@
-.big-nav-icon(@iconurl) {
-  display: inline-block;
-  background: asset-url(@iconurl) no-repeat transparent;
-  background-size: 123px 123px;
-  height: 123px;
-  width: 123px;
-}
 // -----------------------------------------
 // 前端的通用样式
 // -----------------------------------------
-.navbar-fixed-top {
-  border: none;
+html, body {
+  background: white;
 }
-.big-nav-icon-telephone {
-  .big-nav-icon('shouji4.png')
-}
-.big-nav-icon-call {
-  .big-nav-icon('dianhua4.png')
-}
-.big-nav-icon-weixin {
-  .big-nav-icon('weixin4.png')
-}
-
-.flat-blue-button {
-  font-family: 'ProximaNova-Bold';
-  background-image: none;
-  border: none;
-  background-color: #33a5c8;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  display: inline-block;
-  line-height: 20px;
-  color: #ffffff;
-  font-size: 14px;
-  padding: 6px 15px 6px 15px;
-  text-shadow: none;
-  text-align: center;
-  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
-  -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
-  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
-  transition: 0.1s linear;
-  -moz-transition: 0.1s linear;
-  -webkit-transition: 0.1s linear;
-}
-
-.flat-gray-button {
-  text-align: center;
-  background-color: rgba(255,255,255,0.35);
-  color: #fff;
-  padding: 6px 13px 6px 13px;
-  display: inline-block;
-  line-height: 20px;
-  font-family: 'ProximaNova-Bold';
-  font-weight: normal;
-  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
-  -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
-  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
-  transition: 0.1s linear;
-  -moz-transition: 0.1s linear;
-  -webkit-transition: 0.1s linear;
-}
-
-#user-action .button {
-  text-decoration: none !important;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-  color: #ffffff;
-}
-#user-action .flat-gray-button:hover {
-  color: #fff;
-  background-color: rgba(255,255,255,0.4);
-  text-decoration: none;
-}
-#user-action .flat-blue-button:hover {
-  color: #ffffff;
-  background-color: #42bbd7;
-  text-decoration: none;
-}
-
-
-/* Side navigation
- *
- * Scrollspy and affixed enhanced navigation to highlight sections and secondary
- * sections of docs content.
- */
-
-/* By default it's not affixed in mobile views, so undo that */
-.bs-sidebar.affix {
-  position: static;
-}
-
-/* First level of nav */
-.bs-sidenav {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding-top:    10px;
-  padding-bottom: 10px;
-  text-shadow: 0 1px 0 #fff;
-  background-color: #f7f5fa;
-  border-radius: 5px;
-  text-align: center;
-}
-
-/* All levels of nav */
-.bs-sidebar .nav > li > a {
-  display: block;
-  color: #716b7a;
-  padding: 5px 20px;
-}
-.bs-sidebar .nav > li > a:hover,
-.bs-sidebar .nav > li > a:focus {
-  text-decoration: none;
-  background-color: #e5e3e9;
-  border-right: 1px solid #dbd8e0;
-}
-.bs-sidebar .nav > .active > a,
-.bs-sidebar .nav > .active:hover > a,
-.bs-sidebar .nav > .active:focus > a {
-  font-weight: bold;
-  color: #563d7c;
-  background-color: transparent;
-  border-right: 1px solid #563d7c;
-}
-
-/* Nav: second level (shown on .active) */
-.bs-sidebar .nav .nav {
-  display: none; /* Hide by default, but at >768px, show it */
-  margin-bottom: 8px;
-}
-.bs-sidebar .nav .nav > li > a {
-  padding-top:    3px;
-  padding-bottom: 3px;
-  padding-left: 30px;
-  font-size: 90%;
-}
-
-/* Show and affix the side nav when space allows it */
-@media (min-width: 992px) {
-  .bs-sidebar .nav > .active > ul {
-    display: block;
-  }
-  /* Widen the fixed sidebar */
-  .bs-sidebar.affix,
-  .bs-sidebar.affix-bottom {
-    width: 190px;
-  }
-  .bs-sidebar.affix {
-    position: fixed; /* Undo the static from mobile first approach */
-    top: 80px;
-  }
-  .bs-sidebar.affix-bottom {
-    position: absolute; /* Undo the static from mobile first approach */
-  }
-  .bs-sidebar.affix-bottom .bs-sidenav,
-  .bs-sidebar.affix .bs-sidenav {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-}
-@media (min-width: 1200px) {
-  /* Widen the fixed sidebar again */
-  .bs-sidebar.affix-bottom,
-  .bs-sidebar.affix {
-    width: 200px;
-  }
-}
-
-.info-list {
-  margin-top: 30px;
-}
-
-footer {
-  text-align: center;
+.car-info-list {
+  margin-top: 35px;
 }
 
 // =========================================
-// List Group
+// List Group(bootstrap)
 // =========================================
 a.list-group-item:hover, 
 a.list-group-item:focus {
@@ -189,15 +22,10 @@ a.list-group-item:focus {
 a.list-group-item:hover > * {
   color: #fff;
 }
-
-.list-group-striped a:nth-child(odd) {
-  // background-color: #E0FFFF;
-}
-
 // =========================================
 // Tips
 // =========================================
-.tips-date {
+.car-tips-date {
   color: gray;
   font-size: 0.9em;
   margin-top: 8px;
@@ -206,7 +34,7 @@ a.list-group-item:hover > * {
 // =========================================
 // Post
 // =========================================
-.post .title {
+.car-post .car-title {
   border-bottom: solid gray 1px;
   padding-bottom: 5px;
   margin-bottom: 10px;
@@ -225,3 +53,138 @@ a.list-group-item:hover > * {
 .car-content-side {
   min-height: 300px;
 }
+
+// 主页的特征图标
+.car-big-nav-icon(@iconurl) {
+  display: inline-block;
+  background: asset-url(@iconurl) no-repeat transparent;
+  background-size: 123px 123px;
+  height: 123px;
+  width: 123px;
+}
+.car-big-nav-icon-telephone {
+  .car-big-nav-icon('shouji4.png')
+}
+.car-big-nav-icon-call {
+  .car-big-nav-icon('dianhua4.png')
+}
+.car-big-nav-icon-weixin {
+  .car-big-nav-icon('weixin4.png')
+}
+
+// =========================================
+// List页面的查询部分
+// =========================================
+.car-condition {
+  margin-bottom: 40px;
+  background-color: #eee;
+  padding: 10px 20px;
+}
+.car-condition {
+  .car-header {
+    margin-bottom: 20px;
+  }
+  .car-body {
+    a {
+      margin: 0px 5px 0px 0px;
+      padding: 5px;
+    }
+    a:hover {
+      background-color: #3c8dbc;
+      color: #fff;
+    }
+  }
+  dl {
+    margin-bottom: 10px;
+  }
+  dt {
+    width: 10%;
+    float: left;
+  }
+  dd {
+    margin-left: 10%;
+  }
+}
+
+// -----------------------------------------
+// tab导航
+// -----------------------------------------
+.car-nav-tabs-custom {
+  .nav-tabs {
+    border-bottom: 2px solid #3c8dbc;
+    li {
+      padding: 0px;
+      margin-bottom: 0px;
+      width: 100px;
+      text-align: center;
+    }
+    li > a {
+      -webkit-border-radius: 0 !important;
+      -moz-border-radius: 0 !important;
+      border-radius: 0 !important;
+      border: none;
+      font-weight: bold;
+    }
+    li > a:hover, li > a:focus {
+      border: none;
+    }
+    li.active {
+      background-color: #3c8dbc;
+      a {
+        color: #fff;
+        background-color: #3c8dbc;
+      }
+    }
+    li:not(.active) {
+      a {
+        color: black;
+      }
+    }
+    li:not(.active):hover {
+      margin-right: 0px;
+      background-color: #eee;
+    }
+  }
+}
+
+.car-nav-tabs-custom > .header {
+  padding: 10px;
+  background-color: #eee;
+}
+
+.car-nav-tabs-custom > .tab-content {
+    padding: 20px 0px;
+}
+
+// -----------------------------------------
+// 列表显示区域
+// -----------------------------------------
+.car-list-result {
+  list-style: none;
+  padding: 0px;
+}
+.car-list-result > .list-item {
+  border-bottom: 1px dotted #3c8dbc;
+  margin-bottom: 10px;
+}
+// logo区域
+.car-list-result > .list-item > .logo {
+  float: left;
+  img {
+    border-radius: 0px;
+    width: 124px;
+    height: 90px;
+  }
+  .action {
+    padding: 10px;
+  }
+}
+// 信息区域
+.car-list-result > .list-item > .info {
+  float: left;
+  margin-left: 20px;
+  .title > h4 {
+    font-weight: bold;
+  }
+}
+

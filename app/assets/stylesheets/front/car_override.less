@@ -1,0 +1,158 @@
+// -----------------------------------------
+// 覆盖其他框架的css
+// -----------------------------------------
+.navbar-fixed-top {
+  border: none;
+}
+
+.flat-blue-button {
+  font-family: 'ProximaNova-Bold';
+  background-image: none;
+  border: none;
+  background-color: #33a5c8;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  line-height: 20px;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 6px 15px 6px 15px;
+  text-shadow: none;
+  text-align: center;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
+  transition: 0.1s linear;
+  -moz-transition: 0.1s linear;
+  -webkit-transition: 0.1s linear;
+}
+
+.flat-gray-button {
+  text-align: center;
+  background-color: rgba(255,255,255,0.35);
+  color: #fff;
+  padding: 6px 13px 6px 13px;
+  display: inline-block;
+  line-height: 20px;
+  font-family: 'ProximaNova-Bold';
+  font-weight: normal;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
+  transition: 0.1s linear;
+  -moz-transition: 0.1s linear;
+  -webkit-transition: 0.1s linear;
+}
+
+#user-action .button {
+  text-decoration: none !important;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  color: #ffffff;
+}
+#user-action .flat-gray-button:hover {
+  color: #fff;
+  background-color: rgba(255,255,255,0.4);
+  text-decoration: none;
+}
+#user-action .flat-blue-button:hover {
+  color: #ffffff;
+  background-color: #42bbd7;
+  text-decoration: none;
+}
+
+
+/* Side navigation
+ *
+ * Scrollspy and affixed enhanced navigation to highlight sections and secondary
+ * sections of docs content.
+ */
+
+/* By default it's not affixed in mobile views, so undo that */
+.bs-sidebar.affix {
+  position: static;
+}
+
+/* First level of nav */
+.bs-sidenav {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top:    10px;
+  padding-bottom: 10px;
+  text-shadow: 0 1px 0 #fff;
+  background-color: #f7f5fa;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* All levels of nav */
+.bs-sidebar .nav > li > a {
+  display: block;
+  color: #716b7a;
+  padding: 5px 20px;
+}
+.bs-sidebar .nav > li > a:hover,
+.bs-sidebar .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #e5e3e9;
+  border-right: 1px solid #dbd8e0;
+}
+.bs-sidebar .nav > .active > a,
+.bs-sidebar .nav > .active:hover > a,
+.bs-sidebar .nav > .active:focus > a {
+  font-weight: bold;
+  color: #563d7c;
+  background-color: transparent;
+  border-right: 1px solid #563d7c;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-sidebar .nav .nav {
+  display: none; /* Hide by default, but at >768px, show it */
+  margin-bottom: 8px;
+}
+.bs-sidebar .nav .nav > li > a {
+  padding-top:    3px;
+  padding-bottom: 3px;
+  padding-left: 30px;
+  font-size: 90%;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+  .bs-sidebar .nav > .active > ul {
+    display: block;
+  }
+  /* Widen the fixed sidebar */
+  .bs-sidebar.affix,
+  .bs-sidebar.affix-bottom {
+    width: 190px;
+  }
+  .bs-sidebar.affix {
+    position: fixed; /* Undo the static from mobile first approach */
+    top: 80px;
+  }
+  .bs-sidebar.affix-bottom {
+    position: absolute; /* Undo the static from mobile first approach */
+  }
+  .bs-sidebar.affix-bottom .bs-sidenav,
+  .bs-sidebar.affix .bs-sidenav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 1200px) {
+  /* Widen the fixed sidebar again */
+  .bs-sidebar.affix-bottom,
+  .bs-sidebar.affix {
+    width: 200px;
+  }
+}
+
+// -----------------------------------------
+// tab导航
+// -----------------------------------------
+
+

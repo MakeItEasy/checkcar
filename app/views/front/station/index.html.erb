@@ -1,11 +1,84 @@
-<div class="container marketing">
-  <div class="col-md-3">
-    <%= render "sidebar" %>
-  </div><!-- /.col -->
+    <div  class="container marketing">
+      <div class="row">
+        <div class="col-md-3">
+          <%= render "sidebar" %>
+        </div><!-- /.col -->
 
-  <div class="col-md-9 car-content-side">
-    <h1>Front::Station#index</h1>
-    <p>Find me in app/views/front/station/index.html.erb</p>
-  </div><!-- /.col -->
-
-<div>
+        <div class="col-md-9 car-content-side">
+          <div class="car-info-list">
+            <div class='car-condition'>
+              <div class="car-header">
+                <h4>车检站</h4>
+              </div>
+              <div class="car-body">
+                <dl>
+                  <dt>行政区域</dt>
+                  <dd>
+                    <a href=''>高新区</a>
+                    <a href=''>莲湖区</a>
+                    <a href=''>新城区</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>名称查询</dt>
+                  <dd>
+                    <input type='text'>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class='car-result'>
+              <div class="car-nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">全 部</a></li>
+                    <li><a href="#tab_2" data-toggle="tab">可预定</a></li>
+                </ul>
+                <div class="header">
+                  总共123家
+                </div>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">
+                    <ul class='car-list-result'>
+                      <li class='list-item'>
+                        <div class='logo'>
+                          <%= image_tag 'weixiu.png', {class: 'img-thumbnail'} %>
+                          <div class='action text-center'>
+                            <a class='btn btn-primary'>在线预定</a>
+                          </div>
+                        </div>
+                        <div class='info'>
+                          <div class='title'><h4>东郊车检所</h4></div>
+                          <p>详细地址：西安市东郊123号</p>
+                          <p>联系电话：029-88888881</p>
+                          <p>简单介绍：东郊车检车检东郊车检车检东郊车检车检东郊车检车检</p>
+                        </div>
+                        <div class='clearfix'></div>
+                      </li>
+                      <li class='list-item'>
+                        <div class='logo'>
+                          <%= image_tag 'weixiu.png', {class: 'img-thumbnail'} %>
+                          <div class='action text-center'>
+                            <a class='btn btn-primary'>在线预定</a>
+                          </div>
+                        </div>
+                        <div class='info'>
+                          <div class='title'><h4>东郊车检所</h4></div>
+                          <p>详细地址：西安市东郊123号</p>
+                          <p>联系电话：029-88888881</p>
+                          <p>简单介绍：东郊车检车检东郊车检车检东郊车检车检东郊车检车检</p>
+                        </div>
+                        <div class='clearfix'></div>
+                      </li>
+                    </ul>
+                  </div><!-- /.tab-pane -->
+                  <div class="tab-pane" id="tab_2">
+                      The European languages are members of the same family. Their separate existence is a myth.
+                      For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+                  </div><!-- /.tab-pane -->
+                </div><!-- /.tab-content -->
+              </div><!-- nav-tabs-custom -->
+            </div>
+          </div>
+        </div>
+      </div><!-- /.row -->
+    </div>

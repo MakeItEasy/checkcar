@@ -5,11 +5,11 @@
         </div><!-- /.col -->
 
         <div class="col-md-9 car-content-side">
-          <div class="info-list list-group">
+          <div class="car-info-list list-group">
             <% @catagory.posts.published.each do |post| %>
             <a href="<%= front_post_path(@catagory, post) %>" class="list-group-item">
               <%= post.title %>
-              <span class="tips-date pull-right">
+              <span class="car-tips-date pull-right">
                 <em><%= l(post.updated_at.to_date) %></em>
               </span>
             </a>

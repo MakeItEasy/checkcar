@@ -4,10 +4,10 @@
           <%= render "sidebar" %>
         </div><!-- /.col -->
 
-        <div class="col-md-9 car-content-side info-list post">
-          <div class="title">
+        <div class="col-md-9 car-content-side car-info-list car-post">
+          <div class="car-title">
             <h4 class="text-center"><%= @post.title %></h4>
-            <p class="text-center tips-date">
+            <p class="text-center car-tips-date">
               <em><%= l(@post.updated_at.to_date) %></em>
             </p>
             <% if @pre_post.present? %>
@@ -32,7 +32,7 @@
             <% end %>
             <div class="clearfix"></div>
           </div>
-          <div class="content">
+          <div class="car-post-content">
             <%= @post.content.html_safe %>
           </div>
         </div>
