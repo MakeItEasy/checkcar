@@ -12,7 +12,7 @@
         created_at: 创建时间
         updated_at: 更新时间
         id: ID
-      admin:
+      devise_default: &devise_default
         email: Email
         name: 姓名
         sex: 性别
@@ -25,9 +25,15 @@
         last_sign_in_at: 上次登录时间
         current_sign_in_ip: 当前登录IP地址
         last_sign_in_ip: 上次登录IP地址
-        roles: 角色
         remember_me: 记住我
+      admin:
+        roles: 角色
         <<: *default
+        <<: *devise_default
+      user:
+        roles: 角色
+        <<: *default
+        <<: *devise_default
       catagory:
         name: 名称
         order: 顺序

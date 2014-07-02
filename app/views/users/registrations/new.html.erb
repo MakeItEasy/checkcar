@@ -1,0 +1,58 @@
+<% content_for :head_title do %>
+  注册新用户
+<% end %>
+
+<div class='row car-devise'>
+  <div class='col-sm-8 car-left-side'>
+    <div class="car-nav-tabs-custom">
+      <ul class="nav nav-tabs" role="tablist">
+      <% if params[:user] && params[:user][:mode] == 'telephone' %>
+        <li><a href="<%= new_user_registration_path('user[mode]' => 'email')%>">邮箱注册</a></li>
+        <li class="active"><a href="<%= new_user_registration_path('user[mode]' => 'telephone')%>">手机注册</a></li>
+      <% else %>
+        <li class="active"><a href="<%= new_user_registration_path('user[mode]' => 'email')%>">邮箱注册</a></li>
+        <li><a href="<%= new_user_registration_path('user[mode]' => 'telephone')%>">手机注册</a></li>
+      <% end %>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tab_email">
+        <% if params[:user] && params[:user][:mode] == 'telephone' %>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
+            html: {class: 'form-horizontal mask-form', role: 'form'} ) do |f| %>
+            <%= resource.errors.messages%>
+            <div class='car-form-items'>
+              <%= f.input :telephone, required: true, autofocus: true %>
+              <%= f.input :password, required: true %>
+              <%= f.input :password_confirmation %>
+              <input type='hidden' name='user[mode]' value='telephone'>
+            </div>
+
+            <div class="car-form-actions">
+              <%= f.button :submit, "注册", class: 'btn btn-lg btn-success col-sm-2 col-sm-offset-2' %>
+            </div>
+          <% end %>
+        <% else %>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
+            html: {class: 'form-horizontal', role: 'form'} ) do |f| %>
+            <div class='car-form-items'>
+            <%= resource.errors.messages%>
+              <%= f.input :email, required: true, autofocus: true %>
+              <%= f.input :password, required: true %>
+              <%= f.input :password_confirmation %>
+              <input type='hidden' name='user[mode]' value='email'>
+            </div>
+
+            <div class="car-form-actions">
+              <%= f.button :submit, "注册", class: 'btn btn-lg btn-success col-sm-2 col-sm-offset-2' %>
+            </div>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-4 car-right-side'>
+
+    <%= render "users/shared/links" %>
+  </div>
+</div>

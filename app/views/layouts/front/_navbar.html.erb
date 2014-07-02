@@ -25,12 +25,28 @@
             </li>
             <li><a href="#">提问留言</a></li>
           </ul>
-          <ul id="user-action" class="nav navbar-nav navbar-right">
-            <li><a href="#" class="button flat-blue-button" data-toggle="modal" data-target="#myModal">
-              登录</a>
-            </li>
-            <li><a href="#" class="button flat-gray-button">注册</a></li>
-          </ul>
+          <div id="user-action" class="pull-right">
+            <% if current_user %>
+              <div class="btn-group">
+                  <button type="button" class="btn btn-success btn-sm"><%= current_user.email %></button>
+                  <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
+                      <span class="caret"></span>
+                      <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">我的控制台</a></li>
+                      <li><a href="#">个人信息</a></li>
+                      <li><a href="#">修改密码</a></li>
+                      <li class="divider"></li>
+                      <li><%= link_to t('view.action.sign_out'), destroy_user_session_path, {method: :delete} %></li>
+                  </ul>
+              </div>
+            <% else %>
+                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">登录</a>
+                <a style="margin: 0px 8px;">|</a>
+                <%= link_to "注册", new_user_registration_path, class: "btn btn-success btn-sm" %>
+            <% end %>
+          </div>
         </div><!--/.nav-collapse -->
       </div>
     </div>

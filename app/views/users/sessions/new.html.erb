@@ -1,0 +1,41 @@
+<% content_for :head_title do %>
+  登录
+<% end %>
+
+<div class='row car-devise'>
+  <div class='col-sm-8 car-left-side'>
+    <div class="">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="body">
+          <%= render "admins/notice_alert" %>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class='glyphicon glyphicon-user'></i>
+            </span>
+            <%= f.text_field :login, autofocus: true, class: 'form-control', placeholder: 'Email or 手机号码' %>
+          </div>
+          <br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class='glyphicon glyphicon-lock'></i> 
+            </span>
+            <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Password" %>
+          </div>          
+          <div class="form-group">
+            <% if devise_mapping.rememberable? -%>
+              <br>
+              <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+            <% end -%>
+          </div>
+        </div>
+        <div class="footer">                                                               
+          <%= f.submit "登录", class: 'btn btn-lg btn-success col-sm-2' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='col-sm-4 car-right-side'>
+    <%= render "users/shared/links" %>
+  </div>
+</div>

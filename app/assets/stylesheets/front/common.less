@@ -134,56 +134,6 @@ a.list-group-item:hover > * {
 }
 
 // -----------------------------------------
-// tab导航
-// -----------------------------------------
-.car-nav-tabs-custom {
-  .nav-tabs {
-    border-bottom: 2px solid #3c8dbc;
-    li {
-      padding: 0px;
-      margin-bottom: 0px;
-      width: 100px;
-      text-align: center;
-    }
-    li > a {
-      -webkit-border-radius: 0 !important;
-      -moz-border-radius: 0 !important;
-      border-radius: 0 !important;
-      border: none;
-      font-weight: bold;
-    }
-    li > a:hover, li > a:focus {
-      border: none;
-    }
-    li.active {
-      background-color: #3c8dbc;
-      a {
-        color: #fff;
-        background-color: #3c8dbc;
-      }
-    }
-    li:not(.active) {
-      a {
-        color: black;
-      }
-    }
-    li:not(.active):hover {
-      margin-right: 0px;
-      background-color: #eee;
-    }
-  }
-}
-
-.car-nav-tabs-custom > .header {
-  padding: 10px;
-  background-color: #eee;
-}
-
-.car-nav-tabs-custom > .tab-content {
-    padding: 20px 0px;
-}
-
-// -----------------------------------------
 // 列表显示区域
 // -----------------------------------------
 .car-list-result {
@@ -220,9 +170,11 @@ a.list-group-item:hover > * {
 }
 
 // -----------------------------------------
-// footer部分
+// 页面header > 登录或者注册部分
 // -----------------------------------------
-footer {
-  padding: 20px 0px;
-  background-color: #e4e4e4;
+#user-action {
+  padding-top: 10px;
+}
+#user-action > a {
+  color: #fff;
 }

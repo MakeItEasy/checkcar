@@ -29,12 +29,23 @@ class ApplicationController < ActionController::Base
     raise ActionController::RoutingError.new("No route matches #{params[:unmatched_route]}")
   end
 
+protected
+
+  ## override from devise
+  def devise_parameter_sanitizer
+    if resource_class == User
+      Devise::UserParameterSanitizer.new(User, :user, params)
+    else
+      super
+    end
+  end
+
 private 
   def layout_by_resource
     if devise_controller? && resource_name == :admin
       "devise_admin"
     else
-      false
+      "devise_user"
     end
   end
 
