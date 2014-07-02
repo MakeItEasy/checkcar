@@ -27,7 +27,9 @@ class User < ActiveRecord::Base
   end
 
   def show_name
-    self.name || self.email || self.telephone
+    return self.name if self.name.present?
+    return self.email if self.email.present?
+    return self.telephone
   end
 
 private

@@ -1,6 +1,6 @@
 class Devise::UserParameterSanitizer < Devise::ParameterSanitizer
   def sign_in
-    default_params.permit(:telephone, :email, :password, :password_confirmation)
+    default_params.permit(:password, :password_confirmation, :login, :remember_me)
   end
 
   def sign_up
