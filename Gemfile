@@ -88,3 +88,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-bundler', '~> 1.1.2'
 end
+
+# 验证码
+gem 'easy_captcha'
+gem 'rmagick', require: false

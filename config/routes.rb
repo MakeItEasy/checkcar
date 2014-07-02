@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # 验证码
+  captcha_route
   mount Ckeditor::Engine => '/ckeditor'
   mount ChinaCity::Engine => '/china_city'
   devise_for :admins
