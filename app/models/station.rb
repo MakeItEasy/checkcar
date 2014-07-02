@@ -25,4 +25,8 @@ class Station < ActiveRecord::Base
     # 默认陕西省
     self.province = '610000'
   end
+
+  def address_text
+    "#{ChinaCity.get(self.province)}#{ChinaCity.get(self.city)}#{ChinaCity.get(self.district)}#{self.address}"
+  end
 end

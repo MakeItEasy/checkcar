@@ -2,7 +2,7 @@
 // 前端的通用样式
 // -----------------------------------------
 html, body {
-  background: white;
+  background: #eee;
 }
 .car-info-list {
   margin-top: 35px;
@@ -49,6 +49,10 @@ a.list-group-item:hover > * {
   text-align: left;
 }
 
+#main-content > .container {
+  background-color: #fff;
+}
+
 // 右侧的内容
 .car-content-side {
   min-height: 300px;
@@ -77,19 +81,21 @@ a.list-group-item:hover > * {
 // =========================================
 .car-condition {
   margin-bottom: 40px;
-  background-color: #eee;
+  background-color: rgba(231, 227, 194, 0.7);
   padding: 10px 20px;
 }
 .car-condition {
   .car-header {
     margin-bottom: 20px;
   }
-  .car-body {
+  .car-body > dl:not(.selected) {
     a {
       margin: 0px 5px 0px 0px;
       padding: 5px;
+      white-space: nowrap;
+      line-height: 30px;
     }
-    a:hover {
+    a.active, a:hover {
       background-color: #3c8dbc;
       color: #fff;
     }
@@ -103,6 +109,27 @@ a.list-group-item:hover > * {
   }
   dd {
     margin-left: 10%;
+    word-wrap: break-word;
+  }
+  dl.selected {
+    border-top: 1px dotted #3c8dbc;
+    padding-top: 10px;
+    margin-top: 20px;
+    dt {
+      margin-top: 3px;
+    }
+    div {
+      background-color: #00c0ef;
+      display: inline-block;
+      color: white;
+      padding: 0px 0px 2px 8px;
+      margin-right: 10px;
+      margin-top: 3px;
+      a {
+        border: none;
+        border-radius: 0px;
+      }
+    }
   }
 }
 
@@ -166,6 +193,10 @@ a.list-group-item:hover > * {
 .car-list-result > .list-item {
   border-bottom: 1px dotted #3c8dbc;
   margin-bottom: 10px;
+  padding: 10px 0px;
+}
+.car-list-result > .list-item:hover {
+  background-color: rgba(231, 227, 194, 0.7);
 }
 // logo区域
 .car-list-result > .list-item > .logo {
@@ -188,3 +219,10 @@ a.list-group-item:hover > * {
   }
 }
 
+// -----------------------------------------
+// footer部分
+// -----------------------------------------
+footer {
+  padding: 20px 0px;
+  background-color: #e4e4e4;
+}
