@@ -25,13 +25,13 @@
           <div>
             <div class="input-group col-sm-4" style="float:left;">
               <span class="input-group-addon">
-                <i class='glyphicon glyphicon-lock'></i> 
+                <i class='glyphicon glyphicon-qrcode'></i> 
               </span>
-              <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'form-control', placeholder: "验证码"} %>
+              <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'form-control', 
+                placeholder: "验证码（点击图片刷新）"} %>
             </div>          
             <div class='col-sm-2' style='float: left;'>
-              <%= captcha_tag class: ''%>
-                <%= flash[:recaptcha_error] %>
+                <%= captcha_tag class: 'car-captcha'%>
             </div>
           </div>
           <div class="clearfix"></div>
