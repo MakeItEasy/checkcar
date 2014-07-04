@@ -14,14 +14,17 @@
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="body">
               <%= render "admins/notice_alert" %>
-              <div class="input-group col-sm-7">
-                <span class="input-group-addon">
-                  <i class='glyphicon glyphicon-phone'></i>
-                </span>
-                <%= f.text_field :telephone, autofocus: true, class: 'form-control', placeholder: '手机号码' %>
+              <div class="car-phone-authcode">
+                <div class="input-group col-sm-7">
+                  <span class="input-group-addon">
+                    <i class='glyphicon glyphicon-phone'></i>
+                  </span>
+                  <%= f.text_field :telephone, autofocus: true, 
+                    id: "telephone", class: 'form-control', placeholder: '手机号码' %>
+                </div>
               </div>
               <br>
-              <div>
+              <div class="car-captcha">
                 <div class="input-group col-sm-4" style="float:left;">
                   <span class="input-group-addon">
                     <i class='glyphicon glyphicon-qrcode'></i> 
@@ -32,8 +35,8 @@
                 <div class='col-sm-2' style='float: left;'>
                     <%= captcha_tag class: 'car-captcha'%>
                 </div>
+                <div class="clearfix"></div>
               </div>
-              <div class="clearfix"></div>
               <br>
               <div>
                 <div class="input-group col-sm-4" style="float:left;">
