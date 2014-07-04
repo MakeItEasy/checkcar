@@ -11,7 +11,7 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab_email">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= form_for(resource, as: resource_name, url: telephone_user_session_path) do |f| %>
             <div class="body">
               <%= render "admins/notice_alert" %>
               <div class="car-phone-authcode">
@@ -43,7 +43,7 @@
                   <span class="input-group-addon">
                     <i class='glyphicon glyphicon-lock'></i>
                   </span>
-                  <%= text_field_tag :yanzhengma, nil, autofocus: true, class: 'form-control', placeholder: '手机动态码' %>
+                  <%= text_field_tag :phone_authcode, nil, class: 'form-control', placeholder: '手机动态码' %>
                 </div>
                 <div class='col-sm-2' style='float: left;'>
                   <a class="btn btn-warning" id="get_yanzhengma" >
