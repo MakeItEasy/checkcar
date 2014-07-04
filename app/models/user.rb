@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable, :validatable,
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :lockable, :timeoutable, :authentication_keys => [:login]
+         :lockable, :timeoutable, :confirmable, :authentication_keys => [:login]
 
   attr_accessor :mode, :login
 
@@ -13,14 +13,27 @@ class User < ActiveRecord::Base
   validates_length_of :email, within: 1..30, allow_blank: true
   validates :telephone, presence: true, if: :telephone_required?
   validates_uniqueness_of :telephone, allow_blank: true
-  validates :name, presence: true, length: { maximum: 30 }, if: "!new_record?"
-  validates :sex, presence: true, if: "!new_record?"
+  # TODO dairg 如果这里验证了，要保证devise的各个画面，比如密码重置画面是否能通过验证
+  # validates :name, presence: true, length: { maximum: 30 }, if: "!new_record?"
+  # validates :sex, presence: true, if: "!new_record?"
   enumerize :sex, in: Car::Code::SEX, predicates: { prefix: true }, scope: true
+  enumerize :login_type, in: Car::Code::LOGIN_TYPE, predicates: { prefix: true }
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions).where(["telephone = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      user = where(conditions).where(["telephone = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      if user.present?
+        puts '===find_for_user====='
+        puts login
+        puts user.telephone
+        if login == user.telephone
+          user.update_columns(login_type: Car::Code::LOGIN_TYPE[:telephone])
+        else
+          user.update_columns(login_type: Car::Code::LOGIN_TYPE[:email])
+        end
+      end
+      user
     else
       where(conditions).first
     end
@@ -32,6 +45,16 @@ class User < ActiveRecord::Base
     return self.telephone
   end
 
+  def confirmed?
+    puts "======confirmed ========="
+    # true
+    if self.login_type_telephone? || self.mode == 'telephone'
+      true
+    else
+      super
+    end
+  end
+
 private
 
   def email_required?
@@ -41,5 +64,4 @@ private
   def telephone_required?
     self.new_record? && ['telephone'].include?(self.mode)
   end
-
 end

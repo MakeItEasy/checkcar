@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   mount ChinaCity::Engine => '/china_city'
   devise_for :admins
-  devise_for :users, controllers: { sessions: "users/sessions" }
+  devise_for :users, controllers: { sessions: "users/sessions", registrations: 'users/registrations'}
+  devise_scope :user do
+    get "users/sign_in_by_telephone" => "users/sessions#new_by_telephone", as: 'new_by_telephone_user_session'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20140702014745) do
     t.string   "name"
     t.string   "telephone",              default: "", null: false
     t.string   "sex"
+    t.string   "login_type"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

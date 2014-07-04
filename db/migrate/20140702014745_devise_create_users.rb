@@ -12,6 +12,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :telephone, null: false, default: ""
       # 性别
       t.string :sex
+      # 登录方式
+      t.string :login_type
 
       ## Recoverable
       t.string   :reset_password_token

@@ -6,8 +6,8 @@
   <div class='col-sm-8 car-left-side'>
     <div class="car-nav-tabs-custom">
       <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="<%= new_user_session_path %>">账号登录</a></li>
-        <li><a href="<%= new_by_telephone_user_session_path%>">手机动态码登录</a></li>
+        <li><a href="<%= new_user_session_path %>">账号登录</a></li>
+        <li class="active"><a href="<%= new_by_telephone_user_session_path %>">手机动态码登录</a></li>
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab_email">
@@ -16,17 +16,10 @@
               <%= render "admins/notice_alert" %>
               <div class="input-group col-sm-7">
                 <span class="input-group-addon">
-                  <i class='glyphicon glyphicon-user'></i>
+                  <i class='glyphicon glyphicon-phone'></i>
                 </span>
-                <%= f.text_field :login, autofocus: true, class: 'form-control', placeholder: 'Email or 手机号码' %>
+                <%= f.text_field :telephone, autofocus: true, class: 'form-control', placeholder: '手机号码' %>
               </div>
-              <br>
-              <div class="input-group col-sm-7">
-                <span class="input-group-addon">
-                  <i class='glyphicon glyphicon-lock'></i> 
-                </span>
-                <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Password" %>
-              </div>          
               <br>
               <div>
                 <div class="input-group col-sm-4" style="float:left;">
@@ -41,12 +34,22 @@
                 </div>
               </div>
               <div class="clearfix"></div>
-              <div class="form-group">
-                <% if devise_mapping.rememberable? -%>
-                  <br>
-                  <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-                <% end -%>
+              <br>
+              <div>
+                <div class="input-group col-sm-4" style="float:left;">
+                  <span class="input-group-addon">
+                    <i class='glyphicon glyphicon-lock'></i>
+                  </span>
+                  <%= text_field_tag :yanzhengma, nil, autofocus: true, class: 'form-control', placeholder: '手机动态码' %>
+                </div>
+                <div class='col-sm-2' style='float: left;'>
+                  <a class="btn btn-warning" id="get_yanzhengma" >
+                    点击获取手机动态码
+                  </a>
+                </div>
               </div>
+              <div class="clearfix"></div>
+              <br>
             </div>
             <div class="footer">                                                               
               <%= f.submit "登录", class: 'btn btn-lg btn-success col-sm-2' %>

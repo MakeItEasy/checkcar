@@ -29,5 +29,10 @@ module Car
       male: '0',
       female: '1'
     }
+
+    LOGIN_TYPE = {
+      email: 'email',
+      telephone: 'telephone'
+    }
   end
 end
