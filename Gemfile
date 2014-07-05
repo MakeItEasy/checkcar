@@ -57,6 +57,7 @@ gem 'rails-i18n', '~> 4.0.0'
 # 这次都用less版本的bootstrap
 gem 'bootstrap-sass'                                        
 gem 'font-awesome-sass'
+gem 'compass-rails'
 
 ## 生成rake doc:guides 用
 # gem 'redcarpet', '~> 2.1.1'

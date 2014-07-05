@@ -49,6 +49,7 @@ GEM
     china_city (0.0.4)
       jquery-rails
       rails (>= 3.1.0)
+    chunky_png (1.3.1)
     ckeditor (4.0.11)
       mime-types
       orm_adapter (~> 0.5.0)
@@ -64,6 +65,13 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     colorize (0.7.3)
+    compass (0.12.6)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.2.19)
+    compass-rails (1.1.7)
+      compass (>= 0.12.2)
+      sprockets (<= 2.11.0)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -90,6 +98,7 @@ GEM
       railties (>= 3.0.0)
     font-awesome-sass (4.1.0)
       sass (~> 3.2)
+    fssm (0.2.10)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.1.0)
@@ -241,6 +250,7 @@ DEPENDENCIES
   china_city
   ckeditor
   coffee-rails (~> 4.0.0)
+  compass-rails
   devise
   easy_captcha
   enumerize
