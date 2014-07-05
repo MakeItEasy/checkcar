@@ -1,7 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require twitter/bootstrap
+//= require bootstrap
 
 ################################################################### 
 # 手机动态码的错误处理类

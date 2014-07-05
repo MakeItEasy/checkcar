@@ -55,14 +55,16 @@ gem 'rolify'
 gem 'rails-i18n', '~> 4.0.0' 
 
 # 这次都用less版本的bootstrap
-# gem 'bootstrap-sass'                                        
+gem 'bootstrap-sass'                                        
+gem 'font-awesome-sass'
 
 ## 生成rake doc:guides 用
 # gem 'redcarpet', '~> 2.1.1'
 # gem 'nokogiri'
-gem 'less-rails'
-gem 'less-rails-bootstrap'
-gem "font-awesome-less"
+# 这次都用scss
+# gem 'less-rails'
+# gem 'less-rails-bootstrap'
+# gem "font-awesome-less"
 
 # 导航菜单
 gem "simple-navigation"

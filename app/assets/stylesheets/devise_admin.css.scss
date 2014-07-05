@@ -1,0 +1,23 @@
+@import "bootstrap";
+@import "font-awesome";
+// AdminLTE关联
+@import "adminlte/AdminLTE";
+
+.alert {
+  padding: 10px;
+  margin-left: 0;
+}
+
+.input-group-addon, .form-control {
+  color: #555;
+}
+
+// -----------------------------------------
+// devise画面的错误列表样式
+// -----------------------------------------
+#error_explanation {
+  h2 {
+    font-size: 15px;
+  }
+}
+

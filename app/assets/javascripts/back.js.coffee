@@ -8,7 +8,7 @@ jquery.turbolinks 必须在jquery 和jquery_ujs的后面，然后在turbolinks�
 //= require wice_grid
 //= require wice_grid_car
 //= require jquery.turbolinks
-//= require twitter/bootstrap
+//= require bootstrap
 //= require adminlte/AdminLTE
 //= require jquery/input-mask/jquery.inputmask
 # TODO dairg 是否可以注释掉？
