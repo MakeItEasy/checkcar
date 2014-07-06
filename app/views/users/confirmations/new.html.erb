@@ -1,16 +1,26 @@
-<h2>Resend confirmation instructions</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: user_confirmation_path, html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :confirmation_token %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
-  </div>
+<% content_for :head_title do %>
+  重发确认邮件
 <% end %>
 
-<%= render "users/shared/links" %>
+<div class='row car-devise'>
+  <div class='col-sm-8 car-left-side'>
+    <%= simple_form_for(resource, as: resource_name, url: user_confirmation_path,
+        html: {class: 'form-horizontal mask-form', role: 'form', method: :post} ) do |f| %>
+
+      <%= f.full_error :confirmation_token %>
+
+      <div class='car-form-items'>
+        <%= f.input :email, required: true, autofocus: true %>
+      </div>
+
+      <div class="car-form-actions">
+        <%= f.button :submit, "重发确认邮件",
+              class: 'btn btn-success col-sm-2 col-sm-offset-2' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class='col-sm-4 car-right-side'>
+    <%= render "users/shared/links" %>
+  </div>
+</div>

@@ -1,20 +1,28 @@
-<h2>Change your password</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :reset_password_token, as: :hidden %>
-  <%= f.full_error :reset_password_token %>
-  <%= resource.errors.messages %>
-
-  <div class="form-inputs">
-    <%= f.input :password, label: "New password", required: true, autofocus: true %>
-    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
-  </div>
+<% content_for :head_title do %>
+  设置密码
 <% end %>
 
-<%= render "users/shared/links" %>
+<div class='row car-devise'>
+  <div class='col-sm-8 car-left-side'>
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name),
+        html: {class: 'form-horizontal', role: 'form', method: :put} ) do |f| %>
+
+      <%= f.input :reset_password_token, as: :hidden %>
+      <%= f.full_error :reset_password_token %>
+      <div class='car-form-items'>
+        <%= f.input :password, label: "新密码", required: true, autofocus: true %>
+      </div>
+      <div class='car-form-items'>
+        <%= f.input :password_confirmation, required: true %>
+      </div>
+
+      <div class="car-form-actions">
+        <%= f.button :submit, "修改密码", class: 'btn btn-success col-sm-offset-2' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class='col-sm-4 car-right-side'>
+    <%= render "users/shared/links" %>
+  </div>
+</div>
