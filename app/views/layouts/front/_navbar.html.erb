@@ -36,7 +36,7 @@
                   <ul class="dropdown-menu" role="menu">
                       <li><a href="#">我的控制台</a></li>
                       <li><a href="#">个人信息</a></li>
-                      <li><a href="#">修改密码</a></li>
+                      <li><%= link_to "修改密码", edit_user_registration_path %></li>
                       <li class="divider"></li>
                       <li><%= link_to t('view.action.sign_out'), destroy_user_session_path, {method: :delete} %></li>
                   </ul>
