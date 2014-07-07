@@ -1,72 +1,82 @@
-<div class="container marketing">
-  <div class="row inner">
-    <div class="payStep05">
-      <%= render "front/station/steps/step_header" %>
-    </div>
-    <div class="step-content">
-      <div class="alert alert-success">恭喜您！您已经预约成功!</div>
-      <div class="col-md-8 step-form-left form-horizontal"> 
-        <div class="car-order-finished">
-          <div class="panel panel-info">
-            <div class="panel-heading">预约信息</div>
-            <div class="panel-body">
-              <div class="form-group">
-                <label class="col-sm-3 control-label"><%=Order.human_attribute_name(:order_no)%></label>
-                <div class="col-sm-9">
-                  <p class="form-control-static important-info"><%= @order.order_no%></p>
-                </div>
+<div class="row inner">
+  <div class="payStep05">
+    <%= render "front/station/steps/step_header" %>
+  </div>
+  <div class="step-content">
+    <div class="alert alert-success">恭喜您！您已经预约成功!</div>
+    <div class="col-md-8 step-form-left form-horizontal"> 
+      <div class="car-order-finished">
+        <div class="panel panel-info">
+          <div class="panel-heading">预约信息</div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">
+                <%=Order.human_attribute_name(:order_no)%>
+              </label>
+              <div class="col-sm-9">
+                <p class="form-control-static important-info"><%= @order.order_no%></p>
               </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label"><%=Order.human_attribute_name(:order_date)%></label>
-                <div class="col-sm-9">
-                  <p class="form-control-static important-info"><%= @order.order_date %></p>
-                </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">
+                <%=Order.human_attribute_name(:order_date)%>
+              </label>
+              <div class="col-sm-9">
+                <p class="form-control-static important-info"><%= @order.order_date %></p>
               </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label"><%=Order.human_attribute_name(:car_number)%></label>
-                <div class="col-sm-9">
-                  <p class="form-control-static"><%=@order.car_number%></p>
-                </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">
+                <%=Order.human_attribute_name(:car_number)%>
+              </label>
+              <div class="col-sm-9">
+                <p class="form-control-static"><%=@order.car_number%></p>
               </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label"><%=Order.human_attribute_name(:owner_name)%></label>
-                <div class="col-sm-9">
-                  <p class="form-control-static"><%=@order.owner_name%></p>
-                </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">
+                <%=Order.human_attribute_name(:owner_name)%>
+              </label>
+              <div class="col-sm-9">
+                <p class="form-control-static"><%=@order.owner_name%></p>
               </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label"><%=Order.human_attribute_name(:telephone)%></label>
-                <div class="col-sm-9">
-                  <p class="form-control-static"><%= @order.telephone %></p>
-                </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">
+                <%=Order.human_attribute_name(:telephone)%>
+              </label>
+              <div class="col-sm-9">
+                <p class="form-control-static"><%= @order.telephone %></p>
               </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label"><%=Order.human_attribute_name(:station_id)%></label>
-                <div class="col-sm-9">
-                  <p class="form-control-static"><%=@order.station.name%></p>
-                  <p class="form-control-static">具体地址：<%=@order.station.address_text%></p>
-                  <p class="form-control-static">联系电话：<%=@order.station.telephone%></p>
-                </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">
+                <%=Order.human_attribute_name(:station_id)%>
+              </label>
+              <div class="col-sm-9">
+                <p class="form-control-static"><%=@order.station.name%></p>
+                <p class="form-control-static">具体地址：<%=@order.station.address_text%></p>
+                <p class="form-control-static">联系电话：<%=@order.station.telephone%></p>
               </div>
             </div>
           </div>
         </div>
-        <div class="left-box action">
-          <div style="text-align: center;">
-            <a class="btn btn-success">打印</a>
-            <a class="btn btn-success">发送信息到手机</a>
-          </div>
-          <div class="clearfix"></div>
-        </div>
       </div>
-      <div class="col-md-4 step-form-right"> 
-        <div class="panel panel-danger">
-          <div class="panel-heading">温馨提示</div>
-          <div class="panel-body">
-            <ul>
-              <li>1.请您准时到达指定地点进行车检.</li>
-            </ul>
-          </div>
+      <div class="left-box action">
+        <div style="text-align: center;">
+          <a class="btn btn-success">打印</a>
+          <a class="btn btn-success">发送信息到手机</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="col-md-4 step-form-right"> 
+      <div class="panel panel-danger">
+        <div class="panel-heading">温馨提示</div>
+        <div class="panel-body">
+          <ul>
+            <li>1.请您准时到达指定地点进行车检.</li>
+          </ul>
         </div>
       </div>
     </div>

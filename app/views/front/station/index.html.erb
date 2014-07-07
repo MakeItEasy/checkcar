@@ -1,98 +1,100 @@
-    <div class="container marketing">
-      <div class="row">
-        <div class="col-md-3">
-          <%= render "sidebar" %>
-        </div><!-- /.col -->
+<div class="row">
+  <div class="col-md-3">
+    <%= render "sidebar" %>
+  </div><!-- /.col -->
 
-        <div class="col-md-9 car-content-side">
-          <div class="car-info-list">
-            <div class='car-condition'>
-              <div class="car-header">
-                <h4>车检站</h4>
-              </div>
-              <div class="car-body">
-                <dl>
-                  <dt>行政区域</dt>
-                  <dd>
-                  <% ChinaCity.list('610100').each do |item| %>
-                    <% _district_class = session[:station_conditions]['district'] && 
-                    session[:station_conditions]['district'] == item[1] ? 'active' : '' %>
-                    <%= link_to item[0], front_station_index_path({district: item[1]}), {class: _district_class} %>
-                  <% end %>
-                  </dd>
-                </dl>
-                <dl>
-                  <dt>名称查询</dt>
-                  <dd>
-                    <form action='<%= front_station_index_path%>' method='get'>
-                      <div class="input-group input-group-sm col-sm-5">
-                        <input type="text" class="form-control" name='name' value="<%= session[:station_conditions]['name']%>">
-                        <span class="input-group-btn">
-                          <button class="btn btn-info btn-flat" type="submit"><i class='fa fa-search-plus'></i></button>
-                        </span>
-                      </div>
-                    </form>
-                  </dd>
-                </dl>
-                <dl class='selected'>
-                  <dt>已选条件</dt>
-                  <dd>
-                    <% if session[:station_conditions]['district'].present? %>
-                    <div>
-                      <%= ChinaCity.get(session[:station_conditions]['district']) %>
-                      <a href='<%= front_station_index_path(undistrict: true) %>' class="btn btn-info btn-xs"><i class="fa fa-times"></i></a>
-                    </div>
-                    <%end%>
-                    <% if session[:station_conditions]['name'].present? %>
-                    <div>
-                      <%= '名称：' + session[:station_conditions]['name'] %>
-                      <a href='<%= front_station_index_path(unname: true) %>' class="btn btn-info btn-xs"><i class="fa fa-times"></i></a>
-                    </div>
-                    <%end%>
-                  </dd>
-                </dl>
-                <div class='clearfix'></div>
-              </div>
-            </div>
-            <div class='car-result'>
-              <div class="car-nav-tabs-custom">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab_1" data-toggle="tab">全 部</a></li>
-                    <li><a href="#tab_2" data-toggle="tab">可预定</a></li>
-                </ul>
-                <div class="header">
-                  总共123家
-                </div>
-                <div class="tab-content">
-                  <div class="tab-pane active" id="tab_1">
-                    <ul class='car-list-result'>
-                      <% @stations.each do |s| %>
-                      <li class='list-item'>
-                        <div class='logo'>
-                          <%= image_tag 'weixiu.png', {class: 'img-thumbnail'} %>
-                          <div class='action text-center'>
-                            <%= link_to "在线预定", front_station_order_path(s), class: "btn btn-primary" %>
-                          </div>
-                        </div>
-                        <div class='info'>
-                          <div class='title'><h4><%= s.name %></h4></div>
-                          <p>详细地址：<%= s.address_text %></p>
-                          <p>联系电话：<%= s.telephone %></p>
-                          <p>简单介绍：<%= s.recommend.present? ? s.recommend : '暂无' %></p>
-                        </div>
-                        <div class='clearfix'></div>
-                      </li>
-                      <% end %>
-                    </ul>
-                  </div><!-- /.tab-pane -->
-                  <div class="tab-pane" id="tab_2">
-                      The European languages are members of the same family. Their separate existence is a myth.
-                      For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                  </div><!-- /.tab-pane -->
-                </div><!-- /.tab-content -->
-              </div><!-- nav-tabs-custom -->
-            </div>
-          </div>
+  <div class="col-md-9 car-content-side">
+    <div class="car-info-list">
+      <div class='car-condition'>
+        <div class="car-header">
+          <h4>车检站</h4>
         </div>
-      </div><!-- /.row -->
+        <div class="car-body">
+          <dl>
+            <dt>行政区域</dt>
+            <dd>
+            <% ChinaCity.list('610100').each do |item| %>
+              <% _district_class = session[:station_conditions]['district'] && 
+              session[:station_conditions]['district'] == item[1] ? 'active' : '' %>
+              <%= link_to item[0], front_station_index_path({district: item[1]}),
+                {class: _district_class} %>
+            <% end %>
+            </dd>
+          </dl>
+          <dl>
+            <dt>名称查询</dt>
+            <dd>
+              <form action='<%= front_station_index_path%>' method='get'>
+                <div class="input-group input-group-sm col-sm-5">
+                  <input type="text" class="form-control" name='name' 
+                    value="<%= session[:station_conditions]['name']%>">
+                  <span class="input-group-btn">
+                    <button class="btn btn-info btn-flat" type="submit">
+                      <i class='fa fa-search-plus'></i>
+                    </button>
+                  </span>
+                </div>
+              </form>
+            </dd>
+          </dl>
+          <dl class='selected'>
+            <dt>已选条件</dt>
+            <dd>
+              <% if session[:station_conditions]['district'].present? %>
+              <div>
+                <%= ChinaCity.get(session[:station_conditions]['district']) %>
+                <a href='<%= front_station_index_path(undistrict: true) %>' class="btn btn-info btn-xs"><i class="fa fa-times"></i></a>
+              </div>
+              <%end%>
+              <% if session[:station_conditions]['name'].present? %>
+              <div>
+                <%= '名称：' + session[:station_conditions]['name'] %>
+                <a href='<%= front_station_index_path(unname: true) %>' class="btn btn-info btn-xs"><i class="fa fa-times"></i></a>
+              </div>
+              <%end%>
+            </dd>
+          </dl>
+          <div class='clearfix'></div>
+        </div>
+      </div>
+      <div class='car-result'>
+        <div class="car-nav-tabs-custom">
+          <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab_1" data-toggle="tab">全 部</a></li>
+              <li><a href="#tab_2" data-toggle="tab">可预定</a></li>
+          </ul>
+          <div class="header">
+            总共123家
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab_1">
+              <ul class='car-list-result'>
+                <% @stations.each do |s| %>
+                <li class='list-item'>
+                  <div class='logo'>
+                    <%= image_tag 'weixiu.png', {class: 'img-thumbnail'} %>
+                    <div class='action text-center'>
+                      <%= link_to "在线预定", front_station_order_path(s), class: "btn btn-primary" %>
+                    </div>
+                  </div>
+                  <div class='info'>
+                    <div class='title'><h4><%= s.name %></h4></div>
+                    <p>详细地址：<%= s.address_text %></p>
+                    <p>联系电话：<%= s.telephone %></p>
+                    <p>简单介绍：<%= s.recommend.present? ? s.recommend : '暂无' %></p>
+                  </div>
+                  <div class='clearfix'></div>
+                </li>
+                <% end %>
+              </ul>
+            </div><!-- /.tab-pane -->
+            <div class="tab-pane" id="tab_2">
+                The European languages are members of the same family. Their separate existence is a myth.
+                For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+            </div><!-- /.tab-pane -->
+          </div><!-- /.tab-content -->
+        </div><!-- nav-tabs-custom -->
+      </div>
     </div>
+  </div>
+</div><!-- /.row -->

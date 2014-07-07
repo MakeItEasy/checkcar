@@ -1,31 +1,29 @@
-<div class="container marketing">
-  <div class="row inner">
-    <div class="payStep0<%=@order.current_step_no+1 %>">
-      <%= render "front/station/steps/step_header" %>
+<div class="row inner">
+  <div class="payStep0<%=@order.current_step_no+1 %>">
+    <%= render "front/station/steps/step_header" %>
+  </div>
+  <div class="step-content">
+    <div class="col-md-9 step-form-left"> 
+      <%= simple_form_for(@order, url: front_station_create_order_path(@station), html: {class: 'form-horizontal', role: 'form'} ) do |f| %>
+        <div class="main-form">
+          <%= render "front/station/steps/form_step_#{@order.current_step}", f: f %>
+        </div>
+        <div class="left-box action">
+          <%= f.submit "上一步", name: 'back_button', 
+            class: "btn btn-default pull-left" unless @order.first_step? %>
+          <% if @order.current_step == 'confirmation' %>
+            <div style="text-align: center;">
+              <%= f.submit "提交预约信息", class: "btn btn-danger btn-lg" %>
+            </div>
+          <% else %>
+            <%= f.submit "下一步", class: "btn btn-primary btn-lg pull-right" %>
+          <% end %>
+          <div class="clearfix"></div>
+        </div>
+      <% end %>
     </div>
-    <div class="step-content">
-      <div class="col-md-9 step-form-left"> 
-        <%= simple_form_for(@order, url: front_station_create_order_path(@station), html: {class: 'form-horizontal', role: 'form'} ) do |f| %>
-          <div class="main-form">
-            <%= render "front/station/steps/form_step_#{@order.current_step}", f: f %>
-          </div>
-          <div class="left-box action">
-            <%= f.submit "上一步", name: 'back_button', 
-              class: "btn btn-default pull-left" unless @order.first_step? %>
-            <% if @order.current_step == 'confirmation' %>
-              <div style="text-align: center;">
-                <%= f.submit "提交预约信息", class: "btn btn-danger btn-lg" %>
-              </div>
-            <% else %>
-              <%= f.submit "下一步", class: "btn btn-primary btn-lg pull-right" %>
-            <% end %>
-            <div class="clearfix"></div>
-          </div>
-        <% end %>
-      </div>
-      <div class="col-md-3 step-form-right"> 
-        <%= render "order_tip_info"%>
-      </div>
+    <div class="col-md-3 step-form-right"> 
+      <%= render "order_tip_info"%>
     </div>
   </div>
 </div>

@@ -1,40 +1,38 @@
-    <div class="container marketing">
-      <div class="row">
-        <div class="col-md-3">
-          <%= render "sidebar" %>
-        </div><!-- /.col -->
+<div class="row">
+  <div class="col-md-3">
+    <%= render "sidebar" %>
+  </div><!-- /.col -->
 
-        <div class="col-md-9 car-content-side car-info-list car-post">
-          <div class="car-title">
-            <h4 class="text-center"><%= @post.title %></h4>
-            <p class="text-center car-tips-date">
-              <em><%= l(@post.updated_at.to_date) %></em>
-            </p>
-            <% if @pre_post.present? %>
-            <span class="pull-left">
-              <small>
-                <a href="<%= front_post_path(@catagory, @pre_post) %>">
-                  <span class="glyphicon glyphicon-chevron-left"></span>
-                  <%= "#{t('view.action.pre_post')}#{@pre_post.title}" %>
-                </a>
-              </small>
-            </span>
-            <% end %>
-            <% if @next_post.present? %>
-            <span class="pull-right">
-              <small>
-                <a href="<%= front_post_path(@catagory, @next_post) %>">
-                  <%= "#{t('view.action.next_post')}#{@next_post.title}" %>
-                  <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
-              </small>
-            </span>
-            <% end %>
-            <div class="clearfix"></div>
-          </div>
-          <div class="car-post-content">
-            <%= @post.content.html_safe %>
-          </div>
-        </div>
-      </div><!-- /.row -->
+  <div class="col-md-9 car-content-side car-info-list car-post">
+    <div class="car-title">
+      <h4 class="text-center"><%= @post.title %></h4>
+      <p class="text-center car-tips-date">
+        <em><%= l(@post.updated_at.to_date) %></em>
+      </p>
+      <% if @pre_post.present? %>
+      <span class="pull-left">
+        <small>
+          <a href="<%= front_post_path(@catagory, @pre_post) %>">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <%= "#{t('view.action.pre_post')}#{@pre_post.title}" %>
+          </a>
+        </small>
+      </span>
+      <% end %>
+      <% if @next_post.present? %>
+      <span class="pull-right">
+        <small>
+          <a href="<%= front_post_path(@catagory, @next_post) %>">
+            <%= "#{t('view.action.next_post')}#{@next_post.title}" %>
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </small>
+      </span>
+      <% end %>
+      <div class="clearfix"></div>
     </div>
+    <div class="car-post-content">
+      <%= @post.content.html_safe %>
+    </div>
+  </div>
+</div><!-- /.row -->

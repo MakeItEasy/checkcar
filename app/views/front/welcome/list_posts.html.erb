@@ -1,20 +1,18 @@
-    <div  class="container marketing">
-      <div class="row">
-        <div class="col-md-3">
-          <%= render "sidebar" %>
-        </div><!-- /.col -->
+<div class="row">
+  <div class="col-md-3">
+    <%= render "sidebar" %>
+  </div><!-- /.col -->
 
-        <div class="col-md-9 car-content-side">
-          <div class="car-info-list list-group">
-            <% @catagory.posts.published.each do |post| %>
-            <a href="<%= front_post_path(@catagory, post) %>" class="list-group-item">
-              <%= post.title %>
-              <span class="car-tips-date pull-right">
-                <em><%= l(post.updated_at.to_date) %></em>
-              </span>
-            </a>
-            <% end %>
-          </div>
-        </div>
-      </div><!-- /.row -->
+  <div class="col-md-9 car-content-side">
+    <div class="car-info-list list-group">
+      <% @catagory.posts.published.each do |post| %>
+      <a href="<%= front_post_path(@catagory, post) %>" class="list-group-item">
+        <%= post.title %>
+        <span class="car-tips-date pull-right">
+          <em><%= l(post.updated_at.to_date) %></em>
+        </span>
+      </a>
+      <% end %>
     </div>
+  </div>
+</div><!-- /.row -->

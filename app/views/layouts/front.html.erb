@@ -24,10 +24,12 @@
 
   </head>
   <body>
-
     <%= render "layouts/front/navbar" %>
     <div id='main-content'>
-      <%= yield %>
+      <%= yield :header_area %>
+      <div class="container marketing">
+        <%= yield %>
+      </div>
     </div>
     <%= render "layouts/front/footer" %>
 

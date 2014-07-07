@@ -5,7 +5,7 @@ html, body {
   background: #eee;
 }
 .car-info-list {
-  margin-top: 35px;
+  margin-top: 18px;
 }
 
 // =========================================
@@ -51,6 +51,10 @@ a.list-group-item:hover > * {
 
 #main-content > .container {
   background-color: #fff;
+}
+
+#main-content > .container > .row {
+  padding: 20px 30px 30px;
 }
 
 // 右侧的内容
