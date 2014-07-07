@@ -1,0 +1,70 @@
+<% content_for :head_stylesheet do %>
+  <%# stylesheet_link_tag 'front/order', media: 'all', 'data-turbolinks-track' => true %>
+<% end %>
+<% content_for :head_javascript do %>
+  <%# javascript_include_tag 'front/order', 'data-turbolinks-track' => true %>
+<% end %>
+<style>
+  #main-content {
+    margin-top: 50px;
+    text-align: left;
+  }
+</style>
+
+<div id="main-content" class="container marketing wrapped-content">
+
+  <div class="row inner">
+    <div class="payStep0<%=@steps.index(@current_step) + 1%>">
+      <ul class="payOrderSteps clear">
+        <li class="step1">1.选择车检站</li>
+        <li class="step2">2.选择检车时间</li>
+        <li class="step3">3.填写基本信息</li>
+        <li class="step4">4.确认预约信息</li>
+        <li class="step5">5.预约成功</li>
+      </ul>
+    </div>
+    <div class="step-content">
+      <div class="col-md-9 step-form-left"> 
+        <div class="main-form">
+          <form class="form-horizontal" role="form">
+          <%= render "front/station/steps/form_step_#{@current_step}" %>
+          </form>
+        </div>
+        <div class="left-box action">
+          <% if @current_step == 'confirmation' %>
+            <div style="text-align: center;">
+              <a href="<%= front_station_step_path(1, :next)%>" class="btn btn-danger btn-lg">提交预约信息</a>
+            </div>
+          <% elsif @current_step == 'success' %>
+            <div style="text-align: center;">
+            <a href="<%= front_station_step_path(1, :pre)%>" class="btn btn-success">打印</a>
+            <a class="btn btn-success">发送信息到手机</a>
+          </div>
+          <% else %>
+            <a href="<%= front_station_step_path(1, :pre)%>" class="btn btn-default pull-left">上一步</a>
+            <a href="<%= front_station_step_path(1, :next)%>" class="btn btn-primary btn-lg pull-right">下一步</a>
+          <% end %>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="col-md-3 step-form-right"> 
+        <div class="right-box order-tip-info">
+          <p class='title'>预约信息</p>
+          <hr>
+          <div class='tip-group'>
+            <p class='tip-label'>车牌</p>
+            <p class='tip-value important-info'>陕A88888</p>
+          </div>
+          <div class='tip-group'>
+            <p class='tip-label'>车检所</p>
+            <p class='tip-value important-info'>西安东郊车检所</p>
+          </div>
+          <div class='tip-group'>
+            <p class='tip-label'>预约时间</p>
+            <p class='tip-value important-info'>2014年6月5日 星期五 上午8:00-10:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

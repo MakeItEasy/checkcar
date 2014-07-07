@@ -29,8 +29,8 @@ Rails.application.routes.draw do
       get 'index'
 
       # TODO dairg delete
-      get 'station/:id/step/:type' => 'station#step', as: :step
-      get 'station/:id/order' => 'station#order', as: :order
+      get ':id/step/:type', action: :step, as: :step
+      get ':id/order', action: :order, as: :order
     end
   end
 

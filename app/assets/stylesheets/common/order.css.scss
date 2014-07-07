@@ -1,0 +1,136 @@
+// =======================================
+// step title相关
+// =======================================
+.inner {
+  padding: 10px;
+}
+
+.payOrderSteps {
+  width: 100%;
+  background: #eee;
+  border-radius: 2px;
+  overflow: hidden;
+  padding-left: 0px;
+}
+
+.clear {
+  zoom: 1;
+}
+
+.payOrderSteps li {
+  width: 20%;
+  color: #999;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  float: left;
+  font-size: 14px;
+  font-weight: bold;
+  background-position: right -68px;
+  list-style: none;
+}
+
+.step1, .step2, .step3, .step4, .step5 {
+  text-indent: -8px;
+}
+
+.step1, .step2, .step3, .step4 {
+  background: asset-url("steps.png") no-repeat;
+}
+
+.payStep02 .step1,
+.payStep03 .step2,
+.payStep04 .step3,
+.payStep05 .step4 {
+  background-position: right -280px;
+}
+
+.payStep01 .step1,
+.payStep02 .step2,
+.payStep03 .step3,
+.payStep04 .step4,
+.payStep05 .step5 {
+  background-color: #64bde9;
+  background-position: right -314px;
+  color: #fff;
+}
+
+// =======================================
+// step-form-left
+// =======================================
+.step-form-left {
+  padding: 0px;
+}
+.step-form-left .main-form {
+  min-height: 400px;
+  border: 1px solid #bee5f2;
+  padding: 25px;
+}
+
+.step-form-left .left-box {
+  padding: 15px;
+  border: 1px solid #bee5f2;
+  border-top: 0;
+  line-height: 24px;
+}
+
+// =======================================
+// step-form-right
+// =======================================
+.step-form-right {
+  background: #f1fbff;
+  margin-bottom: -30000px;
+  padding-bottom: 30000px;
+}
+
+.step-form-right .right-box {
+  padding: 15px;
+}
+// =======================================
+// step-content
+// =======================================
+.step-content {
+  overflow: hidden;
+}
+
+// =======================================
+// station-list
+// =======================================
+.station-list {
+  width: 100%;
+}
+.station-list .station-item {
+  text-align: left;
+}
+
+.station-list .station-item {
+  .name {
+    font-weight: bold;
+    color: red;
+  }
+
+}
+
+// =======================================
+// confirmation
+// =======================================
+.confirmation .form-group,
+.success .form-group {
+  margin-bottom: 0px;
+}
+
+.important-info {
+  font-weight: bold;
+  color: red;
+}
+
+// =======================================
+// order-tip-info
+// =======================================
+.order-tip-info {
+  .tip-group {
+    .tip-value {
+      margin-left: 10px;
+    }
+  }
+}
