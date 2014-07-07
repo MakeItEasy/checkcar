@@ -6,6 +6,7 @@
       catagory: "文章分类"
       post: "文章"
       station: "车检站"
+      order: "预约信息"
 
     attributes:
       default: &default
@@ -61,3 +62,13 @@
         address: 详细地址
         recommend: 简介
         <<: *default
+      order:
+        car_number: 车牌号
+        owner_name: 车主姓名
+        telephone: 预留手机号
+        order_date: 预约日期
+        order_time: 预约时间
+        order_no: 预约流水号
+        station_id: 预约车检站
+        <<: *default
+        

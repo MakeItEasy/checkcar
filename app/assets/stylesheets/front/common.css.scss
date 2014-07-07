@@ -45,7 +45,7 @@ a.list-group-item:hover > * {
 // 主要内容部分，因为顶部菜单固定，所以要设置margin-top
 // =========================================
 #main-content {
-  margin-top: 50px;
+  margin-top: 90px;
   text-align: left;
 }
 
@@ -178,3 +178,9 @@ a.list-group-item:hover > * {
 #user-action > a {
   color: #fff;
 }
+
+// override alert of bootstrap
+.alert {
+  margin-left: 0px;
+}
+

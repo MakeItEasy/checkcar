@@ -1,4 +1,7 @@
 class Front::StationController < FrontController
+  before_action :authenticate_user!, except: [:index]
+  before_action :set_station, only: [:order, :create_order]
+
   def index
     # session[:station_c_classonditions] = nil
     resultRelation = Station
@@ -23,27 +26,47 @@ class Front::StationController < FrontController
 
   ## 预定
   def order
-    @steps = steps
-    @current_step = steps.first
-    session[:current_step] = @current_step
+    session[:order_step] = nil
+    session[:order_params] = {station_id: @station.id, user_id: current_user.id}
+    @order = OrderNet.new(session[:order_params])
   end
 
-  def step
-    @steps = steps
-    @current_step = session[:current_step]
-    if params[:type] == 'next'
-      @current_step = steps[steps.index(@current_step)+1] || steps.first
-    elsif params[:type] == 'pre'
-      @current_step = steps[steps.index(@current_step)-1]
-    end
-    session[:current_step] = @current_step
+  ## 预定成功画面
+  def show_order
+    @order = OrderNet.find(params[:order_id])
+  end
 
-    render :order
+  # POST
+  def create_order
+    session[:order_params].deep_merge!(order_params) if params[:order_net]
+    @order = OrderNet.new(session[:order_params])
+    @order.current_step = session[:order_step]
+
+    if params[:back_button]
+      # previous step
+      @order.pre_step
+    elsif @order.last_step?
+      # submit
+      @order.save
+    else
+      # next step
+      @order.next_step if @order.valid?
+    end
+    session[:order_step] = @order.current_step 
+    if @order.new_record?
+      render :order
+    else
+      redirect_to front_station_show_order_path(@station, @order)
+    end
   end
 
 private
-  def steps
-    %w[select_station select_date basic_info confirmation success]
+  def order_params
+    params.require(:order_net).permit(:order_date, :order_time, :car_number, :owner_name, :telephone)
+  end
+
+  def set_station
+    @station = Station.find(params[:id])
   end
 
 end

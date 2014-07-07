@@ -25,6 +25,13 @@ module Car
       locked: '03' 
     }
 
+    ORDER_STATUS = {
+      # 预约成功
+      success: '00',
+      # 取消
+      cancel: '01'
+    }
+
     SEX = {
       male: '0',
       female: '1'

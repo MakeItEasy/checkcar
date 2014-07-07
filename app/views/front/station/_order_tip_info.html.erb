@@ -1,0 +1,26 @@
+<div class="right-box order-tip-info">
+  <p class='title'>输入预约信息</p>
+  <hr>
+  <div class='tip-group'>
+    <p class='tip-label'><%=Order.human_attribute_name(:station_id)%></p>
+    <p class='tip-value important-info'><%= @order.station.name %></p>
+  </div>
+  <% if @order.order_date %>
+    <div class='tip-group'>
+      <p class='tip-label'><%=Order.human_attribute_name(:order_date)%></p>
+      <p class='tip-value important-info'><%= @order.order_date%></p>
+    </div>
+  <%end%>
+  <% if @order.car_number %>
+    <div class='tip-group'>
+      <p class='tip-label'><%=Order.human_attribute_name(:car_number)%></p>
+      <p class='tip-value important-info'><%= @order.car_number%></p>
+    </div>
+  <%end%>
+  <% if @order.telephone %>
+    <div class='tip-group'>
+      <p class='tip-label'><%=Order.human_attribute_name(:telephone)%></p>
+      <p class='tip-value important-info'><%= @order.telephone%></p>
+    </div>
+  <%end%>
+</div>

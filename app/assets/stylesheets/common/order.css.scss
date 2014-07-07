@@ -94,24 +94,6 @@
 }
 
 // =======================================
-// station-list
-// =======================================
-.station-list {
-  width: 100%;
-}
-.station-list .station-item {
-  text-align: left;
-}
-
-.station-list .station-item {
-  .name {
-    font-weight: bold;
-    color: red;
-  }
-
-}
-
-// =======================================
 // confirmation
 // =======================================
 .confirmation .form-group,
@@ -122,6 +104,15 @@
 .important-info {
   font-weight: bold;
   color: red;
+}
+
+// =======================================
+// success order
+// =======================================
+.car-order-finished {
+  .panel {
+    margin-bottom: 0px;
+  }
 }
 
 // =======================================

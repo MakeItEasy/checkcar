@@ -30,7 +30,9 @@ Rails.application.routes.draw do
 
       # TODO dairg delete
       get ':id/step/:type', action: :step, as: :step
-      get ':id/order', action: :order, as: :order
+      get ':id/order/new', action: :order, as: :order
+      get ':id/order/:order_id/finished', action: :show_order, as: :show_order
+      post ':id/order', action: :create_order, as: :create_order
     end
   end
 

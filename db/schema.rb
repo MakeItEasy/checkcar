@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702014745) do
+ActiveRecord::Schema.define(version: 20140707010435) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -72,6 +72,26 @@ ActiveRecord::Schema.define(version: 20140702014745) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "orders", force: true do |t|
+    t.string   "type",       null: false
+    t.string   "order_no",   null: false
+    t.integer  "user_id"
+    t.integer  "station_id", null: false
+    t.datetime "order_date", null: false
+    t.string   "order_time", null: false
+    t.string   "owner_name", null: false
+    t.string   "car_number", null: false
+    t.string   "telephone",  null: false
+    t.string   "status",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["order_no"], name: "index_orders_on_order_no", using: :btree
+  add_index "orders", ["station_id"], name: "index_orders_on_station_id", using: :btree
+  add_index "orders", ["status"], name: "index_orders_on_status", using: :btree
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title",          default: "", null: false

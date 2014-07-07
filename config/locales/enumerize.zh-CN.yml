@@ -16,3 +16,7 @@ zh-CN:
     sex:
       male: 男
       female: 女
+    order:
+      status:
+        success: 预约成功
+        cancel: 预约取消
