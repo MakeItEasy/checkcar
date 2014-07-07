@@ -5,8 +5,37 @@
         padding-bottom: 30px;
       }
 
+      @media (min-width: 400px) {
+        #road-sign1 {
+          position: absolute;
+          left: 70px;
+          top: 160px;
+        }
+
+        #road-sign2 {
+          position: absolute;
+          left: 150px;
+          top: 120px;
+        }
+      }
+
+
+      @media (min-width: 992px) {
+        #road-sign1 {
+          position: absolute;
+          left: 410px;
+          top: 160px;
+        }
+
+        #road-sign2 {
+          position: absolute;
+          left: 500px;
+          top: 120px;
+        }
+      }
+
       #main-jumbotron {
-        background: url(<%= asset_path 'main_bg_image2.jpg' %>)
+        background: url(<%= asset_path 'welcome_bg.png' %>)
                     repeat-x transparent 50% 50%;
         height: 400px;
         width: 100%;
@@ -25,7 +54,16 @@
     <!-- jumbotron -->
     <div id="main-jumbotron" class="jumbotron wrapped-content">
       <div class="container">
-        <p style="width: 130px; margin-top: 98px; margin-left: -60px; font-weight: bold;" class="btn">在线预约检车</p>
+        <div id="road-sign">
+          <div id="road-sign2">
+            <%=image_tag "road_sign2.png"%>
+          </div>
+          <div id="road-sign1">
+            <a href="<%= front_station_index_path %>" class="shake shake-car-horizontal hover-stop">
+              <%=image_tag "road_sign1.png"%>
+            </a>
+          </div>
+        </div>
         <!--
         <h1 style="font-size:50px; margin-top:50px;">一站式服务</h1>
         <h2 style="margin-top:30px;">

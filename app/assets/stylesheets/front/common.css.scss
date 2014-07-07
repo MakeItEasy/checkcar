@@ -188,3 +188,14 @@ a.list-group-item:hover > * {
   margin-left: 0px;
 }
 
+
+// -----------------------------------------
+// my shake
+// -----------------------------------------
+
+.shake.shake-car-horizontal:hover {
+  @extend .shake.shake-horizontal:hover;
+  -webkit-animation-iteration-count: 3;
+  -ms-animation-iteration-count: 3;
+  animation-iteration-count: 3;
+}
