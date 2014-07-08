@@ -1,0 +1,13 @@
+<div class='box car-toolbox'>
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group pull-right">
+      <%= link_to back_faqs_path, {class: 'btn btn-default'} do %>
+        <i class="fa fa-list"></i> <%= t('view.action.back_to_list') %> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class='box box-info car-content-form'>
+  <%= render 'form' %>
+</div>

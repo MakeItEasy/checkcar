@@ -7,6 +7,7 @@
       post: "文章"
       station: "车检站"
       order: "预约信息"
+      faq: "常见问题"
 
     attributes:
       default: &default
@@ -44,7 +45,6 @@
         title: 标题
         content: 内容
         status: 状态
-        create_user_id: 创建者
         catagory_id: 分类
         catagory: 分类
         create_user_id: 创建者
@@ -71,4 +71,8 @@
         order_no: 预约流水号
         station_id: 预约车检站
         <<: *default
-        
+      faq:
+        create_user_id: 创建者
+        question: 问题内容
+        answer: 回答内容
+        <<: *default

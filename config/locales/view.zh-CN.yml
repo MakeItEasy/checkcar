@@ -87,6 +87,7 @@
       catagories: 文章分类
       posts: 文章
       stations: 车检站
+      faqs: 常见问题
     devise:
       send_reset_mail: 发送重置密码邮件
       send_unlock_mail: 发送解锁邮件

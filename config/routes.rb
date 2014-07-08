@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     # get 'dashboard' => 'dashboard#index' 
     resources :admins
     resources :catagories
+    resources :faqs
     resources :posts do
       member do
         patch 'complete'

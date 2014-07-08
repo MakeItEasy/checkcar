@@ -60,6 +60,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :admins, Admin.model_name.human, back_admins_path, :opts => {icon: 'fa fa-users' }, if: ->{ can? :read, Admin }
     primary.item :catagories, Catagory.model_name.human, back_catagories_path, :opts => {icon: 'fa fa-flag' }, if: ->{ can? :read, Catagory }
     primary.item :posts, Post.model_name.human, back_posts_path, :opts => {icon: 'fa fa-book' }, if: ->{ can? :read, Post}
+    primary.item :faqs, Faq.model_name.human, back_faqs_path, :opts => {icon: 'fa fa-question' }, if: ->{ can? :read, Faq}
     primary.item :stations, Station.model_name.human, back_stations_path, :opts => {icon: 'fa fa-bullseye' }, if: ->{ can? :read, Station}
     primary.item :personal, I18n.t('view.controller.personal'), nil, :opts => {icon: 'fa fa-th' } do |sub_nav|
       sub_nav.item :show, I18n.t('view.action.personal.show'), back_personal_show_path,
