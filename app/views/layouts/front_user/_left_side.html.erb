@@ -1,0 +1,17 @@
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+  <!-- Sidebar user panel -->
+  <div class="user-panel">
+    <div class="pull-left image">
+      <%=render_current_user_image%>
+    </div>
+    <div class="pull-left info">
+      <p><%= t('view.label.welcome', {name: current_user.show_name}) %></p>
+    </div>
+  </div>
+  <!-- sidebar menu: : style can be found in sidebar.less -->
+  <ul class="sidebar-menu">
+    <%= render_navigation( level: 1, context: :user, renderer: :list_bootstrap_render) %>
+  </ul>
+</section>
+<!-- /.sidebar -->

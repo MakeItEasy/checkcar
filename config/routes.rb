@@ -40,6 +40,11 @@ Rails.application.routes.draw do
       get 'index_faq'
       get 'index_uaq'
     end
+
+    namespace :user do
+      root 'dashboard#index' 
+    end
+
   end
 
   ## 后台site

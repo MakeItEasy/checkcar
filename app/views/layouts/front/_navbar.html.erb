@@ -30,13 +30,15 @@
           <div id="user-action" class="pull-right">
             <% if current_user %>
               <div class="btn-group">
-                  <button type="button" class="btn btn-success btn-sm"><%= current_user.show_name %></button>
+                  <a type="button" class="btn btn-success btn-sm" href="<%= front_user_root_path %>">
+                    <%= current_user.show_name %>
+                  </a>
                   <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">我的控制台</a></li>
+                      <li><%= link_to "我的控制台", front_user_root_path %></li>
                       <li><a href="#">个人信息</a></li>
                       <li><%= link_to "修改密码", edit_user_registration_path %></li>
                       <li class="divider"></li>

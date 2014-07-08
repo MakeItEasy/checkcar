@@ -1,0 +1,47 @@
+    <%= link_to t('view.site.front_title'), root_path, {class: 'logo'} %>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="navbar-right">
+        <ul class="nav navbar-nav">
+        <!-- Messages: style can be found in dropdown.less-->
+        <li class="dropdown user user-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-user"></i>
+            <span><%= current_user.show_name%> <i class="caret"></i></span>
+          </a>
+          <ul class="dropdown-menu">
+          <!-- User image -->
+          <li class="user-header bg-light-blue">
+            <!-- TODO dairg user头像设置 -->
+            <%= image_tag "adminlte/avatar-male-1.png", class: "img-circle", alt:"User Image" %>
+            <p>
+              <%= current_user.show_name %>
+            </p>
+          </li>
+          <!-- Menu Footer-->
+          <li class="user-footer">
+            <div class="pull-left">
+              <%= link_to t('view.action.personal.show'), back_personal_show_path, class: "btn btn-default btn-flat" %>
+            </div>
+            <div class="pull-right">
+              <%= link_to t('view.action.personal.password'), back_personal_password_path, class: "btn btn-default btn-flat" %>
+            </div>
+          </li>
+          </ul>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, {method: :delete} do %>
+            <i class="glyphicon glyphicon-log-out"></i>
+            <span><%= t('view.action.sign_out') %></span>
+          <% end %>
+        </li>
+        </ul>
+      </div>
+    </nav>
