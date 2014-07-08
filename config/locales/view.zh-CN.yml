@@ -80,6 +80,7 @@
       blank_item_default_show_value: "<p class='car-blank-item'><未设定></p>"
       links_split: ' | '
       total_count: "总共 %{count} 条记录"
+      find_by_keyword: 搜索关键字
     # 主要用于page header
     controller:
       admins: 后台管理员

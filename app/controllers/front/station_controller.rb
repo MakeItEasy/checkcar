@@ -21,7 +21,8 @@ class Front::StationController < FrontController
     if session[:station_conditions]['name']
       resultRelation = resultRelation.where('name like ?', '%' + session[:station_conditions]['name'] + '%')
     end
-    @stations = resultRelation.all
+    # TODO dairg per page setting
+    @stations = resultRelation.page(params[:page]).per(1)
   end
 
   ## 预定

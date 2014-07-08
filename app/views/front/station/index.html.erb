@@ -60,11 +60,10 @@
       <div class='car-result'>
         <div class="car-nav-tabs-custom">
           <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab_1" data-toggle="tab">全 部</a></li>
-              <li><a href="#tab_2" data-toggle="tab">可预定</a></li>
+            <li class="active"><a>全 部</a></li>
           </ul>
           <div class="header">
-            总共123家
+            <%= t("view.label.total_count", count: @stations.total_count) %>
           </div>
           <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
@@ -87,10 +86,13 @@
                 </li>
                 <% end %>
               </ul>
-            </div><!-- /.tab-pane -->
-            <div class="tab-pane" id="tab_2">
-                The European languages are members of the same family. Their separate existence is a myth.
-                For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+
+              <div>
+                <%= paginate @stations %>
+                <div class="car-page-entries-info pull-right">
+                  <%= page_entries_info @stations %>
+                </div>
+              </div>
             </div><!-- /.tab-pane -->
           </div><!-- /.tab-content -->
         </div><!-- nav-tabs-custom -->
