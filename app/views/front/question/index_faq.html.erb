@@ -25,29 +25,27 @@
             <li><%= link_to "用户提问", front_question_index_uaq_path %></li>
           </ul>
           <div class="header">
-            总共30条
+            <%= t("view.label.total_count", count: @faqs.total_count) %>
           </div>
           <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
               <ul class='car-list-result'>
-                <li class='list-item car-question'>
-                  <h4 class="question">
-                    <i class="fa fa-question-circle"></i>
-                    请问上班时间是什么时候？
-                  </h4>
-                  <p class="answer">早上8点到下午5点</p>
-                </li>
+                <% @faqs.each do |item| %>
+                  <li class='list-item car-question'>
+                    <h4 class="question">
+                      <i class="fa fa-question-circle"></i><%= item.question%>
+                    </h4>
+                    <p class="answer"><%= item.answer%></p>
+                  </li>
+                <% end %>
               </ul>
 
-              <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-              </ul>
+              <div>
+                <%= paginate @faqs %>
+                <div class="car-page-entries-info pull-right">
+                  <%= page_entries_info @faqs %>
+                </div>
+              </div>
 
             </div><!-- /.tab-pane -->
           </div><!-- /.tab-content -->
