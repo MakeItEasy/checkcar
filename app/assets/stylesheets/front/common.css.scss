@@ -199,3 +199,25 @@ a.list-group-item:hover > * {
   -ms-animation-iteration-count: 3;
   animation-iteration-count: 3;
 }
+
+// -----------------------------------------
+// 留言以及FAQ
+// -----------------------------------------
+.car-question {
+  border-bottom: 1px dotted #3c8dbc;
+  padding-left: 20px !important;
+}
+.car-question:hover {
+  background-color: #eee;
+}
+.car-question > .question {
+  font-size: 16px;
+}
+.car-question > .question > i {
+  color: #3c8dbc;
+}
+.car-question > .answer {
+  border-left: 2px solid #3c8dbc;
+  margin-left:20px;
+  padding-left: 10px;
+}

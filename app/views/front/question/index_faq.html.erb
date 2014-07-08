@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render "sidebar" %>
+  </div><!-- /.col -->
+
+  <div class="col-md-9 car-content-side">
+    <div class="car-info-list">
+      <div class="car-condition">
+        <form action='<%= front_question_index_faq_path%>' method='get'>
+          <div class="input-group input-group-sm col-sm-5">
+            <input type="text" class="form-control" name='name_faq' 
+              value="<%= params['name_faq']%>">
+            <span class="input-group-btn">
+              <button class="btn btn-info btn-flat" type="submit">
+                <i class='fa fa-search-plus'></i>
+              </button>
+            </span>
+          </div>
+        </form>
+      </div>
+      <div class='car-result'>
+        <div class="car-nav-tabs-custom">
+          <ul class="nav nav-tabs">
+            <li class="active"><%= link_to "常见问题", front_question_index_faq_path %></li>
+            <li><%= link_to "用户提问", front_question_index_uaq_path %></li>
+          </ul>
+          <div class="header">
+            总共30条
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab_1">
+              <ul class='car-list-result'>
+                <li class='list-item car-question'>
+                  <h4 class="question">
+                    <i class="fa fa-question-circle"></i>
+                    请问上班时间是什么时候？
+                  </h4>
+                  <p class="answer">早上8点到下午5点</p>
+                </li>
+              </ul>
+
+              <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+              </ul>
+
+            </div><!-- /.tab-pane -->
+          </div><!-- /.tab-content -->
+        </div><!-- nav-tabs-custom -->
+      </div>
+    </div>
+  </div>
+</div><!-- /.row -->
+

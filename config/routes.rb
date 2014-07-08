@@ -34,6 +34,12 @@ Rails.application.routes.draw do
       get ':id/order/:order_id/finished', action: :show_order, as: :show_order
       post ':id/order', action: :create_order, as: :create_order
     end
+
+    # 提问留言
+    namespace :question do
+      get 'index_faq'
+      get 'index_uaq'
+    end
   end
 
   ## 后台site
