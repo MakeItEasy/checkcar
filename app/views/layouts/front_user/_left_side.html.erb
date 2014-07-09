@@ -3,7 +3,8 @@
   <!-- Sidebar user panel -->
   <div class="user-panel">
     <div class="pull-left image">
-      <%=render_current_user_image%>
+      <!-- TODO dairg user头像设置 -->
+      <%= image_tag "adminlte/avatar-male-1.png", class: "img-circle", alt:"User Image" %>
     </div>
     <div class="pull-left info">
       <p><%= t('view.label.welcome', {name: current_user.show_name}) %></p>
