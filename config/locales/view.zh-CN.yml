@@ -6,6 +6,7 @@
       back_title_long: 陕西车辆年审网后台管理系统
     action:
       new: 新建
+      new_question: 发起提问
       edit: 编辑
       show: 明细
       delete: 删除
@@ -90,6 +91,7 @@
       posts: 文章
       stations: 车检站
       faqs: 常见问题
+      uaqs: 我的问题
     devise:
       send_reset_mail: 发送重置密码邮件
       send_unlock_mail: 发送解锁邮件

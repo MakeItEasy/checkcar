@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
 
   attr_accessor :mode, :login
 
+  ## Associations
+  has_many :uaqs
+
   ## Validations
   validates_length_of :email, within: 1..30, allow_blank: true
   validates :telephone, presence: true, if: :telephone_required?

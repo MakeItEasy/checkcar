@@ -62,3 +62,43 @@ footer {
   padding: 20px 0px;
   background-color: #e4e4e4;
 }
+
+
+// -----------------------------------------
+// 页面头部的工具栏
+// -----------------------------------------
+.car-toolbox {
+  padding: 0px 10px;
+  border-top: 0px;
+  background-color: #f39c12;
+  .btn-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+// -----------------------------------------
+// 页面内容部分
+// -----------------------------------------
+.car-content-box {
+  padding: 25px 15px 15px;
+  dd {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed gray;
+    padding-bottom: 5px;
+  }
+}
+
+// 针对form的设计
+.car-content-form {
+  padding: 0;
+}
+// form表单部分
+.car-form-items {
+  padding: 25px 15px 15px;
+}
+// 提交按钮部分
+.car-form-actions {
+  padding: 15px;
+}

@@ -57,6 +57,7 @@ SimpleNavigation::Configuration.run do |navigation|
     #                   (针对子菜单)如果需要用badge，那么opts中必需有icon
     #
     primary.item :dashboard, I18n.t('view.controller.dashboard'), front_user_root_path, :opts => {:icon => 'fa fa-dashboard'}
+    primary.item :uaq, I18n.t('view.controller.uaqs'), front_user_uaqs_path, :opts => {:icon => 'fa fa-question'}, if: ->{ can? :read, Uaq }
     primary.item :personal, I18n.t('view.controller.personal'), nil, :opts => {icon: 'fa fa-th' } do |sub_nav|
       sub_nav.item :show, I18n.t('view.action.personal.show'), back_personal_show_path,
         :opts => { icon: '', badge_text: 'new', badge_class: 'bg-green' }

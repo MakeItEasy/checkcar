@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708071504) do
+ActiveRecord::Schema.define(version: 20140709003915) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -154,6 +154,19 @@ ActiveRecord::Schema.define(version: 20140708071504) do
   add_index "stations", ["district"], name: "index_stations_on_district", using: :btree
   add_index "stations", ["name"], name: "index_stations_on_name", unique: true, using: :btree
   add_index "stations", ["province"], name: "index_stations_on_province", using: :btree
+
+  create_table "uaqs", force: true do |t|
+    t.integer  "user_id",           null: false
+    t.string   "question",          null: false
+    t.integer  "answered_admin_id"
+    t.datetime "answered_time"
+    t.text     "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "uaqs", ["answered_admin_id"], name: "index_uaqs_on_answered_admin_id", using: :btree
+  add_index "uaqs", ["user_id"], name: "index_uaqs_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

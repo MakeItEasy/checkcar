@@ -1,0 +1,29 @@
+<div class='box car-toolbox'>
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group">
+      <%= link_to edit_front_user_uaq_path(@uaq), {class: 'btn btn-default'} do %>
+        <i class="fa fa-edit"></i> <%= t('view.action.edit') %> 
+      <% end %>
+    </div>
+    <div class="btn-group">
+      <%= link_to [:front, :user, @uaq], {method: :delete,
+      data: { confirm: t('view.confirm.delete')},  class: 'btn btn-default'} do %>
+        <i class="glyphicon glyphicon-remove"></i> <%= t('view.action.delete') %> 
+      <% end %>
+    </div>
+    <div class="btn-group pull-right">
+      <%= link_to front_user_uaqs_path, {class: 'btn btn-default'} do %>
+        <i class="fa fa-list"></i> <%= t('view.action.back_to_list') %> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class='box box-info car-content-box'>
+  <dl class="dl-horizontal">
+    <dt><%= Uaq.human_attribute_name(:question) %></dt>
+    <dd><%= @uaq.question %></dd>
+    <dt><%= Uaq.human_attribute_name(:answer) %></dt>
+    <dd><%= @uaq.answer %></dd>
+  </dl>
+</div>

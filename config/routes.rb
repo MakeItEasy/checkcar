@@ -43,6 +43,7 @@ Rails.application.routes.draw do
 
     namespace :user do
       root 'dashboard#index' 
+      resources :uaqs
     end
 
   end
