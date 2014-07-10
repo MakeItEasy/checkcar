@@ -1,27 +1,21 @@
-<% content_for :head_title do %>
-  登录
-<% end %>
-
-<div class='row car-devise'>
-  <div class='col-sm-8 car-left-side'>
-    <div class="car-nav-tabs-custom">
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="<%= new_user_session_path %>">账号登录</a></li>
-        <li><a href="<%= new_by_telephone_user_session_path%>">手机动态码登录</a></li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane active" id="tab_email">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="modal modal-primary fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">请登录</h4>
+          </div>
+          <%= form_for(User.new, url: user_session_path(:json), remote: true, authenticity_token: true, html: {id: "sign_in_remote_form"}) do |f| %>
+          <div class="modal-body">
             <div class="body">
-              <%= render "admins/notice_alert" %>
-              <div class="input-group col-sm-7">
+              <div class="input-group col-sm-8">
                 <span class="input-group-addon">
                   <i class='glyphicon glyphicon-user'></i>
                 </span>
                 <%= f.text_field :login, autofocus: true, class: 'form-control', placeholder: 'Email or 手机号码' %>
               </div>
               <br>
-              <div class="input-group col-sm-7">
+              <div class="input-group col-sm-8">
                 <span class="input-group-addon">
                   <i class='glyphicon glyphicon-lock'></i> 
                 </span>
@@ -29,7 +23,7 @@
               </div>          
               <br>
               <div>
-                <div class="input-group col-sm-4" style="float:left;">
+                <div class="input-group col-sm-5" style="float:left;">
                   <span class="input-group-addon">
                     <i class='glyphicon glyphicon-qrcode'></i> 
                   </span>
@@ -42,22 +36,15 @@
               </div>
               <div class="clearfix"></div>
               <div class="form-group">
-                <% if devise_mapping.rememberable? -%>
                   <br>
                   <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-                <% end -%>
               </div>
             </div>
-            <div class="footer">                                                               
-              <%= f.submit t('view.action.sign_in'), class: 'btn btn-lg btn-success col-sm-2' %>
-            </div>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit t('view.action.sign_in'), class: 'btn btn-lg btn-success col-sm-2' %>
+          </div>
           <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class='col-sm-4 car-right-side'>
-    <%= render "users/shared/links" %>
-  </div>
-</div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->

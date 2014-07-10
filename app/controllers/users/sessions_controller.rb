@@ -5,14 +5,42 @@ class Users::SessionsController < Devise::SessionsController
 
   def create
     if valid_captcha?(params[:captcha])
-      super
+      # super
+      self.resource = warden.authenticate(auth_options)
+      if self.resource
+        set_flash_message(:notice, :signed_in) if is_flashing_format?
+        sign_in(resource_name, resource)
+        yield resource if block_given?
+        respond_to do |format|
+          format.html do
+            respond_with resource, location: after_sign_in_path_for(resource)
+          end
+          format.json { render json: {}, status: :ok }
+        end
+      else
+        self.resource = resource_class.new(Devise::UserParameterSanitizer.new(User, :user, params).sign_in)
+        clean_up_passwords(resource)
+        respond_to do |format|
+          format.html do
+            flash[:alert] = I18n.t('devise.failure.invalid')
+            render :new
+          end
+          format.json do
+            render json: {error: I18n.t('devise.failure.invalid')}, status: :unprocessable_entity
+          end
+        end
+      end
     else
       # build_resource(Devise::UserParameterSanitizer.new(User, :user, params).sign_in)
       self.resource = resource_class.new(Devise::UserParameterSanitizer.new(User, :user, params).sign_in)
       clean_up_passwords(resource)
-      flash[:alert] = "验证码错误"      
-      flash.delete :recaptcha_error
-      render :new
+      respond_to do |format|
+        format.html do
+          flash[:alert] = I18n.t('view.alert.captcha_error')
+          render :new
+        end
+        format.json { render json: {error: I18n.t('view.alert.captcha_error')}, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -51,5 +79,10 @@ private
     return "该手机号码未注册" if User.find_by(telephone: self.resource.telephone).nil?
     return "手机动态码错误" if session[:phone_authcode] != params[:phone_authcode]
     return "手机动态码已经过期，请重新获取" if Time.now - session[:phone_authcode_send_time].to_time > 30*60
+  end
+
+  # Overwriting the sign_in redirect path method
+  def after_sign_in_path_for(resource)
+    request.referrer == request.original_url ? root_path : request.referrer
   end
 end

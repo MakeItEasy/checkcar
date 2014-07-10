@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require front/base
 
 ################################################################### 
 # 手机动态码的错误处理类
@@ -22,15 +23,6 @@ class AuthCodeErrorHandler
 
 # 由于使用了turbolinks,所以这里要注册这个事件
 $(document).on 'ready page:load', ->
-
-  ################################################################### 
-  # 验证码点击重载
-  ################################################################### 
-  $("img[alt='captcha']").each (index, item) ->  
-    item.title = '看不清？点击刷新'  
-  $('img.car-captcha').click (e) -> 
-    this.src = this.src + '?'  
-
 
   ################################################################### 
   # 获取手机动态码button的click处理

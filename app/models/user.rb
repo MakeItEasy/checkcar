@@ -27,9 +27,6 @@ class User < ActiveRecord::Base
     if login = conditions.delete(:login)
       user = where(conditions).where(["telephone = :value OR lower(email) = :value", { :value => login.downcase }]).first
       if user.present?
-        puts '===find_for_user====='
-        puts login
-        puts user.telephone
         if login == user.telephone
           user.update_columns(login_type: Car::Code::LOGIN_TYPE[:telephone])
         else

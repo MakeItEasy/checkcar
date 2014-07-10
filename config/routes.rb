@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   namespace :front, path: '/' do
     get 'catagory/:catagory_id' => 'welcome#list_posts', as: :catagory
     get 'catagory/:catagory_id/post/:post_id' => 'welcome#show_post', as: :post
+    # 得到当前是否登录，适用于AJAX请求
+    get 'sign_in_status'
 
     # 车检站
     namespace :station do
