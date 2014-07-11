@@ -11,53 +11,7 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab_email">
-          <%= form_for(resource, as: resource_name, url: telephone_user_session_path) do |f| %>
-            <div class="body">
-              <%= render "admins/notice_alert" %>
-              <div class="car-phone-authcode">
-                <div class="input-group col-sm-7">
-                  <span class="input-group-addon">
-                    <i class='glyphicon glyphicon-phone'></i>
-                  </span>
-                  <%= f.text_field :telephone, autofocus: true, 
-                    id: "telephone", class: 'form-control', placeholder: '手机号码' %>
-                </div>
-              </div>
-              <br>
-              <div class="car-captcha">
-                <div class="input-group col-sm-4" style="float:left;">
-                  <span class="input-group-addon">
-                    <i class='glyphicon glyphicon-qrcode'></i> 
-                  </span>
-                  <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'form-control', 
-                    placeholder: "验证码（点击图片刷新）"} %>
-                </div>          
-                <div class='col-sm-2' style='float: left;'>
-                    <%= captcha_tag class: 'car-captcha'%>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <br>
-              <div>
-                <div class="input-group col-sm-4" style="float:left;">
-                  <span class="input-group-addon">
-                    <i class='glyphicon glyphicon-lock'></i>
-                  </span>
-                  <%= text_field_tag :phone_authcode, nil, class: 'form-control', placeholder: '手机动态码' %>
-                </div>
-                <div class='col-sm-2' style='float: left;'>
-                  <a class="btn btn-warning" id="get_yanzhengma" >
-                    点击获取手机动态码
-                  </a>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-              <br>
-            </div>
-            <div class="footer">                                                               
-              <%= f.submit "登录", class: 'btn btn-lg btn-success col-sm-2' %>
-            </div>
-          <% end %>
+          <%= render "front/common/sign_in_form_phone", mode: :normal %> 
         </div>
       </div>
     </div>

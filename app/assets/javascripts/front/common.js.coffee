@@ -1,9 +1,18 @@
 # 由于使用了turbolinks,所以这里要注册这个事件
 $(document).on 'ready page:load', ->
-  # 登录modal框的登录处理
+  # 账号登录modal框的登录处理
   $("#sign_in_remote_form").on("ajax:success", (e, data, status, xhr) ->
     location.reload()
   ).on "ajax:error", (e, xhr, status, error) ->
+    # TODO dairg error处理
+    alert(xhr.responseJSON.error)
+    $('img.car-captcha').attr("src", $('img.car-captcha').attr("src"))
+
+  # 手机动态登录modal框的登录处理
+  $("#sign_in_remote_form_phone").on("ajax:success", (e, data, status, xhr) ->
+    location.reload()
+  ).on "ajax:error", (e, xhr, status, error) ->
+    # TODO dairg error处理
     alert(xhr.responseJSON.error)
     $('img.car-captcha').attr("src", $('img.car-captcha').attr("src"))
 
@@ -13,4 +22,5 @@ $(document).on 'ready page:load', ->
       if data
         location.reload()
       else
+        $('img.car-captcha').attr("src", $('img.car-captcha').attr("src"))
         $('#signinModal').modal('show')

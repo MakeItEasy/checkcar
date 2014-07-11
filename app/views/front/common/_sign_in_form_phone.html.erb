@@ -1,0 +1,58 @@
+<%
+  if mode == :ajax 
+    _resource = User.new
+    _form_options = {url: telephone_user_session_path(:json), remote: true, authenticity_token: true, 
+      html: {id: "sign_in_remote_form_phone"}}
+  else
+    _resource = resource
+    _form_options = {as: resource_name, url: telephone_user_session_path }
+  end
+%>
+<%= form_for(_resource, _form_options) do |f| %>
+<div class="body">
+  <%= render "admins/notice_alert" if mode==:normal %>
+  <div class="car-phone-authcode">
+    <div class="input-group col-sm-8">
+      <span class="input-group-addon">
+        <i class='glyphicon glyphicon-phone'></i>
+      </span>
+      <%= f.text_field :telephone, autofocus: true, 
+        id: "telephone", class: 'form-control', placeholder: '手机号码' %>
+    </div>
+  </div>
+  <br>
+  <div class="car-captcha">
+    <div class="input-group col-sm-5" style="float:left;">
+      <span class="input-group-addon">
+        <i class='glyphicon glyphicon-qrcode'></i> 
+      </span>
+      <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'form-control', 
+        placeholder: "验证码（点击图片刷新）"} %>
+    </div>          
+    <div class='col-sm-2' style='float: left;'>
+        <%= captcha_tag class: 'car-captcha'%>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <br>
+  <div>
+    <div class="input-group col-sm-5" style="float:left;">
+      <span class="input-group-addon">
+        <i class='glyphicon glyphicon-lock'></i>
+      </span>
+      <%= text_field_tag :phone_authcode, nil, class: 'form-control', placeholder: '手机动态码' %>
+    </div>
+    <div class='col-sm-2' style='float: left;'>
+      <a class="btn btn-warning" id="get_yanzhengma" >
+        点击获取手机动态码
+      </a>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <br>
+</div>
+<div class="footer">
+  <%= f.submit "登录", class: 'btn btn-lg btn-success col-sm-2' %>
+</div>
+<div class="clearfix"></div>
+<% end %>

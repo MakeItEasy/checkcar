@@ -12,9 +12,7 @@ class Users::SessionsController < Devise::SessionsController
         sign_in(resource_name, resource)
         yield resource if block_given?
         respond_to do |format|
-          format.html do
-            respond_with resource, location: after_sign_in_path_for(resource)
-          end
+          format.html { respond_with resource, location: after_sign_in_path_for(resource) }
           format.json { render json: {}, status: :ok }
         end
       else
@@ -54,14 +52,22 @@ class Users::SessionsController < Devise::SessionsController
   def create_by_telephone
     self.resource = resource_class.new(Devise::UserParameterSanitizer.new(User, :user, params).sign_in_by_telephone)
     if error = param_check_for_telephone
-      flash[:alert] = error
-      render :new_by_telephone
+      respond_to do |format|
+        format.html do
+          flash[:alert] = error
+          render :new_by_telephone
+        end
+        format.json { render json: {error: error}, status: :unprocessable_entity}
+      end
     else
       user = User.find_by(telephone: self.resource.telephone)
       sign_in user
       session[:phone_authcode] = nil
       session[:phone_authcode_send_time] = nil
-      respond_with resource, location: after_sign_in_path_for(resource)
+      respond_to do |format|
+        format.html { respond_with resource, location: after_sign_in_path_for(resource) }
+        format.json { render json: {}, status: :ok }
+      end
     end
   end
 

@@ -5,46 +5,31 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title" id="myModalLabel">请登录</h4>
           </div>
-          <%= form_for(User.new, url: user_session_path(:json), remote: true, authenticity_token: true, html: {id: "sign_in_remote_form"}) do |f| %>
           <div class="modal-body">
-            <div class="body">
-              <div class="input-group col-sm-8">
-                <span class="input-group-addon">
-                  <i class='glyphicon glyphicon-user'></i>
-                </span>
-                <%= f.text_field :login, autofocus: true, class: 'form-control', placeholder: 'Email or 手机号码' %>
-              </div>
-              <br>
-              <div class="input-group col-sm-8">
-                <span class="input-group-addon">
-                  <i class='glyphicon glyphicon-lock'></i> 
-                </span>
-                <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Password" %>
-              </div>          
-              <br>
-              <div>
-                <div class="input-group col-sm-5" style="float:left;">
-                  <span class="input-group-addon">
-                    <i class='glyphicon glyphicon-qrcode'></i> 
-                  </span>
-                  <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'form-control', 
-                    placeholder: "验证码（点击图片刷新）"} %>
-                </div>          
-                <div class='col-sm-2' style='float: left;'>
-                    <%= captcha_tag class: 'car-captcha'%>
+            <div class="car-nav-tabs-custom">
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="active">
+                  <a href="#tab_email" role="tab" data-toggle="tab">账号登录</a>
+                </li>
+                <li>
+                  <a href="#tab_telephone" role="tab" data-toggle="tab">手机动态码登录</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="tab_email">
+                  <%= render "front/common/sign_in_form_email", mode: :ajax %> 
                 </div>
-              </div>
-              <div class="clearfix"></div>
-              <div class="form-group">
-                  <br>
-                  <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+                <div class="tab-pane" id="tab_telephone">
+                  <%= render "front/common/sign_in_form_phone", mode: :ajax %> 
+                </div>
               </div>
             </div>
           </div>
+
           <div class="modal-footer">
-            <%= f.submit t('view.action.sign_in'), class: 'btn btn-lg btn-success col-sm-2' %>
+            还没有账号？赶快 <%= link_to t('view.action.sign_up'), new_user_registration_path,
+              class: "btn btn-danger btn-sm" %> 一个吧!
           </div>
-          <% end %>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
