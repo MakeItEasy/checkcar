@@ -11,7 +11,7 @@
 <%= form_for(_resource, _form_options) do |f| %>
 <div class="body">
   <%= render "admins/notice_alert" if mode==:normal %>
-  <div class="car-phone-authcode">
+  <div id="car-wrapper-phone-authcode">
     <div class="input-group col-sm-8">
       <span class="input-group-addon">
         <i class='glyphicon glyphicon-phone'></i>
@@ -21,12 +21,12 @@
     </div>
   </div>
   <br>
-  <div class="car-captcha">
+  <div id="car-wrapper-captcha-phone">
     <div class="input-group col-sm-5" style="float:left;">
       <span class="input-group-addon">
         <i class='glyphicon glyphicon-qrcode'></i> 
       </span>
-      <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'form-control', 
+      <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'form-control', id: 'captcha_phone',
         placeholder: "验证码（点击图片刷新）"} %>
     </div>          
     <div class='col-sm-2' style='float: left;'>

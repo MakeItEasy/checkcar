@@ -24,3 +24,8 @@ $(document).on 'ready page:load', ->
       else
         $('img.car-captcha').attr("src", $('img.car-captcha').attr("src"))
         $('#signinModal').modal('show')
+
+  # 在切换登录modal窗口的tab时，验证码刷新
+  $('#car-tab-sign-in a[data-toggle="tab"]').on 'show.bs.tab', ->
+    $($(this).attr("href")).find("img").attr "src", (index, attr) ->
+      attr
