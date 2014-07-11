@@ -46,8 +46,6 @@
                   </ul>
               </div>
             <% else %>
-              <%= link_to t('view.action.sign_in'), new_user_session_path,
-                class: "btn btn-success btn-sm" %>
               <a id="btn_sign_in" class="btn btn-danger btn-sm"><%= t('view.action.sign_in')%></a>
               <a style="margin: 0px 8px;">|</a>
               <%= link_to t('view.action.sign_up'), new_user_registration_path,
