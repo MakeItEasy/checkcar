@@ -37,7 +37,8 @@ class Front::User::UaqsController < Front::UserBaseController
     respond_to do |format|
       if @uaq.save
         format.html { redirect_to [:front_user, @uaq], notice: I18n.t('view.notice.created') }
-        format.json { render :show, status: :created, location: @uaq }
+        # format.json { render :show, status: :created, location: @uaq }
+        format.json { render json: {}, status: :created }
       else
         format.html do
           flash[:alert] = I18n.t('view.alert.create')

@@ -5,5 +5,5 @@ class Uaq < ActiveRecord::Base
   belongs_to :admin, foreign_key: :answered_admin_id
 
   ## Validates
-  validates :question, presence: true, length: { maximum: 50 }
+  validates :question, presence: true
 end

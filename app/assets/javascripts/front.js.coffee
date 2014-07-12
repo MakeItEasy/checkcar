@@ -11,6 +11,7 @@ jquery.turbolinks 必须在jquery 和jquery_ujs的后面，然后在turbolinks�
 //= require jquery/input-mask/jquery.inputmask
 
 # add other js here
+//= require front/common/class
 //= require front/common/base
 //= require front/common/sign_in
 //= require front/all

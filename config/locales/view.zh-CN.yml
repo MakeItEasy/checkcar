@@ -18,6 +18,7 @@
       lock: 锁定
       unlock: 解锁
       preview: 预览
+      submit: 提交
       cancel: 取消
       sign_in: 登录
       sign_up: 注册

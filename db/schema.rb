@@ -157,7 +157,7 @@ ActiveRecord::Schema.define(version: 20140709003915) do
 
   create_table "uaqs", force: true do |t|
     t.integer  "user_id",           null: false
-    t.string   "question",          null: false
+    t.text     "question",          null: false
     t.integer  "answered_admin_id"
     t.datetime "answered_time"
     t.text     "answer"

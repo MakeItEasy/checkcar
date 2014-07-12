@@ -1,7 +1,7 @@
 ################################################################### 
 # 手机动态码的错误处理类
 ################################################################### 
-class AuthCodeErrorHandler
+class @AuthCodeErrorHandler
   constructor: (@source, @errText) ->
   
   execute: ->
