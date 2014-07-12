@@ -13,5 +13,11 @@ class Front::QuestionController < FrontController
 
   ## 用户问题
   def index_uaq
+    @uaqs = Uaq.answered
+    if params[:name_uaq]
+      _like_name_uaq = "%#{params[:name_uaq]}%"
+      @uaqs = @uaqs.where("question like ? or answer like ?", _like_name_uaq, _like_name_uaq)
+    end
+    @uaqs = @uaqs.page(params[:page]).per(10)
   end
 end

@@ -9,7 +9,7 @@
         <form action='<%= front_question_index_uaq_path%>' method='get'>
           <div class="input-group input-group-sm col-sm-5">
             <input type="text" class="form-control" name='name_uaq' 
-              value="<%= params['name_uaq']%>">
+            value="<%= params['name_uaq']%>" placeholder=<%=t('view.label.find_by_keyword')%>>
             <span class="input-group-btn">
               <button class="btn btn-info btn-flat" type="submit">
                 <i class='fa fa-search-plus'></i>
@@ -23,31 +23,36 @@
           <ul class="nav nav-tabs">
             <li><%= link_to "常见问题", front_question_index_faq_path %></li>
             <li class="active"><%= link_to "用户提问", front_question_index_uaq_path %></li>
+            <div class="pull-right">
+              <a id="have_question" class="btn btn-danger"><%= t('view.action.have_question')%></a>
+            </div>
           </ul>
           <div class="header">
-            总共20条
+            <%= t("view.label.total_count", count: @uaqs.total_count) %>
           </div>
           <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
               <ul class='car-list-result'>
-                <li class='list-item car-question'>
-                  <h4 class="question">
-                    <i class="fa fa-question-circle"></i>
-                    请问上班时间是什么时候？
-                  </h4>
-                  <p class="answer">早上8点到下午5点</p>
-                </li>
+                <% @uaqs.each do |item| %>
+                  <li class='list-item car-question'>
+                    <h4 class="question">
+                      <i class="fa fa-question-circle"></i><%= item.question%>
+                      <span class="car-tips-date pull-right">
+                        <i class="glyphicon glyphicon-time"></i>
+                        <%= distance_of_time_in_words_to_now(item.created_at, include_seconds: true) %>
+                      </span>
+                    </h4>
+                    <p class="answer"><%= item.answer%></p>
+                  </li>
+                <% end %>
               </ul>
 
-              <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-              </ul>
+              <div>
+                <%= paginate @uaqs %>
+                <div class="car-page-entries-info pull-right">
+                  <%= page_entries_info @uaqs %>
+                </div>
+              </div>
 
             </div><!-- /.tab-pane -->
           </div><!-- /.tab-content -->

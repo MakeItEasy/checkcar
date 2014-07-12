@@ -5,6 +5,7 @@
       back_title: 车审后台管理系统
       back_title_long: 陕西车辆年审网后台管理系统
     action:
+      have_question: 我要提问
       answer: 回答
       new: 新建
       new_question: 发起提问
