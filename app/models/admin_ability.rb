@@ -72,10 +72,14 @@ private
     can :complete, Post, :create_user_id => user.id, :status => "draft"
     can :preview, Post
 
+    # FAQ
     can :read, Faq
     can :create, Faq
     can :update, Faq, :create_user_id => user.id
     can :destroy, Faq, :create_user_id => user.id
+    # 用户问题
+    can :read, Uaq
+    can :update, Uaq, :answered_admin_id => nil
 
     # Always performed
     # needed to access Ckeditor filebrowser

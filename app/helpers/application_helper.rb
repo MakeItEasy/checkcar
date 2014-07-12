@@ -20,4 +20,13 @@ module ApplicationHelper
       item
     end
   end
+
+  ## 渲染问题状态
+  def render_question_status(answered)
+    if answered
+      "<span class='label label-success'>#{I18n.t('view.label.answered')}</span>".html_safe
+    else
+      "<span class='label label-danger'>#{I18n.t('view.label.wait_answer')}</span>".html_safe
+    end
+  end
 end

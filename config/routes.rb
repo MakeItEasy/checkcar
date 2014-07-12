@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     resources :admins
     resources :catagories
     resources :faqs
+    resources :uaqs, except: [:new, :create, :destroy]
     resources :posts do
       member do
         patch 'complete'

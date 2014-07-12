@@ -5,6 +5,7 @@
       back_title: 车审后台管理系统
       back_title_long: 陕西车辆年审网后台管理系统
     action:
+      answer: 回答
       new: 新建
       new_question: 发起提问
       edit: 编辑
@@ -85,6 +86,10 @@
       links_split: ' | '
       total_count: "总共 %{count} 条记录"
       find_by_keyword: 搜索关键字
+      status: 状态
+      answered: 已回答
+      wait_answer: "等待回答..."
+      all: 全部
     # 主要用于page header
     controller:
       admins: 后台管理员

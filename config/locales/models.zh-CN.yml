@@ -78,7 +78,7 @@
         answer: 回答内容
         <<: *default
       uaq:
-        create_user_id: 提问者
+        user_id: 提问者
         question: 问题内容
         answered_admin_id: 回答者
         answer: 回答内容
