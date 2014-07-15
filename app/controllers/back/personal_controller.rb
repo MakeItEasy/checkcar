@@ -21,7 +21,7 @@ class Back::PersonalController < BackController
   def update_password
     respond_to do |format|
       @admin.password_required = true
-      if @admin.update_with_password(params.require(:admin).permit(:current_password, :password, :password_confirmation))
+      if @admin.update_with_password(params.require(@admin.class.to_s.underscore).permit(:current_password, :password, :password_confirmation))
         format.html do
           sign_in @admin, :bypass => true
           redirect_to back_personal_show_path, notice: I18n.t('view.notice.modify_password_success')
@@ -61,6 +61,6 @@ class Back::PersonalController < BackController
     end
 
     def personal_params
-      params.require(:admin).permit(:name, :telephone)
+      params.require(@admin.class.to_s.underscore).permit(:name, :telephone)
     end
 end

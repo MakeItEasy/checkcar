@@ -6,12 +6,18 @@ class DeviseCreateAdmins < ActiveRecord::Migration
       t.string :encrypted_password, null: false, default: ""
 
       ## Customize
+      # 类型
+      t.string :type, null: false
       # 姓名
       t.string :name, null: false, default: ""
       # 手机号
       t.string :telephone, null: false, default: ""
       # 性别
       t.string :sex, null: false
+      # 管理员的角色
+      t.text :roles
+      # 车检站ID
+      t.integer :station_id
 
       ## Recoverable
       # 重置密码相关

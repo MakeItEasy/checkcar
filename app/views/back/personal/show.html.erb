@@ -18,13 +18,5 @@
     <dd><i class="fa fa-<%= @admin.sex %>"></i> <%= @admin.sex_text %></dd>
     <dt><%= Admin.human_attribute_name(:telephone) %></dt>
     <dd><%= @admin.telephone %></dd>
-    <dt><%= Admin.human_attribute_name(:roles) %></dt>
-    <dd>
-      <% @admin.roles.each do |role| -%>
-      <p>
-        <i class='fa fa-check-square-o'></i> <%= role.label %>
-      </p>
-      <% end -%>
-    </dd>
   </dl>
 </div>

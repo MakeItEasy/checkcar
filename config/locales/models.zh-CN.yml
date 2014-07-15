@@ -1,7 +1,8 @@
 'zh-CN':
   activerecord:
     models:
-      admin: "后台管理员"
+      system_admin: "系统管理员"
+      station_admin: "车检站管理员"
       admin_console: "管理员控制台"
       catagory: "文章分类"
       post: "文章"

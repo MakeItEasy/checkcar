@@ -160,7 +160,6 @@ GEM
       json (~> 1.4)
     ref (1.0.5)
     rmagick (2.13.2)
-    rolify (3.4.0)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
@@ -265,7 +264,6 @@ DEPENDENCIES
   rails (= 4.1.1)
   rails-i18n (~> 4.0.0)
   rmagick
-  rolify
   rspec
   rspec-rails
   sass-rails (~> 4.0.3)

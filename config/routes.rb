@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   namespace :back, path: 'admin_console' do
     root 'dashboard#index' 
     # get 'dashboard' => 'dashboard#index' 
-    resources :admins
+    resources :system_admins
     resources :catagories
     resources :faqs
     resources :uaqs, except: [:new, :create, :destroy]

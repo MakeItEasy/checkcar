@@ -1,8 +1,8 @@
-<% if can? :create, Admin %>
+<% if can? :create, SystemAdmin %>
 <div class='box car-toolbox'>
   <div class="btn-toolbar" role="toolbar">
     <div class="btn-group">
-      <%= link_to new_back_admin_path, {class: 'btn btn-default'} do%>
+      <%= link_to new_back_system_admin_path, {class: 'btn btn-default'} do%>
         <i class="glyphicon glyphicon-plus"></i> <%= t('view.action.new') %> 
       <% end -%>
     </div>
@@ -12,24 +12,24 @@
 
 <div class='car-content-list'>
 
-  <%# grid @admins_grid, show_filters: :when_filtered do |g| %>
-  <%= grid @admins_grid do |g|
+  <%# grid @system_admins_grid, show_filters: :when_filtered do |g| %>
+  <%= grid @system_admins_grid do |g|
     g.action_column
-    g.column name: Admin.human_attribute_name(:id), attribute: "id"
-    g.column name: Admin.human_attribute_name(:email), attribute: "email"
-    g.column name: Admin.human_attribute_name(:name), attribute: "name"
-    g.column name: Admin.human_attribute_name(:sex), attribute: "sex", 
+    g.column name: SystemAdmin.human_attribute_name(:id), attribute: "id"
+    g.column name: SystemAdmin.human_attribute_name(:email), attribute: "email"
+    g.column name: SystemAdmin.human_attribute_name(:name), attribute: "name"
+    g.column name: SystemAdmin.human_attribute_name(:sex), attribute: "sex", 
       custom_filter: enum_list_for_view(Car::Code::SEX, :sex), allow_multiple_selection: false do |item|
       item.sex_text
     end
-    g.column name: Admin.human_attribute_name(:telephone), attribute: "telephone", ordering: false
+    g.column name: SystemAdmin.human_attribute_name(:telephone), attribute: "telephone", ordering: false
     g.column do |item|
       links = []
       if can? :read, item
         links << link_to(I18n.t('view.action.show'), [:back, item])
       end
       if can? :update, item
-        links << link_to(I18n.t('view.action.edit'), edit_back_admin_path(item))
+        links << link_to(I18n.t('view.action.edit'), edit_back_system_admin_path(item))
       end
       if can? :destroy, item
         links << link_to(I18n.t('view.action.delete'), [:back, item], method: :delete, data: { confirm: t('view.confirm.delete')})

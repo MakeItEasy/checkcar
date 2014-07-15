@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Back::AdminsController, :type => :controller do
+RSpec.describe Back::SystemAdminsController, :type => :controller do
 
   describe "GET 'index'" do
     it "returns http success" do

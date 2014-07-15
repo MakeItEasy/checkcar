@@ -59,7 +59,10 @@ private
 
   # Overwriting the sign_in redirect path method
   def after_sign_in_path_for(resource)
-    resource.class == Admin ? back_root_path : root_path
+    puts "= after sign_in========" 
+    puts resource.class
+    puts resource.type
+    resource.is_a?(Admin) ? back_root_path : root_path
   end
 
   # render 404 error 

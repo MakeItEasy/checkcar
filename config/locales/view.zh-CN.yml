@@ -93,7 +93,7 @@
       all: 全部
     # 主要用于page header
     controller:
-      admins: 后台管理员
+      system_admins: 系统管理员
       dashboard: 控制面板
       personal: 个人中心
       catagories: 文章分类
@@ -110,3 +110,5 @@
     unit:
       pian: 篇
       jian: 件
+    menu:
+      question: "FAQ&问题"

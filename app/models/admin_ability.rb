@@ -2,14 +2,17 @@ class AdminAbility
   include CanCan::Ability
 
   def initialize(user)
-    user ||= Admin.new
+    user ||= SystemAdmin.new
     alias_action :create, :read, :update, :destroy, :to => :crud
 
-    # 超级管理员
-    set_ability_superadmin(user) if user.is_superadmin?
-    # TODO dairg QA 版主和编辑的责任划分
-    set_ability_moderator(user) if user.is_moderator?
-    set_ability_editor(user) if user.is_editor?
+    if user.is_a? StationAdmin
+    else
+      # 超级管理员
+      set_ability_superadmin(user) if user.has_role?("superadmin")
+      # TODO dairg QA 版主和编辑的责任划分
+      set_ability_moderator(user) if user.has_role?("moderator")
+      set_ability_editor(user) if user.has_role?("editor")
+    end
 
     # Define abilities for the passed in user here. For example:
     #

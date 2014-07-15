@@ -50,7 +50,8 @@ end
 ## 认证，权限，角色
 gem 'devise'
 gem 'cancan'
-gem 'rolify'
+# 角色管理
+# gem 'rolify'
 
 gem 'rails-i18n', '~> 4.0.0' 
 

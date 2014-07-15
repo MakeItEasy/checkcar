@@ -41,5 +41,11 @@ module Car
       email: 'email',
       telephone: 'telephone'
     }
+
+    # 系统管理员角色
+    SYSTEM_ROLES = ["superadmin", "moderator", "editor"]
+
+    # 车检站管理员角色
+    STATION_ROLES = ["admin", "normal"]
   end
 end

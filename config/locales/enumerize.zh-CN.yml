@@ -20,3 +20,11 @@ zh-CN:
       status:
         success: 预约成功
         cancel: 预约取消
+    roles:
+      system_admin:
+        superadmin: 超级管理员
+        moderator: 版主
+        editor: 编辑
+      station_admin:
+        admin: 管理员
+        normal: 普通员工

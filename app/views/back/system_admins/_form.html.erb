@@ -1,12 +1,13 @@
-<%= simple_form_for([:back, @admin], html: {class: 'form-horizontal mask-form', role: 'form'} ) do |f| %>
+<%= simple_form_for([:back, @system_admin], html: {class: 'form-horizontal mask-form', role: 'form'} ) do |f| %>
   <div class='car-form-items'>
     <%= f.input :email, placeholder: t('view.placeholder.email') %>
     <%= f.input :name, placeholder: t('view.placeholder.name') %>
     <%= f.input :sex, as: :radio_buttons %>
     <%= f.input :telephone, input_html: telephone_mask_hash %>
-    <%= f.input :password, required: @admin.new_record? %>
+    <%= f.input :password, required: @system_admin.new_record? %>
     <%= f.input :password_confirmation %>
-    <%= f.association :roles, as: :check_boxes, label_method: :label %>
+    <%# f.association :roles, as: :check_boxes, label_method: :label %>
+    <%= f.input :roles, as: :check_boxes, collection: admin_role_collections %>
   </div>
   <div class="car-form-actions bg-gray">
     <div class='col-sm-offset-2 col-sm-10 button-wrapper'>

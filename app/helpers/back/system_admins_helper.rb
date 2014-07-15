@@ -1,0 +1,2 @@
+module Back::SystemAdminsHelper
+end

@@ -16,9 +16,12 @@ ActiveRecord::Schema.define(version: 20140709003915) do
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "type",                                null: false
     t.string   "name",                   default: "", null: false
     t.string   "telephone",              default: "", null: false
     t.string   "sex",                                 null: false
+    t.text     "roles"
+    t.integer  "station_id"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -38,13 +41,6 @@ ActiveRecord::Schema.define(version: 20140709003915) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   add_index "admins", ["telephone"], name: "index_admins_on_telephone", unique: true, using: :btree
   add_index "admins", ["unlock_token"], name: "index_admins_on_unlock_token", unique: true, using: :btree
-
-  create_table "admins_roles", id: false, force: true do |t|
-    t.integer "admin_id"
-    t.integer "role_id"
-  end
-
-  add_index "admins_roles", ["admin_id", "role_id"], name: "index_admins_roles_on_admin_id_and_role_id", using: :btree
 
   create_table "catagories", force: true do |t|
     t.string   "name",       limit: 10, default: "", null: false
@@ -121,18 +117,6 @@ ActiveRecord::Schema.define(version: 20140709003915) do
   add_index "posts", ["create_user_id"], name: "index_posts_on_create_user_id", using: :btree
   add_index "posts", ["status"], name: "index_posts_on_status", using: :btree
   add_index "posts", ["title"], name: "index_posts_on_title", using: :btree
-
-  create_table "roles", force: true do |t|
-    t.string   "name"
-    t.string   "label"
-    t.integer  "resource_id"
-    t.string   "resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
-  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "stations", force: true do |t|
     t.string   "name",          default: "", null: false
