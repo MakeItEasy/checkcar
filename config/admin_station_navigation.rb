@@ -60,6 +60,10 @@ SimpleNavigation::Configuration.run do |navigation|
       :opts => {:icon => 'fa fa-dashboard'}
     primary.item :station_admins, StationAdmin.model_name.human, back_mystation_station_admins_path,
       :opts => {icon: 'ion ion-person-stalker' }, if: ->{ can? :read, StationAdmin }
+    primary.item :settings, I18n.t('view.menu.settings'), nil, :opts => {icon: 'ion ion-settings' },
+      if: ->{can? :show, :settings} do |sub_nav|
+      sub_nav.item :show, I18n.t('view.menu.station_base_info'), back_mystation_station_path, if: -> {can? :show, Station}
+    end
     primary.item :personal, I18n.t('view.controller.personal'), nil, :opts => {icon: 'fa fa-th' } do |sub_nav|
       sub_nav.item :show, I18n.t('view.action.personal.show'), back_personal_show_path
       sub_nav.item :password, I18n.t('view.action.personal.password'), back_personal_password_path

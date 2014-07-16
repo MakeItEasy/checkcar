@@ -1,0 +1,13 @@
+<div class='box car-toolbox'>
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group">
+      <%= link_to back_mystation_station_path, {class: 'btn btn-default'} do%>
+        <i class="fa fa-info-circle"></i> <%= t('view.action.show_detail') %> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class='box box-info car-content-form'>
+  <%= render 'form' %>
+</div>

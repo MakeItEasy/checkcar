@@ -123,7 +123,9 @@ private
   def set_ability_station_admin(user)
     can :crud, StationAdmin, station_id: user.station.id
     can :show, Station, id: user.station.id
-    can :edit, Station, id: user.station.id
+    can :update, Station, id: user.station.id
+    # 显示设置中心菜单
+    can :show, :settings
   end
 
   # 普通员工

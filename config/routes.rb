@@ -75,6 +75,7 @@ Rails.application.routes.draw do
     namespace :mystation do
       root 'dashboard#index' 
       resources :station_admins
+      resource :station, only: [:show, :edit, :update]
     end
 
     # 个人中心
