@@ -57,7 +57,10 @@ SimpleNavigation::Configuration.run do |navigation|
     #                   (针对子菜单)如果需要用badge，那么opts中必需有icon
     #
     primary.item :dashboard, I18n.t('view.controller.dashboard'), back_root_path, :opts => {:icon => 'fa fa-dashboard'}
-    primary.item :system_admins, SystemAdmin.model_name.human, back_system_admins_path, :opts => {icon: 'fa fa-users' }, if: ->{ can? :read, SystemAdmin }
+    primary.item :system_admins, SystemAdmin.model_name.human, back_system_admins_path,
+      :opts => {icon: 'fa fa-users' }, if: ->{ can? :read, SystemAdmin }
+    primary.item :station_admins, StationAdmin.model_name.human, back_station_admins_path,
+      :opts => {icon: 'ion ion-person-stalker' }, if: ->{ can? :read, StationAdmin }
     primary.item :catagories, Catagory.model_name.human, back_catagories_path, :opts => {icon: 'fa fa-flag' }, if: ->{ can? :read, Catagory }
     primary.item :posts, Post.model_name.human, back_posts_path, :opts => {icon: 'fa fa-book' }, if: ->{ can? :read, Post}
     primary.item :question, I18n.t('view.menu.question'), nil, :opts => {icon: 'fa fa-question' },

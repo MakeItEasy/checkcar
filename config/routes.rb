@@ -55,6 +55,7 @@ Rails.application.routes.draw do
     root 'dashboard#index' 
     # get 'dashboard' => 'dashboard#index' 
     resources :system_admins
+    resources :station_admins
     resources :catagories
     resources :faqs
     resources :uaqs, except: [:new, :create, :destroy]

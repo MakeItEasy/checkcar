@@ -94,6 +94,7 @@
     # 主要用于page header
     controller:
       system_admins: 系统管理员
+      station_admins: 车检站管理员
       dashboard: 控制面板
       personal: 个人中心
       catagories: 文章分类

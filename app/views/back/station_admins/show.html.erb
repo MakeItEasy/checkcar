@@ -1,0 +1,47 @@
+<div class='box car-toolbox'>
+  <div class="btn-toolbar" role="toolbar">
+  <% if can? :update, @station_admin %>
+    <div class="btn-group">
+      <%= link_to edit_back_station_admin_path(@station_admin), {class: 'btn btn-default'} do %>
+        <i class="fa fa-edit"></i> <%= t('view.action.edit') %> 
+      <% end %>
+    </div>
+  <% end %>
+  <% if can? :destroy, @station_admin %>
+    <div class="btn-group">
+      <%= link_to [:back, @station_admin], {method: :delete,
+      data: { confirm: t('view.confirm.delete')},  class: 'btn btn-default'} do %>
+        <i class="glyphicon glyphicon-remove"></i> <%= t('view.action.delete') %> 
+      <% end %>
+    </div>
+  <% end %>
+    <div class="btn-group pull-right">
+      <%= link_to back_station_admins_path, {class: 'btn btn-default'} do %>
+        <i class="fa fa-list"></i> <%= t('view.action.back_to_list') %> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class='box box-info car-content-box'>
+  <dl class="dl-horizontal">
+    <dt><%= StationAdmin.human_attribute_name(:station) %></dt>
+    <dd><%= @station_admin.station.name%></dd>
+    <dt><%= StationAdmin.human_attribute_name(:email) %></dt>
+    <dd><%= @station_admin.email %></dd>
+    <dt><%= StationAdmin.human_attribute_name(:name) %></dt>
+    <dd><%= @station_admin.name %></dd>
+    <dt><%= StationAdmin.human_attribute_name(:sex) %></dt>
+    <dd><i class="fa fa-<%= @station_admin.sex %>"></i> <%= @station_admin.sex_text %></dd>
+    <dt><%= StationAdmin.human_attribute_name(:telephone) %></dt>
+    <dd><%= @station_admin.telephone %></dd>
+    <dt><%= StationAdmin.human_attribute_name(:roles) %></dt>
+    <dd>
+    <% @station_admin.roles.each do |role| -%>
+    <p>
+    <i class='fa fa-check-square-o'></i> <%=I18n.t("enumerize.roles.station_admin.#{role }")%>
+    </p>
+    <% end -%>
+    </dd>
+  </dl>
+</div>
