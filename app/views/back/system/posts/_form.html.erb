@@ -1,0 +1,13 @@
+<%= simple_form_for([:back, :system, @post], html: {class: 'form-horizontal mask-form', role: 'form'} ) do |f| %>
+  <div class='car-form-items'>
+    <%= f.association :catagory %>
+    <%= f.input :title %>
+    <%= f.input :content, as: :ckeditor %>
+  </div>
+  <div class="car-form-actions bg-gray">
+    <div class='col-sm-offset-2 col-sm-10 button-wrapper'>
+      <%= f.button :submit, class: 'btn-primary' %>
+    </div>
+    <div class='clearfix'></div>
+  </div>
+<% end %>

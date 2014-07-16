@@ -22,7 +22,11 @@
   <!-- /.search form -->
   <!-- sidebar menu: : style can be found in sidebar.less -->
   <ul class="sidebar-menu">
-    <%= render_navigation( level: 1, context: :admin, renderer: :list_bootstrap_render) %>
+    <% if current_admin.system_admin? %>
+      <%= render_navigation( level: 1, context: :admin, renderer: :list_bootstrap_render) %>
+    <% else %>
+      <%= render_navigation( level: 1, context: :admin_station, renderer: :list_bootstrap_render) %>
+    <% end %>
   </ul>
 </section>
 <!-- /.sidebar -->

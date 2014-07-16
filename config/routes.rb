@@ -52,24 +52,30 @@ Rails.application.routes.draw do
 
   ## 后台site
   namespace :back, path: 'admin_console' do
-    root 'dashboard#index' 
-    # get 'dashboard' => 'dashboard#index' 
-    resources :system_admins
-    resources :station_admins
-    resources :catagories
-    resources :faqs
-    resources :uaqs, except: [:new, :create, :destroy]
-    resources :posts do
-      member do
-        patch 'complete'
-        patch 'publish'
-        patch 'reject'
-        patch 'lock'
-        patch 'unlock'
-        get 'preview'
+    namespace :system do
+      root 'dashboard#index' 
+      resources :system_admins
+      resources :station_admins
+      resources :catagories
+      resources :faqs
+      resources :uaqs, except: [:new, :create, :destroy]
+      resources :posts do
+        member do
+          patch 'complete'
+          patch 'publish'
+          patch 'reject'
+          patch 'lock'
+          patch 'unlock'
+          get 'preview'
+        end
       end
+      resources :stations
     end
-    resources :stations
+
+    namespace :station do
+      root 'dashboard#index' 
+      resources :station_admins
+    end
 
     # 个人中心
     namespace :personal do

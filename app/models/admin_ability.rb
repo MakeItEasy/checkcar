@@ -1,18 +1,26 @@
 class AdminAbility
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user, namespace)
     user ||= SystemAdmin.new
     alias_action :create, :read, :update, :destroy, :to => :crud
 
-    if user.is_a? StationAdmin
-    else
+    if ['back/system', 'back'].include?(namespace) && user.system_admin?
+      set_ability_system_common(user)
       # 超级管理员
-      set_ability_superadmin(user) if user.has_role?("superadmin")
+      set_ability_system_superadmin(user) if user.has_role?("superadmin")
       # TODO dairg QA 版主和编辑的责任划分
-      set_ability_moderator(user) if user.has_role?("moderator")
-      set_ability_editor(user) if user.has_role?("editor")
+      set_ability_system_moderator(user) if user.has_role?("moderator")
+      set_ability_system_editor(user) if user.has_role?("editor")
     end
+    if ['back/station', 'back'].include?(namespace) && user.station_admin?
+      set_ability_station_common(user)
+      set_ability_station_admin(user) if user.has_role?("admin")
+      set_ability_station_normal(user) if user.has_role?("normal")
+    end
+
+    ## 不能删除id为1的超级管理员
+    cannot :destroy, SystemAdmin, :id => 1
 
     # Define abilities for the passed in user here. For example:
     #
@@ -44,15 +52,24 @@ class AdminAbility
 
 private
 
+  ## ========================================================================
+  ## 系统管理员权限管理
+  ## ========================================================================
+
+  # 基本权限
+  def set_ability_system_common(user)
+    can :index, :dashboard
+  end
+
   # 超级管理员
-  def set_ability_superadmin(user)
+  def set_ability_system_superadmin(user)
     # TODO dairg 不要用manage all，而是吧每个权限都细标出来
     # can :manage, :all
     can :crud, :all
   end
 
   # 版主
-  def set_ability_moderator(user)
+  def set_ability_system_moderator(user)
     can :read, Catagory
     can :read, Post
     can :destroy, Post
@@ -67,7 +84,7 @@ private
   end
 
   # 编辑
-  def set_ability_editor(user)
+  def set_ability_system_editor(user)
     can :read, Catagory
     can :read, Post
     can :create, Post
@@ -91,5 +108,25 @@ private
     can :create, Ckeditor::Picture
     can :read, Ckeditor::AttachmentFile
     can :create, Ckeditor::AttachmentFile
+  end
+
+  ## ========================================================================
+  ## 车检站管理
+  ## ========================================================================
+
+  # 基本权限
+  def set_ability_station_common(user)
+    can :index, :dashboard
+  end
+
+  # 管理员
+  def set_ability_station_admin(user)
+    can :crud, StationAdmin, station_id: user.station.id
+    can :show, Station, id: user.station.id
+    can :edit, Station, id: user.station.id
+  end
+
+  # 普通员工
+  def set_ability_station_normal(user)
   end
 end

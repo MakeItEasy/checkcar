@@ -56,47 +56,14 @@ SimpleNavigation::Configuration.run do |navigation|
     #           :opts - 参照class ListBootstrap, :icon, :badge_text, :badge_class
     #                   (针对子菜单)如果需要用badge，那么opts中必需有icon
     #
-    primary.item :dashboard, I18n.t('view.controller.dashboard'), back_system_root_path, :opts => {:icon => 'fa fa-dashboard'}
-    primary.item :system_admins, SystemAdmin.model_name.human, back_system_system_admins_path,
-      :opts => {icon: 'fa fa-users' }, if: ->{ can? :read, SystemAdmin }
-    primary.item :station_admins, StationAdmin.model_name.human, back_system_station_admins_path,
+    primary.item :dashboard, I18n.t('view.controller.dashboard'), back_station_root_path,
+      :opts => {:icon => 'fa fa-dashboard'}
+    primary.item :station_admins, StationAdmin.model_name.human, back_station_station_admins_path,
       :opts => {icon: 'ion ion-person-stalker' }, if: ->{ can? :read, StationAdmin }
-    primary.item :catagories, Catagory.model_name.human, back_system_catagories_path, :opts => {icon: 'fa fa-flag' }, if: ->{ can? :read, Catagory }
-    primary.item :posts, Post.model_name.human, back_system_posts_path, :opts => {icon: 'fa fa-book' }, if: ->{ can? :read, Post}
-    primary.item :question, I18n.t('view.menu.question'), nil, :opts => {icon: 'fa fa-question' },
-      if: -> {can?(:read, Faq) || can?(:read, Uaq)} do |sub_nav|
-      sub_nav.item :faqs, Faq.model_name.human, back_system_faqs_path,  if: ->{ can? :read, Faq}
-      sub_nav.item :uaqs, Uaq.model_name.human, back_system_uaqs_path,  if: ->{ can? :read, Uaq}
-    end
-    primary.item :stations, Station.model_name.human, back_system_stations_path, :opts => {icon: 'fa fa-bullseye' }, if: ->{ can? :read, Station}
     primary.item :personal, I18n.t('view.controller.personal'), nil, :opts => {icon: 'fa fa-th' } do |sub_nav|
-      sub_nav.item :show, I18n.t('view.action.personal.show'), back_personal_show_path,
-        :opts => { icon: '', badge_text: 'new', badge_class: 'bg-green' }
+      sub_nav.item :show, I18n.t('view.action.personal.show'), back_personal_show_path
       sub_nav.item :password, I18n.t('view.action.personal.password'), back_personal_password_path
     end
-
-    ### 一个子菜单的例子,最好只弄两级菜单
-=begin
-    primary.item :admins, '系统管理员', nil,
-      :opts => {icon: 'fa fa-th' } do |sub_nav|
-      sub_nav.item :adminsdsf, 'show', back_show_path, :opts => {:icon => 'fa fa-dashboard', badge_text: 'new', badge_class: 'bg-green' }
-      sub_nav.item :adminsindex, 'index', back_admins_path
-    end
-=end
-
-    # Add an item which has a sub navigation (same params, but with block)
-=begin
-    primary.item :key_2, 'name', url, options do |sub_nav|
-      # Add an item to the sub navigation (same params again)
-      sub_nav.item :key_2_1, 'name', url, options
-    end
-
-    # You can also specify a condition-proc that needs to be fullfilled to display an item.
-    # Conditions are part of the options. They are evaluated in the context of the views,
-    # thus you can use all the methods and vars you have available in the views.
-    primary.item :key_3, 'Admin', url, class: 'special', if: -> { current_user.admin? }
-    primary.item :key_4, 'Account', url, unless: -> { logged_in? }
-=end
 
     # you can also specify html attributes to attach to this particular level
     # works for all levels of the menu

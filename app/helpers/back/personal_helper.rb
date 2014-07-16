@@ -1,2 +1,0 @@
-module Back::PersonalHelper
-end

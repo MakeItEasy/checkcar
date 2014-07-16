@@ -1,0 +1,19 @@
+<%= simple_form_for([:back, :system, @station], html: {class: 'form-horizontal mask-form', role: 'form'} ) do |f| %>
+  <div class='car-form-items'>
+    <%= f.input :name%>
+    <div class="city-group">
+      <%= f.input :province, as: :select, collection: ChinaCity.list, input_html: {class: 'city-select'} %>
+      <%= f.input :city, as: :select, collection: ChinaCity.list(@station.province), input_html: {class: 'city-select'} %>
+      <%= f.input :district, as: :select, collection: ChinaCity.list(@station.city), input_html: {class: 'city-select'} %>
+    </div>
+    <%= f.input :address %>
+    <%= f.input :telephone %>
+    <%= f.input :recommend%>
+  </div>
+  <div class="car-form-actions bg-gray">
+    <div class='col-sm-offset-2 col-sm-10 button-wrapper'>
+      <%= f.button :submit, class: 'btn-primary' %>
+    </div>
+    <div class='clearfix'></div>
+  </div>
+<% end %>

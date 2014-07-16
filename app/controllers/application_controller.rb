@@ -54,15 +54,14 @@ private
 
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
-    resource_or_scope == :admin ? back_root_path : root_path
+    resource_or_scope == :admin ? new_admin_session_path : root_path
   end
 
   # Overwriting the sign_in redirect path method
   def after_sign_in_path_for(resource)
-    puts "= after sign_in========" 
-    puts resource.class
-    puts resource.type
-    resource.is_a?(Admin) ? back_root_path : root_path
+    return back_system_root_path if resource.is_a?(SystemAdmin)
+    return back_station_root_path if resource.is_a?(StationAdmin)
+    root_path
   end
 
   # render 404 error 

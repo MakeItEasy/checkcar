@@ -1,0 +1,18 @@
+<div class='box car-toolbox'>
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group">
+      <%= link_to [:back, :system, @faq], {class: 'btn btn-default'} do%>
+        <i class="fa fa-info-circle"></i> <%= t('view.action.show_detail') %> 
+      <% end %>
+    </div>
+    <div class="btn-group pull-right">
+      <%= link_to back_system_faqs_path, {class: 'btn btn-default'} do %>
+        <i class="fa fa-list"></i> <%= t('view.action.back_to_list') %> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class='box box-info car-content-form'>
+  <%= render 'form' %>
+</div>
