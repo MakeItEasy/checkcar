@@ -13,7 +13,7 @@ class AdminAbility
       set_ability_system_moderator(user) if user.has_role?("moderator")
       set_ability_system_editor(user) if user.has_role?("editor")
     end
-    if ['back/station', 'back'].include?(namespace) && user.station_admin?
+    if ['back/mystation', 'back'].include?(namespace) && user.station_admin?
       set_ability_station_common(user)
       set_ability_station_admin(user) if user.has_role?("admin")
       set_ability_station_normal(user) if user.has_role?("normal")

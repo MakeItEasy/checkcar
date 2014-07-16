@@ -1,38 +1,38 @@
-class Back::Station::StationAdminsController < Back::StationBaseController
+class Back::Mystation::StationAdminsController < Back::StationBaseController
   before_action :set_station_admin, only: [:show, :edit, :update, :destroy]
 
   ## 加载权限
   load_and_authorize_resource
 
   ## 面包屑导航
-  add_breadcrumb StationAdmin.model_name.human, :back_station_station_admins_path
+  add_breadcrumb StationAdmin.model_name.human, :back_mystation_station_admins_path
 
   # GET /station_admins
   # GET /station_admins.json
   def index
     @station_admins_grid = initialize_grid(StationAdmin.accessible_by(current_ability))
     ## 面包屑导航
-    add_breadcrumb I18n.t('view.action.list'), :back_station_station_admins_path
+    add_breadcrumb I18n.t('view.action.list'), :back_mystation_station_admins_path
   end
 
   # GET /station_admins/1
   # GET /station_admins/1.json
   def show
     ## 面包屑导航
-    add_breadcrumb I18n.t('view.action.show'), :back_station_station_admin_path
+    add_breadcrumb I18n.t('view.action.show'), :back_mystation_station_admin_path
   end
 
   # GET /station_admins/new
   def new
     @station_admin = StationAdmin.new
     ## 面包屑导航
-    add_breadcrumb I18n.t('view.action.new'), :new_back_station_station_admin_path
+    add_breadcrumb I18n.t('view.action.new'), :new_back_mystation_station_admin_path
   end
 
   # GET /station_admins/1/edit
   def edit
     ## 面包屑导航
-    add_breadcrumb I18n.t('view.action.edit'), :edit_back_station_station_admin_path
+    add_breadcrumb I18n.t('view.action.edit'), :edit_back_mystation_station_admin_path
   end
 
   # POST /station_admins
@@ -42,7 +42,7 @@ class Back::Station::StationAdminsController < Back::StationBaseController
     @station_admin.station = current_admin.station
     respond_to do |format|
       if @station_admin.save
-        format.html { redirect_to [:back, :station, @station_admin], notice: I18n.t('view.notice.created') }
+        format.html { redirect_to [:back, :mystation, @station_admin], notice: I18n.t('view.notice.created') }
         format.json { render :show, status: :created, location: @station_admin }
       else
         format.html do
@@ -60,7 +60,7 @@ class Back::Station::StationAdminsController < Back::StationBaseController
     respond_to do |format|
       # if @station_admin.update(station_admin_params)
       if update_resource(@station_admin, station_admin_params)
-        format.html { redirect_to [:back, :station, @station_admin], notice: I18n.t('view.notice.updated') }
+        format.html { redirect_to [:back, :mystation, @station_admin], notice: I18n.t('view.notice.updated') }
         format.json { render :show, status: :ok, location: @station_admin }
       else
         format.html do
@@ -77,7 +77,7 @@ class Back::Station::StationAdminsController < Back::StationBaseController
   def destroy
     @station_admin.destroy
     respond_to do |format|
-      format.html { redirect_to back_station_station_admins_url, notice: I18n.t('view.notice.deleted') }
+      format.html { redirect_to back_mystation_station_admins_url, notice: I18n.t('view.notice.deleted') }
       format.json { head :no_content }
     end
   end

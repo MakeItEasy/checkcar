@@ -56,9 +56,9 @@ SimpleNavigation::Configuration.run do |navigation|
     #           :opts - 参照class ListBootstrap, :icon, :badge_text, :badge_class
     #                   (针对子菜单)如果需要用badge，那么opts中必需有icon
     #
-    primary.item :dashboard, I18n.t('view.controller.dashboard'), back_station_root_path,
+    primary.item :dashboard, I18n.t('view.controller.dashboard'), back_mystation_root_path,
       :opts => {:icon => 'fa fa-dashboard'}
-    primary.item :station_admins, StationAdmin.model_name.human, back_station_station_admins_path,
+    primary.item :station_admins, StationAdmin.model_name.human, back_mystation_station_admins_path,
       :opts => {icon: 'ion ion-person-stalker' }, if: ->{ can? :read, StationAdmin }
     primary.item :personal, I18n.t('view.controller.personal'), nil, :opts => {icon: 'fa fa-th' } do |sub_nav|
       sub_nav.item :show, I18n.t('view.action.personal.show'), back_personal_show_path

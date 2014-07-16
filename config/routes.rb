@@ -72,7 +72,7 @@ Rails.application.routes.draw do
       resources :stations
     end
 
-    namespace :station do
+    namespace :mystation do
       root 'dashboard#index' 
       resources :station_admins
     end

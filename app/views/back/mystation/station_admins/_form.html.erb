@@ -1,4 +1,4 @@
-<%= simple_form_for([:back, :station, @station_admin], html: {class: 'form-horizontal mask-form', role: 'form'} ) do |f| %>
+<%= simple_form_for([:back, :mystation, @station_admin], html: {class: 'form-horizontal mask-form', role: 'form'} ) do |f| %>
   <div class='car-form-items'>
     <%# f.association :station, label_method: :name, disabled: true %>
     <%= f.input :email, placeholder: t('view.placeholder.email') %>

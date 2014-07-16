@@ -2,21 +2,21 @@
   <div class="btn-toolbar" role="toolbar">
   <% if can? :update, @station_admin %>
     <div class="btn-group">
-      <%= link_to edit_back_station_station_admin_path(@station_admin), {class: 'btn btn-default'} do %>
+      <%= link_to edit_back_mystation_station_admin_path(@station_admin), {class: 'btn btn-default'} do %>
         <i class="fa fa-edit"></i> <%= t('view.action.edit') %> 
       <% end %>
     </div>
   <% end %>
   <% if can? :destroy, @station_admin %>
     <div class="btn-group">
-      <%= link_to [:back, :station, @station_admin], {method: :delete,
+      <%= link_to [:back, :mystation, @station_admin], {method: :delete,
       data: { confirm: t('view.confirm.delete')},  class: 'btn btn-default'} do %>
         <i class="glyphicon glyphicon-remove"></i> <%= t('view.action.delete') %> 
       <% end %>
     </div>
   <% end %>
     <div class="btn-group pull-right">
-      <%= link_to back_station_station_admins_path, {class: 'btn btn-default'} do %>
+      <%= link_to back_mystation_station_admins_path, {class: 'btn btn-default'} do %>
         <i class="fa fa-list"></i> <%= t('view.action.back_to_list') %> 
       <% end %>
     </div>

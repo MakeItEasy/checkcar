@@ -2,7 +2,7 @@
 <div class='box car-toolbox'>
   <div class="btn-toolbar" role="toolbar">
     <div class="btn-group">
-      <%= link_to new_back_station_station_admin_path, {class: 'btn btn-default'} do%>
+      <%= link_to new_back_mystation_station_admin_path, {class: 'btn btn-default'} do%>
         <i class="glyphicon glyphicon-plus"></i> <%= t('view.action.new') %> 
       <% end -%>
     </div>
@@ -26,13 +26,13 @@
     g.column do |item|
       links = []
       if can? :read, item
-        links << link_to(I18n.t('view.action.show'), [:back, :station, item])
+        links << link_to(I18n.t('view.action.show'), [:back, :mystation, item])
       end
       if can? :update, item
-        links << link_to(I18n.t('view.action.edit'), edit_back_station_station_admin_path(item))
+        links << link_to(I18n.t('view.action.edit'), edit_back_mystation_station_admin_path(item))
       end
       if can? :destroy, item
-        links << link_to(I18n.t('view.action.delete'), [:back, :station, item], method: :delete, data: { confirm: t('view.confirm.delete')})
+        links << link_to(I18n.t('view.action.delete'), [:back, :mystation, item], method: :delete, data: { confirm: t('view.confirm.delete')})
       end
       links.join(t('view.label.links_split')).html_safe
     end

@@ -60,7 +60,7 @@ private
   # Overwriting the sign_in redirect path method
   def after_sign_in_path_for(resource)
     return back_system_root_path if resource.is_a?(SystemAdmin)
-    return back_station_root_path if resource.is_a?(StationAdmin)
+    return back_mystation_root_path if resource.is_a?(StationAdmin)
     root_path
   end
 
