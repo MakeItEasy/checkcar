@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20140709003915) do
     t.string   "order_no",   null: false
     t.integer  "user_id"
     t.integer  "station_id", null: false
-    t.datetime "order_date", null: false
+    t.date     "order_date", null: false
     t.string   "order_time", null: false
     t.string   "owner_name", null: false
     t.string   "car_number", null: false

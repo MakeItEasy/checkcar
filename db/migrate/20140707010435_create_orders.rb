@@ -10,7 +10,7 @@ class CreateOrders < ActiveRecord::Migration
       # 预约车检站
       t.integer :station_id, null: false
       # 预约日期
-      t.datetime :order_date, null: false
+      t.date :order_date, null: false
       # 预约时间段
       t.string :order_time, null: false
       # 车主姓名
