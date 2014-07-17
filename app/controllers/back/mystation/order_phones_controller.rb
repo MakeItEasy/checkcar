@@ -5,20 +5,8 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
   load_and_authorize_resource
 
   ## 面包屑导航
-  add_breadcrumb OrderPhone.model_name.human, :back_mystation_order_phones_path
-
-  # GET /order_phones
-  # GET /order_phones.json
-  def index
-    _orders = OrderPhone
-    if params[:scope] && ['today', 'weekly', 'newest'].include?(params[:scope])
-      _orders = _orders.send(params[:scope])
-    end
-    # @order_phones_grid = initialize_grid(OrderPhone.accessible_by(current_ability))
-    @order_phones_grid = initialize_grid(_orders.accessible_by(current_ability))
-    ## 面包屑导航
-    add_breadcrumb I18n.t('view.action.list'), :back_mystation_order_phones_path
-  end
+  # TODO dairg 电话预约的面包屑
+  add_breadcrumb Order.model_name.human, :back_mystation_orders_path
 
   # GET /order_phones/1
   # GET /order_phones/1.json

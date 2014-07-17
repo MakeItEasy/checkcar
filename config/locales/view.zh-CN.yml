@@ -102,6 +102,7 @@
       stations: 车检站
       faqs: 常见问题
       uaqs: 我的问题
+      orders: 预约信息
       order_phones: 电话预约
     devise:
       send_reset_mail: 发送重置密码邮件
@@ -116,3 +117,4 @@
       question: "FAQ&问题"
       settings: "设置中心"
       station_base_info: "车检站信息"
+      new_order_phone: "新增电话预约"

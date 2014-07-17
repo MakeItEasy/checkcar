@@ -125,6 +125,7 @@ private
     can :show, Station, id: user.station.id
     can :update, Station, id: user.station.id
     can :crud, OrderPhone, station_id: user.station.id
+    can :read, Order, station_id: user.station.id
     # 显示设置中心菜单
     can :show, :settings
   end

@@ -76,7 +76,8 @@ Rails.application.routes.draw do
       root 'dashboard#index' 
       resources :station_admins
       resource :station, only: [:show, :edit, :update]
-      resources :order_phones
+      resources :order_phones, except: [:index]
+      resources :orders
     end
 
     # 个人中心
