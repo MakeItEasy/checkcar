@@ -32,3 +32,22 @@ sup.unit {
 .small-box .icon {
   bottom: 25px;
 }
+
+// -----------------------------------------
+// 外置查询条件部分
+// -----------------------------------------
+.car-filter > .box > .box-header {
+  padding-bottom: 0px;
+}
+.box-header.car-filter-header {
+  border-bottom: 1px solid #f4f4f4;
+  .fa {
+    font-size: 18px;
+  }
+  .box-title {
+    font-size: 18px;
+  }
+}
+.car-filter-item {
+  margin: 5px;
+}

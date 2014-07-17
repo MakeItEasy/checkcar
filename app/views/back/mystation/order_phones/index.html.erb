@@ -1,0 +1,39 @@
+<% if can? :create, OrderPhone %>
+<div class='box car-toolbox'>
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group">
+      <%= link_to new_back_mystation_order_phone_path, {class: 'btn btn-default'} do%>
+        <i class="glyphicon glyphicon-plus"></i> <%= t('view.action.new') %> 
+      <% end -%>
+    </div>
+  </div>
+</div>
+<% end -%>
+
+<div class="car-nav-tabs-custom">
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="<%= 'active' if params[:scope] == 'today' %>">
+      <a href="<%= back_mystation_order_phones_path(scope: 'today')%>">今日进行预约</a>
+    </li>
+    <li class="<%= 'active' if params[:scope] == 'weekly' %>">
+      <a href="<%= back_mystation_order_phones_path(scope: 'weekly')%>">七天内预约</a>
+    </li>
+    <li class="<%= 'active' if params[:scope] == 'all' %>">
+      <a href="<%= back_mystation_order_phones_path(scope: 'all')%>">全部</a>
+    </li>
+    <li class="<%= 'active' if params[:scope] == 'newest' %>">
+      <a href="<%= back_mystation_order_phones_path(scope: 'newest')%>">新增预约</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active">
+      <% if params[:scope] == "all" %>
+        <%= render "index_all" %>
+      <% else %>
+        <div class='car-content-list'>
+          <%= render "index_no_filter" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

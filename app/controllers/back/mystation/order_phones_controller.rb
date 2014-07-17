@@ -10,7 +10,12 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
   # GET /order_phones
   # GET /order_phones.json
   def index
-    @order_phones_grid = initialize_grid(OrderPhone.accessible_by(current_ability))
+    _orders = OrderPhone
+    if params[:scope] && ['today', 'weekly', 'newest'].include?(params[:scope])
+      _orders = _orders.send(params[:scope])
+    end
+    # @order_phones_grid = initialize_grid(OrderPhone.accessible_by(current_ability))
+    @order_phones_grid = initialize_grid(_orders.accessible_by(current_ability))
     ## 面包屑导航
     add_breadcrumb I18n.t('view.action.list'), :back_mystation_order_phones_path
   end
@@ -39,6 +44,7 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
   # POST /order_phones.json
   def create
     @order_phone = OrderPhone.new(order_phone_params)
+    @order_phone.station_id = current_admin.station.id
     respond_to do |format|
       if @order_phone.save
         format.html { redirect_to [:back, :mystation, @order_phone], notice: I18n.t('view.notice.created') }

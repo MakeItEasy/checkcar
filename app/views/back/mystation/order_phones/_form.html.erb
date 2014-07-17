@@ -1,0 +1,15 @@
+<%= simple_form_for([:back, :mystation, @order_phone], html: {class: 'form-horizontal mask-form', role: 'form'} ) do |f| %>
+  <div class='car-form-items'>
+    <%= f.input :order_date %>
+    <%= f.input :order_time %>
+    <%= f.input :owner_name %>
+    <%= f.input :car_number %>
+    <%= f.input :telephone, input_html: telephone_mask_hash %>
+  </div>
+  <div class="car-form-actions bg-gray">
+    <div class='col-sm-offset-2 col-sm-10 button-wrapper'>
+      <%= f.button :submit, class: 'btn-primary' %>
+    </div>
+    <div class='clearfix'></div>
+  </div>
+<% end %>

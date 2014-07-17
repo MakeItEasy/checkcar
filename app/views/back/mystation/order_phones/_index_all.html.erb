@@ -1,0 +1,58 @@
+        <%= define_grid @order_phones_grid, hide_submit_button: true, hide_reset_button: true do |g|
+          g.action_column
+          g.column name: OrderPhone.human_attribute_name(:id), attribute: "id", detach_with_id: :id_filter
+          g.column name: OrderPhone.human_attribute_name(:order_no), attribute: "order_no", detach_with_id: :order_no_filter
+          g.column name: OrderPhone.human_attribute_name(:order_date), attribute: "order_date", detach_with_id: :order_date_filter
+          g.column name: OrderPhone.human_attribute_name(:order_time), attribute: "order_time", detach_with_id: :order_time_filter
+          g.column name: OrderPhone.human_attribute_name(:car_number), attribute: "car_number", detach_with_id: :car_number_filter
+          g.column name: OrderPhone.human_attribute_name(:telephone), attribute: "telephone", ordering: false, detach_with_id: :telephone_filter
+          g.column do |item|
+            links = []
+            if can? :read, item
+              links << link_to(I18n.t('view.action.show'), [:back, :mystation, item])
+            end
+            if can? :update, item
+              links << link_to(I18n.t('view.action.edit'), edit_back_mystation_order_phone_path(item))
+            end
+            if can? :destroy, item
+              links << link_to(I18n.t('view.action.delete'), [:back, :mystation, item], method: :delete, data: { confirm: t('view.confirm.delete')})
+            end
+            links.join(t('view.label.links_split')).html_safe
+          end
+        end -%>
+
+      <div class="car-filter">
+        <div class="box box-solid">
+          <div class="box-header car-filter-header"  data-widget="collapse" data-toggle="tooltip" data-original-title="点击伸缩">
+            <i class="fa fa-search-plus"></i>
+            <h5 class="box-title">查询</h5>
+          </div><!-- /.box-header -->
+          <div class="box-body">
+            <div class="row car-filter-item">
+              <div class="col-sm-2 item-label">ID</div>
+              <div class="col-sm-4">
+                <%= grid_filter @order_phones_grid, :id_filter %>
+              </div>
+            </div>
+            <div class="row car-filter-item">
+              <div class="col-sm-2 item-label">预约流水号</div>
+              <div class="col-sm-4">
+                <%= grid_filter @order_phones_grid, :order_no_filter %>
+              </div>
+            </div><!-- /.row - inside box -->
+            <div class="row car-filter-item">
+              <div class="col-sm-2 item-label">预约日期</div>
+              <div class="col-sm-4">
+                <%= grid_filter @order_phones_grid, :order_date_filter %>
+              </div>
+            </div><!-- /.row - inside box -->
+          </div><!-- /.box-body -->
+          <div class="box-footer">
+            <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">查询</button>
+            <button class="btn btn-default wg-external-reset-button" data-grid-name="grid">清空</button>
+          </div><!-- /.box-footer -->
+        </div>
+      </div>
+      <div class='car-content-list'>
+        <%= render_grid(@order_phones_grid) %>
+      </div>

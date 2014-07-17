@@ -10,6 +10,7 @@
       order: "预约信息"
       faq: "常见问题"
       uaq: "用户问题"
+      order_phone: "电话预约"
 
     attributes:
       default: &default

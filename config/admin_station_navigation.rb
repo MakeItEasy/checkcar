@@ -58,6 +58,8 @@ SimpleNavigation::Configuration.run do |navigation|
     #
     primary.item :dashboard, I18n.t('view.controller.dashboard'), back_mystation_root_path,
       :opts => {:icon => 'fa fa-dashboard'}
+    primary.item :order_phones, OrderPhone.model_name.human, back_mystation_order_phones_path(scope: 'today'),
+      :opts => {icon: 'ion ion-android-call' }, if: ->{ can? :read, OrderPhone }
     primary.item :station_admins, StationAdmin.model_name.human, back_mystation_station_admins_path,
       :opts => {icon: 'ion ion-person-stalker' }, if: ->{ can? :read, StationAdmin }
     primary.item :settings, I18n.t('view.menu.settings'), nil, :opts => {icon: 'ion ion-settings' },

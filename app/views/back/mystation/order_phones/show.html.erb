@@ -1,0 +1,39 @@
+<div class='box car-toolbox'>
+  <div class="btn-toolbar" role="toolbar">
+  <% if can? :update, @order_phone %>
+    <div class="btn-group">
+      <%= link_to edit_back_mystation_order_phone_path(@order_phone), {class: 'btn btn-default'} do %>
+        <i class="fa fa-edit"></i> <%= t('view.action.edit') %> 
+      <% end %>
+    </div>
+  <% end %>
+  <% if can? :destroy, @order_phone %>
+    <div class="btn-group">
+      <%= link_to [:back, :mystation, @order_phone], {method: :delete,
+      data: { confirm: t('view.confirm.delete')},  class: 'btn btn-default'} do %>
+        <i class="glyphicon glyphicon-remove"></i> <%= t('view.action.delete') %> 
+      <% end %>
+    </div>
+  <% end %>
+    <div class="btn-group pull-right">
+      <%= link_to back_mystation_order_phones_path, {class: 'btn btn-default'} do %>
+        <i class="fa fa-list"></i> <%= t('view.action.back_to_list') %> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class='box box-info car-content-box'>
+  <dl class="dl-horizontal">
+    <dt><%= OrderPhone.human_attribute_name(:order_date) %></dt>
+    <dd><%= @order_phone.order_date%></dd>
+    <dt><%= OrderPhone.human_attribute_name(:order_time) %></dt>
+    <dd><%= @order_phone.order_time %></dd>
+    <dt><%= OrderPhone.human_attribute_name(:owner_name) %></dt>
+    <dd><%= @order_phone.owner_name %></dd>
+    <dt><%= OrderPhone.human_attribute_name(:car_number) %></dt>
+    <dd><%= @order_phone.car_number %></dd>
+    <dt><%= OrderPhone.human_attribute_name(:telephone) %></dt>
+    <dd><%= @order_phone.telephone %></dd>
+  </dl>
+</div>
