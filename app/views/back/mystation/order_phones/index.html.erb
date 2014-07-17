@@ -18,7 +18,7 @@
     <li class="<%= 'active' if params[:scope] == 'weekly' %>">
       <a href="<%= back_mystation_order_phones_path(scope: 'weekly')%>">七天内预约</a>
     </li>
-    <li class="<%= 'active' if params[:scope] == 'all' %>">
+    <li class="<%= 'active' if params[:scope].nil? || params[:scope] == 'all' %>">
       <a href="<%= back_mystation_order_phones_path(scope: 'all')%>">全部</a>
     </li>
     <li class="<%= 'active' if params[:scope] == 'newest' %>">
@@ -27,7 +27,7 @@
   </ul>
   <div class="tab-content">
     <div class="tab-pane active">
-      <% if params[:scope] == "all" %>
+      <% if params[:scope].nil? || params[:scope] == "all" %>
         <%= render "index_all" %>
       <% else %>
         <div class='car-content-list'>

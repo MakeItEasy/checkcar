@@ -5,12 +5,18 @@ jquery.turbolinks 必须在jquery 和jquery_ujs的后面，然后在turbolinks�
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require jquery.ui.datepicker-zh-CN
 //= require wice_grid
 //= require wice_grid_car
 //= require jquery.turbolinks
 //= require bootstrap
 //= require adminlte/AdminLTE
 //= require jquery/input-mask/jquery.inputmask
+//= require jquery/input-mask/jquery.inputmask.date.extensions
+# 项目地址:https://github.com/smalot/bootstrap-datetimepicker
+# fork源项目：https://github.com/eternicode/bootstrap-datepicker
+//= require bootstrap-datetimepicker/bootstrap-datetimepicker
+//= require bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN
 # TODO dairg 是否可以注释掉？
 # require ckeditor/override
 //= require ckeditor/init

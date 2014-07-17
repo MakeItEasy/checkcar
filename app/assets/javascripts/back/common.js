@@ -1,10 +1,25 @@
 $(function() {
   // mask的使用，比如手机号码输入的mask 99999999999
   $("[data-mask]").inputmask();
+  // 日期选择的datepicker
+  $("[car_date_picker]").datetimepicker({
+    format: "yyyy-mm-dd",
+    todayBtn: "linked",
+    language: "zh-CN",
+    orientation: "bottom right",
+    daysOfWeekDisabled: "0,6",
+    autoclose: true,
+    todayHighlight: true,
+    minView: 2
+  });
 });
 
-// 以下是测试unmask
   /*
+  // datepicker and inputmask test
+  $("#datemask").inputmask("yyyy-mm-dd", {"placeholder": "yyyy-mm-dd", "clearIncomplete": true});
+  $("#datemask").datepicker();
+
+// 以下是测试unmask
   $("#admin_telephone").inputmask('9999-9999', {'autoUnmask' : true, "clearIncomplete": true,
     'onUnMask': function(maskedValue, unmaskedValue) {
       // alert(unmaskedValue);
