@@ -6,6 +6,9 @@ $(function() {
     format: "yyyy-mm-dd",
     todayBtn: "linked",
     language: "zh-CN",
+    // TODO dairg 设置可以预约的开始结束时间
+    startDate: new Date(),
+    endDate: (new Date()).addDays(15),
     orientation: "bottom right",
     daysOfWeekDisabled: "0,6",
     autoclose: true,

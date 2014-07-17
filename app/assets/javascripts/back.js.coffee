@@ -21,7 +21,10 @@ jquery.turbolinks 必须在jquery 和jquery_ujs的后面，然后在turbolinks�
 # require ckeditor/override
 //= require ckeditor/init
 //= require china_city/jquery.china_city
-# add other js here
+# ==============================================
+# 我的js add other js here
+# ==============================================
+//= require common/car_base
 //= require back/common
 
 //= require turbolinks
