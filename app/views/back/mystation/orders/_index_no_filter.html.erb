@@ -2,7 +2,9 @@
   g.column name: OrderPhone.human_attribute_name(:id), attribute: "id"
   g.column name: OrderPhone.human_attribute_name(:order_no), attribute: "order_no"
   g.column name: OrderPhone.human_attribute_name(:order_date), attribute: "order_date"
-  g.column name: OrderPhone.human_attribute_name(:order_time), attribute: "order_time"
+  g.column name: OrderPhone.human_attribute_name(:order_time), attribute: "order_time" do |item|
+    item.order_time_text
+  end
   g.column name: OrderPhone.human_attribute_name(:car_number), attribute: "car_number", ordering: false
   g.column name: OrderPhone.human_attribute_name(:telephone), attribute: "telephone", ordering: false
   g.column do |item|

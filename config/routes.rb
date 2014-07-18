@@ -77,6 +77,7 @@ Rails.application.routes.draw do
       resources :station_admins
       resource :station, only: [:show, :edit, :update]
       resources :order_phones, except: [:index]
+      resources :order_nets, only: [:show]
       resources :orders
     end
 

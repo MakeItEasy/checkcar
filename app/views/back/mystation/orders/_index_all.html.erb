@@ -1,10 +1,11 @@
         <%= define_grid @order_phones_grid, hide_submit_button: true, hide_reset_button: true do |g|
-          g.action_column
           g.column name: OrderPhone.human_attribute_name(:id), attribute: "id", detach_with_id: :id_filter
           g.column name: OrderPhone.human_attribute_name(:order_no), attribute: "order_no", detach_with_id: :order_no_filter
           g.column name: OrderPhone.human_attribute_name(:order_date), attribute: "order_date", detach_with_id: :order_date_filter
-          g.column name: OrderPhone.human_attribute_name(:order_time), attribute: "order_time", detach_with_id: :order_time_filter
-          g.column name: OrderPhone.human_attribute_name(:car_number), attribute: "car_number", detach_with_id: :car_number_filter
+          g.column name: OrderPhone.human_attribute_name(:order_time), attribute: "order_time", detach_with_id: :order_time_filter do |item|
+            item.order_time_text
+          end
+          g.column name: OrderPhone.human_attribute_name(:car_number), attribute: "car_number", detach_with_id: :car_number_filter, ordering: false
           g.column name: OrderPhone.human_attribute_name(:telephone), attribute: "telephone", ordering: false, detach_with_id: :telephone_filter
           g.column do |item|
             links = []

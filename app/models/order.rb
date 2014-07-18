@@ -17,4 +17,8 @@ class Order < ActiveRecord::Base
   def init_order_no
     self.order_no = "order no"
   end
+
+  def order_time_text
+     self.order_time + ":00" if self.order_time.present?
+  end
 end

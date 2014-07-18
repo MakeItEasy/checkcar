@@ -4,6 +4,7 @@ class AdminAbility
   def initialize(user, namespace)
     user ||= SystemAdmin.new
     alias_action :create, :read, :update, :destroy, :to => :crud
+    alias_action :create, :read, :update, :to => :cru
 
     if ['back/system', 'back'].include?(namespace) && user.system_admin?
       set_ability_system_common(user)
@@ -132,5 +133,7 @@ private
 
   # 普通员工
   def set_ability_station_normal(user)
+    can :cru, OrderPhone, station_id: user.station.id
+    can :read, Order, station_id: user.station.id
   end
 end
