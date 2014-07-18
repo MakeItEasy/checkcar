@@ -1,2 +1,72 @@
-<%= f.input :order_date, required: true %>
-<%= f.input :order_time, required: true %>
+<% if @order && @order.errors[:order_time].present? %>
+  <div class="alert alert-danger"><%= t('view.alert.order.order_time_blank')%></div>
+<% end %>
+<%= f.input :order_date, as: :hidden %>
+
+<div class="row">
+  <div class="col-sm-2">
+    <label class="string optional control-label" for="">选择开始日期</label>
+  </div>
+  <div class="col-sm-3">
+    <input car_date_picker="" class="string optional form-control" id="select_start_date" name="select_start_date" placeholder="yyyy-mm-dd" type="text" value="">
+  </div>
+  <!-- 提示图标 -->
+  <div class="col-sm-4 col-sm-offset-3 car-order-select-time-tips">
+    <div class="tip_enable">
+      <p><span class="state iradio_square-green"></span></p>
+      <span>可预定</span>
+    </div>
+    <div class="tip_disable">
+      <p></p>
+      <span>不可预定</span>
+    </div>
+    <div class="tip_selected">
+      <p><span class="state iradio_square-green checked"></span></p>
+      <span>已选择</span>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="car-nav-tabs-custom">
+  <ul class="nav nav-tabs" role="tablist">
+    <div class="pull-right" id="select_time_info" style="margin-top: 8px;">
+      <% if @order && @order.order_date && @order.order_time %>
+      <span class="label label-success" style="font-size: 100%;">已选择时间段：<%= "#{l(@order.order_date)} #{@order.order_time}:00" %></span>
+      <% end %>
+    </div>
+    <li class="active"><a href="">选择时间段</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" style="overflow-x: scroll;">
+      <table class="table car-order-select-time-table">
+        <thead>
+          <th></th>
+          <% (10..17).each do |i| %>
+            <th><%= "#{i}:00" %></th>
+          <% end %>
+        </thead>
+        <tbody>
+          <% @current_order_states.each do |key, value| %>
+          <tr>
+            <td class="title-date"><%= l(key, format: :short_week)%></td>
+            <% value.each_with_index do |c, index| %>
+              <% if c > 0 %>
+                <td class="data-area">
+                  <div class="data" data-toggle="tooltip" data-placement="top" title="<%= '剩余可预约数量:' + c.to_s %>">
+                    <input type="radio" name="order_net[order_time]" 
+                      car_date="<%= l(key) %>" value="<%= index+10 %>" 
+                      <%= 'checked' if @order && @order.order_time == "#{index+10}" %> >
+                  </div>
+                </td>
+              <% else %>
+                <td class="data-area disabled"></td>
+              <% end %>
+            <% end %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

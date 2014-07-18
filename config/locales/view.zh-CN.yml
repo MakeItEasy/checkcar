@@ -65,6 +65,8 @@
       post:
         status_error: 当前文章状态下不能完成此操作!
       captcha_error: 验证码错误!
+      order:
+        order_time_blank: 请选择检车时间！
         
     confirm:
       delete: 您确定要删除吗？

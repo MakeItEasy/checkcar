@@ -229,3 +229,87 @@ a.list-group-item:hover > * {
   margin: 25px 10px 0px 0px;
 }
 
+// -----------------------------------------
+// order 选择日期时间段
+// -----------------------------------------
+.car-order-select-time-table {
+  width: 98%;
+}
+.car-order-select-time-table > thead > tr > th {
+  border-top: none;
+}
+.car-order-select-time-table > thead > tr > th:first-child {
+  border-left: none;
+}
+.car-order-select-time-table > thead > tr > th:last-child {
+  border-right: none;
+}
+.car-order-select-time-table > tbody > tr > td:first-child {
+  border-left: none;
+  width: 100px;
+}
+.car-order-select-time-table > tbody > tr > td:last-child {
+  border-right: none;
+}
+.car-order-select-time-table > thead > tr > th,
+.car-order-select-time-table > tbody > tr > td {
+  line-height: 14px;
+  text-align: center;
+  border: 1px solid #3c8dbc;
+}
+.car-order-select-time-table > tbody > tr > td.data-area {
+  padding: 0px;
+  vertical-align: middle;
+}
+.car-order-select-time-table > tbody > tr > td.data-area > div.data {
+  // height: 30px !important;
+  // padding-top: 4px;
+}
+.car-order-select-time-table td.data-area.disabled {
+  background-color: #C2BFBF;
+}
+
+/*
+.car-order-select-time-table .iradio_square-green {
+  background-position: -144px 0;
+}
+.car-order-select-time-table .iradio_square-green.checked {
+  background-position: -168px 0;
+}
+*/
+
+// -----------------------------------------
+// order 选择日期时间段 tips
+// -----------------------------------------
+.car-order-select-time-tips {
+  background-color: #eee;
+  text-align: center;
+  padding: 8px 0px;
+  margin-right: 2px;
+}
+.car-order-select-time-tips > div {
+  display: inline-block;
+  text-align: center;
+}
+.car-order-select-time-tips > div > p {
+  width: 60px;
+  height: 30px;
+  border: 1px solid #3c8dbc;
+  padding-top: 3px;
+}
+// 描述的字
+.car-order-select-time-tips > div > span {
+  font-size: 12px;
+}
+.car-order-select-time-tips .tip_enable > p {
+  background-color: #fff;
+}
+.car-order-select-time-tips .tip_disable > p {
+  background-color: #C2BFBF;
+}
+.car-order-select-time-tips .tip_selected > p {
+  background-color: #fff;
+}
+.tip_enable .state.iradio_square-green:hover {
+  background-position: -144px 0;
+}

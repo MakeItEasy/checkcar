@@ -30,11 +30,7 @@ class Front::StationController < FrontController
     session[:order_step] = nil
     session[:order_params] = {station_id: @station.id, user_id: current_user.id}
     @order = OrderNet.new(session[:order_params])
-  end
-
-  ## 预定成功画面
-  def show_order
-    @order = OrderNet.find(params[:order_id])
+    set_current_order_states
   end
 
   # POST
@@ -42,6 +38,7 @@ class Front::StationController < FrontController
     session[:order_params].deep_merge!(order_params) if params[:order_net]
     @order = OrderNet.new(session[:order_params])
     @order.current_step = session[:order_step]
+    set_current_order_states
 
     if params[:back_button]
       # previous step
@@ -61,6 +58,12 @@ class Front::StationController < FrontController
     end
   end
 
+  ## 预定成功画面
+  def show_order
+    @order = OrderNet.find(params[:order_id])
+  end
+
+
 private
   def order_params
     params.require(:order_net).permit(:order_date, :order_time, :car_number, :owner_name, :telephone)
@@ -70,4 +73,10 @@ private
     @station = Station.find(params[:id])
   end
 
+  def set_current_order_states
+    @current_order_states = {
+      Date.today => [2, 3, 0, 1, 2, 3, 2, 0],
+      Date.tomorrow => [2, 3, 0, 1, 2, 3, 2, 0]
+    }
+  end
 end
