@@ -3,11 +3,11 @@
     <%= render "front/station/steps/step_header" %>
   </div>
   <div class="step-content">
-    <div class="alert alert-success">恭喜您！您已经预约成功!</div>
+    <div class="alert alert-success"><%= t('view.notice.order_success')%></div>
     <div class="col-md-8 step-form-left form-horizontal"> 
       <div class="car-order-finished">
         <div class="panel panel-info">
-          <div class="panel-heading">预约信息</div>
+          <div class="panel-heading"><%= Order.model_name.human %></div>
           <div class="panel-body">
             <div class="form-group">
               <label class="col-sm-3 control-label">
@@ -64,8 +64,8 @@
       </div>
       <div class="left-box action">
         <div style="text-align: center;">
-          <a class="btn btn-success">打印</a>
-          <a class="btn btn-success">发送信息到手机</a>
+          <a class="btn btn-success"><%= t('view.action.print')%></a>
+          <a class="btn btn-success"><%= t('view.action.send_to_phone')%></a>
         </div>
         <div class="clearfix"></div>
       </div>
