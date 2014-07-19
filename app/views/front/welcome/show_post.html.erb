@@ -7,7 +7,8 @@
     <div class="car-title">
       <h4 class="text-center"><%= @post.title %></h4>
       <p class="text-center car-tips-date">
-        <em><%= l(@post.updated_at.to_date) %></em>
+        <i class="glyphicon glyphicon-time"></i>
+        <em><%= l(@post.updated_at, format: :ymd) %></em>
       </p>
       <% if @pre_post.present? %>
       <span class="pull-left">

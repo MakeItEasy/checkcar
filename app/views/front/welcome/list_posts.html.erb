@@ -9,7 +9,7 @@
       <a href="<%= front_post_path(@catagory, post) %>" class="list-group-item">
         <%= post.title %>
         <span class="car-tips-date pull-right">
-          <em><%= l(post.updated_at.to_date) %></em>
+          <em><%= l(post.updated_at, format: :ymd_line) %></em>
         </span>
       </a>
       <% end %>
