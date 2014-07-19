@@ -1,6 +1,4 @@
 $(function() {
-  // mask的使用，比如手机号码输入的mask 99999999999
-  $("[data-mask]").inputmask();
   // 日期选择的datepicker
   $("[car_date_picker]").datetimepicker({
     format: "yyyy-mm-dd",
