@@ -1,7 +1,6 @@
 <% if @order && @order.errors[:order_time].present? %>
   <div class="alert alert-danger"><%= t('view.alert.order.order_time_blank')%></div>
 <% end %>
-<%= f.input :order_date, as: :hidden %>
 
 <div class="row">
   <div class="col-sm-2">
@@ -31,8 +30,8 @@
 <div class="car-nav-tabs-custom">
   <ul class="nav nav-tabs" role="tablist">
     <div class="pull-right" id="select_time_info" style="margin-top: 8px;">
-      <% if @order && @order.order_date && @order.order_time %>
-      <span class="label label-success" style="font-size: 100%;">已选择时间段：<%= "#{l(@order.order_date)} #{@order.order_time}:00" %></span>
+      <% if @order && @order.order_time %>
+      <span class="label label-success" style="font-size: 100%;">已选择时间段：<%= l(@order.order_time, format: :line) %></span>
       <% end %>
     </div>
     <li class="active"><a href="">选择时间段</a></li>
@@ -54,8 +53,11 @@
               <% if c > 0 %>
                 <td class="data-area">
                   <div class="data" data-toggle="tooltip" data-placement="top" title="<%= '剩余可预约数量:' + c.to_s %>">
-                    <input type="radio" name="order_net[order_time]" 
-                      car_date="<%= l(key) %>" value="<%= index+10 %>" 
+                    <% 
+                      _value = key.to_time + (index+10).hours
+                      _value = l(_value, format: :line)
+                    %>
+                    <input type="radio" name="order_net[order_time]" value="<%= _value %>" 
                       <%= 'checked' if @order && @order.order_time == "#{index+10}" %> >
                   </div>
                 </td>

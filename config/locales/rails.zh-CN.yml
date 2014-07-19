@@ -7,4 +7,5 @@ zh-CN:
     formats:
       # default: ! '%Y年%b%d日 %A %H:%M:%S %Z'
       default: ! '%Y年%b%d日 %H:%M'
+      line: ! '%Y-%m-%d %H:%M'
       

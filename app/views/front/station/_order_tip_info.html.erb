@@ -5,10 +5,10 @@
     <p class='tip-label'><%=Order.human_attribute_name(:station_id)%></p>
     <p class='tip-value important-info'><%= @order.station.name %></p>
   </div>
-  <% if @order.order_date.present? %>
+  <% if @order.order_time.present? %>
     <div class='tip-group'>
-      <p class='tip-label'><%=Order.human_attribute_name(:order_date)%></p>
-      <p class='tip-value important-info'><%= "#{l(@order.order_date, format: :ymd_week)} #{@order.order_time}:00" %></p>
+      <p class='tip-label'><%=Order.human_attribute_name(:order_time)%></p>
+      <p class='tip-value important-info'><%= l(@order.order_time) %></p>
     </div>
   <%end%>
   <% if @order.car_number.present? %>

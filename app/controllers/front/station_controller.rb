@@ -66,7 +66,7 @@ class Front::StationController < FrontController
 
 private
   def order_params
-    params.require(:order_net).permit(:order_date, :order_time, :car_number, :owner_name, :telephone)
+    params.require(:order_net).permit(:order_time, :car_number_area, :car_number_detail, :owner_name, :telephone)
   end
 
   def set_station

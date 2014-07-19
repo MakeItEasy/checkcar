@@ -11,10 +11,10 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="col-sm-3 control-label"><%=Order.human_attribute_name(:order_date)%></label>
+        <label class="col-sm-3 control-label"><%=Order.human_attribute_name(:order_time)%></label>
         <div class="col-sm-9">
           <p class="form-control-static important-info">
-            <%= "#{l(@order.order_date, format: :ymd_week)} #{@order.order_time}:00" %>
+            <%= l(@order.order_time) %>
           </p>
         </div>
       </div>

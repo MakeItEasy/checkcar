@@ -88,6 +88,5 @@ $(document).on 'ready page:load', ->
     $(this).parent().parent().tooltip "hide"
 
   $(".car-order-select-time-table input[type='radio']").on 'ifChecked', (event) ->
-    $("#order_net_order_date").val $(this).attr('car_date')
-    html_content = '<span class="label label-success" style="font-size: 100%;">已选择时间段：' + $(this).attr('car_date') + " " + $(this).val() + ':00</span>'
+    html_content = '<span class="label label-success" style="font-size: 100%;">已选择时间段：'  + $(this).val() + '</span>'
     $("#select_time_info").html html_content
