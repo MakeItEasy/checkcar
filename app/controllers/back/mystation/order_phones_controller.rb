@@ -70,7 +70,7 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
   def destroy
     @order_phone.destroy
     respond_to do |format|
-      format.html { redirect_to back_mystation_order_phones_url, notice: I18n.t('view.notice.deleted') }
+      format.html { redirect_to back_mystation_orders_url, notice: I18n.t('view.notice.deleted') }
       format.json { head :no_content }
     end
   end

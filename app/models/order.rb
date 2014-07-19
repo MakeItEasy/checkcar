@@ -15,10 +15,15 @@ class Order < ActiveRecord::Base
   enumerize :status, in: Car::Code::ORDER_STATUS, default: :success, predicates: { prefix: true }, scope: true
 
   def init_order_no
-    self.order_no = Time.now.to_i.to_s
+    self.order_no = generate_order_no
   end
 
   def car_number
     self.car_number_area + self.car_number_detail if self.car_number_area && self.car_number_detail
+  end
+
+private
+  def generate_order_no
+    self.station.prefix + I18n.l(Time.now, format: :nomark) + Array.new(4){ ('0'..'9').to_a[rand(10)] }.join
   end
 end

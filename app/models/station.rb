@@ -29,4 +29,8 @@ class Station < ActiveRecord::Base
   def address_text
     "#{ChinaCity.get(self.province)}#{ChinaCity.get(self.city)}#{ChinaCity.get(self.district)}#{self.address}"
   end
+
+  def prefix
+    "ST"
+  end
 end

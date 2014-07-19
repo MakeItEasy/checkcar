@@ -10,6 +10,7 @@ zh-CN:
       line: ! '%Y-%m-%d %H:%M'
       ymd: ! '%Y年%b%d日'
       ymd_line: ! '%Y-%m-%d'
+      nomark: ! '%Y%m%d%H%M%S'
   errors: &errors
     messages:
       blank: 必填项
