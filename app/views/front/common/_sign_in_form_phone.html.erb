@@ -17,7 +17,7 @@
         <i class='glyphicon glyphicon-phone'></i>
       </span>
       <%= f.text_field :telephone, autofocus: true, 
-        id: "telephone", class: 'form-control', placeholder: '手机号码' %>
+        id: "telephone", class: 'form-control', placeholder: t('view.placeholder.telephone') %>
     </div>
   </div>
   <br>
@@ -27,7 +27,7 @@
         <i class='glyphicon glyphicon-qrcode'></i> 
       </span>
       <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'form-control', id: 'captcha_phone',
-        placeholder: "验证码（点击图片刷新）"} %>
+        placeholder: t('view.placeholder.captcha')} %>
     </div>          
     <div class='col-sm-2' style='float: left;'>
         <%= captcha_tag class: 'car-captcha'%>
@@ -40,11 +40,11 @@
       <span class="input-group-addon">
         <i class='glyphicon glyphicon-lock'></i>
       </span>
-      <%= text_field_tag :phone_authcode, nil, class: 'form-control', placeholder: '手机动态码' %>
+      <%= text_field_tag :phone_authcode, nil, class: 'form-control', placeholder: t('view.placeholder.phone_authcode') %>
     </div>
     <div class='col-sm-2' style='float: left;'>
       <a class="btn btn-warning" id="get_yanzhengma" >
-        点击获取手机动态码
+        <%= t('view.action.get_authcode')%>
       </a>
     </div>
   </div>

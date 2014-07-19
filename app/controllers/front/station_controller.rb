@@ -45,7 +45,12 @@ class Front::StationController < FrontController
       @order.pre_step
     elsif @order.last_step?
       # submit
-      @order.save
+      if valid_captcha?(params[:captcha]) && @order.all_valid?
+        # TODO dairg 其他验证，比如是否已经预约了其他了等等
+        @order.save
+      else
+        flash[:alert] = I18n.t('view.alert.captcha_error')
+      end
     else
       # next step
       @order.next_step if @order.valid?
@@ -54,6 +59,7 @@ class Front::StationController < FrontController
     if @order.new_record?
       render :order
     else
+      session[:order_step] = session[:order_params] = nil
       redirect_to front_station_show_order_path(@station, @order)
     end
   end

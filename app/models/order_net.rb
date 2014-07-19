@@ -50,4 +50,11 @@ class OrderNet < Order
     current_step == OrderNet.steps[2]
   end
 
+  def all_valid?
+    OrderNet.steps.all? do |step|
+      self.current_step = step
+      valid?
+    end
+  end
+
 end

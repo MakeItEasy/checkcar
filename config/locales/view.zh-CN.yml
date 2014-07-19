@@ -5,6 +5,7 @@
       back_title: 车审后台管理系统
       back_title_long: 陕西车辆年审网后台管理系统
     action:
+      get_authcode: 点击获取手机动态码
       have_question: 我要提问
       answer: 回答
       new: 新建
@@ -95,6 +96,7 @@
       answered: 已回答
       wait_answer: "等待回答..."
       all: 全部
+      captcha: 验证码
     prompt:
       car_area: "--地区--"
         
@@ -118,6 +120,10 @@
     placeholder:
       email: "例：zhangsan@car.com"
       name: '例：张三'
+      captcha: "验证码（点击图片刷新）"
+      login: "Email 或 手机号码"
+      phone_authcode: 手机动态码
+      telephone: '手机号码'
     unit:
       pian: 篇
       jian: 件

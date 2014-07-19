@@ -14,7 +14,7 @@
     <span class="input-group-addon">
       <i class='glyphicon glyphicon-user'></i>
     </span>
-    <%= f.text_field :login, autofocus: true, class: 'form-control', placeholder: 'Email or 手机号码' %>
+    <%= f.text_field :login, autofocus: true, class: 'form-control', placeholder: t('view.placeholder.login') %>
   </div>
   <br>
   <div class="input-group col-sm-8">
@@ -30,7 +30,7 @@
         <i class='glyphicon glyphicon-qrcode'></i> 
       </span>
       <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'form-control', 
-        placeholder: "验证码（点击图片刷新）"} %>
+        placeholder: t('view.placeholder.captcha')} %>
     </div>          
     <div class='col-sm-2' style='float: left;'>
         <%= captcha_tag class: 'car-captcha'%>
