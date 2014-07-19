@@ -1,4 +1,10 @@
-  <%= f.input :car_number_area, required: true %>
-  <%= f.input :car_number_detail, required: true %>
-  <%= f.input :owner_name, required: true %>
-  <%= f.input :telephone, input_html: telephone_mask_hash %>
+<div class="form-group required order_phone_car_number">
+  <%= f.label :car_number, required: true  %>
+  <div class="col-sm-10">
+    <%= f.input :car_number_area, as: :select, collection: Car::Code::CAR_NUMBER_AREA,
+      wrapper: :simple_inline, prompt: t('view.prompt.car_area')%>
+    <%= f.input :car_number_detail, wrapper: :simple_inline %>
+  </div>
+</div>
+<%= f.input :owner_name, required: true %>
+<%= f.input :telephone, required: true, input_html: telephone_mask_hash %>

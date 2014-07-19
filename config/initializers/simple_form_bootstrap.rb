@@ -37,6 +37,37 @@ SimpleForm.setup do |config|
     end
   end
 
+  config.wrappers :addon_before, tag: 'div', class: "form-group", error_class: 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label
+    b.wrapper tag: 'div', class: 'input-group' do |input|
+      input.wrapper tag: 'div', class: 'input-group-addon' do |prepend|
+        prepend.use :input
+      end
+      input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+      input.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+    end
+  end
+
+  config.wrappers :addon_after, tag: 'div', class: "form-group", error_class: 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.wrapper tag: 'div', class: 'input-group' do |input|
+      input.use :input
+      input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+      input.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+    end
+  end
+
+  config.wrappers :simple_inline, tag: 'div', class: "simple-form-inline", error_class: 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :input
+    b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+  end
+
   # Wrappers for forms and inputs using the Twitter Bootstrap toolkit.
   # Check the Bootstrap docs (http://twitter.github.com/bootstrap)
   # to learn about the different styles for forms and inputs,

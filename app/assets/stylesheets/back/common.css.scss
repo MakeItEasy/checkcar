@@ -51,3 +51,9 @@ sup.unit {
 .car-filter-item {
   margin: 5px;
 }
+
+.input-group > .input-group-addon > select {
+  width: auto;
+  height: auto;
+  display: inline-block;
+}

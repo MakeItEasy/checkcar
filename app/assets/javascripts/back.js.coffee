@@ -13,6 +13,7 @@ jquery.turbolinks 必须在jquery 和jquery_ujs的后面，然后在turbolinks�
 //= require adminlte/AdminLTE
 //= require jquery/input-mask/jquery.inputmask
 //= require jquery/input-mask/jquery.inputmask.date.extensions
+//= require jquery/input-mask/jquery.inputmask.regex.extensions
 # 项目地址:https://github.com/smalot/bootstrap-datetimepicker
 # fork源项目：https://github.com/eternicode/bootstrap-datepicker
 //= require bootstrap-datetimepicker/bootstrap-datetimepicker

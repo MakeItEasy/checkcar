@@ -47,5 +47,9 @@ module Car
 
     # 车检站管理员角色
     STATION_ROLES = ["admin", "normal"]
+
+    # 车检站管理员角色
+    CAR_NUMBER_AREA = ["陕", "京"]
+
   end
 end

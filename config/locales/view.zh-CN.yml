@@ -95,6 +95,9 @@
       answered: 已回答
       wait_answer: "等待回答..."
       all: 全部
+    prompt:
+      car_area: "--地区--"
+        
     # 主要用于page header
     controller:
       system_admins: 系统管理员

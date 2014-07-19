@@ -8,4 +8,12 @@ zh-CN:
       # default: ! '%Y年%b%d日 %A %H:%M:%S %Z'
       default: ! '%Y年%b%d日 %H:%M'
       line: ! '%Y-%m-%d %H:%M'
-      
+  errors: &errors
+    messages:
+      blank: 必填项
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
