@@ -10,16 +10,19 @@
       <a><i class="fa fa-circle text-success"></i> <%= truncate(render_current_admin_roles, length: 15) %></a>
     </div>
   </div>
+  <% if current_admin.station_admin? %>
   <!-- search form -->
-  <form action="#" method="get" class="sidebar-form">
+  <form action="<%= show_order_no_back_mystation_orders_path %>" method="get" class="sidebar-form">
     <div class="input-group">
-      <input type="text" name="q" class="form-control" placeholder="预约编号...">
+      <input type="text" name="order_no" class="form-control" value="<%= params[:order_no]%>"
+      placeholder="<%= Order.human_attribute_name(:order_no)%>...">
       <span class="input-group-btn">
       <button type="submit" name="seach" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
       </span>
     </div>
   </form>
   <!-- /.search form -->
+  <% end %>
   <!-- sidebar menu: : style can be found in sidebar.less -->
   <ul class="sidebar-menu">
     <% if current_admin.system_admin? %>

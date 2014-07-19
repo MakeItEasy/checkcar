@@ -18,4 +18,15 @@ class Back::Mystation::OrdersController < Back::StationBaseController
     add_breadcrumb I18n.t('view.action.list'), :back_mystation_orders_path
   end
 
+  # GET
+  # 根据order_no查找order信息
+  def show_order_no
+    if params[:order_no]
+      _order = Order.accessible_by(current_ability).where(order_no: params[:order_no]).first
+      if _order.present?
+        redirect_to [:back, :mystation, _order]
+      end
+    end
+  end
+
 end

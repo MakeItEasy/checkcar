@@ -5,6 +5,11 @@ html, body {
   background: #eee;
 }
 
+.important-info {
+  font-weight: bold;
+  color: red;
+}
+
 // -----------------------------------------
 // tab导航
 // -----------------------------------------
@@ -118,3 +123,4 @@ footer {
 .btn.btn-default > .badge {
   background-color: #367fa9;
 }
+

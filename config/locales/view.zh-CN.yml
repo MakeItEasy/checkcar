@@ -44,6 +44,7 @@
       personal:
         show: 个人信息
         password: 修改密码
+      show_order_no: "查找预约流水号"
     notice:
       created: "新建成功!"
       updated: "更新成功!"

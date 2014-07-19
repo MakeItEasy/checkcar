@@ -78,7 +78,11 @@ Rails.application.routes.draw do
       resource :station, only: [:show, :edit, :update]
       resources :order_phones, except: [:index]
       resources :order_nets, only: [:show]
-      resources :orders, only: [:index]
+      resources :orders, only: [:index] do
+        collection do
+          get "show_order_no"
+        end
+      end
     end
 
     # 个人中心

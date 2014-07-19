@@ -15,7 +15,7 @@ class Order < ActiveRecord::Base
   enumerize :status, in: Car::Code::ORDER_STATUS, default: :success, predicates: { prefix: true }, scope: true
 
   def init_order_no
-    self.order_no = "order no"
+    self.order_no = Time.now.to_i.to_s
   end
 
   def car_number
