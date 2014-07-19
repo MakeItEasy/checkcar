@@ -8,6 +8,8 @@
       have_question: 我要提问
       answer: 回答
       new: 新建
+      find: 查询
+      clear: 清空
       new_question: 发起提问
       edit: 编辑
       show: 明细

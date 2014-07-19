@@ -81,16 +81,18 @@ ActiveRecord::Schema.define(version: 20140709003915) do
   add_index "faqs", ["question"], name: "index_faqs_on_question", using: :btree
 
   create_table "orders", force: true do |t|
-    t.string   "type",       null: false
-    t.string   "order_no",   null: false
+    t.string   "type",              null: false
+    t.string   "order_no",          null: false
     t.integer  "user_id"
-    t.integer  "station_id", null: false
-    t.date     "order_date", null: false
-    t.string   "order_time", null: false
-    t.string   "owner_name", null: false
-    t.string   "car_number", null: false
-    t.string   "telephone",  null: false
-    t.string   "status",     null: false
+    t.integer  "station_id",        null: false
+    t.datetime "order_time",        null: false
+    t.string   "owner_name",        null: false
+    t.string   "car_number_area",   null: false
+    t.string   "car_number_detail", null: false
+    t.string   "telephone",         null: false
+    t.string   "status",            null: false
+    t.text     "switch_settings"
+    t.integer  "create_admin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

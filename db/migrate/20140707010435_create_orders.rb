@@ -9,18 +9,21 @@ class CreateOrders < ActiveRecord::Migration
       t.integer :user_id
       # 预约车检站
       t.integer :station_id, null: false
-      # 预约日期
-      t.date :order_date, null: false
-      # 预约时间段
-      t.string :order_time, null: false
+      # 预约时间
+      t.datetime :order_time, null: false
       # 车主姓名
       t.string :owner_name, null: false 
       # 车牌号码
-      t.string :car_number, null: false 
+      t.string :car_number_area, null: false 
+      t.string :car_number_detail, null: false 
       # 预留手机号
       t.string :telephone, null: false
       # 预约状态
       t.string :status, null: false
+      # 预约时间段的开关设置
+      t.text :switch_settings
+      # 创建者
+      t.integer :create_admin_id
 
       t.timestamps
     end

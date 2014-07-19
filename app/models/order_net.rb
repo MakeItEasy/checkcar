@@ -7,10 +7,10 @@ class OrderNet < Order
   belongs_to :user
 
   ## Validations
-  validates :order_date, presence: true, if: :step_select_date?
   validates :order_time, presence: true, if: :step_select_date?
   validates :owner_name, presence: true, length: { maximum: 30 }, if: :step_basic_info?
-  validates :car_number, presence: true, if: :step_basic_info?
+  validates :car_number_area, presence: true, if: :step_basic_info?
+  validates :car_number_detail, presence: true, if: :step_basic_info?
   validates :telephone, presence: true, if: :step_basic_info?
 
   ## 预约步骤

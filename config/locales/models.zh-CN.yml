@@ -70,10 +70,10 @@
         car_number: 车牌号
         owner_name: 车主姓名
         telephone: 预留手机号
-        order_date: 预约日期
-        order_time: 预约时间
+        order_time: 预约检车时间
         order_no: 预约流水号
         station_id: 预约车检站
+        create_admin_id: 创建者
         <<: *default
       faq:
         create_user_id: 创建者

@@ -33,6 +33,7 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
   def create
     @order_phone = OrderPhone.new(order_phone_params)
     @order_phone.station_id = current_admin.station.id
+    @order_phone.create_admin_id = current_admin.id
     respond_to do |format|
       if @order_phone.save
         format.html { redirect_to [:back, :mystation, @order_phone], notice: I18n.t('view.notice.created') }
@@ -82,7 +83,6 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_phone_params
-      params.require(:order_phone).permit(:order_date, :order_time,
-        :owner_name, :car_number, :telephone)
+      params.require(:order_phone).permit(:order_time, :car_number_area, :car_number_detail, :owner_name, :telephone)
     end
 end
