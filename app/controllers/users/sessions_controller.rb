@@ -84,7 +84,7 @@ private
     return "请输入手机动态码" if params[:phone_authcode].blank?
     return "该手机号码未注册" if User.find_by(telephone: self.resource.telephone).nil?
     return "手机动态码错误" if session[:phone_authcode] != params[:phone_authcode]
-    return "手机动态码已经过期，请重新获取" if Time.now - session[:phone_authcode_send_time].to_time > 30*60
+    return "手机动态码已经过期，请重新获取" if Time.now - session[:phone_authcode_send_time].to_time > Car::Constants::PHONE_AUTHCODE_EXPIRES
   end
 
   # Overwriting the sign_in redirect path method

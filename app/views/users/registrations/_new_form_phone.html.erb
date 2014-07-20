@@ -1,0 +1,42 @@
+<input type='hidden' id='action_mode' value='sign_up'>
+<input type='hidden' name='user[mode]' value='telephone'>
+<div id="car-wrapper-phone-authcode">
+<%= f.input :telephone, required: true, autofocus: true, input_html: {id: "telephone"} %>
+</div>
+
+<div id="car-wrapper-captcha-phone" class="form-group required <%= 'has-error' if flash.now[:recaptcha_error].present? %>">
+  <label class="required col-sm-2 control-label" for="user_telephone">
+    <abbr title="必填项">*</abbr> 验证码
+  </label>
+  <div class="col-sm-4">
+    <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'string required form-control', id: "captcha_phone",
+      placeholder: "点击图片刷新"} %>
+    <% if flash.now[:recaptcha_error].present? %>
+      <span class="help-inline"><%= flash.now[:recaptcha_error] %></span>
+    <% end %>
+  </div>
+  <div class='col-sm-2' style='float: left;'>
+      <%= captcha_tag class: 'car-captcha'%>
+  </div>
+</div> 
+
+<!-- 手机动态码 -->
+<div class="form-group required <%= 'has-error' if flash.now[:phone_authcode_error].present? %>">
+  <label class="required col-sm-2 control-label" for="user_telephone">
+    <abbr title="必填项">*</abbr> <%= t('view.placeholder.phone_authcode')%>
+  </label>
+  <div class="col-sm-4">
+    <%= text_field_tag :phone_authcode, nil, class: 'form-control', placeholder: t('view.placeholder.phone_authcode') %>
+    <% if flash.now[:phone_authcode_error].present? %>
+      <span class="help-inline"><%= flash.now[:phone_authcode_error] %></span>
+    <% end %>
+  </div>
+  <div class='col-sm-2' style='float: left;'>
+    <a class="btn btn-warning" id="get_yanzhengma" >
+      <%= t('view.action.get_authcode')%>
+    </a>
+  </div>
+</div> 
+
+<%= f.input :password, required: true %>
+<%= f.input :password_confirmation %>

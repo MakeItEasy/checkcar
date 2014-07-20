@@ -16,37 +16,18 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab_email">
-          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
+          <%= simple_form_for(resource, as: resource_name,
+            url: registration_path(resource_name),
             html: {class: 'form-horizontal mask-form', role: 'form'} ) do |f| %>
             <div class='car-form-items'>
               <% if params[:user] && params[:user][:mode] == 'telephone' %>
-                <%= f.input :telephone, required: true, autofocus: true %>
-                <input type='hidden' name='user[mode]' value='telephone'>
+                <%= render "new_form_phone", f: f %> 
               <% else %>
-                <input type='hidden' name='user[mode]' value='email'>
-                <%= f.input :email, required: true, autofocus: true %>
+                <%= render "new_form", f: f %> 
               <% end %>
-              <%= f.input :password, required: true %>
-              <%= f.input :password_confirmation %>
-
-              <div class="form-group required <%= 'has-error' if flash.now[:recaptcha_error].present? %>">
-                <label class="required col-sm-2 control-label" for="user_telephone">
-                  <abbr title="必填项">*</abbr> 验证码
-                </label>
-                <div class="col-sm-4">
-                  <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'string required form-control', 
-                    placeholder: "点击图片刷新"} %>
-                  <% if flash.now[:recaptcha_error].present? %>
-                    <span class="help-inline"><%= flash.now[:recaptcha_error] %></span>
-                  <% end %>
-                </div>
-                <div class='col-sm-2' style='float: left;'>
-                    <%= captcha_tag class: 'car-captcha'%>
-                </div>
-              </div> 
             </div>
             <div class="car-form-actions">
-              <%= f.button :submit, "注册", class: 'btn btn-lg btn-success col-sm-2 col-sm-offset-2' %>
+              <%= f.button :submit, t('view.action.sign_up'), class: 'btn btn-lg btn-success col-sm-2 col-sm-offset-2' %>
             </div>
           <% end %>
         </div>

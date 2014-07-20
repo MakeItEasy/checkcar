@@ -17,6 +17,7 @@ jquery.turbolinks 必须在jquery 和jquery_ujs的后面，然后在turbolinks�
 //= require common/car_base
 //= require front/common/class
 //= require front/common/base
+# 获取手机验证码的动态处理
 //= require front/common/sign_in
 //= require front/all
 

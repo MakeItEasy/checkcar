@@ -41,6 +41,7 @@
         <i class='glyphicon glyphicon-lock'></i>
       </span>
       <%= text_field_tag :phone_authcode, nil, class: 'form-control', placeholder: t('view.placeholder.phone_authcode') %>
+      <input type='hidden' id='action_mode' value='sign_in'>
     </div>
     <div class='col-sm-2' style='float: left;'>
       <a class="btn btn-warning" id="get_yanzhengma" >

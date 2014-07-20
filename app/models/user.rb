@@ -46,8 +46,6 @@ class User < ActiveRecord::Base
   end
 
   def confirmed?
-    puts "======confirmed ========="
-    # true
     if self.login_type_telephone? || self.mode == 'telephone'
       true
     else
@@ -58,7 +56,7 @@ class User < ActiveRecord::Base
 private
 
   def email_required?
-    self.new_record? && ['email'].include?(self.mode)
+    self.new_record? && !['telephone'].include?(self.mode)
   end
 
   def telephone_required?
