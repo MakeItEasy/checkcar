@@ -139,7 +139,7 @@ class Back::System::PostsController < Back::SystemBaseController
     end
   end
 
-  # TODO dairg 预览功能
+  # 预览功能
   def preview
     redirect_to front_post_path(@post.catagory, @post)
   end

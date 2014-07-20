@@ -15,7 +15,8 @@ class Front::WelcomeController < FrontController
   def show_post
     @post = Post.find(params[:post_id])
     # 如果post不是发布状态，那么返回404
-    # raise ActiveRecord::RecordNotFound unless @post.status_published?
+    # 如果admin存在，那么说明是preview，那么不用返回404
+    raise ActiveRecord::RecordNotFound unless @post.status_published? || current_admin.present?
     @pre_post = @post.pre_published_post
     @next_post = @post.next_published_post
   end
