@@ -30,7 +30,7 @@
         last_sign_in_at: 上次登录时间
         current_sign_in_ip: 当前登录IP地址
         last_sign_in_ip: 上次登录IP地址
-        remember_me: 记住我
+        remember_me: 一周内免登录
       admin:
         station: 车检站
         roles: 角色

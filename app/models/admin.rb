@@ -9,7 +9,7 @@ class Admin < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable, 
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable,
-         :lockable
+         :lockable, :timeoutable
   
   ## Validations
   validates :name, presence: true, length: { maximum: 30 }
