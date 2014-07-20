@@ -1,6 +1,9 @@
 ################################################################### 
 # 该文件是前台登录模块和前台模块通用的js文件
 ################################################################### 
+@getCaptchaUrl =  ->
+  "/captcha?i=" + (new Date()).getTime()
+
 # 由于使用了turbolinks,所以这里要注册这个事件
 $(document).on 'ready page:load', ->
   ################################################################### 
@@ -9,6 +12,4 @@ $(document).on 'ready page:load', ->
   $("img.car-captcha").each (index, item) ->  
     item.title = '看不清？点击刷新'  
   $('img.car-captcha').click (e) -> 
-    this.src = this.src + '?'  
-
-
+    this.src = getCaptchaUrl()
