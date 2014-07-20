@@ -1,5 +1,5 @@
 <% content_for :head_title do %>
-  重发解锁邮件
+<%= t('view.action.resend_unlock_mail')%>
 <% end %>
 
 <div class='row car-devise'>
@@ -14,7 +14,7 @@
       </div>
 
       <div class="car-form-actions">
-        <%= f.button :submit, "重发解锁邮件",
+        <%= f.button :submit, t('view.action.resend_unlock_mail'),
               class: 'btn btn-success col-sm-2 col-sm-offset-2' %>
       </div>
     <% end %>

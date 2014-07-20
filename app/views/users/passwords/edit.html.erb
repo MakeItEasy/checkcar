@@ -1,5 +1,5 @@
 <% content_for :head_title do %>
-  设置密码
+<%= t('view.label.set_password')%>
 <% end %>
 
 <div class='row car-devise'>
@@ -10,14 +10,14 @@
       <%= f.input :reset_password_token, as: :hidden %>
       <%= f.full_error :reset_password_token %>
       <div class='car-form-items'>
-        <%= f.input :password, label: "新密码", required: true, autofocus: true %>
+        <%= f.input :password, label: t('view.label.new_password'), required: true, autofocus: true %>
       </div>
       <div class='car-form-items'>
         <%= f.input :password_confirmation, required: true %>
       </div>
 
       <div class="car-form-actions">
-        <%= f.button :submit, "修改密码", class: 'btn btn-success col-sm-offset-2' %>
+        <%= f.button :submit, t('view.action.modify_password'), class: 'btn btn-success col-sm-offset-2' %>
       </div>
     <% end %>
   </div>

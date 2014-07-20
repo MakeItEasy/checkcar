@@ -1,13 +1,13 @@
 <% content_for :head_title do %>
-  登录
+<%= t('view.action.sign_in')%>
 <% end %>
 
 <div class='row car-devise'>
   <div class='col-sm-8 car-left-side'>
     <div class="car-nav-tabs-custom">
       <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="<%= new_user_session_path %>">账号登录</a></li>
-        <li><a href="<%= new_by_telephone_user_session_path%>">手机动态码登录</a></li>
+        <li class="active"><a href="<%= new_user_session_path %>"><%= t('view.action.sign_in_by_account')%></a></li>
+        <li><a href="<%= new_by_telephone_user_session_path%>"><%= t('view.action.sign_in_by_phone')%></a></li>
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab_email">

@@ -28,9 +28,15 @@
       submit: 提交
       cancel: 取消
       sign_in: 登录
+      sign_in_by_account: 账号登录
+      sign_in_by_phone: 手机动态码登录
       sign_up: 注册
       sign_out: 安全退出
       resend: 重发
+      resend_confirm_mail: 重发确认邮件
+      resend_unlock_mail: 重发解锁邮件
+      send_reset_password_mail: 发送重置密码邮件
+      modify_password: 修改密码
       back: 返回
       back_to_list: 返回一览
       show_detail: 查看明细
@@ -102,6 +108,8 @@
       wait_answer: "等待回答..."
       all: 全部
       captcha: 验证码
+      new_password: 新密码
+      set_password: 设置密码
     prompt:
       car_area: "--地区--"
         
