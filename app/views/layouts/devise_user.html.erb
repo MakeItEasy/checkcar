@@ -17,9 +17,11 @@
   </head>
   <body>
     <div class="header">
-      <div class="container marketing">
-        <span class='logo'><%= t("view.site.front_title") %></span>
-        <span class='logo'><%= yield :head_title %></span>
+      <div class="container marketing devise-header">
+        <span class="devise-site-logo">
+          <a class="navbar-brand" href="/" style="color:black; font-size: 22px;"><%= t("view.site.front_title") %></a>
+        </span>
+        <span class='logo devise-title'><%= yield :head_title %></span>
       </div>
     </div>
     <div class="container marketing">

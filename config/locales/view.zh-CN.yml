@@ -30,6 +30,7 @@
       sign_in: 登录
       sign_up: 注册
       sign_out: 安全退出
+      resend: 重发
       back: 返回
       back_to_list: 返回一览
       show_detail: 查看明细
