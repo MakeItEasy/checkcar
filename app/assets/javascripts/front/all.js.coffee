@@ -74,19 +74,3 @@ $(document).on 'ready page:load', ->
     todayHighlight: true,
     minView: 2
   })
-
-  ## 预约step select date时，单选框样式
-  $(".car-order-select-time-table input[type='radio']").iCheck({
-    checkboxClass: 'icheckbox_square-green',
-    radioClass: 'iradio_square-green'
-  })
-
-  ## 当鼠标经过单选框时，显示tips
-  $(".car-order-select-time-table ins.iCheck-helper").hover () ->
-    $(this).parent().parent().tooltip "show"
-  , () ->
-    $(this).parent().parent().tooltip "hide"
-
-  $(".car-order-select-time-table input[type='radio']").on 'ifChecked', (event) ->
-    html_content = '<span class="label label-success" style="font-size: 100%;">已选择时间段：'  + $(this).val() + '</span>'
-    $("#select_time_info").html html_content

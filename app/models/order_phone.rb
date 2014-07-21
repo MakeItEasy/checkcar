@@ -1,6 +1,8 @@
 ## 电话预约订单
 class OrderPhone < Order
 
+  attr_accessor :order_date
+
   ## Validations
   validates :order_time, presence: true
   validates :owner_name, presence: true, length: { maximum: 30 }

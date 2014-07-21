@@ -26,7 +26,7 @@ jquery.turbolinks 必须在jquery 和jquery_ujs的后面，然后在turbolinks�
 # 我的js add other js here
 # ==============================================
 //= require common/car_base
-//= require back/common
+//= require back/all
 
 //= require turbolinks
 

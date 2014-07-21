@@ -18,6 +18,7 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
   # GET /order_phones/new
   def new
     @order_phone = OrderPhone.new
+    set_current_order_states
     ## 面包屑导航
     add_breadcrumb I18n.t('view.action.new'), :new_back_mystation_order_phone_path
   end
@@ -34,6 +35,7 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
     @order_phone = OrderPhone.new(order_phone_params)
     @order_phone.station_id = current_admin.station.id
     @order_phone.create_admin_id = current_admin.id
+    set_current_order_states
     respond_to do |format|
       if @order_phone.save
         format.html { redirect_to [:back, :mystation, @order_phone], notice: I18n.t('view.notice.created') }
@@ -83,6 +85,13 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_phone_params
-      params.require(:order_phone).permit(:order_time, :car_number_area, :car_number_detail, :owner_name, :telephone)
+      params.require(:order_phone).permit(:order_date, :order_time, :car_number_area, :car_number_detail, :owner_name, :telephone)
+    end
+
+    def set_current_order_states
+      @current_order_states = {
+        Date.today => [2, 3, 0, 1, 2, 3, 2, 0],
+        Date.tomorrow => [2, 3, 0, 1, 2, 3, 2, 0]
+      }
     end
 end
