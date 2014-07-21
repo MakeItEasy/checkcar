@@ -80,9 +80,6 @@ private
   end
 
   def set_current_order_states
-    @current_order_states = {
-      Date.today => [2, 3, 0, 1, 2, 3, 2, 0],
-      Date.tomorrow => [2, 3, 0, 1, 2, 3, 2, 0]
-    }
+    @current_order_states = Car::OrderState.new.current_order_states
   end
 end

@@ -25,6 +25,7 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
 
   # GET /order_phones/1/edit
   def edit
+    set_current_order_states
     ## 面包屑导航
     add_breadcrumb I18n.t('view.action.edit'), :edit_back_mystation_order_phone_path
   end
@@ -53,6 +54,7 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
   # PATCH/PUT /order_phones/1
   # PATCH/PUT /order_phones/1.json
   def update
+    set_current_order_states
     respond_to do |format|
       if @order_phone.update(order_phone_params)
         format.html { redirect_to [:back, :mystation, @order_phone], notice: I18n.t('view.notice.updated') }
@@ -89,9 +91,6 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
     end
 
     def set_current_order_states
-      @current_order_states = {
-        Date.today => [2, 3, 0, 1, 2, 3, 2, 0],
-        Date.tomorrow => [2, 3, 0, 1, 2, 3, 2, 0]
-      }
+      @current_order_states = Car::OrderState.new.current_order_states
     end
 end

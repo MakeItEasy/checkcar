@@ -52,6 +52,15 @@
                     %>
                     <input type="radio" name="order_phone[order_time]" value="<%= _value %>" 
                       <%= 'checked' if @order_phone && @order_phone.order_time && l(@order_phone.order_time, format: :line) == _value %> >
+                    <% if c > 2 %>
+                      <span class="label label-primary pull-right" style="font-size: 70%; margin-right: 3px;">
+                        余:<%= c %>
+                      </span>
+                    <% else %>
+                      <span class="label label-danger pull-right" style="font-size: 70%; margin-right: 3px;">
+                        余:<%= c %>
+                      </span>
+                    <% end %>
                   </div>
                 </td>
               <% else %>
