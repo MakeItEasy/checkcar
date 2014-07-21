@@ -31,23 +31,23 @@
           </div><!-- /.box-header -->
           <div class="box-body">
             <div class="row car-filter-item">
-              <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:id)%></div>
-              <div class="col-sm-4">
-                <%= grid_filter @orders_grid, :id_filter %>
-              </div>
-            </div>
-            <div class="row car-filter-item">
               <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:order_no)%></div>
               <div class="col-sm-4">
                 <%= grid_filter @orders_grid, :order_no_filter %>
               </div>
-            </div><!-- /.row - inside box -->
+            </div>
             <div class="row car-filter-item">
               <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:order_time)%></div>
               <div class="col-sm-4">
                 <%= grid_filter @orders_grid, :order_time_filter %>
               </div>
-            </div><!-- /.row - inside box -->
+            </div>
+            <div class="row car-filter-item">
+              <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:telephone)%></div>
+              <div class="col-sm-4">
+                <%= grid_filter @orders_grid, :telephone_filter %>
+              </div>
+            </div>
           </div><!-- /.box-body -->
           <div class="box-footer">
             <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">

@@ -67,6 +67,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :settings, I18n.t('view.menu.settings'), nil, :opts => {icon: 'ion ion-settings' },
       if: ->{can? :show, :settings} do |sub_nav|
       sub_nav.item :show, I18n.t('view.menu.station_base_info'), back_mystation_station_path, if: -> {can? :show, Station}
+      sub_nav.item :time_area, I18n.t('view.menu.time_area'), back_mystation_station_settings_time_area_path, if: -> {can? :time_area, :station_setting}
     end
     primary.item :personal, I18n.t('view.controller.personal'), nil, :opts => {icon: 'fa fa-th' } do |sub_nav|
       sub_nav.item :show, I18n.t('view.action.personal.show'), back_personal_show_path

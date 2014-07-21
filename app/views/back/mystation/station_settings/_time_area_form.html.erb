@@ -1,0 +1,35 @@
+<%= simple_form_for(@station, url: back_mystation_station_settings_update_time_area_path,
+  html: {class: 'form-horizontal', role: 'form', method: :put} ) do |f| %>
+  <div class='car-form-items'>
+    <h4><%= @station.name%></h4>
+    <hr>
+    <div>
+      <table class="table car-order-select-time-table">
+        <thead>
+          <th class="col-sm-2">时间段</th>
+          <th style="text-align: left;">可预约数量</th>
+        </thead>
+        <tbody>
+          <% @station.time_area_settings.each_with_index do |value, index| %>
+          <tr>
+            <td>
+              <%= "#{index+10}:00" %>
+            </td>
+            <td style="text-align: left;">
+              <div class="data">
+                <input type="number" name="station[time_area_settings][]" value="<%= value %>" min="0" max="20">
+              </div>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="car-form-actions bg-gray">
+    <div class='col-sm-offset-2 col-sm-10 button-wrapper'>
+      <%= f.button :submit, t('view.action.submit'),  class: 'btn-primary' %>
+    </div>
+    <div class='clearfix'></div>
+  </div>
+<% end %>

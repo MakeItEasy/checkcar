@@ -130,6 +130,8 @@ private
     can :show_order_no, Order, station_id: user.station.id
     # 显示设置中心菜单
     can :show, :settings
+    can :time_area, :station_setting
+    can :update_time_area, :station_setting
   end
 
   # 普通员工

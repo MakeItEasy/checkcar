@@ -20,10 +20,18 @@ class Station < ActiveRecord::Base
   validates :address, presence: true
   validates :telephone, presence: true
   enumerize :status, in: Car::Code::STATION_STATUS, default: :waiting, predicates: { prefix: true }, scope: true
+  # 预约数量设置
+  serialize :time_area_settings
+
+  ## Associations
+  has_many :orders
 
   def init
-    # 默认陕西省
-    self.province = '610000'
+    if self.new_record?
+      # 默认陕西省
+      self.province = '610000'
+      self.time_area_settings = [0, 0, 0, 0, 0, 0, 0, 0]
+    end
   end
 
   def address_text

@@ -91,6 +91,6 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
     end
 
     def set_current_order_states
-      @current_order_states = Car::OrderState.new.current_order_states
+      @current_order_states = Car::OrderState.new(current_admin.station).current_order_states
     end
 end

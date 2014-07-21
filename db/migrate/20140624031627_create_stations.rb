@@ -16,6 +16,8 @@ class CreateStations < ActiveRecord::Migration
       # 锁定者
       t.integer :lock_user_id
       t.text :recommend
+      # 预约数量设置array
+      t.text :time_area_settings
 
       t.timestamps
     end

@@ -121,17 +121,18 @@ ActiveRecord::Schema.define(version: 20140709003915) do
   add_index "posts", ["title"], name: "index_posts_on_title", using: :btree
 
   create_table "stations", force: true do |t|
-    t.string   "name",          default: "", null: false
-    t.string   "province",                   null: false
-    t.string   "city",                       null: false
-    t.string   "district",                   null: false
-    t.string   "address",       default: "", null: false
-    t.string   "telephone",     default: "", null: false
-    t.string   "status",                     null: false
+    t.string   "name",               default: "", null: false
+    t.string   "province",                        null: false
+    t.string   "city",                            null: false
+    t.string   "district",                        null: false
+    t.string   "address",            default: "", null: false
+    t.string   "telephone",          default: "", null: false
+    t.string   "status",                          null: false
     t.integer  "check_user_id"
     t.text     "reject_reason"
     t.integer  "lock_user_id"
     t.text     "recommend"
+    t.text     "time_area_settings"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

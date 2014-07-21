@@ -83,6 +83,10 @@ Rails.application.routes.draw do
           get "show_order_no"
         end
       end
+      namespace :station_settings do 
+        get "time_area"
+        put "update_time_area"
+      end
     end
 
     # 个人中心

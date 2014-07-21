@@ -1,17 +1,18 @@
 class Car::OrderState
 
-  def initialize(start_date = Date.tomorrow, days = Car::Constants::ORDER_DEFAULT_ENABLE_DAYS)
+  def initialize(station, start_date = Date.tomorrow, days = Car::Constants::ORDER_DEFAULT_ENABLE_DAYS)
     if start_date > Date.tomorrow
       @start_date = start_date
     else
       @start_date = Date.tomorrow
     end
+    @station = station
     @days = days
   end
 
   def current_order_states
     init_order_states
-    orders = Order.select("order_time, count(order_time) as count_orders").group("order_time")
+    orders = @station.orders.select("order_time, count(order_time) as count_orders").group("order_time")
             .where(order_time: (@start_date..@start_date+@space_day))
             .order(order_time: :asc)
     orders.each do |item|
@@ -34,8 +35,7 @@ private
     while day <= @days do
       date = @start_date + @space_day.days
       unless date.saturday? || date.sunday?
-        # TODO dairg 初始设置应该时各个车检站的初始设置
-        @order_states[date] = [0, 4, 3, 3, 3, 3, 3, 3]
+        @order_states[date] = @station.time_area_settings.dup
         day += 1
       end
       @space_day += 1

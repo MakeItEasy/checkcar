@@ -80,6 +80,6 @@ private
   end
 
   def set_current_order_states
-    @current_order_states = Car::OrderState.new.current_order_states
+    @current_order_states = Car::OrderState.new(@station).current_order_states
   end
 end
