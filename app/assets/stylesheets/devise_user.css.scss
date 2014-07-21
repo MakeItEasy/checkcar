@@ -49,3 +49,12 @@
   width: auto;
   font-size: 18px;
 }
+
+// -----------------------------------------
+// 注册窗体的ajax错误时，错误提示样式
+// -----------------------------------------
+form#new_user .car-error-tip {
+  margin-left: 120px;
+  margin-bottom: 15px;
+  color: red;
+}

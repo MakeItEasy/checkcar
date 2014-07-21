@@ -313,3 +313,11 @@ a.list-group-item:hover > * {
 .tip_enable .state.iradio_square-green:hover {
   background-position: -144px 0;
 }
+
+// -----------------------------------------
+// 手机动态码登录窗体的ajax错误时，错误提示样式
+// -----------------------------------------
+form#sign_in_remote_form_phone .car-error-tip {
+  margin-left: 40px;
+  color: red;
+}

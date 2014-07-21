@@ -8,6 +8,8 @@ class @AuthCodeErrorHandler
     if @errText
       @source.addClass("has-error")
       @source.find("input").focus()
+      # @source.find("input").tooltip({title: @errText, trigger: "manual"})
+      # @source.find("input").tooltip('show')
       @source.after("<div class='car-error-tip'>" + @errText + "</div>")
     else
       @source.removeClass("has-error")
