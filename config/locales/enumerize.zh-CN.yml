@@ -20,6 +20,8 @@ zh-CN:
       status:
         success: 预约成功
         cancel: 预约取消
+        checked: 已检车
+        missit: 爽约
     roles:
       system_admin:
         superadmin: 超级管理员

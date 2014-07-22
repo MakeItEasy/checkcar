@@ -76,11 +76,14 @@ Rails.application.routes.draw do
       root 'dashboard#index' 
       resources :station_admins
       resource :station, only: [:show, :edit, :update]
-      resources :order_phones, except: [:index]
-      resources :order_nets, only: [:show]
-      resources :orders, only: [:index] do
+      resources :order_phones, except: [:index, :show]
+      # resources :order_nets, only: [:show]
+      resources :orders, only: [:index, :show] do
         collection do
           get "show_order_no"
+        end
+        member do
+          put "cancel"
         end
       end
       namespace :station_settings do 

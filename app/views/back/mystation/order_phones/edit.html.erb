@@ -1,7 +1,7 @@
 <div class='box car-toolbox'>
   <div class="btn-toolbar" role="toolbar">
     <div class="btn-group">
-      <%= link_to [:back, :mystation, @order_phone], {class: 'btn btn-default'} do%>
+      <%= link_to back_mystation_order_path(@order_phone), {class: 'btn btn-default'} do%>
         <i class="fa fa-info-circle"></i> <%= t('view.action.show_detail') %> 
       <% end %>
     </div>

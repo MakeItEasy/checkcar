@@ -1,5 +1,5 @@
 class Back::Mystation::OrderPhonesController < Back::StationBaseController
-  before_action :set_order_phone, only: [:show, :edit, :update, :destroy]
+  before_action :set_order_phone, only: [:edit, :update, :destroy]
 
   ## 加载权限
   load_and_authorize_resource
@@ -7,13 +7,6 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
   ## 面包屑导航
   # TODO dairg 电话预约的面包屑
   add_breadcrumb Order.model_name.human, :back_mystation_orders_path
-
-  # GET /order_phones/1
-  # GET /order_phones/1.json
-  def show
-    ## 面包屑导航
-    add_breadcrumb I18n.t('view.action.show'), :back_mystation_order_phone_path
-  end
 
   # GET /order_phones/new
   def new
@@ -39,7 +32,7 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
     set_current_order_states
     respond_to do |format|
       if @order_phone.save
-        format.html { redirect_to [:back, :mystation, @order_phone], notice: I18n.t('view.notice.created') }
+        format.html { redirect_to back_mystation_order_path(@order_phone), notice: I18n.t('view.notice.created') }
         format.json { render :show, status: :created, location: @order_phone }
       else
         format.html do
@@ -57,7 +50,7 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
     set_current_order_states
     respond_to do |format|
       if @order_phone.update(order_phone_params)
-        format.html { redirect_to [:back, :mystation, @order_phone], notice: I18n.t('view.notice.updated') }
+        format.html { redirect_to back_mystation_order_path(@order_phone), notice: I18n.t('view.notice.updated') }
         format.json { render :show, status: :ok, location: @order_phone }
       else
         format.html do

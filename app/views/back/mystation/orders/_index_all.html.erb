@@ -11,7 +11,8 @@
           g.column do |item|
             links = []
             if can? :read, item
-              links << link_to(I18n.t('view.action.show'), [:back, :mystation, item])
+              # links << link_to(I18n.t('view.action.show'), [:back, :mystation, item])
+              links << link_to(I18n.t('view.action.show'), back_mystation_order_path(item))
             end
             if can? :update, item
               links << link_to(I18n.t('view.action.edit'), [:edit, :back, :mystation, item])

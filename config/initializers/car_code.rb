@@ -29,7 +29,11 @@ module Car
       # 预约成功
       success: '00',
       # 取消
-      cancel: '01'
+      cancel: '01',
+      # 已经检车
+      checked: '02',
+      # 没来检车,爽约
+      missit: '03'
     }
 
     SEX = {

@@ -1,5 +1,7 @@
 class Back::Mystation::OrdersController < Back::StationBaseController
 
+  before_action :set_order, only: [:show, :cancel]
+
   ## 加载权限
   load_and_authorize_resource
 
@@ -28,5 +30,26 @@ class Back::Mystation::OrdersController < Back::StationBaseController
       end
     end
   end
+
+  # GET /orders/1
+  # GET /orders/1.json
+  def show
+    ## 面包屑导航
+    add_breadcrumb I18n.t('view.action.show'), back_mystation_order_path(@order)
+  end
+
+  ## 取消预约
+  # PUT
+  def cancel
+    if can? :cancel, @order
+      @post.update_attributes!({status: 'published'})
+      redirect_to [:back, :mystation, @order], notice: I18n.t("view.notice.order.cancelled")
+    end
+  end
+
+  private
+    def set_order
+      @order = Order.find(params[:id])
+    end
 
 end

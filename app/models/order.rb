@@ -7,6 +7,7 @@ class Order < ActiveRecord::Base
   scope :today, -> { where(order_time: (Time.now.midnight..Time.now.midnight+1.day)) }
   scope :weekly, -> { where(order_time: (Time.now.midnight..Time.now.midnight+6.day)) }
   scope :newest, -> { where(created_at: (Time.now.midnight..Time.now.midnight+1.day)) }
+  scope :expired, -> { where("order_time < ?", Time.now) }
 
   ## Associations
   belongs_to :station
@@ -20,6 +21,11 @@ class Order < ActiveRecord::Base
 
   def car_number
     self.car_number_area + self.car_number_detail if self.car_number_area && self.car_number_detail
+  end
+
+  ## 电话预约?
+  def order_phone?
+    self.is_a? OrderPhone 
   end
 
 private

@@ -11,6 +11,7 @@
       faq: "常见问题"
       uaq: "用户问题"
       order_phone: "电话预约"
+      order_net: "网上预约"
 
     attributes:
       default: &default
@@ -74,6 +75,8 @@
         order_time: 预约检车时间
         order_no: 预约流水号
         station_id: 预约车检站
+        status: 当前状态
+        type: 预约类型
         create_admin_id: 创建者
         <<: *default
       faq:
