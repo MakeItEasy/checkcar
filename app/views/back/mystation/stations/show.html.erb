@@ -15,7 +15,7 @@
     <dt><%= Station.human_attribute_name(:name) %></dt>
     <dd><%= @station.name %></dd>
     <dt><%= Station.human_attribute_name(:status) %></dt>
-    <dd><%= render "station_status", station: @station%></dd>
+    <dd><%= render "back/common/station_status", station: @station%></dd>
     <dt><%= Station.human_attribute_name(:address) %></dt>
     <dd>
       <%= "#{ChinaCity.get(@station.province)} #{ChinaCity.get(@station.city)}

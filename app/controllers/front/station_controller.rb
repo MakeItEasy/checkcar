@@ -4,7 +4,7 @@ class Front::StationController < FrontController
 
   def index
     # session[:station_c_classonditions] = nil
-    resultRelation = Station
+    resultRelation = Station.reviewed
     session[:station_conditions] = session[:station_conditions] || {}
 
     ## unselect处理

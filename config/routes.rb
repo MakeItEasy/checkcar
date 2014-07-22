@@ -69,7 +69,13 @@ Rails.application.routes.draw do
           get 'preview'
         end
       end
-      resources :stations
+      resources :stations do
+        member do
+          patch 'review'
+          patch 'lock'
+          patch 'unlock'
+        end
+      end
     end
 
     namespace :mystation do
@@ -83,9 +89,9 @@ Rails.application.routes.draw do
           get "show_order_no"
         end
         member do
-          put "cancel"
-          put "check"
-          put "missit"
+          patch "cancel"
+          patch "check"
+          patch "missit"
         end
       end
       namespace :station_settings do 

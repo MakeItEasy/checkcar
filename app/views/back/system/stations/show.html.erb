@@ -11,6 +11,26 @@
         <i class="glyphicon glyphicon-remove"></i> <%= t('view.action.delete') %> 
       <% end %>
     </div>
+    <div class="btn-group">
+      <% if can? :review, @station%>
+        <%= link_to review_back_system_station_path(@station), {method: :patch,
+          data: { confirm: t('view.confirm.station.reviewed')}, class: 'btn btn-default'} do %>
+          <i class="glyphicon glyphicon-ok"></i> <%= t('view.action.review') %> 
+        <% end %>
+      <% end %>
+      <% if can? :lock, @station%>
+        <%= link_to lock_back_system_station_path(@station), {method: :patch,
+        data: { confirm: t('view.confirm.station.lock')}, class: 'btn btn-default'} do %>
+          <i class="fa fa-lock"></i> <%= t('view.action.lock') %> 
+        <% end %>
+      <% end %>
+      <% if can? :unlock, @station%>
+        <%= link_to unlock_back_system_station_path(@station), {method: :patch,
+        data: { confirm: t('view.confirm.station.unlock')}, class: 'btn btn-default'} do %>
+          <i class="fa fa-unlock"></i> <%= t('view.action.unlock') %> 
+        <% end %>
+      <% end %>
+    </div>
     <div class="btn-group pull-right">
       <%= link_to back_system_stations_path, {class: 'btn btn-default'} do %>
         <i class="fa fa-list"></i> <%= t('view.action.back_to_list') %> 
@@ -24,7 +44,7 @@
     <dt><%= Station.human_attribute_name(:name) %></dt>
     <dd><%= @station.name %></dd>
     <dt><%= Station.human_attribute_name(:status) %></dt>
-    <dd><%= @station.status_text %></dd>
+    <dd><%= render "back/common/station_status", station: @station %></dd>
     <dt><%= Station.human_attribute_name(:address) %></dt>
     <dd>
       <%= "#{ChinaCity.get(@station.province)} #{ChinaCity.get(@station.city)}

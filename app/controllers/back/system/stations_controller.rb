@@ -1,5 +1,5 @@
 class Back::System::StationsController < Back::SystemBaseController
-  before_action :set_station, only: [:show, :edit, :update, :destroy]
+  before_action :set_station, except: [:index, :new]
 
   ## 加载权限
   load_and_authorize_resource
@@ -80,6 +80,39 @@ class Back::System::StationsController < Back::SystemBaseController
     respond_to do |format|
       format.html { redirect_to back_system_stations_url, notice: I18n.t('view.notice.deleted') }
       format.json { head :no_content }
+    end
+  end
+
+  # PATCH
+  # 审核通过
+  def review
+    if @station.status_waiting?
+      @station.update_attributes!({status: 'reviewed'})
+      redirect_to [:back, :system, @station], notice: I18n.t("view.notice.station.reviewed")
+    else
+      redirect_to [:back, :system, @station], alert: I18n.t("view.alert.status_error")
+    end
+  end
+
+  # PATCH
+  # 锁定
+  def lock
+    if @station.status_reviewed?
+      @station.update_attributes!({status: 'locked'})
+      redirect_to [:back, :system, @station], notice: I18n.t("view.notice.station.locked")
+    else
+      redirect_to [:back, :system, @station], alert: I18n.t("view.alert.status_error")
+    end
+  end
+
+  # PATCH
+  # 解锁
+  def unlock
+    if @station.status_locked?
+      @station.update_attributes!({status: 'reviewed'})
+      redirect_to [:back, :system, @station], notice: I18n.t("view.notice.station.unlocked")
+    else
+      redirect_to [:back, :system, @station], alert: I18n.t("view.alert.status_error")
     end
   end
 

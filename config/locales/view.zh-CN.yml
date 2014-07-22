@@ -103,6 +103,10 @@
         cancel: 您确认要取消该预约吗？
         check: 您确认该车已经按时进行检车了吗？
         missit: 您确认该车爽约了吗？
+      station:
+        reviewed: 您确认审核通过该车检站吗？
+        lock: 您确认锁定该车检站吗？
+        unlock: 您确认解锁该车检站吗？
     label:
       homepage: 主页
       welcome: "欢迎，%{name}"

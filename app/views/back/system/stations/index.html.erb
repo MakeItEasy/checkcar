@@ -18,7 +18,7 @@
     g.column name: Station.human_attribute_name(:name), attribute: "name"
     g.column name: Station.human_attribute_name(:status), attribute: "status",
       custom_filter: enum_list_for_view(Car::Code::STATION_STATUS, 'station.status') do |item|
-      item.status_text
+      render "back/common/station_status", station: item
     end
     g.column name: Station.human_attribute_name(:address), attribute: "address" do |item|
       "#{ChinaCity.get(item.province)}#{ChinaCity.get(item.city)}#{ChinaCity.get(item.district)}#{item.address}"

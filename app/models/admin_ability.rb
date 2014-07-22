@@ -67,6 +67,9 @@ private
     # TODO dairg 不要用manage all，而是吧每个权限都细标出来
     # can :manage, :all
     can :crud, :all
+    can :review, Station, :status => "waiting"
+    can :lock, Station, :status => "reviewed"
+    can :unlock, Station, :status => "locked"
   end
 
   # 版主
