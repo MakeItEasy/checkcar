@@ -76,7 +76,7 @@ private
   end
 
   def set_station
-    @station = Station.find(params[:id])
+    @station = Station.reviewed.find(params[:id])
   end
 
   def set_current_order_states
