@@ -9,6 +9,10 @@ class OrderPhone < Order
   validates :car_number_area, presence: true
   validates :car_number_detail, presence: true
   validates :telephone, presence: true
+  validate do 
+    validate_order_time
+    validate_car_number
+  end
 
   ## Associations
   belongs_to :admin, foreign_key: :create_admin_id

@@ -1,0 +1,7 @@
+<div class="row inner">
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+    <% flash.clear %>
+  </div>
+  <a href="<%= request.referer %>" class="btn btn-primary"><%= t('view.action.back')%></a>
+</div>

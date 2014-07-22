@@ -12,6 +12,10 @@ class OrderNet < Order
   validates :car_number_area, presence: true, if: :step_basic_info?
   validates :car_number_detail, presence: true, if: :step_basic_info?
   validates :telephone, presence: true, if: :step_basic_info?
+  validate do 
+    validate_order_time if step_select_date?
+    validate_car_number if step_basic_info?
+  end 
 
   ## 预约步骤
   def self.steps

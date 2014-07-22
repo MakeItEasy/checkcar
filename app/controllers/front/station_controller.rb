@@ -27,10 +27,15 @@ class Front::StationController < FrontController
 
   ## 预定
   def order
-    session[:order_step] = nil
-    session[:order_params] = {station_id: @station.id, user_id: current_user.id}
-    @order = OrderNet.new(session[:order_params])
-    set_current_order_states
+    if message = current_user.can_order?
+      flash[:alert] = I18n.t('view.alert.order.user_order_disable', reason: message)
+      render "cannot_order", layout: "front"
+    else
+      session[:order_step] = nil
+      session[:order_params] = {station_id: @station.id, user_id: current_user.id}
+      @order = OrderNet.new(session[:order_params])
+      set_current_order_states
+    end
   end
 
   # POST

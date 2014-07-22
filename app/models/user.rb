@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   ## Associations
   has_many :uaqs
+  has_many :orders
 
   ## Validations
   validates_length_of :email, within: 1..30, allow_blank: true
@@ -51,6 +52,13 @@ class User < ActiveRecord::Base
     else
       super
     end
+  end
+
+  def can_order?
+    if self.orders.success.count >= Car::Constants::USER_ENABLE_ORDER_NUMBERS
+      return I18n.t("view.alert.order.user_order_numbers_over", count: Car::Constants::USER_ENABLE_ORDER_NUMBERS)
+    end
+    return nil
   end
 
 private

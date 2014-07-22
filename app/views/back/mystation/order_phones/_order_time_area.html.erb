@@ -1,5 +1,7 @@
 <% if @order_phone && @order_phone.errors[:order_time].present? %>
-  <div class="alert alert-danger"><%= t('view.alert.order.order_time_blank')%></div>
+<div class="alert alert-danger">
+  <%= @order_phone.errors[:order_time][0]%>
+</div>
 <% end %>
 
 <div>

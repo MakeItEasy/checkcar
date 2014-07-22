@@ -9,6 +9,7 @@ class Order < ActiveRecord::Base
   scope :newest, -> { where(created_at: (Time.now.midnight..Time.now.midnight+1.day)) }
   scope :expired, -> { where("order_time < ?", Time.now) }
   scope :not_cancelled, -> { without_status(:cancel) }
+  scope :success, -> { with_status(:success) }
 
   ## Associations
   belongs_to :station
@@ -27,6 +28,26 @@ class Order < ActiveRecord::Base
   ## 电话预约?
   def order_phone?
     self.is_a? OrderPhone 
+  end
+
+protected
+  def validate_order_time
+    # 因为可能用户提交的时候，那个时间段已经被其他人预约
+    unless self.errors.include?(:order_time)
+      _order_count = self.station.orders.success.where(order_time: self.order_time).count
+      _limit_count = self.station.time_area_settings[self.order_time.hour-10]
+      if _order_count >= _limit_count
+        self.errors[:order_time] << I18n.t('view.alert.order.order_time_has_ordered')
+      end
+    end
+  end
+  def validate_car_number
+    unless self.errors.include?(:car_number_area)  || self.errors.include?(:car_number_detail)
+      # 车辆是否已经被预约check
+      if Order.success.where(car_number_area: self.car_number_area, car_number_detail: self.car_number_detail).present?
+        self.errors[:car_number_detail] << I18n.t('view.alert.order.car_has_ordered')
+      end
+    end
   end
 
 private

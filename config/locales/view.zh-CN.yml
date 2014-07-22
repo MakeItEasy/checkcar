@@ -86,8 +86,10 @@
         status_error: 当前文章状态下不能完成此操作!
       captcha_error: 验证码错误!
       order:
-        order_time_blank: 请选择检车时间！
-        
+        user_order_numbers_over: "您已经预约了%{count}次。"
+        car_has_ordered: "该车已经被预约"
+        order_time_has_ordered: "该时间段已不能被预约"
+        user_order_disable: "当前用户目前不能预约。[原因]：%{reason}"
     confirm:
       delete: 您确定要删除吗？
       forget_password: 忘记密码？

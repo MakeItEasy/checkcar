@@ -1,0 +1,8 @@
+'zh-CN':
+  activerecord:
+    errors:
+      models:
+        order:
+          attributes:
+            order_time:
+              blank: 请选择检车时间！
