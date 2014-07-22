@@ -1,10 +1,12 @@
 <div class='box car-toolbox'>
   <div class="btn-toolbar" role="toolbar">
-    <div class="btn-group">
-      <%= link_to edit_back_mystation_station_path, {class: 'btn btn-default'} do %>
-        <i class="fa fa-edit"></i> <%= t('view.action.edit') %> 
-      <% end %>
-    </div>
+    <% if can? :edit, @station %>
+      <div class="btn-group">
+        <%= link_to edit_back_mystation_station_path, {class: 'btn btn-default'} do %>
+          <i class="fa fa-edit"></i> <%= t('view.action.edit') %> 
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -13,7 +15,7 @@
     <dt><%= Station.human_attribute_name(:name) %></dt>
     <dd><%= @station.name %></dd>
     <dt><%= Station.human_attribute_name(:status) %></dt>
-    <dd><%= @station.status_text %></dd>
+    <dd><%= render "station_status", station: @station%></dd>
     <dt><%= Station.human_attribute_name(:address) %></dt>
     <dd>
       <%= "#{ChinaCity.get(@station.province)} #{ChinaCity.get(@station.city)}

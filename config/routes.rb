@@ -84,6 +84,8 @@ Rails.application.routes.draw do
         end
         member do
           put "cancel"
+          put "check"
+          put "missit"
         end
       end
       namespace :station_settings do 

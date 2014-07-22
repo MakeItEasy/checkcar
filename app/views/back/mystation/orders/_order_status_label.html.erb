@@ -1,0 +1,10 @@
+<%
+  if order.status_success? || order.status_checked?
+    _class = "label-success"
+  else
+    _class = "label-danger"
+  end
+%>
+<span class="label <%= _class %>">
+  <%= order.status_text %>
+</span>

@@ -8,5 +8,9 @@ module Car
 
     # 默认可预约天数
     ORDER_DEFAULT_ENABLE_DAYS = 10
+
+    # 可取消预约天数(从今天开始?天以后)
+    # TODO dairg 可取消的天数限制
+    ORDER_CANCEL_ENABLE_DAYS = 2
   end
 end

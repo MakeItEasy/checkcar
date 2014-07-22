@@ -122,16 +122,31 @@ private
 
   # 管理员
   def set_ability_station_admin(user)
-    can :crud, StationAdmin, station_id: user.station.id
-    can :show, Station, id: user.station.id
-    can :update, Station, id: user.station.id
-    can :crud, OrderPhone, station_id: user.station.id
-    can :read, Order, station_id: user.station.id
-    can :show_order_no, Order, station_id: user.station.id
+    if user.station.status_reviewed?
+      can :crud, StationAdmin, station_id: user.station.id
+      can :update, Station, id: user.station.id
+      can :create, OrderPhone, station_id: user.station.id
+      can :read, OrderPhone, station_id: user.station.id
+      # TODO dairg 编辑电话预约的条件，比如状态，以及预约时间范围
+      can :update, OrderPhone, station_id: user.station.id 
+      can :read, Order, station_id: user.station.id
+      can :cancel, OrderPhone do |order|
+        order.station_id == user.station.id && 
+        order.status_success? &&
+        order.order_time > (Time.now.midnight+Car::Constants::ORDER_CANCEL_ENABLE_DAYS.days)
+      end
+      can [:check, :missit], Order do |order|
+        order.station_id == user.station.id && 
+        order.status_success? &&
+        order.order_time < Time.now
+      end
+      can :show_order_no, Order, station_id: user.station.id
+      can :time_area, :station_setting
+      can :update_time_area, :station_setting
+    end
     # 显示设置中心菜单
     can :show, :settings
-    can :time_area, :station_setting
-    can :update_time_area, :station_setting
+    can :show, Station, id: user.station.id
   end
 
   # 普通员工

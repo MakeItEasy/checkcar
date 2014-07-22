@@ -5,6 +5,8 @@
       back_title: 车审后台管理系统
       back_title_long: 陕西车辆年审网后台管理系统
     action:
+      missit: 爽约
+      car_checked: 按时检车完毕
       get_authcode: 点击获取手机动态码
       have_question: 我要提问
       answer: 回答
@@ -59,6 +61,7 @@
       deleted: "删除成功!"
       modify_password_success: 密码修改成功，已重新登录！
       order_success: 恭喜您！您已经预约成功！
+      modify_status_success: 状态修改成功！
       post:
         published: 文章发布成功.
         completed: 文章已经提交,等待审核.
@@ -70,6 +73,8 @@
         rejected: 车检站信息审核拒绝成功.
         locked: 车检站已经锁定成功.
         unlocked: 车检站已经解锁成功.
+      order:
+        cancelled: 该预约已经被取消.
     alert:
       create: "新建失败!"
       update: "更新失败!"
@@ -94,6 +99,10 @@
         reject: 您确认拒绝该文章吗？
         lock: 您确认锁定该文章吗？
         unlock: 您确认解锁该文章吗？
+      order:
+        cancel: 您确认要取消该预约吗？
+        check: 您确认该车已经按时进行检车了吗？
+        missit: 您确认该车爽约了吗？
     label:
       homepage: 主页
       welcome: "欢迎，%{name}"

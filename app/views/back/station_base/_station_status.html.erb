@@ -1,0 +1,10 @@
+<%
+  if station.status_waiting? || station.status_reviewed?
+    _station_label_class = "label-success"
+  else
+    _station_label_class = "label-danger"
+  end
+%>
+<span class="label <%= _station_label_class %>">
+  <%= station.status_text %>
+</span>

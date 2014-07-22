@@ -1,65 +1,71 @@
-        <%= define_grid @orders_grid, hide_submit_button: true, hide_reset_button: true do |g|
-          g.column name: Order.human_attribute_name(:id), attribute: "id", detach_with_id: :id_filter
-          g.column name: Order.human_attribute_name(:order_no), attribute: "order_no", detach_with_id: :order_no_filter
-          g.column name: Order.human_attribute_name(:order_time), attribute: "order_time", detach_with_id: :order_time_filter do |item|
-            l(item.order_time)
-          end
-          g.column name: Order.human_attribute_name(:car_number), detach_with_id: :car_number_filter, ordering: false do |item|
-            item.car_number
-          end
-          g.column name: Order.human_attribute_name(:telephone), attribute: "telephone", ordering: false, detach_with_id: :telephone_filter
-          g.column do |item|
-            links = []
-            if can? :read, item
-              # links << link_to(I18n.t('view.action.show'), [:back, :mystation, item])
-              links << link_to(I18n.t('view.action.show'), back_mystation_order_path(item))
-            end
-            if can? :update, item
-              links << link_to(I18n.t('view.action.edit'), [:edit, :back, :mystation, item])
-            end
-            if can? :destroy, item
-              links << link_to(I18n.t('view.action.delete'), [:back, :mystation, item], method: :delete, data: { confirm: t('view.confirm.delete')})
-            end
-            links.join(t('view.label.links_split')).html_safe
-          end
-        end -%>
+<%= define_grid @orders_grid, hide_submit_button: true, hide_reset_button: true do |g|
+  g.column name: Order.human_attribute_name(:order_no), attribute: "order_no", detach_with_id: :order_no_filter do |item|
+    if can? :read, item
+      link_to(item.order_no, back_mystation_order_path(item))
+    end
+  end
+  g.column name: Order.human_attribute_name(:status), attribute: "status", detach_with_id: :status_filter do |item|
+    render 'order_status_label', order: item
+  end
+  g.column name: Order.human_attribute_name(:order_time), attribute: "order_time", detach_with_id: :order_time_filter do |item|
+    l(item.order_time)
+  end
+  g.column name: Order.human_attribute_name(:car_number), detach_with_id: :car_number_filter, ordering: false do |item|
+    item.car_number
+  end
+  g.column name: Order.human_attribute_name(:telephone), attribute: "telephone", ordering: false, detach_with_id: :telephone_filter
+  g.column do |item|
+    links = []
+    if can? :read, item
+      # links << link_to(I18n.t('view.action.show'), [:back, :mystation, item])
+      links << link_to(I18n.t('view.action.show'), back_mystation_order_path(item))
+    end
+    if can? :update, item
+      links << link_to(I18n.t('view.action.edit'), [:edit, :back, :mystation, item])
+    end
+    if can? :destroy, item
+      links << link_to(I18n.t('view.action.delete'), [:back, :mystation, item], method: :delete, data: { confirm: t('view.confirm.delete')})
+    end
+    links.join(t('view.label.links_split')).html_safe
+  end
+end -%>
 
-      <div class="car-filter">
-        <div class="box box-solid">
-          <div class="box-header car-filter-header"  data-widget="collapse" data-toggle="tooltip" data-original-title="点击伸缩">
-            <i class="fa fa-search-plus"></i>
-            <h5 class="box-title">查询</h5>
-          </div><!-- /.box-header -->
-          <div class="box-body">
-            <div class="row car-filter-item">
-              <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:order_no)%></div>
-              <div class="col-sm-4">
-                <%= grid_filter @orders_grid, :order_no_filter %>
-              </div>
-            </div>
-            <div class="row car-filter-item">
-              <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:order_time)%></div>
-              <div class="col-sm-4">
-                <%= grid_filter @orders_grid, :order_time_filter %>
-              </div>
-            </div>
-            <div class="row car-filter-item">
-              <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:telephone)%></div>
-              <div class="col-sm-4">
-                <%= grid_filter @orders_grid, :telephone_filter %>
-              </div>
-            </div>
-          </div><!-- /.box-body -->
-          <div class="box-footer">
-            <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">
-              <%= t('view.action.find')%>
-            </button>
-            <button class="btn btn-default wg-external-reset-button" data-grid-name="grid">
-              <%= t('view.action.clear')%>
-            </button>
-          </div><!-- /.box-footer -->
+<div class="car-filter">
+  <div class="box box-solid">
+    <div class="box-header car-filter-header"  data-widget="collapse" data-toggle="tooltip" data-original-title="点击伸缩">
+      <i class="fa fa-search-plus"></i>
+      <h5 class="box-title">查询</h5>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+      <div class="row car-filter-item">
+        <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:order_no)%></div>
+        <div class="col-sm-4">
+          <%= grid_filter @orders_grid, :order_no_filter %>
         </div>
       </div>
-      <div class='car-content-list'>
-        <%= render_grid(@orders_grid) %>
+      <div class="row car-filter-item">
+        <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:order_time)%></div>
+        <div class="col-sm-4">
+          <%= grid_filter @orders_grid, :order_time_filter %>
+        </div>
       </div>
+      <div class="row car-filter-item">
+        <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:telephone)%></div>
+        <div class="col-sm-4">
+          <%= grid_filter @orders_grid, :telephone_filter %>
+        </div>
+      </div>
+    </div><!-- /.box-body -->
+    <div class="box-footer">
+      <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">
+        <%= t('view.action.find')%>
+      </button>
+      <button class="btn btn-default wg-external-reset-button" data-grid-name="grid">
+        <%= t('view.action.clear')%>
+      </button>
+    </div><!-- /.box-footer -->
+  </div>
+</div>
+<div class='car-content-list'>
+  <%= render_grid(@orders_grid) %>
+</div>

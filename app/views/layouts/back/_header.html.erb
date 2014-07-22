@@ -1,7 +1,14 @@
     <% if current_admin.system_admin? %>
       <%= link_to t('view.site.back_title'), back_system_root_path, {class: 'logo'} %>
     <% else %>
-      <a class="logo" href="<%= back_mystation_root_path %>"><i class="ion ion-model-s"></i> <%= current_admin.station.name %></a>
+      <a class="logo" href="<%= back_mystation_root_path %>">
+        <% if current_admin.station.status_reviewed? %>
+        <i class="ion ion-model-s"></i> 
+        <% else %>
+        <span class="badge" style="background-color: red;"><%= current_admin.station.status_text%></span>
+        <% end %>
+        <%= current_admin.station.name%>
+      </a>
     <% end %>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">

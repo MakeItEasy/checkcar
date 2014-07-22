@@ -20,8 +20,6 @@ class CreateOrders < ActiveRecord::Migration
       t.string :telephone, null: false
       # 预约状态
       t.string :status, null: false
-      # 预约时间段的开关设置
-      t.text :switch_settings
       # 创建者
       t.integer :create_admin_id
 

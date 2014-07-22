@@ -15,6 +15,28 @@
       <% end %>
     </div>
   <% end %>
+  <% if can? :cancel, @order %>
+    <div class="btn-group">
+      <%= link_to cancel_back_mystation_order_path(@order), {method: :put,
+      data: { confirm: t('view.confirm.order.cancel')},  class: 'btn btn-default'} do %>
+        <i class="glyphicon glyphicon-remove"></i> <%= t('view.action.cancel') %> 
+      <% end %>
+    </div>
+  <% end %>
+    <div class="btn-group">
+      <% if can? :check, @order %>
+        <%= link_to check_back_mystation_order_path(@order), {method: :put,
+        data: { confirm: t('view.confirm.order.check')},  class: 'btn btn-default'} do %>
+          <i class="ion ion-happy"></i> <%= t('view.action.car_checked') %> 
+        <% end %>
+      <% end %>
+      <% if can? :missit, @order%>
+        <%= link_to missit_back_mystation_order_path(@order), {method: :put,
+        data: { confirm: t('view.confirm.order.missit')},  class: 'btn btn-default'} do %>
+          <i class="ion ion-sad"></i> <%= t('view.action.missit') %> 
+        <% end %>
+      <% end %>
+    </div>
     <div class="btn-group pull-right">
       <%= link_to back_mystation_orders_path, {class: 'btn btn-default'} do %>
         <i class="fa fa-list"></i> <%= t('view.action.back_to_list') %> 
@@ -24,19 +46,21 @@
 </div>
 
 <div class='box box-info car-content-box'>
+  <% if @order.status_success? && @order.order_time < Time.now %>
+    <p class="alert alert-danger">该预约已过期，请通过工具栏按钮进行处理...</p>
+  <% end %>
   <dl class="dl-horizontal">
     <dt><%= Order.human_attribute_name(:type) %></dt>
     <dd><%= @order.class.model_name.human%></dd>
     <dt><%= Order.human_attribute_name(:order_no) %></dt>
     <dd><%= @order.order_no %></dd>
+    <dt><%= Order.human_attribute_name(:status) %></dt>
+    <dd>
+      <%= render 'order_status_label', order: @order %>
+    </dd>
     <dt><%= Order.human_attribute_name(:order_time) %></dt>
     <dd>
       <%= l(@order.order_time) %>
-    </dd>
-    <dt><%= Order.human_attribute_name(:status) %></dt>
-    <dd>
-      <%= @order.status_text %>
-      <span class="label label-danger col-sm-offset-1">已过期，需要处理...</span>
     </dd>
     <dt><%= Order.human_attribute_name(:owner_name) %></dt>
     <dd><%= @order.owner_name %></dd>
