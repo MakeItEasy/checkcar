@@ -56,7 +56,7 @@
     <dd><%= @order.order_no %></dd>
     <dt><%= Order.human_attribute_name(:status) %></dt>
     <dd>
-      <%= render 'order_status_label', order: @order %>
+      <%= render 'common/order/order_status_label', order: @order %>
     </dd>
     <dt><%= Order.human_attribute_name(:order_time) %></dt>
     <dd>

@@ -1,7 +1,7 @@
 <%= grid @orders_grid, show_filters: :no do |g|
   g.column name: Order.human_attribute_name(:order_no), attribute: "order_no" do |item|
     if can? :read, item
-      link_to(item.order_no, back_mystation_order_path(item))
+      link_to(item.order_no, front_user_order_path(item))
     end
   end
   g.column name: Order.human_attribute_name(:status), attribute: "status", detach_with_id: :status_filter do |item|
@@ -17,14 +17,11 @@
   g.column do |item|
     links = []
     if can? :read, item
-      links << link_to(I18n.t('view.action.show'), back_mystation_order_path(item))
+      links << link_to(I18n.t('view.action.show'), front_user_order_path(item))
     end
-    if can? :update, item
-      links << link_to(I18n.t('view.action.edit'), [:edit, :back, :mystation, item])
-
-    end
-    if can? :destroy, item
-      links << link_to(I18n.t('view.action.delete'), [:back, :mystation, item], method: :delete, data: { confirm: t('view.confirm.delete')})
+    if can? :cancel, item
+      links << link_to(I18n.t('view.action.cancel'), cancel_front_user_order_path(item), {method: :patch,
+        data: { confirm: t('view.confirm.order.cancel')}})
     end
     links.join(t('view.label.links_split')).html_safe
   end

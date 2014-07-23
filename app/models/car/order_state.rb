@@ -12,7 +12,7 @@ class Car::OrderState
 
   def current_order_states
     init_order_states
-    orders = @station.orders.select("order_time, count(order_time) as count_orders").group("order_time")
+    orders = @station.orders.success.select("order_time, count(order_time) as count_orders").group("order_time")
             .where(order_time: (@start_date..@start_date+@space_day))
             .order(order_time: :asc)
     orders.each do |item|

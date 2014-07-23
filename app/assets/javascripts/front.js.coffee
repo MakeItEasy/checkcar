@@ -5,6 +5,8 @@ jquery.turbolinks 必须在jquery 和jquery_ujs的后面，然后在turbolinks�
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require wice_grid
+//= require wice_grid_car
 //= require jquery.turbolinks
 //= require bootstrap
 //= require adminlte/AdminLTE

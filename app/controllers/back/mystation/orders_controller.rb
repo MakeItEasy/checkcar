@@ -13,7 +13,7 @@ class Back::Mystation::OrdersController < Back::StationBaseController
   def index
     _orders = Order
     if params[:scope] && ['today', 'weekly', 'newest'].include?(params[:scope])
-      _orders = _orders.not_cancelled.send(params[:scope])
+      _orders = _orders.success.send(params[:scope])
     end
     @orders_grid = initialize_grid(_orders.accessible_by(current_ability))
     ## 面包屑导航
@@ -39,28 +39,28 @@ class Back::Mystation::OrdersController < Back::StationBaseController
   end
 
   ## 取消预约
-  # PUT
+  # PATCH
   def cancel
     if can? :cancel, @order
-      @order.update_attributes!({status: 'cancel'})
+      @order.update_column(:status, 'cancel')
       redirect_to back_mystation_order_path(@order), notice: I18n.t("view.notice.order.cancelled")
     end
   end
 
   ## 按时来进行车检
-  # PUT
+  # PATCH
   def check
     if can? :check, @order
-      @order.update_attributes!({status: 'checked'})
+      @order.update_column(:status, 'checked')
       redirect_to back_mystation_order_path(@order), notice: I18n.t("view.notice.modify_status_success")
     end
   end
 
   ## 爽约
-  # PUT
+  # PATCH
   def missit
     if can? :missit, @order
-      @order.update_attributes!({status: 'missit'})
+      @order.update_column(:status, 'missit')
       redirect_to back_mystation_order_path(@order), notice: I18n.t("view.notice.modify_status_success")
     end
   end

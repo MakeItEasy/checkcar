@@ -10,6 +10,15 @@ class UserAbility
     can :create, Uaq
     can :update, Uaq, :create_user_id => user.id
     can :destroy, Uaq, :create_user_id => user.id
+
+    can :read, Order, :user_id => user.id
+
+    can :cancel, Order do |order|
+      order.user_id == user.id && 
+      order.status_success? &&
+      # order.order_time > (Time.now.midnight+Car::Constants::ORDER_CANCEL_ENABLE_DAYS.days)
+      order.order_time > (Time.now.midnight+0.days)
+    end
   end
 
 end

@@ -5,12 +5,11 @@
 </h1>
 <% else %>
 <h1>
-  <%= t("view.controller.#{controller.controller_name}") %>
+  <%= i18n_by_prefix_and_controller("view.controller") %>
 
   <% unless Car::Constants::NO_SUB_TITLE_CONTROLLER_LIST.include?(controller.controller_name) %>
     <small>
-      <%= t("view.action.#{controller.controller_name}.#{controller.action_name}", 
-        default: t("view.action.#{controller.action_name}") ) %>
+      <%= i18n_by_prefix_and_action("view.action") %>
     </small>
   <% end -%>
 </h1>

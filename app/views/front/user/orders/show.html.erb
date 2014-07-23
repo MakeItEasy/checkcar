@@ -1,0 +1,40 @@
+<div class='box car-toolbox'>
+  <div class="btn-toolbar" role="toolbar">
+  <% if can? :cancel, @order %>
+    <div class="btn-group">
+      <%= link_to cancel_front_user_order_path(@order), {method: :patch,
+      data: { confirm: t('view.confirm.order.cancel')},  class: 'btn btn-default'} do %>
+        <i class="glyphicon glyphicon-remove"></i> <%= t('view.action.cancel') %> 
+      <% end %>
+    </div>
+  <% end %>
+  <div class="btn-group pull-right">
+    <%= link_to front_user_orders_path, {class: 'btn btn-default'} do %>
+      <i class="fa fa-list"></i> <%= t('view.action.back_to_list') %> 
+    <% end %>
+  </div>
+  </div>
+</div>
+
+<div class='box box-info car-content-box'>
+  <dl class="dl-horizontal">
+    <dt><%= Order.human_attribute_name(:type) %></dt>
+    <dd><%= @order.class.model_name.human%></dd>
+    <dt><%= Order.human_attribute_name(:order_no) %></dt>
+    <dd><%= @order.order_no %></dd>
+    <dt><%= Order.human_attribute_name(:status) %></dt>
+    <dd>
+      <%= render 'common/order/order_status_label', order: @order %>
+    </dd>
+    <dt><%= Order.human_attribute_name(:order_time) %></dt>
+    <dd>
+      <%= l(@order.order_time) %>
+    </dd>
+    <dt><%= Order.human_attribute_name(:owner_name) %></dt>
+    <dd><%= @order.owner_name %></dd>
+    <dt><%= Order.human_attribute_name(:car_number) %></dt>
+    <dd><%= @order.car_number %></dd>
+    <dt><%= Order.human_attribute_name(:telephone) %></dt>
+    <dd><%= @order.telephone %></dd>
+  </dl>
+</div>

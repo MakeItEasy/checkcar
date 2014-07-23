@@ -46,6 +46,11 @@ Rails.application.routes.draw do
     namespace :user do
       root 'dashboard#index' 
       resources :uaqs
+      resources :orders, only: [:index, :show] do
+        member do
+          patch :cancel
+        end
+      end
     end
 
   end

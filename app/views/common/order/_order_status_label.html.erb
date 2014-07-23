@@ -1,6 +1,10 @@
 <%
-  if order.status_success? || order.status_checked?
+  if order.status_success?
     _class = "label-success"
+  elsif order.status_checked?
+    _class = "label-primary"
+  elsif order.status_cancel?
+    _class = "label-warning"
   else
     _class = "label-danger"
   end

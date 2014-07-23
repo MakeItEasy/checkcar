@@ -13,8 +13,8 @@ class OrderNet < Order
   validates :car_number_detail, presence: true, if: :step_basic_info?
   validates :telephone, presence: true, if: :step_basic_info?
   validate do 
-    validate_order_time if step_select_date?
-    validate_car_number if step_basic_info?
+    validate_order_time if self.new_record? && step_select_date?
+    validate_car_number if self.new_record? && step_basic_info?
   end 
 
   ## 预约步骤

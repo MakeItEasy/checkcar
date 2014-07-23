@@ -29,4 +29,30 @@ module ApplicationHelper
       "<span class='label label-danger'>#{I18n.t('view.label.wait_answer')}</span>".html_safe
     end
   end
+
+  def i18n_by_prefix_and_controller(prefix)
+    scopes = controller.controller_path.split("/")
+    scopes.pop
+    while scopes.length > 0 && I18n.t("#{prefix}.#{scopes.join('.')}.#{controller.controller_name}", default: "") == "" do
+      scopes.pop
+    end
+    if scopes.present?
+      I18n.t("#{prefix}.#{scopes.join('.')}.#{controller.controller_name}")
+    else
+      I18n.t("#{prefix}.#{controller.controller_name}")
+    end
+  end
+
+  def i18n_by_prefix_and_action(prefix)
+    scopes = controller.controller_path.split("/")
+    while scopes.length > 0 && I18n.t("#{prefix}.#{scopes.join('.')}.#{controller.action_name}",
+                                      default: "") == "" do
+      scopes.pop
+    end
+    if scopes.present?
+      I18n.t("#{prefix}.#{scopes.join('.')}.#{controller.action_name}")
+    else
+      I18n.t("#{prefix}.#{controller.action_name}")
+    end
+  end
 end

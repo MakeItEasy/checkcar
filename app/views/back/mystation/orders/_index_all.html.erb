@@ -5,7 +5,7 @@
     end
   end
   g.column name: Order.human_attribute_name(:status), attribute: "status", detach_with_id: :status_filter do |item|
-    render 'order_status_label', order: item
+    render 'common/order/order_status_label', order: item
   end
   g.column name: Order.human_attribute_name(:order_time), attribute: "order_time", detach_with_id: :order_time_filter do |item|
     l(item.order_time)

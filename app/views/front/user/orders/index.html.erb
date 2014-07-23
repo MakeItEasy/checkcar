@@ -1,0 +1,22 @@
+<div class='box car-toolbox'>
+  <div class="btn-toolbar" role="toolbar">
+  </div>
+</div>
+
+<div class="car-nav-tabs-custom">
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="<%= 'active' if params[:scope] != 'history' %>">
+      <a href="<%= front_user_orders_path%>">进行中预约</a>
+    </li>
+    <li class="<%= 'active' if params[:scope] == 'history' %>">
+      <a href="<%= front_user_orders_path(scope: 'history')%>">历史预约</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active">
+      <div class='car-content-list'>
+        <%= render "index_no_filter" %>
+      </div>
+    </div>
+  </div>
+</div>
