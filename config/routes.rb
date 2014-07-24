@@ -27,15 +27,6 @@ Rails.application.routes.draw do
     get 'sign_in_status'
 
     # 车检站
-=begin
-    namespace :station do
-      get 'index'
-
-      get ':id/order/new', action: :order, as: :order
-      get ':id/order/:order_id/finished', action: :show_order, as: :show_order
-      post ':id/order', action: :create_order, as: :create_order
-    end
-=end
     resources :stations, only: [:index, :show] do
       resources :orders, only: [:new, :create, :show]
     end

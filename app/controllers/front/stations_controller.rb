@@ -1,4 +1,5 @@
 class Front::StationsController < FrontController
+  before_action :set_station, only: [:show]
   def index
     # session[:station_c_classonditions] = nil
     resultRelation = Station.reviewed
@@ -22,4 +23,12 @@ class Front::StationsController < FrontController
     @stations = resultRelation.page(params[:page]).per(1)
   end
 
+  def show
+    
+  end
+
+private
+  def set_station
+    @station = Station.reviewed.find(params[:id])
+  end
 end

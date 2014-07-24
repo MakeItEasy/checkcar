@@ -5,13 +5,17 @@
       back_title: 车审后台管理系统
       back_title_long: 陕西车辆年审网后台管理系统
     action:
-      password: 修改密码
-      personal:
-        show: 个人信息
-        password: 修改密码
+      ## 这里开始是有namespace的actions
       back:
         personal:
           show: 个人信息
+      ## 这里开始是有通用的actions
+      personal:
+        show: 个人信息
+        password: 修改密码
+      order_online: 在线预约
+      password: 修改密码
+      detail: 详细
       missit: 爽约
       car_checked: 按时检车完毕
       get_authcode: 点击获取手机动态码
