@@ -5,6 +5,13 @@
       back_title: 车审后台管理系统
       back_title_long: 陕西车辆年审网后台管理系统
     action:
+      password: 修改密码
+      personal:
+        show: 个人信息
+        password: 修改密码
+      back:
+        personal:
+          show: 个人信息
       missit: 爽约
       car_checked: 按时检车完毕
       get_authcode: 点击获取手机动态码
@@ -50,13 +57,6 @@
       create: 新建
       update: 编辑
       more_info: '查看更多 <i class="fa fa-arrow-circle-right"></i>'
-      password: 修改密码
-      personal:
-        show: 个人信息
-        password: 修改密码
-      back:
-        personal:
-          show: 个人信息
       show_order_no: "查找预约流水号"
       time_area: 预约数量显示
     notice:

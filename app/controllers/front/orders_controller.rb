@@ -1,32 +1,9 @@
-class Front::StationController < FrontController
-  before_action :authenticate_user!, except: [:index]
-  before_action :set_station, only: [:order, :create_order]
-
-  def index
-    # session[:station_c_classonditions] = nil
-    resultRelation = Station.reviewed
-    session[:station_conditions] = session[:station_conditions] || {}
-
-    ## unselect处理
-    session[:station_conditions].delete('district') if params[:undistrict]
-    session[:station_conditions].delete('name') if params[:unname]
-    ## select处理
-    # 行政区域
-    session[:station_conditions]['district'] = params[:district] if params[:district]
-    if session[:station_conditions]['district'].present?
-      resultRelation = resultRelation.where({district: session[:station_conditions]['district']})
-    end
-    # 名称查询
-    session[:station_conditions]['name'] = params[:name] if params[:name]
-    if session[:station_conditions]['name']
-      resultRelation = resultRelation.where('name like ?', '%' + session[:station_conditions]['name'] + '%')
-    end
-    # TODO dairg per page setting
-    @stations = resultRelation.page(params[:page]).per(1)
-  end
+class Front::OrdersController < FrontController
+  before_action :authenticate_user!
+  before_action :set_station
 
   ## 预定
-  def order
+  def new
     if message = current_user.can_order?
       flash[:alert] = I18n.t('view.alert.order.user_order_disable', reason: message)
       render "cannot_order", layout: "front"
@@ -39,7 +16,7 @@ class Front::StationController < FrontController
   end
 
   # POST
-  def create_order
+  def create
     session[:order_params].deep_merge!(order_params) if params[:order_net]
     @order = OrderNet.new(session[:order_params])
     @order.current_step = session[:order_step]
@@ -62,18 +39,17 @@ class Front::StationController < FrontController
     end
     session[:order_step] = @order.current_step 
     if @order.new_record?
-      render :order
+      render :new
     else
       session[:order_step] = session[:order_params] = nil
-      redirect_to front_station_show_order_path(@station, @order)
+      redirect_to front_station_order_path(@station, @order)
     end
   end
 
   ## 预定成功画面
-  def show_order
-    @order = OrderNet.find(params[:order_id])
+  def show
+    @order = OrderNet.find(params[:id])
   end
-
 
 private
   def order_params
@@ -81,7 +57,7 @@ private
   end
 
   def set_station
-    @station = Station.reviewed.find(params[:id])
+    @station = Station.reviewed.find(params[:station_id])
   end
 
   def set_current_order_states

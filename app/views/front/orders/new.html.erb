@@ -1,12 +1,12 @@
 <div class="row inner">
   <div class="payStep0<%=@order.current_step_no+1 %>">
-    <%= render "front/station/steps/step_header" %>
+    <%= render "front/orders/steps/step_header" %>
   </div>
   <div class="step-content">
     <div class="col-md-9 step-form-left"> 
-      <%= simple_form_for(@order, url: front_station_create_order_path(@station), html: {class: 'form-horizontal', role: 'form'} ) do |f| %>
+      <%= simple_form_for(@order, url: front_station_orders_path(@station), html: {class: 'form-horizontal', role: 'form'} ) do |f| %>
         <div class="main-form">
-          <%= render "front/station/steps/form_step_#{@order.current_step}", f: f %>
+          <%= render "front/orders/steps/form_step_#{@order.current_step}", f: f %>
         </div>
         <div class="left-box action">
           <%= f.submit "上一步", name: 'back_button', 

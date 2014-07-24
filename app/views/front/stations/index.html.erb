@@ -16,7 +16,7 @@
             <% ChinaCity.list('610100').each do |item| %>
               <% _district_class = session[:station_conditions]['district'] && 
               session[:station_conditions]['district'] == item[1] ? 'active' : '' %>
-              <%= link_to item[0], front_station_index_path({district: item[1]}),
+              <%= link_to item[0], front_stations_path({district: item[1]}),
                 {class: _district_class} %>
             <% end %>
             </dd>
@@ -24,7 +24,7 @@
           <dl>
             <dt>名称查询</dt>
             <dd>
-              <form action='<%= front_station_index_path%>' method='get'>
+              <form action='<%= front_stations_path%>' method='get'>
                 <div class="input-group input-group-sm col-sm-5">
                   <input type="text" class="form-control" name='name' 
                     value="<%= session[:station_conditions]['name']%>">
@@ -43,13 +43,13 @@
               <% if session[:station_conditions]['district'].present? %>
               <div>
                 <%= ChinaCity.get(session[:station_conditions]['district']) %>
-                <a href='<%= front_station_index_path(undistrict: true) %>' class="btn btn-info btn-xs"><i class="fa fa-times"></i></a>
+                <a href='<%= front_stations_path(undistrict: true) %>' class="btn btn-info btn-xs"><i class="fa fa-times"></i></a>
               </div>
               <%end%>
               <% if session[:station_conditions]['name'].present? %>
               <div>
                 <%= '名称：' + session[:station_conditions]['name'] %>
-                <a href='<%= front_station_index_path(unname: true) %>' class="btn btn-info btn-xs"><i class="fa fa-times"></i></a>
+                <a href='<%= front_stations_path(unname: true) %>' class="btn btn-info btn-xs"><i class="fa fa-times"></i></a>
               </div>
               <%end%>
             </dd>
@@ -73,7 +73,7 @@
                   <div class='logo'>
                     <%= image_tag 'weixiu.png', {class: 'img-thumbnail'} %>
                     <div class='action text-center'>
-                      <%= link_to "在线预定", front_station_order_path(s), class: "btn btn-primary" %>
+                      <%= link_to "在线预定", new_front_station_order_path(s), class: "btn btn-primary" %>
                     </div>
                   </div>
                   <div class='info'>
