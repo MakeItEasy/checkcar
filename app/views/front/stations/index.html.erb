@@ -71,7 +71,7 @@
                 <% @stations.each do |s| %>
                 <li class='list-item'>
                   <div class='logo'>
-                    <%= image_tag 'weixiu.png', {class: 'img-thumbnail'} %>
+                    <%= image_tag s.logo.url(:medium), {class: 'img-thumbnail'} %>
                     <div class='action text-center'>
                       <%= link_to t("view.action.order_online"), new_front_station_order_path(s), class: "btn btn-primary" %>
                     </div>

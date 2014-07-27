@@ -134,6 +134,9 @@
       captcha: 验证码
       new_password: 新密码
       set_password: 设置密码
+      medium: 大图标
+      thumb: 小图标
+      no_logo: 尚未设置Logo图标
     prompt:
       car_area: "--地区--"
         

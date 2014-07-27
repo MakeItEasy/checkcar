@@ -1,6 +1,17 @@
 class Back::Mystation::StationsController < Back::StationBaseController
   before_action :set_station
 
+
+  # TODO dairg check_file_size
+=begin
+  before_post_process :check_file_size
+  def check_file_size
+    valid?
+    errors[:image_file_size].blank?
+  end
+=end
+
+
   ## 加载权限
   load_and_authorize_resource
 
@@ -24,7 +35,8 @@ class Back::Mystation::StationsController < Back::StationBaseController
   # PATCH/PUT /stations/1.json
   def update
     respond_to do |format|
-      @station.status = :waiting
+      ## TODO dairg 车检站信息更新时，是否设置状态为 待审核
+      # @station.status = :waiting
       if @station.update(station_params)
         format.html { redirect_to back_mystation_station_path, notice: I18n.t('view.notice.updated') }
         format.json { render :show, status: :ok, location: @station }
@@ -41,6 +53,6 @@ class Back::Mystation::StationsController < Back::StationBaseController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def station_params
-      params.require(:station).permit(:telephone, :recommend)
+      params.require(:station).permit(:telephone, :recommend, :logo)
     end
 end

@@ -4,6 +4,12 @@ class Station < ActiveRecord::Base
 
   after_initialize :init
 
+  ## LOGO pictures
+  has_attached_file :logo, :styles => { :medium => "140x90>", :thumb => "40x40>" },
+    :default_url => "/station/logo/:style/missing.png"
+  validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
+
+
   ## Scopes
   default_scope { order(created_at: :asc) }
   scope :waiting, -> { with_status(:waiting) }

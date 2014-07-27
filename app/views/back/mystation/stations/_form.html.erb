@@ -3,6 +3,25 @@
     <%= f.input :name, disabled: true%>
     <%= f.input :telephone %>
     <%= f.input :recommend%>
+    <%= f.input :logo %>
+    <div class="col-sm-offset-2">
+    <% if @station.logo.present? %>
+      <div class="car-logo-group">
+        <div>
+          <%= image_tag @station.logo.url(:medium)%>
+        </div>
+        <span><%= t('view.label.medium') %></span>
+      </div>
+      <div class="car-logo-group">
+        <div>
+          <%= image_tag @station.logo.url(:thumb)%>
+        </div>
+        <span><%= t('view.label.thumb') %></span>
+      </div>
+    <% else %>
+      <div><%= t('view.label.no_logo') %></div>
+    <% end %>
+    </div>
   </div>
   <div class="car-form-actions bg-gray">
     <div class='col-sm-offset-2 col-sm-10 button-wrapper'>

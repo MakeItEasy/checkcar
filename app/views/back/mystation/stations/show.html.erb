@@ -29,5 +29,20 @@
     <dd><%= l(@station.created_at) %></dd>
     <dt><%= Station.human_attribute_name(:updated_at) %></dt>
     <dd><%= l(@station.updated_at) %></dd>
+    <dt><%= Station.human_attribute_name(:logo) %></dt>
+    <dd>
+      <div class="car-logo-group">
+        <div>
+          <%= image_tag @station.logo.url(:medium)%>
+        </div>
+        <span><%= t('view.label.medium') %></span>
+      </div>
+      <div class="car-logo-group">
+        <div>
+          <%= image_tag @station.logo.url(:thumb)%>
+        </div>
+        <span><%= t('view.label.thumb') %></span>
+      </div>
+    </dd>
   </dl>
 </div>

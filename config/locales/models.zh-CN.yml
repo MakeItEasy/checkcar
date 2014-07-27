@@ -66,6 +66,7 @@
         district: 地区
         address: 详细地址
         recommend: 简介
+        logo: Logo图标
         <<: *default
       order:
         car_number: 车牌号
