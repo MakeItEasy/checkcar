@@ -38,11 +38,16 @@
   <div class="col-sm-6">
     <h3><%= @station.name %></h3>
     <div class='action'>
-      <%= link_to t("view.action.order_online"), new_front_station_order_path(@station), class: "btn btn-primary btn-lg" %>
+      <%= link_to t("view.action.order_online"), new_front_station_order_path(@station), class: "btn btn-danger btn-lg" %>
     </div>
   </div>
 </div>
 <hr>
-<div class="row">
-  车检站简介
+<div class="row station-recommend">
+  <div class="title">
+    <h4>车检站简介</h4>
+  </div>
+  <div class="recommend">
+    <%= @station.recommend %>
+  </div>
 </div>

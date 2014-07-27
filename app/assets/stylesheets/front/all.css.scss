@@ -236,3 +236,17 @@ form#sign_in_remote_form_phone .car-error-tip {
   margin-left: 40px;
   color: red;
 }
+
+// -----------------------------------------
+// 车检站明细画面
+// -----------------------------------------
+.station-recommend {
+}
+.station-recommend > .title {
+  @extend .bg-primary;
+  border-radius: 5px;
+  padding: 1px 10px;
+}
+.station-recommend > .recommend {
+  padding: 5px 10px;
+}
