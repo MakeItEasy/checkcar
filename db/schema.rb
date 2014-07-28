@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724131759) do
+ActiveRecord::Schema.define(version: 20140727081650) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -101,6 +101,17 @@ ActiveRecord::Schema.define(version: 20140724131759) do
   add_index "orders", ["station_id"], name: "index_orders_on_station_id", using: :btree
   add_index "orders", ["status"], name: "index_orders_on_status", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "pictures", force: true do |t|
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "title",          default: "", null: false

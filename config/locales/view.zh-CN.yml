@@ -63,6 +63,8 @@
       more_info: '查看更多 <i class="fa fa-arrow-circle-right"></i>'
       show_order_no: "查找预约流水号"
       time_area: 预约数量显示
+      edit_picture: 编辑图片
+      update_picture: 编辑图片
     notice:
       created: "新建成功!"
       updated: "更新成功!"
@@ -98,6 +100,7 @@
         car_has_ordered: "该车已经被预约"
         order_time_has_ordered: "该时间段已不能被预约"
         user_order_disable: "当前用户目前不能预约。[原因]：%{reason}"
+      pictures_blank: 请至少选择一张图片!
     confirm:
       delete: 您确定要删除吗？
       forget_password: 忘记密码？

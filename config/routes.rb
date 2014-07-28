@@ -80,7 +80,12 @@ Rails.application.routes.draw do
     namespace :mystation do
       root 'dashboard#index' 
       resources :station_admins
-      resource :station, only: [:show, :edit, :update]
+      resource :station, only: [:show, :edit, :update] do
+        member do
+          get :edit_picture
+          post :update_picture
+        end
+      end
       resources :order_phones, except: [:index, :show]
       # resources :order_nets, only: [:show]
       resources :orders, only: [:index, :show] do

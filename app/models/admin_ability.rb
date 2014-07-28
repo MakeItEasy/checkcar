@@ -128,6 +128,8 @@ private
     if user.station.status_reviewed?
       can :crud, StationAdmin, station_id: user.station.id
       can :update, Station, id: user.station.id
+      can :edit_picture, Station, id: user.station.id
+      can :update_picture, Station, id: user.station.id
       can :create, OrderPhone, station_id: user.station.id
       can :read, OrderPhone, station_id: user.station.id
       # TODO dairg 编辑电话预约的条件，比如状态，以及预约时间范围

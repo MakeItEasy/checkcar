@@ -8,7 +8,7 @@ class Station < ActiveRecord::Base
   has_attached_file :logo, :styles => { :medium => "140x90>", :thumb => "40x40>" },
     :default_url => "/station/logo/:style/missing.png"
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
-
+  validates_attachment_size :logo, :less_than => 300.kilobytes
 
   ## Scopes
   default_scope { order(created_at: :asc) }
@@ -31,6 +31,9 @@ class Station < ActiveRecord::Base
 
   ## Associations
   has_many :orders
+  # 车检站图片
+  has_many :pictures, as: :resource, dependent: :destroy
+  accepts_nested_attributes_for :pictures, allow_destroy: true
 
   def init
     if self.new_record?

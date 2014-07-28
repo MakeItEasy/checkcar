@@ -12,6 +12,7 @@
       uaq: "用户问题"
       order_phone: "电话预约"
       order_net: "网上预约"
+      picture: "图片"
 
     attributes:
       default: &default
@@ -91,3 +92,5 @@
         answered_admin_id: 回答者
         answer: 回答内容
         <<: *default
+      picture:
+        data: 图片

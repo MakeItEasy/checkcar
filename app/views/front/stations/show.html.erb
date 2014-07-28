@@ -1,30 +1,29 @@
 <div class="row">
+  <% if @station.pictures.present? %>
   <div class="col-sm-6">
     <div id="carousel-station" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
-        <li data-target="#carousel-station" data-slide-to="0" class=""></li>
-        <li data-target="#carousel-station" data-slide-to="1" class=""></li>
-        <li data-target="#carousel-station" data-slide-to="2" class=""></li>
+        <% @station.pictures.each_with_index do |p, index| %>
+        <li data-target="#carousel-station" data-slide-to="<%= index %>" class="<%= 'active' if index == 0%>"></li>
+        <% end %>
       </ol>
       <div class="carousel-inner">
-        <div class="item active left">
-          <img src="http://placehold.it/900x500/39CCCC/ffffff&amp;text=I+Love+Bootstrap" alt="First slide">
-          <div class="carousel-caption">
-            First Slide
+        <% active_flag = true %>
+        <% @station.pictures.each do |p| %>
+          <% if active_flag %>
+            <div class="item active">
+            <% active_flag = false %>
+          <% else %>
+            <div class="item">
+          <% end %>
+            <%= image_tag p.data.url(:medium), class: "station-pictures"%>
+            <!--
+            <div class="carousel-caption">
+              First Slide
+            </div>
+            -->
           </div>
-        </div>
-        <div class="item next left">
-          <img src="http://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
-          <div class="carousel-caption">
-            Second Slide
-          </div>
-        </div>
-        <div class="item">
-          <img src="http://placehold.it/900x500/f39c12/ffffff&amp;text=I+Love+Bootstrap" alt="Third slide">
-          <div class="carousel-caption">
-            Third Slide
-          </div>
-        </div>
+        <% end %>
       </div>
       <a class="left carousel-control" href="#carousel-station" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -34,6 +33,7 @@
       </a>
     </div>
   </div>
+  <% end %>
 
   <div class="col-sm-6">
     <h3><%= @station.name %></h3>

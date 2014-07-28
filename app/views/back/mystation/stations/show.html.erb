@@ -7,6 +7,13 @@
         <% end %>
       </div>
     <% end %>
+    <% if can? :edit_picture, @station %>
+      <div class="btn-group">
+        <%= link_to edit_picture_back_mystation_station_path, {class: 'btn btn-default'} do %>
+          <i class="fa fa-picture-o"></i> <%= t('view.action.edit_picture') %> 
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 

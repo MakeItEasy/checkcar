@@ -37,7 +37,7 @@ class Back::Mystation::StationsController < Back::StationBaseController
     respond_to do |format|
       ## TODO dairg 车检站信息更新时，是否设置状态为 待审核
       # @station.status = :waiting
-      if @station.update(station_params)
+      if @station.update(station_params_edit)
         format.html { redirect_to back_mystation_station_path, notice: I18n.t('view.notice.updated') }
         format.json { render :show, status: :ok, location: @station }
       else
@@ -50,9 +50,37 @@ class Back::Mystation::StationsController < Back::StationBaseController
     end
   end
 
+  def edit_picture
+    init_station_pictures
+    add_breadcrumb I18n.t('view.action.edit_picture'), :edit_picture_back_mystation_station_path
+  end
+
+  def update_picture
+    if params[:station].present?
+      if @station.update(station_params_edit_picture)
+        redirect_to back_mystation_station_path, notice: I18n.t('view.notice.updated')
+      else
+        init_station_pictures
+        flash[:alert] = I18n.t('view.alert.update')
+        render :edit_picture
+      end
+    else
+      flash[:alert] = I18n.t('view.alert.pictures_blank')
+      init_station_pictures
+      render :edit_picture
+    end
+  end
+
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def station_params
+    def station_params_edit
       params.require(:station).permit(:telephone, :recommend, :logo)
+    end
+
+    def station_params_edit_picture
+      params.require(:station).permit(pictures_attributes: [:data, :_destroy, :id])
+    end
+
+    def init_station_pictures
+      (Car::Constants::STATION_PICTURES_MAX_COUNT-@station.pictures.length).times { @station.pictures.build}
     end
 end

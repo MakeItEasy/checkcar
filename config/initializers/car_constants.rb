@@ -15,5 +15,8 @@ module Car
 
     # 用户可同时预约的数量
     USER_ENABLE_ORDER_NUMBERS = 3
+
+    # 车检站展示图片的数量
+    STATION_PICTURES_MAX_COUNT = 3
   end
 end
