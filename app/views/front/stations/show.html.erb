@@ -37,6 +37,10 @@
 
   <div class="col-sm-6">
     <h3><%= @station.name %></h3>
+    <hr>
+    <p>详细地址：<%= @station.address_text %></p>
+    <p>联系电话：<%= @station.telephone %></p>
+    <br>
     <div class='action'>
       <%= link_to t("view.action.order_online"), new_front_station_order_path(@station), class: "btn btn-danger btn-lg" %>
     </div>
@@ -48,6 +52,6 @@
     <h4>车检站简介</h4>
   </div>
   <div class="recommend">
-    <%= @station.recommend %>
+    <%= @station.recommend.present? ? @station.recommend : '暂无' %></p>
   </div>
 </div>
