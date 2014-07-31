@@ -28,6 +28,7 @@
       clear: 清空
       new_question: 发起提问
       edit: 编辑
+      edit_map: 编辑地图
       show: 明细
       delete: 删除
       list: 一览
@@ -140,6 +141,7 @@
       medium: 大图标
       thumb: 小图标
       no_logo: 尚未设置Logo图标
+      map_info: 地图信息
     prompt:
       car_area: "--地区--"
         

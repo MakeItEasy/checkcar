@@ -1,8 +1,14 @@
+<%= content_for :head_javascript do %>
+  <%= render "common/baidu_map/script_link"%>
+<%end%>
 <div class='box car-toolbox'>
   <div class="btn-toolbar" role="toolbar">
     <div class="btn-group">
       <%= link_to edit_back_system_station_path(@station), {class: 'btn btn-default'} do %>
         <i class="fa fa-edit"></i> <%= t('view.action.edit') %> 
+      <% end %>
+      <%= link_to edit_map_back_system_station_path(@station), {class: 'btn btn-default'} do %>
+        <i class="fa fa-map-marker"></i> <%= t('view.action.edit_map') %> 
       <% end %>
     </div>
     <div class="btn-group">
@@ -58,5 +64,12 @@
     <dd><%= l(@station.created_at) %></dd>
     <dt><%= Station.human_attribute_name(:updated_at) %></dt>
     <dd><%= l(@station.updated_at) %></dd>
+    <% if @station.has_map_info? %>
+      <dt><%= t('view.label.map_info')%></dt>
+      <dd>
+        <div id="allmap" style="height: 300px;"></div>
+      </dd>
+      <%= render "common/baidu_map/station_map_show_only", station: @station%>
+    <% end %>
   </dl>
 </div>

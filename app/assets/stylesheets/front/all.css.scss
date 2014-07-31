@@ -240,14 +240,14 @@ form#sign_in_remote_form_phone .car-error-tip {
 // -----------------------------------------
 // 车检站明细画面
 // -----------------------------------------
-.station-recommend {
+.station-area-for-show {
 }
-.station-recommend > .title {
+.station-area-for-show > .title {
   @extend .bg-primary;
   border-radius: 5px;
   padding: 1px 10px;
 }
-.station-recommend > .recommend {
+.station-area-for-show > .recommend {
   padding: 5px 10px;
 }
 // -----------------------------------------

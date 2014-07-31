@@ -50,4 +50,13 @@ class Station < ActiveRecord::Base
   def prefix
     "ST"
   end
+
+  # 省市区
+  def city_area_text
+    "#{ChinaCity.get(self.province)}#{ChinaCity.get(self.city)}#{ChinaCity.get(self.district)}"
+  end
+
+  def has_map_info?
+    self.jingdu && self.weidu
+  end
 end

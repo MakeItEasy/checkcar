@@ -1,3 +1,7 @@
+<%= content_for :head_javascript do %>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=IGhkZcALWGBLsua1oBE4KXb7"></script>
+<%end%>
+
 <div class="row">
   <% if @station.pictures.present? %>
   <div class="col-sm-6">
@@ -47,7 +51,7 @@
   </div>
 </div>
 <hr>
-<div class="row station-recommend">
+<div class="row station-area-for-show">
   <div class="title">
     <h4>车检站简介</h4>
   </div>
@@ -55,3 +59,23 @@
     <%= @station.recommend.present? ? @station.recommend : '暂无' %></p>
   </div>
 </div>
+
+<div class="row station-area-for-show">
+  <div class="title">
+    <h4>车检站地图</h4>
+  </div>
+  <div class="recommend col-sm-12">
+    <div id="allmap" style="width: 100%; height:400px;"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  // TODO dairg 地图事例
+  // 百度地图API功能
+  var map = new BMap.Map("allmap");            // 创建Map实例
+  var point = new BMap.Point(116.404, 39.915); // 创建点坐标
+  map.centerAndZoom(point,15);                 // 初始化地图,设置中心点坐标和地图级别。
+  map.enableScrollWheelZoom();                 //启用滚轮放大缩小
+
+</script>

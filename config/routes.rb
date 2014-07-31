@@ -73,6 +73,8 @@ Rails.application.routes.draw do
           patch 'review'
           patch 'lock'
           patch 'unlock'
+          get 'edit_map'
+          patch 'update_map'
         end
       end
     end

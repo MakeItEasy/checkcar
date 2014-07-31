@@ -1,0 +1,81 @@
+<%= content_for :head_javascript do %>
+  <%= render "common/baidu_map/script_link"%>
+<%end%>
+<%= simple_form_for(@station, url: update_map_back_system_station_path, html: {class: 'form-horizontal mask-form', role: 'form', method: :patch} ) do |f| %>
+  <div style='padding: 10px 20px 20px;'>
+    <h4><%= @station.name%></h4>
+    <hr>
+    <div>
+      <%= f.input :address, wrapper: "simple_inline", input_html: {readonly: ""} %>
+      <%= f.input :jingdu, as: :hidden %>
+      <%= f.input :weidu, as: :hidden %>
+      <%= f.button :submit, "更新地图信息", class: 'btn-primary'%>
+      <div class="pull-right">
+        <span><%= Station.human_attribute_name(:jingdu)%>：<span id="jingdu">
+        </span></span>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;<%= Station.human_attribute_name(:weidu)%>：<span id="weidu">
+        </span></span>
+      </div>
+    </div>
+    <div class='clearfix'></div>
+    <br>
+    <div class="car-map-wrapper col-sm-12 no-padding">
+      <div id="allmap"></div>
+    </div>
+    <div class='clearfix'></div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    // 创建Map实例
+    var map = new BMap.Map("allmap");
+    //启用滚轮放大缩小
+    map.enableScrollWheelZoom();
+    //添加默认缩放平移控件
+    map.addControl(new BMap.NavigationControl());
+
+    // 设置经纬度信息
+    function setJingWeiDuInfo(jingdu, weidu) {
+      $("#jingdu").text(jingdu);
+      $("#weidu").text(weidu);
+      $("#station_jingdu").val(jingdu);
+      $("#station_weidu").val(weidu);
+    }
+
+    // click地图后处理
+    function showInfo(e){
+      setJingWeiDuInfo(e.point.lng, e.point.lat);
+      // 清除标注
+      map.clearOverlays();
+      // 创建标注
+      var marker = new BMap.Marker(e.point);
+      // 将标注添加到地图中
+      map.addOverlay(marker);
+      //跳动的动画
+      marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+    }
+    map.addEventListener("click", showInfo);
+
+    <% if @station.has_map_info? %>
+      // 创建点坐标
+      var point = new BMap.Point(<%= @station.jingdu%>, <%= @station.weidu%>);
+      map.addOverlay(new BMap.Marker(point));
+      // 初始化地图,设置中心点坐标和地图级别。
+      map.centerAndZoom(point,16);
+      setJingWeiDuInfo(<%= @station.jingdu%>, <%= @station.weidu%>);
+    <% else %>
+      // 创建地址解析器实例
+      var myGeo = new BMap.Geocoder();
+      // 将地址解析结果显示在地图上,并调整地图视野
+      myGeo.getPoint("<%= @station.address %>", function(point){
+        if (point) {
+          map.centerAndZoom(point, 16);
+          map.addOverlay(new BMap.Marker(point));
+          setJingWeiDuInfo(point.lng, point.lat);
+        }
+      }, "<%= @station.city_area_text%>");
+    <% end %>
+
+  });
+</script>

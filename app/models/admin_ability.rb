@@ -70,6 +70,8 @@ private
     can :review, Station, :status => "waiting"
     can :lock, Station, :status => "reviewed"
     can :unlock, Station, :status => "locked"
+    can :edit_map, Station
+    can :update_map, Station
   end
 
   # 版主

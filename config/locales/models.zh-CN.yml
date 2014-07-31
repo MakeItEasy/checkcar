@@ -68,6 +68,8 @@
         address: 详细地址
         recommend: 简介
         logo: Logo图标
+        jingdu: 经度
+        weidu: 纬度
         <<: *default
       order:
         car_number: 车牌号

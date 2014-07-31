@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727081650) do
+ActiveRecord::Schema.define(version: 20140730090639) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -150,6 +150,8 @@ ActiveRecord::Schema.define(version: 20140727081650) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.float    "jingdu"
+    t.float    "weidu"
   end
 
   add_index "stations", ["city"], name: "index_stations_on_city", using: :btree

@@ -36,6 +36,12 @@ class Back::System::StationsController < Back::SystemBaseController
     add_breadcrumb I18n.t('view.action.edit'), :edit_back_system_station_path
   end
 
+  # GET /stations/1/edit_map
+  def edit_map
+    ## 面包屑导航
+    add_breadcrumb I18n.t('view.action.edit_map'), :edit_map_back_system_station_path
+  end
+
   # station /stations
   # station /stations.json
   def create
@@ -70,6 +76,18 @@ class Back::System::StationsController < Back::SystemBaseController
         end
         format.json { render json: @station.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # PATCH/PUT /stations/1
+  # PATCH/PUT /stations/1.json
+  def update_map
+    @station.status = :waiting
+    if @station.update(station_params_for_map)
+      redirect_to [:back, :system, @station], notice: I18n.t('view.notice.updated')
+    else
+      flash[:alert] = I18n.t('view.alert.update')
+      render :edit_map
     end
   end
 
@@ -124,6 +142,10 @@ class Back::System::StationsController < Back::SystemBaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def station_params
-      params.require(:station).permit(:name, :province, :city, :district, :address, :telephone, :recommend)
+      params.require(:station).permit(:name, :province, :city, :district, :address, :telephone, :recommend, :jingdu, :weidu)
+    end
+
+    def station_params_for_map
+      params.require(:station).permit(:jingdu, :weidu)
     end
 end
