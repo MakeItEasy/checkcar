@@ -81,11 +81,13 @@
                       <h4>
                         <%= s.name %>
                         <span>
-                        [<%= link_to t("view.action.detail"), [:front, s] %>]
+                          [<%= link_to t("view.action.detail"), [:front, s] %>]
                         </span>
                       </h4>
                     </div>
-                    <p>详细地址：<%= s.address_text %></p>
+                    <p>详细地址：<%= s.address_text %>&nbsp;&nbsp;
+                    [<%= link_to t("view.label.map"), front_station_path(s) + "#station_map", {"data-no-turbolink" => ""} %>]
+                    </p>
                     <p>联系电话：<%= s.telephone %></p>
                     <p>简单介绍：<%= s.recommend.present? ? s.recommend : '暂无' %></p>
                   </div>

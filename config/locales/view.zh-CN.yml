@@ -142,6 +142,7 @@
       thumb: 小图标
       no_logo: 尚未设置Logo图标
       map_info: 地图信息
+      map: 地图
     prompt:
       car_area: "--地区--"
         
