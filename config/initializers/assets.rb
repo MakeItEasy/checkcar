@@ -10,3 +10,6 @@ Rails.application.config.assets.precompile += %w( ckeditor/lang/*.js )
 =end
 Rails.application.config.assets.precompile += %w( fonts/*.*)
 Rails.application.config.assets.precompile += %w( icons/grid/*.*)
+
+# 百度地图
+Rails.application.config.assets.precompile += %w( baidu_map/SearchInfoWindow.js)
