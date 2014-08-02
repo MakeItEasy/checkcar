@@ -5,7 +5,6 @@ class Front::User::UaqsController < Front::UserBaseController
   add_breadcrumb I18n.t('view.controller.uaqs'), :front_user_uaqs_path
 
   def index
-    @uaqs = current_user.uaqs
     @uaqs_grid = initialize_grid(current_user.uaqs)
   end
 
