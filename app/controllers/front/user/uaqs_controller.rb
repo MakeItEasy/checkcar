@@ -6,6 +6,7 @@ class Front::User::UaqsController < Front::UserBaseController
 
   def index
     @uaqs = current_user.uaqs
+    @uaqs_grid = initialize_grid(current_user.uaqs)
   end
 
   # GET /uaqs/1

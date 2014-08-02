@@ -9,12 +9,14 @@
 </div>
 
 <div class='car-content-list'>
-
-  <% @uaqs.each do |item| %>
-  <p><%= item.question %></p>
-  <p><%= item.answer%></p>
-  <br>
-  <% end %>
-  
-
+  <%= grid @uaqs_grid, show_filters: :no do |g|
+    g.column name: t('view.label.status') do |item|
+      render_question_status(item.answered?) 
+    end
+    g.column name: Uaq.human_attribute_name(:question), attribute: "question", ordering: false
+    g.column name: Uaq.human_attribute_name(:created_at), attribute: "created_at", filter: false do |item|
+      # distance_of_time_in_words(Time.now, item.created_at)
+      distance_of_time_in_words_to_now(item.created_at, include_seconds: true)
+    end
+  end -%>
 </div>
