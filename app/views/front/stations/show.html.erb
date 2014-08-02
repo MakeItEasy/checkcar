@@ -64,8 +64,12 @@
 <% if @station.has_map_info? %>
 <div class="row station-area-for-show" id="station_map">
   <div class="title">
+    <div class="pull-right" style="margin-top: 3px;">
+      <button id="refresh_map" class="btn btn-danger">
+        <i class="fa fa-refresh"></i>
+      </button>
+    </div>
     <h4>车检站地图&nbsp;&nbsp;<small style="color: white;">[<%= @station.address_text %>]</small></h4>
-    <button id="refresh_map" class="btn btn-danger">刷新</button>
   </div>
   <div class="recommend col-sm-12">
     <div id="allmap" style="width: 78%; height:400px;"></div>
