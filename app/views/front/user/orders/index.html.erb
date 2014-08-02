@@ -6,10 +6,10 @@
 <div class="car-nav-tabs-custom">
   <ul class="nav nav-tabs" role="tablist">
     <li class="<%= 'active' if params[:scope] != 'history' %>">
-      <a href="<%= front_user_orders_path%>">进行中预约</a>
+      <a href="<%= front_user_orders_path%>"><%= t('view.label.orders_checking')%></a>
     </li>
     <li class="<%= 'active' if params[:scope] == 'history' %>">
-      <a href="<%= front_user_orders_path(scope: 'history')%>">历史预约</a>
+      <a href="<%= front_user_orders_path(scope: 'history')%>"><%= t('view.label.orders_history')%></a>
     </li>
   </ul>
   <div class="tab-content">

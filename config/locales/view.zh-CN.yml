@@ -143,6 +143,8 @@
       no_logo: 尚未设置Logo图标
       map_info: 地图信息
       map: 地图
+      orders_checking: 进行中预约
+      orders_history: 历史预约
     prompt:
       car_area: "--地区--"
         
