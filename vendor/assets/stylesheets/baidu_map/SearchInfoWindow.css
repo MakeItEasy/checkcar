@@ -288,6 +288,6 @@
   color: red;
 }
 
-.sel_body_name {
+div.sel_body_title > div.sel_body_name {
   height: 100%;
 }
