@@ -8,6 +8,36 @@ html, body {
   margin-top: 18px;
 }
 
+// -----------------------------------------
+// 顶部国定菜单
+// -----------------------------------------
+.navbar {
+  background-color: #fff;
+  border-bottom: 3px solid #3C8DBC;
+}
+
+.navbar .nav.navbar-nav > li > a {
+  color: #000;
+  font-weight: bold;
+}
+.navbar .nav.navbar-nav > li.active > a {
+  color: #fff;
+  background-color: #3C8DBC;
+}
+.navbar .nav.navbar-nav > li:not(.active) > a:hover {
+  color: #3C8DBC;
+}
+
+.navbar .navbar-logo {
+  color: #000;
+  font-weight: bold;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #000;
+}
+
+
 // =========================================
 // List Group(bootstrap)
 // =========================================

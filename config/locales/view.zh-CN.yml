@@ -1,9 +1,9 @@
 'zh-CN':
   view:
     site:
-      front_title: 西安车辆年审网
-      back_title: 车审后台管理系统
-      back_title_long: 陕西车辆年审网后台管理系统
+      front_title: 车辆年检服务网
+      back_title: 车检后台管理系统
+      back_title_long: 车辆年检服务网后台管理系统
       beianhao: 陕ICP备14007986号
       beian_site: "http://www.miibeian.gov.cn"
     action:
