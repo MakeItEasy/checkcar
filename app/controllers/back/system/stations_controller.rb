@@ -1,5 +1,5 @@
 class Back::System::StationsController < Back::SystemBaseController
-  before_action :set_station, except: [:index, :new]
+  before_action :set_station, except: [:index, :new, :create]
 
   ## 加载权限
   load_and_authorize_resource

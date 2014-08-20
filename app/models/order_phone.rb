@@ -10,10 +10,15 @@ class OrderPhone < Order
   validates :car_number_detail, presence: true
   validates :telephone, presence: true
   validate do 
-    # 只有当以下相应的字段发生变更时才进行validate
-    _origin_order = OrderPhone.find(self.id)
-    validate_order_time if self.new_record? || self.order_time != _origin_order.order_time
-    validate_car_number if self.new_record? || self.car_number_area != _origin_order.car_number_area || self.car_number_detail != _origin_order.car_number_detail
+    if self.new_record?
+      validate_order_time
+      validate_car_number
+    else
+      # 只有当以下相应的字段发生变更时才进行validate
+      _origin_order = OrderPhone.find(self.id)
+      validate_order_time if self.order_time != _origin_order.order_time
+      validate_car_number if self.car_number_area != _origin_order.car_number_area || self.car_number_detail != _origin_order.car_number_detail
+    end
   end
 
   ## Associations

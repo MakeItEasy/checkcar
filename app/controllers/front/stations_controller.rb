@@ -20,7 +20,7 @@ class Front::StationsController < FrontController
       resultRelation = resultRelation.where('name like ?', '%' + session[:station_conditions]['name'] + '%')
     end
     # TODO dairg per page setting
-    @stations = resultRelation.page(params[:page]).per(1)
+    @stations = resultRelation.page(params[:page]).per(10)
   end
 
   def show
