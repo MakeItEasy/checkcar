@@ -1,5 +1,5 @@
     <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top car-front-common-navbar" role="navigation">
       <div class="container wrapped-content">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -37,6 +37,7 @@
             <% if current_user %>
               <div class="btn-group">
                   <a type="button" class="btn btn-success btn-sm" href="<%= front_user_root_path %>">
+                    <i class="fa fa-user"></i>&nbsp;
                     <%= current_user.show_name %>
                   </a>
                   <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">

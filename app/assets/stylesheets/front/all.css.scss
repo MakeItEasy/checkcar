@@ -2,7 +2,7 @@
 // 前端的通用样式
 // -----------------------------------------
 html, body {
-  background: #eee;
+  background: #e4e4e4;
 }
 .car-info-list {
   margin-top: 18px;
@@ -14,33 +14,33 @@ html, body {
 .navbar-toggle {
   background-color: #000;
 }
-.navbar {
+.navbar.car-front-common-navbar {
   background-color: #fff;
   border-bottom: 3px solid #3C8DBC;
-}
-
-.navbar .nav.navbar-nav > li > a {
-  color: #000;
-  font-weight: bold;
-}
-.navbar .nav.navbar-nav > li.active > a {
-  color: #fff;
-  background-color: #3C8DBC;
-}
-.navbar .nav.navbar-nav > li:not(.active) > a:hover {
-  color: #3C8DBC;
-}
-.navbar .navbar-logo {
-  color: #000;
-  font-weight: bold;
-  margin-right: 50px;
-  padding: 0px;
-  img {
-    height: 50px;
-    width: 100px;
-    margin-right: 10px;
+  .nav.navbar-nav > li > a {
+    color: #000;
+    font-weight: bold;
+  }
+  .nav.navbar-nav > li.active > a {
+    color: #fff;
+    background-color: #3C8DBC;
+  }
+  .nav.navbar-nav > li:not(.active) > a:hover {
+    color: #3C8DBC;
+  }
+  .navbar-logo {
+    color: #000;
+    font-weight: bold;
+    margin-right: 50px;
+    padding: 0px;
+    img {
+      height: 50px;
+      width: 100px;
+      margin-right: 10px;
+    }
   }
 }
+
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
   color: #000;
@@ -84,7 +84,9 @@ a.list-group-item:hover > * {
 // 主要内容部分，因为顶部菜单固定，所以要设置margin-top
 // =========================================
 #main-content {
-  margin-top: 90px;
+  margin-top: 50px;
+  padding-top: 40px;
+  background-color: #eee;
   text-align: left;
 }
 
