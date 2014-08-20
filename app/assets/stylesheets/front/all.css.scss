@@ -11,6 +11,9 @@ html, body {
 // -----------------------------------------
 // 顶部国定菜单
 // -----------------------------------------
+.navbar-toggle {
+  background-color: #000;
+}
 .navbar {
   background-color: #fff;
   border-bottom: 3px solid #3C8DBC;
@@ -27,10 +30,16 @@ html, body {
 .navbar .nav.navbar-nav > li:not(.active) > a:hover {
   color: #3C8DBC;
 }
-
 .navbar .navbar-logo {
   color: #000;
   font-weight: bold;
+  margin-right: 50px;
+  padding: 0px;
+  img {
+    height: 50px;
+    width: 100px;
+    margin-right: 10px;
+  }
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
