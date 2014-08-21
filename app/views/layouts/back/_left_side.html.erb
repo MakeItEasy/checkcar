@@ -15,7 +15,7 @@
   <form action="<%= show_order_no_back_mystation_orders_path %>" method="get" class="sidebar-form">
     <div class="input-group">
       <input type="text" name="order_no" class="form-control" value="<%= params[:order_no]%>"
-      placeholder="<%= Order.human_attribute_name(:order_no)%>...">
+      placeholder="流水或手机或车牌号">
       <span class="input-group-btn">
       <button type="submit" name="seach" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
       </span>
