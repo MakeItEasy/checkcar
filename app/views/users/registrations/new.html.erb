@@ -6,12 +6,12 @@
   <div class='col-sm-8 car-left-side'>
     <div class="car-nav-tabs-custom">
       <ul class="nav nav-tabs" role="tablist">
-      <% if params[:user] && params[:user][:mode] == 'telephone' %>
-        <li><a href="<%= new_user_registration_path('user[mode]' => 'email')%>">邮箱注册</a></li>
-        <li class="active"><a href="<%= new_user_registration_path('user[mode]' => 'telephone')%>">手机注册</a></li>
-      <% else %>
-        <li class="active"><a href="<%= new_user_registration_path('user[mode]' => 'email')%>">邮箱注册</a></li>
+      <% if params[:user] && params[:user][:mode] == 'email' %>
         <li><a href="<%= new_user_registration_path('user[mode]' => 'telephone')%>">手机注册</a></li>
+        <li class="active"><a href="<%= new_user_registration_path('user[mode]' => 'email')%>">邮箱注册</a></li>
+      <% else %>
+        <li class="active"><a href="<%= new_user_registration_path('user[mode]' => 'telephone')%>">手机注册</a></li>
+        <li><a href="<%= new_user_registration_path('user[mode]' => 'email')%>">邮箱注册</a></li>
       <% end %>
       </ul>
       <div class="tab-content">
@@ -20,10 +20,10 @@
             url: registration_path(resource_name),
             html: {class: 'form-horizontal mask-form', role: 'form'} ) do |f| %>
             <div class='car-form-items'>
-              <% if params[:user] && params[:user][:mode] == 'telephone' %>
-                <%= render "new_form_phone", f: f %> 
-              <% else %>
+              <% if params[:user] && params[:user][:mode] == 'email' %>
                 <%= render "new_form", f: f %> 
+              <% else %>
+                <%= render "new_form_phone", f: f %> 
               <% end %>
             </div>
             <div class="car-form-actions">
