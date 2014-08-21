@@ -45,8 +45,22 @@ Rails.application.routes.draw do
           patch :cancel
         end
       end
+
+      # 个人中心
+      namespace :personal do
+        get 'show'
+        get 'edit'
+        patch 'update'
+        get 'password'
+        patch 'update_password'
+      end
     end
 
+  end
+
+
+  devise_scope :admin do
+    get '/admin_console' => "devise/sessions#new"
   end
 
   ## 后台site

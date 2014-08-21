@@ -1,0 +1,22 @@
+<div class='box car-toolbox'>
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group">
+      <%= link_to front_user_personal_edit_path, {class: 'btn btn-default'} do %>
+        <i class="fa fa-edit"></i> <%= t('view.action.edit') %> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class='box box-info car-content-box'>
+  <dl class="dl-horizontal">
+    <dt><%= User.human_attribute_name(:email) %></dt>
+    <dd><%= render_blank_enable_item(@user.email) %></dd>
+    <dt><%= User.human_attribute_name(:telephone) %></dt>
+    <dd><%= @user.telephone %></dd>
+    <dt><%= User.human_attribute_name(:name) %></dt>
+    <dd><%= render_blank_enable_item(@user.name) %></dd>
+    <dt><%= User.human_attribute_name(:sex) %></dt>
+    <dd><%= render_blank_enable_item(@user.sex_text) %></dd>
+  </dl>
+</div>

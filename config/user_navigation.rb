@@ -60,33 +60,9 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :orders, I18n.t('view.controller.user.orders'), front_user_orders_path, :opts => {:icon => 'ion ion-bag'}, if: ->{ can? :read, Order }
     primary.item :uaq, I18n.t('view.controller.uaqs'), front_user_uaqs_path, :opts => {:icon => 'fa fa-question'}, if: ->{ can? :read, Uaq }
     primary.item :personal, I18n.t('view.controller.personal'), nil, :opts => {icon: 'fa fa-th' } do |sub_nav|
-      sub_nav.item :show, I18n.t('view.action.personal.show'), back_personal_show_path,
-        :opts => { icon: '', badge_text: 'new', badge_class: 'bg-green' }
-      sub_nav.item :password, I18n.t('view.action.personal.password'), back_personal_password_path
+      sub_nav.item :show, I18n.t('view.action.personal.show'), front_user_personal_show_path
+      sub_nav.item :password, I18n.t('view.action.personal.password'), front_user_personal_password_path
     end
-
-    ### 一个子菜单的例子,最好只弄两级菜单
-=begin
-    primary.item :admins, '系统管理员', nil,
-      :opts => {icon: 'fa fa-th' } do |sub_nav|
-      sub_nav.item :adminsdsf, 'show', back_show_path, :opts => {:icon => 'fa fa-dashboard', badge_text: 'new', badge_class: 'bg-green' }
-      sub_nav.item :adminsindex, 'index', back_admins_path
-    end
-=end
-
-    # Add an item which has a sub navigation (same params, but with block)
-=begin
-    primary.item :key_2, 'name', url, options do |sub_nav|
-      # Add an item to the sub navigation (same params again)
-      sub_nav.item :key_2_1, 'name', url, options
-    end
-
-    # You can also specify a condition-proc that needs to be fullfilled to display an item.
-    # Conditions are part of the options. They are evaluated in the context of the views,
-    # thus you can use all the methods and vars you have available in the views.
-    primary.item :key_3, 'Admin', url, class: 'special', if: -> { current_user.admin? }
-    primary.item :key_4, 'Account', url, unless: -> { logged_in? }
-=end
 
     # you can also specify html attributes to attach to this particular level
     # works for all levels of the menu

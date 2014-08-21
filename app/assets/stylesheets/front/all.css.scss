@@ -16,9 +16,6 @@ html, body {
 }
 .navbar.car-front-common-navbar {
   background: asset-url('bg-site-front.gif') repeat;
-  overflow-x: hidden;
-
-  background-color: #fff;
   border-bottom: 3px solid #3C8DBC;
   .nav.navbar-nav > li > a {
     color: #000;
@@ -89,10 +86,8 @@ a.list-group-item:hover > * {
 // =========================================
 #main-content {
   background: asset-url('bg-site-front.gif') repeat;
-  overflow-x: hidden;
   margin-top: 50px;
   padding-top: 40px;
-  background-color: #eee;
   text-align: left;
 }
 

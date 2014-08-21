@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
          :lockable, :timeoutable, :confirmable, :authentication_keys => [:login]
 
   attr_accessor :mode, :login
+  # 针对当前密码，和password是否必需验证的判断
+  attr_accessor :password_required
 
   ## Associations
   has_many :uaqs
@@ -16,6 +18,7 @@ class User < ActiveRecord::Base
   ## Validations
   validates_length_of :email, within: 1..30, allow_blank: true
   validates :telephone, presence: true, if: :telephone_required?
+  validates :password, presence: true, if: "password_required"
   validates_uniqueness_of :telephone, allow_blank: true
   # TODO dairg 如果这里验证了，要保证devise的各个画面，比如密码重置画面是否能通过验证
   # validates :name, presence: true, length: { maximum: 30 }, if: "!new_record?"

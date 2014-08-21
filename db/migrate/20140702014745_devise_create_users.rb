@@ -2,6 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       ## Database authenticatable
+      # TODO dairg 这里是否要吧null false去掉
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
