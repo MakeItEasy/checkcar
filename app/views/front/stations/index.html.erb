@@ -71,7 +71,9 @@
                 <% @stations.each do |s| %>
                 <li class='list-item'>
                   <div class='logo'>
-                    <%= image_tag s.logo.url(:medium), {class: 'img-thumbnail'} %>
+                    <a href="<%= front_station_path(s) %>" data-no-turbolink>
+                      <%= image_tag s.logo.url(:medium), {class: 'img-thumbnail', title: t('view.label.click_to_detail')} %>
+                    </a>
                     <div class='action text-center'>
                       <%= link_to t("view.action.order_online"), new_front_station_order_path(s), class: "btn btn-primary" %>
                     </div>
@@ -79,10 +81,7 @@
                   <div class='info'>
                     <div class='title'>
                       <h4>
-                        <%= s.name %>
-                        <span>
-                          [<%= link_to t("view.action.detail"), [:front, s], {"data-no-turbolink" => ""} %>]
-                        </span>
+                        <%= link_to s.name, [:front, s], {"data-no-turbolink" => ""} %>
                       </h4>
                     </div>
                     <p>详细地址：<%= s.address_text %>&nbsp;&nbsp;
