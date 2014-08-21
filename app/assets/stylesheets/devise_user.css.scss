@@ -20,6 +20,9 @@
 // -----------------------------------------
 // 
 // -----------------------------------------
+.header, .devise-body-content {
+  background: asset-url('bg-site-front.gif') repeat;
+}
 .car-devise {
   background: #fff;
 }
@@ -45,10 +48,23 @@
 .devise-header {
   padding: 10px 0;
 }
-.header .logo.devise-title {
-  width: auto;
-  font-size: 18px;
+
+// LOGO图标
+.devise-site-logo {
+  a {
+    padding: 0px;
+  }
+  img {
+    height: 50px;
+    width: 100px;
+    margin-right: 5px;
+  }
+  .logo.devise-title {
+    width: auto;
+    font-size: 18px;
+  }
 }
+
 
 // -----------------------------------------
 // 注册窗体的ajax错误时，错误提示样式
