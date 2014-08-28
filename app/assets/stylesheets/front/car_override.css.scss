@@ -5,6 +5,19 @@
   border: none;
 }
 
+.navbar-default {
+  .navbar-toggle {
+    background-color: $car-color-primary;
+    &:hover,
+    &:focus {
+      background-color: $car-color-primary;
+    }
+    .icon-bar {
+      background-color: #fff;
+    }
+  }
+}
+
 /* Side navigation
  *
  * Scrollspy and affixed enhanced navigation to highlight sections and secondary

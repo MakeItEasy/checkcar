@@ -191,3 +191,5 @@
       station_base_info: "车检站信息"
       new_order_phone: "新增电话预约"
       time_area: "预约数量设置"
+    navbar:
+      question: "提问留言"

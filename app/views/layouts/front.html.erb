@@ -26,43 +26,17 @@
 
   </head>
   <body>
-    <%= render "layouts/front/navbar" %>
-    <div id='main-content'>
-      <%= yield :header_area %>
-      <div class="container marketing">
-        <%= yield %>
+    <!-- main不包括footer的所有部分 -->
+    <div id="main">
+      <%= render "layouts/front/navbar" %>
+      <div id='main-content'>
+        <%= yield :header_area %>
+        <div class="container marketing">
+          <%= yield %>
+        </div>
       </div>
     </div>
     <%= render "layouts/front/footer" %>
 
   </body>
 </html>
-
-
-
-
-
-<!--
-
-    <![if !IE]>
-      <%= stylesheet_link_tag 'front', media: 'all', 'data-turbolinks-track' => true %>
-      <%= yield :head_stylesheet %>
-      <%= javascript_include_tag 'front', 'data-turbolinks-track' => true %>
-      <%= yield :head_javascript %>
-    <!<![endif>
-
-      <%= stylesheet_link_tag 'front_ie', media: 'all'%>
-    <!--[if lte IE 7]>
-      <%= stylesheet_link_tag 'front_ie', media: 'all'%>
-      <%= javascript_include_tag 'front', 'data-turbolinks-track' => true %>
-      <script type="text/javascript" src="<%= asset_url('bsie/bootstrap-ie.js')%>"></script>
-    <![endif]-->
-
-    <!--[if gt IE 7]>
-      <%= stylesheet_link_tag 'front', media: 'all', 'data-turbolinks-track' => true %>
-      <%= yield :head_stylesheet %>
-      <%= javascript_include_tag 'front', 'data-turbolinks-track' => true %>
-      <%= yield :head_javascript %>
-    <![endif]-->
--->
-

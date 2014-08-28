@@ -2,15 +2,23 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "ionicon/ionicons";
+
 // AdminLTE关联
-@import "adminlte/AdminLTE";
+// @import "adminlte/AdminLTE";
+
 // iCheck关联
 @import "adminlte/iCheck/square/green";
-@import "csshake/csshake";
+
+// 摇动
+// @import "csshake/csshake";
+
 @import "bootstrap-datetimepicker";
+
 // 百度地图关联
 @import "baidu_map/SearchInfoWindow";
 
+// car变量
+@import "front/_variables";
 @import "front/car_override";
 
 // 前端的通用样式

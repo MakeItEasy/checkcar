@@ -2,31 +2,28 @@
 // 前端的通用样式
 // -----------------------------------------
 html, body {
-  background: #e4e4e4;
+  background: $car-body-bg-color;
 }
-.car-info-list {
-  margin-top: 18px;
+
+#main, #main-content, #navbar-top {
+  background: $car-body-bg-main;
 }
 
 // -----------------------------------------
 // 顶部国定菜单
 // -----------------------------------------
-.navbar-toggle {
-  background-color: #000;
-}
-.navbar.car-front-common-navbar {
-  background: asset-url('bg-site-front.gif') repeat;
-  border-bottom: 3px solid #3C8DBC;
+#navbar-top {
+  border-bottom: 3px solid $car-color-primary;
   .nav.navbar-nav > li > a {
     color: #000;
     font-weight: bold;
   }
   .nav.navbar-nav > li.active > a {
     color: #fff;
-    background-color: #3C8DBC;
+    background-color: $car-color-primary;
   }
   .nav.navbar-nav > li:not(.active) > a:hover {
-    color: #3C8DBC;
+    color: $car-color-primary;
   }
   .navbar-logo {
     color: #000;
@@ -40,12 +37,6 @@ html, body {
     }
   }
 }
-
-.navbar-inverse .navbar-brand:hover,
-.navbar-inverse .navbar-brand:focus {
-  color: #000;
-}
-
 
 // =========================================
 // List Group(bootstrap)
@@ -85,7 +76,6 @@ a.list-group-item:hover > * {
 // 主要内容部分，因为顶部菜单固定，所以要设置margin-top
 // =========================================
 #main-content {
-  background: asset-url('bg-site-front.gif') repeat;
   margin-top: 50px;
   padding-top: 40px;
   text-align: left;
@@ -142,7 +132,7 @@ a.list-group-item:hover > * {
       line-height: 30px;
     }
     a.active, a:hover {
-      background-color: #3c8dbc;
+      background-color: $car-color-primary;
       color: #fff;
     }
   }
@@ -158,7 +148,7 @@ a.list-group-item:hover > * {
     word-wrap: break-word;
   }
   dl.selected {
-    border-top: 1px dotted #3c8dbc;
+    border-top: 1px dotted $car-color-primary;
     padding-top: 10px;
     margin-top: 20px;
     dt {
@@ -187,7 +177,7 @@ a.list-group-item:hover > * {
   padding: 0px;
 }
 .car-list-result > .list-item {
-  border-bottom: 1px dotted #3c8dbc;
+  border-bottom: 1px dotted $car-color-primary;
   margin-bottom: 10px;
   padding: 10px 0px;
 }
@@ -246,7 +236,7 @@ a.list-group-item:hover > * {
 // 留言以及FAQ
 // -----------------------------------------
 .car-question {
-  border-bottom: 1px dotted #3c8dbc;
+  border-bottom: 1px dotted $car-color-primary;
   padding-left: 20px !important;
 }
 .car-question:hover {
@@ -256,10 +246,10 @@ a.list-group-item:hover > * {
   font-size: 16px;
 }
 .car-question > .question > i {
-  color: #3c8dbc;
+  color: $car-color-primary;
 }
 .car-question > .answer {
-  border-left: 2px solid #3c8dbc;
+  border-left: 2px solid $car-color-primary;
   margin-left:20px;
   padding-left: 10px;
 }
@@ -299,3 +289,11 @@ img.station-pictures {
   width: 525px !important;
   height: 290px !important;
 }
+
+// -----------------------------------------
+// TODO dairg 介绍
+// -----------------------------------------
+.car-info-list {
+  margin-top: 18px;
+}
+
