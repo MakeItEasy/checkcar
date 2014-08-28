@@ -96,3 +96,6 @@ end
 # 验证码
 gem 'easy_captcha'
 gem 'rmagick', require: false
+
+# API client
+gem 'httparty'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730090639) do
+ActiveRecord::Schema.define(version: 20140828013624) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -130,6 +130,20 @@ ActiveRecord::Schema.define(version: 20140730090639) do
   add_index "posts", ["create_user_id"], name: "index_posts_on_create_user_id", using: :btree
   add_index "posts", ["status"], name: "index_posts_on_status", using: :btree
   add_index "posts", ["title"], name: "index_posts_on_title", using: :btree
+
+  create_table "sms_services", force: true do |t|
+    t.string   "telephone"
+    t.string   "description"
+    t.text     "options"
+    t.integer  "response_code"
+    t.integer  "api_code"
+    t.string   "api_msg"
+    t.text     "result"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sms_services", ["telephone"], name: "index_sms_services_on_telephone", using: :btree
 
   create_table "stations", force: true do |t|
     t.string   "name",               default: "", null: false
