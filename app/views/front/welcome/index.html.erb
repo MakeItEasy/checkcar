@@ -5,36 +5,8 @@
         padding-bottom: 30px;
       }
 
-      #main-content > .container {
+      #main-content .container {
         background: initial;
-      }
-
-      @media (min-width: 400px) {
-        #road-sign1 {
-          position: absolute;
-          left: 70px;
-          top: 160px;
-        }
-
-        #road-sign2 {
-          position: absolute;
-          left: 150px;
-          top: 120px;
-        }
-      }
-
-      @media (min-width: 992px) {
-        #road-sign1 {
-          position: absolute;
-          left: 410px;
-          top: 160px;
-        }
-
-        #road-sign2 {
-          position: absolute;
-          left: 500px;
-          top: 120px;
-        }
       }
 
       #main-jumbotron {
@@ -46,27 +18,12 @@
         text-align: center;
         margin-bottom: 20px;
       }
-
-      #main-jumbotron .bottom {
-        margin: auto;
-        margin-top: 60px;
-      }
     </style>
 
 <% content_for :header_area do %>
     <!-- jumbotron -->
     <div id="main-jumbotron" class="jumbotron wrapped-content">
       <div class="container">
-        <div id="road-sign">
-          <div id="road-sign2">
-            <%=image_tag "road_sign2.png"%>
-          </div>
-          <div id="road-sign1">
-            <a href="<%= front_stations_path %>" class="shake shake-car-horizontal hover-stop">
-              <%=image_tag "road_sign1.png"%>
-            </a>
-          </div>
-        </div>
         <!--
         <h1 style="font-size:50px; margin-top:50px;">一站式服务</h1>
         <h2 style="margin-top:30px;">
@@ -81,7 +38,6 @@
       </div>
     </div>
     <!-- END jumbotron -->
-
 <%end%>
 
     <div id="nav_circle" class="text-center">

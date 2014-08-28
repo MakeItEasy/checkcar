@@ -43,6 +43,7 @@ pickle-email-*.html
 #Ignore the vim  swo  and  ~ file
 *.swo
 *.*~
+*.bak
 
 # ignore database setting file
 /config/database.*

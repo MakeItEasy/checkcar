@@ -1,9 +1,10 @@
 <html style="min-height: 229px;">
   <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
     <title><%= t('view.site.front_title') %></title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <%= stylesheet_link_tag    'front', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'front_user', media: 'all', 'data-turbolinks-track' => true %>
     <%= yield :head_stylesheet %>
     <%= javascript_include_tag 'front', 'data-turbolinks-track' => true %>
     <%= yield :head_javascript %>
@@ -13,17 +14,30 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <script src="<%= asset_url('css3-mediaqueries.js')%>"></script>
+      <script src="<%= asset_url('html5shiv.js')%>"></script>
+      <script src="<%= asset_url('respond.js')%>"></script>
+
+      <style>
+        .skin-blue .logo {
+          background-color: #367fa9;
+          color: #f9f9f9;
+        }
+        .skin-blue .left-side {
+          background: #f4f4f4;
+        }
+      </style>
     <![endif]-->
   </head>
   <body class="skin-blue pace-done" style="min-height: 229px;">
+    <!--
     <div class="pace  pace-inactive">
       <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
         <div class="pace-progress-inner"></div>
       </div>
       <div class="pace-activity"></div>
     </div>
+    -->
     <!-- header logo: style can be found in header.less -->
     <header class="header">
       <%= render 'layouts/front_user/header' %>

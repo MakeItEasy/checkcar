@@ -1,4 +1,4 @@
-Rails.application.config.assets.precompile += %w( front.css front.js)
+Rails.application.config.assets.precompile += %w( front.css front.js front_user.css)
 Rails.application.config.assets.precompile += %w( back.css back.js)
 Rails.application.config.assets.precompile += %w( devise_admin.css)
 Rails.application.config.assets.precompile += %w( devise_user.css devise_user.js)

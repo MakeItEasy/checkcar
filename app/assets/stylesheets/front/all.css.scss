@@ -12,6 +12,19 @@ html, body {
 // -----------------------------------------
 // 顶部国定菜单
 // -----------------------------------------
+#navbar-top.navbar-default {
+  .navbar-toggle {
+    background-color: $car-color-primary;
+    &:hover,
+    &:focus {
+      background-color: $car-color-primary;
+    }
+    .icon-bar {
+      background-color: #fff;
+    }
+  }
+}
+
 #navbar-top {
   border-bottom: 3px solid $car-color-primary;
   .nav.navbar-nav > li > a {
