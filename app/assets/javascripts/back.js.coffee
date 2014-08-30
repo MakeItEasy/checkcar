@@ -18,7 +18,7 @@ jquery.turbolinks 必须在jquery 和jquery_ujs的后面，然后在turbolinks�
 # fork源项目：https://github.com/eternicode/bootstrap-datepicker
 //= require bootstrap-datetimepicker/bootstrap-datetimepicker
 //= require bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN
-# TODO dairg 是否可以注释掉？
+# TODO dairg ckeditor/override是否可以注释掉？
 # require ckeditor/override
 //= require ckeditor/init
 //= require china_city/jquery.china_city
