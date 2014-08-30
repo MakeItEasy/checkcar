@@ -1,8 +1,7 @@
 class Back::Mystation::StationsController < Back::StationBaseController
   before_action :set_station
 
-
-  # TODO dairg check_file_size
+  # feather dairg check_file_size
 =begin
   before_post_process :check_file_size
   def check_file_size
@@ -10,7 +9,6 @@ class Back::Mystation::StationsController < Back::StationBaseController
     errors[:image_file_size].blank?
   end
 =end
-
 
   ## 加载权限
   load_and_authorize_resource
@@ -35,8 +33,8 @@ class Back::Mystation::StationsController < Back::StationBaseController
   # PATCH/PUT /stations/1.json
   def update
     respond_to do |format|
-      ## TODO dairg 车检站信息更新时，是否设置状态为 待审核
-      # @station.status = :waiting
+      ## 车检站信息更新时，设置状态为待审核
+      @station.status = :waiting
       if @station.update(station_params_edit)
         format.html { redirect_to back_mystation_station_path, notice: I18n.t('view.notice.updated') }
         format.json { render :show, status: :ok, location: @station }

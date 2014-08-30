@@ -5,8 +5,7 @@ class Back::Mystation::OrderPhonesController < Back::StationBaseController
   load_and_authorize_resource
 
   ## 面包屑导航
-  # TODO dairg 电话预约的面包屑
-  add_breadcrumb Order.model_name.human, :back_mystation_orders_path
+  add_breadcrumb OrderPhone.model_name.human, :back_mystation_orders_path
 
   # GET /order_phones/new
   def new

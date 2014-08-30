@@ -5,8 +5,7 @@ class Back::Mystation::OrderNetsController < Back::StationBaseController
   load_and_authorize_resource
 
   ## 面包屑导航
-  # TODO dairg 电话预约的面包屑
-  add_breadcrumb Order.model_name.human, :back_mystation_orders_path
+  add_breadcrumb OrderNet.model_name.human, :back_mystation_orders_path
 
   private
     def set_order_net

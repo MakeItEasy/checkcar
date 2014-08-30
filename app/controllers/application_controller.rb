@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
     params[resource] &&= send(method) if respond_to?(method, true)
   end
 
-  # TODO dairg rescue_from if Rails.env.production?
   if Rails.env.production?
     # 500错误
     rescue_from Exception, with: :render_500
