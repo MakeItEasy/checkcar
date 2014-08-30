@@ -1,7 +1,5 @@
 @import "bootstrap";
 @import "font-awesome";
-// AdminLTE关联
-@import "adminlte/AdminLTE";
 @import "common/base";
 
 .input-group-addon, .form-control {
@@ -53,15 +51,18 @@
 .devise-site-logo {
   a {
     padding: 0px;
+    line-height: 50px;
   }
   img {
     height: 50px;
     width: 100px;
     margin-right: 5px;
   }
+  // 二级／小标题
   .logo.devise-title {
-    width: auto;
-    font-size: 18px;
+    margin-left: 20px;
+    line-height: 50px;
+    font-size: 16px;
   }
 }
 
