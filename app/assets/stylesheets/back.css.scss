@@ -5,6 +5,7 @@
 @import "adminlte/AdminLTE";
 // iCheck关联
 @import "adminlte/iCheck/square/green";
+@import "daterangepicker/daterangepicker-bs3";
 // 注意：jquery ui的导入方式，不要使用ui.all，而是单个单个导入，因为现在是scss文件，.all的话不会导入任何内容，而是使用了css默认的import,不会把文件内容导入到back这一个文件中
 // @import "jquery.ui.all";
 // @import "jquery.ui.autocomplete";

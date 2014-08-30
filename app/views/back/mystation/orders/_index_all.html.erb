@@ -45,8 +45,38 @@ end -%>
       </div>
       <div class="row car-filter-item">
         <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:order_time)%></div>
+        <div class="col-sm-2">
+          <div class="input-group">
+            <button class="btn btn-default pull-right" id="daterange-btn">
+              <i class="fa fa-calendar"></i> 选择起始日期
+              <i class="fa fa-caret-down"></i>
+            </button>
+          </div>
+        </div>
         <div class="col-sm-4">
-          <%= grid_filter @orders_grid, :order_time_filter %>
+          <%
+            _str_range_start = _str_range_end = ''
+            if params['grid'] && params['grid']['f'] && params['grid']['f']['order_time']
+              if params['grid']['f']['order_time']['fr']
+                _str_range_start = params['grid']['f']['order_time']['fr'].strftime('%Y-%m-%d')
+              end
+              if params['grid']['f']['order_time']['to']
+                _str_range_end = params['grid']['f']['order_time']['to'].strftime('%Y-%m-%d')
+              end
+            end
+          %>
+          <div>
+            从<input id="grid_f_order_time_fr" type='text' name="grid[f][order_time][fr]"
+                class="car-date-range-from form-control car-date-range-input disabled"
+                value="<%= _str_range_start %>"
+                readonly>
+            到<input id="grid_f_order_time_to" type='text' name="grid[f][order_time][to]" 
+                class="car-date-range-to form-control car-date-range-input disabled" 
+                value="<%= _str_range_end %>"
+                readonly>
+          </div>
+
+          <%# grid_filter @orders_grid, :order_time_filter %>
         </div>
       </div>
       <div class="row car-filter-item">

@@ -6,6 +6,9 @@ jquery.turbolinks 必须在jquery 和jquery_ujs的后面，然后在turbolinks�
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require jquery.ui.datepicker-zh-CN
+//= require daterangepicker/moment
+//= require daterangepicker/moment_locale/zh-cn
+//= require daterangepicker/daterangepicker
 //= require wice_grid
 //= require wice_grid_car
 //= require jquery.turbolinks
