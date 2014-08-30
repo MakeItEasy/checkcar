@@ -10,7 +10,7 @@ class AdminAbility
       set_ability_system_common(user)
       # 超级管理员
       set_ability_system_superadmin(user) if user.has_role?("superadmin")
-      # TODO dairg QA 版主和编辑的责任划分
+      # 版主和编辑的责任划分
       set_ability_system_moderator(user) if user.has_role?("moderator")
       set_ability_system_editor(user) if user.has_role?("editor")
     end
@@ -64,7 +64,7 @@ private
 
   # 超级管理员
   def set_ability_system_superadmin(user)
-    # TODO dairg 不要用manage all，而是吧每个权限都细标出来
+    # 不要用manage all，而是吧每个权限都细标出来
     # can :manage, :all
     can :crud, :all
     can :review, Station, :status => "waiting"

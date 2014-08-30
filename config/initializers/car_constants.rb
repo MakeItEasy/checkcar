@@ -18,5 +18,8 @@ module Car
 
     # 车检站展示图片的数量
     STATION_PICTURES_MAX_COUNT = 3
+
+    # front前台每页展示的车检站数量
+    PER_COUNT_FOR_FRONT_STATIONS = 10
   end
 end

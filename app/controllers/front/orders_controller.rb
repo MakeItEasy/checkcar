@@ -28,7 +28,6 @@ class Front::OrdersController < FrontController
     elsif @order.last_step?
       # submit
       if valid_captcha?(params[:captcha]) && @order.all_valid?
-        # TODO dairg 其他验证，比如是否已经预约了其他了等等
         @order.save
       else
         flash[:alert] = I18n.t('view.alert.captcha_error')
