@@ -81,7 +81,7 @@ gem 'enumerize'
 
 gem 'ckeditor'
 gem "paperclip", "~> 4.1"
-# TODO dairg gem作用
+# TODO dairg(delay) gem作用
 gem 'activesupport-json_encoder'
 
 # 中国省市区联动

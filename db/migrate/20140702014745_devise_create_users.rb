@@ -2,15 +2,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       ## Database authenticatable
-      # TODO dairg 这里是否要吧null false去掉
-      t.string :email,              null: false, default: ""
+      t.string :email
       t.string :encrypted_password, null: false, default: ""
 
       ## Customize
       # 姓名
       t.string :name
       # 手机号
-      t.string :telephone, null: false, default: ""
+      t.string :telephone
       # 性别
       t.string :sex
       # 登录方式
@@ -34,7 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :confirmation_token
       t.datetime :confirmed_at
       t.datetime :confirmation_sent_at
-      t.string   :unconfirmed_email # Only if using reconfirmable
+      # Only if using reconfirmable
+      t.string   :unconfirmed_email
 
       ## Lockable
       # Only if lock strategy is :failed_attempts
