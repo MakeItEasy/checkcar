@@ -1,6 +1,7 @@
 class SmsService < ActiveRecord::Base
 
-  before_create :send_sms
+  # TODO dairg production环境下才发送短信
+  before_create :send_sms if Rails.env.production?
 
   def send_success?
     self.api_code == 0

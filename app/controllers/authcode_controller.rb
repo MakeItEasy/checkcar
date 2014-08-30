@@ -25,17 +25,23 @@ class AuthcodeController < ActionController::Base
       errors[:captcha] = "验证码错误"
     end
 
+    # TODO dairg 发送次数验证 如何避免一直发送短信，应该是基于IP的验证？
+
     respond_to do |format|
       if errors.blank?
         # 发送动态码
-        # TODO dairg 发送动态码 这里不要用session，因为还要记录发送时间
-        session[:phone_authcode] = '1111'
+        session[:phone_authcode] = generate_authcode
+        Car::SmsHandler.send_phone_authcode(phone, session[:phone_authcode])
         session[:phone_authcode_send_time] = Time.new
         format.json { render json: {}}
       else
         format.json { render json: {errors: errors}}
-        #format.json { render json: {}}
       end
     end
+  end
+
+private
+  def generate_authcode
+    Array.new(6){ ('0'..'9').to_a[rand(10)] }.join
   end
 end
