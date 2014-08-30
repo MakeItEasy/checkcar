@@ -133,12 +133,14 @@ ActiveRecord::Schema.define(version: 20140828013624) do
 
   create_table "sms_services", force: true do |t|
     t.string   "telephone"
+    t.string   "template_id"
     t.string   "description"
     t.text     "options"
     t.integer  "response_code"
     t.integer  "api_code"
     t.string   "api_msg"
     t.text     "result"
+    t.text     "exception"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
