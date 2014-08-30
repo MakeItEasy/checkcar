@@ -26,13 +26,16 @@ class AuthcodeController < ActionController::Base
     end
 
     # TODO dairg 发送次数验证 如何避免一直发送短信，应该是基于IP的验证？
-
     respond_to do |format|
       if errors.blank?
         # 发送动态码
-        session[:phone_authcode] = generate_authcode
-        Car::SmsHandler.send_phone_authcode(phone, session[:phone_authcode])
-        session[:phone_authcode_send_time] = Time.new
+        if Rails.env.production?
+          session[:phone_authcode] = generate_authcode
+          Car::SmsHandler.send_phone_authcode(phone, session[:phone_authcode])
+        else
+          session[:phone_authcode] = '123456'
+        end
+          session[:phone_authcode_send_time] = Time.new
         format.json { render json: {}}
       else
         format.json { render json: {errors: errors}}
