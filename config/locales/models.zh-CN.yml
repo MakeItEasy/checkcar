@@ -35,6 +35,7 @@
         remember_me: 一周内免登录
         unlock_token: 解锁Token
         confirmation_token: 确认Token
+        reset_password_token: 重置密码Token
       admin:
         station: 车检站
         roles: 角色
