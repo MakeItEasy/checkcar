@@ -7,7 +7,7 @@
     <%= simple_form_for(resource, as: resource_name, url: user_confirmation_path,
         html: {class: 'form-horizontal mask-form', role: 'form', method: :post} ) do |f| %>
 
-      <%= f.full_error :confirmation_token %>
+      <%= f.full_error :confirmation_token, class: "car-token-alert" %>
 
       <div class='car-form-items'>
         <%= f.input :email, required: true, autofocus: true, input_html: {maxlength: 30} %>

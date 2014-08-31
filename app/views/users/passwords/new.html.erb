@@ -7,6 +7,17 @@
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name),
         html: {class: 'form-horizontal', role: 'form', method: :post} ) do |f| %>
 
+      <div class="well">
+        <ul>
+          <li>如果您填写了邮箱信息，可通过输入Email接收重置密码邮件。<br></li>
+          <li>
+            如果您是通过手机注册的用户，可通过 
+            <a href="<%= new_by_telephone_user_session_path%>"><%= t('view.action.sign_in_by_phone')%></a>
+            来解锁。
+          </li>
+        </ul>
+      </div>
+
       <div class='car-form-items'>
         <%= f.input :email, required: true, autofocus: true %>
       </div>

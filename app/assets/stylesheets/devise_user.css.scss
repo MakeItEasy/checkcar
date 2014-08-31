@@ -75,3 +75,12 @@ form#new_user .car-error-tip {
   margin-bottom: 15px;
   color: red;
 }
+
+// -----------------------------------------
+// token画面的错误表示
+// -----------------------------------------
+.car-token-alert {
+  display: block;
+  @extend .alert;
+  @extend .alert-danger;
+}

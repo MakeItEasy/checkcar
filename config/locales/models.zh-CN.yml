@@ -33,6 +33,8 @@
         current_sign_in_ip: 当前登录IP地址
         last_sign_in_ip: 上次登录IP地址
         remember_me: 一周内免登录
+        unlock_token: 解锁Token
+        confirmation_token: 确认Token
       admin:
         station: 车检站
         roles: 角色
