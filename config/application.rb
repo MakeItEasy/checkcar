@@ -42,8 +42,8 @@ module Checkcar
       address:              'smtp.163.com',
       port:                 25,
       domain:               'www.163.com',
-      user_name:            Rails.application.secrets.mail[:user_name],
-      password:             Rails.application.secrets.mail[:password],
+      user_name:            Rails.application.secrets.mail["user_name"],
+      password:             Rails.application.secrets.mail["password"],
       authentication:       'login'
     }
 

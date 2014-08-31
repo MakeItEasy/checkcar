@@ -89,6 +89,7 @@ private
 
   # Overwriting the sign_in redirect path method
   def after_sign_in_path_for(resource)
-    request.referrer == request.original_url ? root_path : request.referrer
+    # request.referrer == request.original_url ? root_path : request.referrer
+    front_user_root_path
   end
 end
