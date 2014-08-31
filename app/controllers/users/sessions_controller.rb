@@ -6,7 +6,7 @@ class Users::SessionsController < Devise::SessionsController
   def create
     if valid_captcha?(params[:captcha])
       # super
-      self.resource = warden.authenticate(auth_options)
+      self.resource = warden.authenticate!(auth_options)
       if self.resource
         set_flash_message(:notice, :signed_in) if is_flashing_format?
         sign_in(resource_name, resource)
@@ -20,7 +20,6 @@ class Users::SessionsController < Devise::SessionsController
         clean_up_passwords(resource)
         respond_to do |format|
           format.html do
-            flash[:alert] = I18n.t('devise.failure.invalid')
             render :new
           end
           format.json do
@@ -61,6 +60,8 @@ class Users::SessionsController < Devise::SessionsController
       end
     else
       user = User.find_by(telephone: self.resource.telephone)
+      # 动态登录后要把错误尝试数改掉
+      user.unlock_access!
       sign_in user
       session[:phone_authcode] = nil
       session[:phone_authcode_send_time] = nil
@@ -72,10 +73,6 @@ class Users::SessionsController < Devise::SessionsController
   end
 
 private
-
-  def is_flashing_format?
-    false
-  end
 
   ## 手机动态登录的参数验证,返回错误信息
   def param_check_for_telephone
