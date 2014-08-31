@@ -85,6 +85,12 @@ end -%>
           <%= grid_filter @orders_grid, :telephone_filter %>
         </div>
       </div>
+      <div class="row car-filter-item">
+        <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:status)%></div>
+        <div class="col-sm-4">
+          <%= grid_filter @orders_grid, :status_filter %>
+        </div>
+      </div>
     </div><!-- /.box-body -->
     <div class="box-footer">
       <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">
