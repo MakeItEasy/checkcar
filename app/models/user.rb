@@ -19,8 +19,9 @@ class User < ActiveRecord::Base
   validates_length_of :email, within: 1..30, allow_blank: true
   validates :telephone, presence: true, if: :telephone_required?
   validates :password, presence: true, if: "password_required"
+  validates :password, length: { maximum: 30 }, allow_blank: true
   validates_uniqueness_of :telephone, allow_blank: true
-  # TODO dairg 如果这里验证了，要保证devise的各个画面，比如密码重置画面是否能通过验证
+  # 这次不验证以下两项，如果这里验证了，要保证devise的各个画面，比如密码重置画面是否能通过验证
   # validates :name, presence: true, length: { maximum: 30 }, if: "!new_record?"
   # validates :sex, presence: true, if: "!new_record?"
   enumerize :sex, in: Car::Code::SEX, predicates: { prefix: true }, scope: true

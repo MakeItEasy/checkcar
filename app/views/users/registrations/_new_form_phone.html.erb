@@ -1,7 +1,7 @@
 <input type='hidden' id='action_mode' value='sign_up'>
 <input type='hidden' name='user[mode]' value='telephone'>
 <div id="car-wrapper-phone-authcode">
-<%= f.input :telephone, required: true, autofocus: true, input_html: {id: "telephone"} %>
+<%= f.input :telephone, required: true, autofocus: true, input_html: {id: "telephone", maxlength: 11} %>
 </div>
 
 <div id="car-wrapper-captcha-phone" class="form-group required <%= 'has-error' if flash.now[:recaptcha_error].present? %>">
@@ -9,7 +9,7 @@
     <abbr title="必填项">*</abbr> 验证码
   </label>
   <div class="col-sm-4">
-    <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'string required form-control', id: "captcha_phone",
+    <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'string required form-control', id: "captcha_phone", maxlength: 6,
       placeholder: "点击图片刷新"} %>
     <% if flash.now[:recaptcha_error].present? %>
       <span class="help-inline"><%= flash.now[:recaptcha_error] %></span>
@@ -26,7 +26,8 @@
     <abbr title="必填项">*</abbr> <%= t('view.placeholder.phone_authcode')%>
   </label>
   <div class="col-sm-4">
-    <%= text_field_tag :phone_authcode, nil, class: 'form-control', placeholder: t('view.placeholder.phone_authcode') %>
+    <%= text_field_tag :phone_authcode, nil, class: 'form-control',
+    maxlength: 6, placeholder: t('view.placeholder.phone_authcode') %>
     <% if flash.now[:phone_authcode_error].present? %>
       <span class="help-inline"><%= flash.now[:phone_authcode_error] %></span>
     <% end %>
@@ -38,5 +39,5 @@
   </div>
 </div> 
 
-<%= f.input :password, required: true %>
-<%= f.input :password_confirmation %>
+<%= f.input :password, required: true, input_html: {maxlength: 30} %>
+<%= f.input :password_confirmation, input_html: {maxlength: 30} %>

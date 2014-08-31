@@ -16,7 +16,7 @@
       <span class="input-group-addon">
         <i class='glyphicon glyphicon-phone'></i>
       </span>
-      <%= f.text_field :telephone, autofocus: true, 
+      <%= f.text_field :telephone, autofocus: true, maxlength: 11,
         id: "telephone", class: 'form-control', placeholder: t('view.placeholder.telephone') %>
     </div>
   </div>
@@ -27,7 +27,7 @@
         <i class='glyphicon glyphicon-qrcode'></i> 
       </span>
       <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'form-control', id: 'captcha_phone',
-        placeholder: t('view.placeholder.captcha')} %>
+        maxlength: 6, placeholder: t('view.placeholder.captcha')} %>
     </div>          
     <div class='col-sm-2' style='float: left;'>
         <%= captcha_tag class: 'car-captcha'%>
@@ -40,7 +40,7 @@
       <span class="input-group-addon">
         <i class='glyphicon glyphicon-lock'></i>
       </span>
-      <%= text_field_tag :phone_authcode, nil, class: 'form-control', placeholder: t('view.placeholder.phone_authcode') %>
+      <%= text_field_tag :phone_authcode, nil, class: 'form-control', maxlength: 6, placeholder: t('view.placeholder.phone_authcode') %>
       <input type='hidden' id='action_mode' value='sign_in'>
     </div>
     <div class='col-sm-2' style='float: left;'>

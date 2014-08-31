@@ -6,5 +6,5 @@
     <%= f.input :car_number_detail, wrapper: :simple_inline %>
   </div>
 </div>
-<%= f.input :owner_name, required: true %>
+<%= f.input :owner_name, required: true, input_html: {maxlength: 30} %>
 <%= f.input :telephone, required: true, input_html: telephone_mask_hash %>

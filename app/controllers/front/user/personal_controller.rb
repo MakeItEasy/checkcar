@@ -60,6 +60,6 @@ class Front::User::PersonalController < Front::UserBaseController
     end
 
     def personal_params
-      params.require(:user).permit(:name, :sex)
+      params.require(:user).permit(:name, :sex, :email)
     end
 end

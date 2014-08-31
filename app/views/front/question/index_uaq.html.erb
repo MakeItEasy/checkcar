@@ -8,7 +8,7 @@
       <div class="car-condition">
         <form action='<%= front_question_index_uaq_path%>' method='get'>
           <div class="input-group input-group-sm col-sm-5">
-            <input type="text" class="form-control" name='name_uaq' 
+            <input type="text" class="form-control" name='name_uaq' maxlength="30"
             value="<%= params['name_uaq']%>" placeholder=<%=t('view.label.find_by_keyword')%>>
             <span class="input-group-btn">
               <button class="btn btn-info btn-flat" type="submit">

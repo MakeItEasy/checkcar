@@ -10,7 +10,7 @@
       <%= f.full_error :unlock_token %>
 
       <div class='car-form-items'>
-        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :email, required: true, autofocus: true, input_html: {maxlength: 30} %>
       </div>
 
       <div class="car-form-actions">

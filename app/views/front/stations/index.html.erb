@@ -26,7 +26,7 @@
             <dd>
               <form action='<%= front_stations_path%>' method='get'>
                 <div class="input-group input-group-sm col-sm-5">
-                  <input type="text" class="form-control" name='name' 
+                  <input type="text" class="form-control" name='name' maxlength="30"
                     value="<%= session[:station_conditions]['name']%>">
                   <span class="input-group-btn">
                     <button class="btn btn-info btn-flat" type="submit">

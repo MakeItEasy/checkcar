@@ -1,14 +1,14 @@
 <input type='hidden' name='user[mode]' value='email'>
-<%= f.input :email, required: true, autofocus: true %>
-<%= f.input :password, required: true %>
-<%= f.input :password_confirmation %>
+<%= f.input :email, required: true, autofocus: true, input_html: {maxlength: 30} %>
+<%= f.input :password, required: true, input_html: {maxlength: 30} %>
+<%= f.input :password_confirmation, input_html: {maxlength: 30} %>
 
 <div class="form-group required <%= 'has-error' if flash.now[:recaptcha_error].present? %>">
   <label class="required col-sm-2 control-label" for="user_telephone">
     <abbr title="必填项">*</abbr> 验证码
   </label>
   <div class="col-sm-4">
-    <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'string required form-control', 
+    <%= text_field_tag :captcha, nil, {autocomplete: "off", maxlength: 6, class: 'string required form-control', 
       placeholder: "点击图片刷新"} %>
     <% if flash.now[:recaptcha_error].present? %>
       <span class="help-inline"><%= flash.now[:recaptcha_error] %></span>

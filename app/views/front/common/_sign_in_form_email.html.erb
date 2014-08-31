@@ -14,14 +14,14 @@
     <span class="input-group-addon">
       <i class='glyphicon glyphicon-user'></i>
     </span>
-    <%= f.text_field :login, autofocus: true, class: 'form-control', placeholder: t('view.placeholder.login') %>
+    <%= f.text_field :login, autofocus: true, class: 'form-control', maxlength: 30, placeholder: t('view.placeholder.login') %>
   </div>
   <br>
   <div class="input-group col-sm-8">
     <span class="input-group-addon">
       <i class='glyphicon glyphicon-lock'></i> 
     </span>
-    <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Password" %>
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control', maxlength: 30, placeholder: "Password" %>
   </div>          
   <br>
   <div>
@@ -29,7 +29,7 @@
       <span class="input-group-addon">
         <i class='glyphicon glyphicon-qrcode'></i> 
       </span>
-      <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'form-control', 
+      <%= text_field_tag :captcha, nil, {autocomplete: "off", class: 'form-control', maxlength: 6, 
         placeholder: t('view.placeholder.captcha')} %>
     </div>          
     <div class='col-sm-2' style='float: left;'>
