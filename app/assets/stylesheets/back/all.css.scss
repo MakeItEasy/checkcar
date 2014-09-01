@@ -58,6 +58,20 @@ sup.unit {
   display: inline-block;
 }
 
+.car-filter .car-filter-item {
+  select {
+    @extend .form-control;
+    display: inline;
+    width: auto;
+  }
+  select[multiple] {
+    height: auto;
+  }
+  .expand-multi-select-icon.clickable, .collapse-multi-select-icon.clickable {
+    margin: 10px;
+  }
+}
+
 // -----------------------------------------
 // 明细画面显示的logo 
 // -----------------------------------------

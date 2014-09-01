@@ -4,7 +4,8 @@
       link_to(item.order_no, back_mystation_order_path(item))
     end
   end
-  g.column name: Order.human_attribute_name(:status), attribute: "status", detach_with_id: :status_filter do |item|
+  g.column name: Order.human_attribute_name(:status), attribute: "status", 
+    custom_filter: enum_list_for_view(Car::Code::ORDER_STATUS, 'order.status'), detach_with_id: :status_filter do |item|
     render 'common/order/order_status_label', order: item
   end
   g.column name: Order.human_attribute_name(:order_time), attribute: "order_time", detach_with_id: :order_time_filter do |item|
@@ -44,6 +45,18 @@ end -%>
         </div>
       </div>
       <div class="row car-filter-item">
+        <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:telephone)%></div>
+        <div class="col-sm-4">
+          <%= grid_filter @orders_grid, :telephone_filter %>
+        </div>
+      </div>
+      <div class="row car-filter-item">
+        <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:status)%></div>
+        <div class="col-sm-4">
+          <%= grid_filter @orders_grid, :status_filter %>
+        </div>
+      </div>
+      <div class="row car-filter-item">
         <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:order_time)%></div>
         <div class="col-sm-2">
           <div class="input-group">
@@ -77,18 +90,6 @@ end -%>
           </div>
 
           <%# grid_filter @orders_grid, :order_time_filter %>
-        </div>
-      </div>
-      <div class="row car-filter-item">
-        <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:telephone)%></div>
-        <div class="col-sm-4">
-          <%= grid_filter @orders_grid, :telephone_filter %>
-        </div>
-      </div>
-      <div class="row car-filter-item">
-        <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:status)%></div>
-        <div class="col-sm-4">
-          <%= grid_filter @orders_grid, :status_filter %>
         </div>
       </div>
     </div><!-- /.box-body -->
