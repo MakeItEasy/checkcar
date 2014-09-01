@@ -11,7 +11,7 @@
   g.column name: Order.human_attribute_name(:order_time), attribute: "order_time", detach_with_id: :order_time_filter do |item|
     l(item.order_time)
   end
-  g.column name: Order.human_attribute_name(:car_number), detach_with_id: :car_number_filter, ordering: false do |item|
+  g.column name: Order.human_attribute_name(:car_number), attribute: "car_number_detail", detach_with_id: :car_number_detail_filter, ordering: false do |item|
     item.car_number
   end
   g.column name: Order.human_attribute_name(:telephone), attribute: "telephone", ordering: false, detach_with_id: :telephone_filter
@@ -48,6 +48,12 @@ end -%>
         <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:telephone)%></div>
         <div class="col-sm-4">
           <%= grid_filter @orders_grid, :telephone_filter %>
+        </div>
+      </div>
+      <div class="row car-filter-item">
+        <div class="col-sm-2 item-label"><%= Order.human_attribute_name(:car_number)%></div>
+        <div class="col-sm-4">
+          <%= grid_filter @orders_grid, :car_number_detail_filter %>
         </div>
       </div>
       <div class="row car-filter-item">
