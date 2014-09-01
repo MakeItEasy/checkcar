@@ -4,41 +4,35 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def create
-    if valid_captcha?(params[:captcha])
-      # super
-      self.resource = warden.authenticate!(auth_options)
-      if self.resource
-        set_flash_message(:notice, :signed_in) if is_flashing_format?
-        sign_in(resource_name, resource)
-        yield resource if block_given?
-        respond_to do |format|
-          format.html { respond_with resource, location: after_sign_in_path_for(resource) }
-          format.json { render json: {}, status: :ok }
-        end
-      else
-        self.resource = resource_class.new(Devise::UserParameterSanitizer.new(User, :user, params).sign_in)
-        clean_up_passwords(resource)
-        respond_to do |format|
-          format.html do
-            render :new
-          end
-          format.json do
-            render json: {error: I18n.t('devise.failure.invalid')}, status: :unprocessable_entity
-          end
-        end
-      end
-    else
-      # build_resource(Devise::UserParameterSanitizer.new(User, :user, params).sign_in)
-      self.resource = resource_class.new(Devise::UserParameterSanitizer.new(User, :user, params).sign_in)
+    # AJAX参考http://natashatherobot.com/devise-rails-sign-in/
+    self.resource = resource_class.new(Devise::UserParameterSanitizer.new(User, :user, params).sign_in)
+    if error = param_check_for_account
       clean_up_passwords(resource)
       respond_to do |format|
         format.html do
-          flash[:alert] = I18n.t('view.alert.captcha_error')
+          flash[:alert] = error
           render :new
         end
-        format.json { render json: {error: I18n.t('view.alert.captcha_error')}, status: :unprocessable_entity }
+        format.json { render json: {error: error}, status: :unprocessable_entity }
+      end
+    else
+      respond_to do |format|
+        format.html do
+          super
+        end
+        format.json do
+          self.resource = warden.authenticate!({:scope=>:user, :recall=>"users/sessions#failure_ajax"})
+          sign_in(resource_name, resource)
+          render json: {}, status: :ok
+        end
       end
     end
+  end
+
+  # AJAX登录失败时
+  def failure_ajax
+    # TODO dairg 将来研究 貌似这里没有用，即使失败也不执行到这里
+    return render json: {error: I18n.t('devise.failure.invalid')}, status: :unprocessable_entity
   end
 
 
@@ -82,6 +76,13 @@ private
     return "该手机号码未注册" if User.find_by(telephone: self.resource.telephone).nil?
     return "手机动态码错误" if session[:phone_authcode] != params[:phone_authcode]
     return "手机动态码已经过期，请重新获取" if Time.now - session[:phone_authcode_send_time].to_time > Car::Constants::PHONE_AUTHCODE_EXPIRES
+  end
+
+  ## 账号登录时参数验证
+  def param_check_for_account
+    return I18n.t('view.alert.captcha_error') if !valid_captcha?(params[:captcha])
+    return "请输入账号" if self.resource.login.blank?
+    return "请输入密码" if self.resource.password.blank?
   end
 
   # Overwriting the sign_in redirect path method

@@ -17,9 +17,11 @@
               </ul>
               <div class="tab-content">
                 <div class="tab-pane active" id="tab_email">
+                  <div id="tab_email_alert" class="alert alert-danger col-sm-8 display_none"></div>
                   <%= render "front/common/sign_in_form_email", mode: :ajax %> 
                 </div>
                 <div class="tab-pane" id="tab_telephone">
+                  <div id="tab_telephone_alert" class="alert alert-danger col-sm-8 display_none"></div>
                   <%= render "front/common/sign_in_form_phone", mode: :ajax %> 
                 </div>
               </div>

@@ -4,8 +4,8 @@ $(document).on 'ready page:load', ->
   $("#sign_in_remote_form").on("ajax:success", (e, data, status, xhr) ->
     location.reload()
   ).on "ajax:error", (e, xhr, status, error) ->
-    # TODO dairg error处理
-    alert(xhr.responseJSON.error)
+    $("#tab_email_alert").html(xhr.responseJSON.error)
+    $("#tab_email_alert").removeClass('display_none')
     $('#sign_in_remote_form img.car-captcha').attr "src", (index, attr) ->
       getCaptchaUrl()
 
@@ -13,8 +13,8 @@ $(document).on 'ready page:load', ->
   $("#sign_in_remote_form_phone").on("ajax:success", (e, data, status, xhr) ->
     location.reload()
   ).on "ajax:error", (e, xhr, status, error) ->
-    # TODO dairg error处理
-    alert(xhr.responseJSON.error)
+    $("#tab_telephone_alert").html(xhr.responseJSON.error)
+    $("#tab_telephone_alert").removeClass('display_none')
     $('#sign_in_remote_form_phone img.car-captcha').attr "src", (index, attr) ->
       getCaptchaUrl()
 
