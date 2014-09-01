@@ -35,4 +35,9 @@ class Admin < ActiveRecord::Base
   def station_admin?
     self.is_a? StationAdmin
   end
+
+  # 自定义devise admin scope mailer
+  def devise_mailer
+    Devise::AdminMailer
+  end
 end

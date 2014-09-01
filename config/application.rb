@@ -47,5 +47,11 @@ module Checkcar
       authentication:       'login'
     }
 
+    # devise layout设置
+=begin
+    config.to_prepare do
+      Devise::Mailer.layout "devise_email"
+    end
+=end
   end
 end

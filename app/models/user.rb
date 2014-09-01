@@ -65,6 +65,11 @@ class User < ActiveRecord::Base
     return nil
   end
 
+  # 自定义devise user scope mailer
+  def devise_mailer
+    Devise::UserMailer
+  end
+
 private
 
   def email_required?

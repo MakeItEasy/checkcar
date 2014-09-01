@@ -18,7 +18,6 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   # 开发环境下不要发送mail
-  # config.action_mailer.perform_deliveries = false
   config.action_mailer.perform_deliveries = false
 
   # Print deprecation notices to the Rails logger.
