@@ -40,6 +40,7 @@ class Back::Mystation::StationAdminsController < Back::StationBaseController
   def create
     @station_admin = StationAdmin.new(station_admin_params)
     @station_admin.station = current_admin.station
+    @station_admin.roles = ['normal']
     respond_to do |format|
       if @station_admin.save
         format.html { redirect_to [:back, :mystation, @station_admin], notice: I18n.t('view.notice.created') }
@@ -90,11 +91,15 @@ class Back::Mystation::StationAdminsController < Back::StationBaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def station_admin_params
+      params.require(:station_admin).permit(:email, :password, :name, :telephone, :password_confirmation, :sex)
+      # 不可以修改roles
+=begin
       if params[:station_admin] && params[:station_admin][:roles]
         params[:station_admin][:roles].delete_if {|item| item.blank? }
       end
       params.require(:station_admin).permit(:email, :password, :name, :telephone, :password_confirmation,
                                             :sex, roles:[])
+=end
     end
 
     def update_resource(object, attributes)

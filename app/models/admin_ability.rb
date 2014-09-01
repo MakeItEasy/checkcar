@@ -129,6 +129,10 @@ private
   def set_ability_station_admin(user)
     if user.station.status_reviewed?
       can :crud, StationAdmin, station_id: user.station.id
+      cannot :destroy, StationAdmin do |item|
+        item.station_id == user.station.id && 
+        item.has_role?("admin")
+      end
       can :update, Station, id: user.station.id
       can :edit_picture, Station, id: user.station.id
       can :update_picture, Station, id: user.station.id
