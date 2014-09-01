@@ -1,4 +1,9 @@
 class Users::SessionsController < Devise::SessionsController
+  # 参考http://stackoverflow.com/questions/20875591/actioncontrollerinvalidauthenticitytoken-in-registrationscontrollercreate
+  # 解决BUG：选择remember me，然后登录，然后退出浏览器，然后再打开，这个时候默认时登录的，
+  # 但是点击退出不行InvalidAuthenticityToken，刷新一下页面就可以了。(admin 没问题)
+  skip_before_filter :verify_authenticity_token, :only => :destroy
+
   # def new
   #   super
   # end

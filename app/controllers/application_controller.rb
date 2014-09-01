@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  # TODO dairg 将来正式上线是否这个地方应该用 null_session, 下次再碰到异常看是什么情况
   protect_from_forgery with: :exception
+  # protect_from_forgery with: :null_session
 
   layout :layout_by_resource
 
