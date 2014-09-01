@@ -50,3 +50,13 @@ $(document).on 'ready page:load', ->
     $('.car-date-range-from').val('')
     $('.car-date-range-to').val('')
 
+  # 拒绝modal中提交按钮click处理
+  $('#btn_reject_submit').on 'click', ->
+    if $('#reject_reason_text').val().length == 0
+      $('#reject_box_alert').html('请输入拒绝理由!')
+      $('#reject_box_alert').removeClass('display_none')
+      $('#reject_reason_text').parents('div.car-form-items').addClass('has-error')
+      return false
+    else
+      return true
+

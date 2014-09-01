@@ -98,7 +98,8 @@ class Back::System::PostsController < Back::SystemBaseController
   # 发布
   def publish
     if @post.status_waiting?
-      @post.update_attributes!({status: 'published', check_user_id: current_admin.id})
+      # 发布后拒绝理由要修改为nil
+      @post.update_attributes!({status: 'published', reject_reason: nil, check_user_id: current_admin.id})
       redirect_to [:back, :system, @post], notice: I18n.t("view.notice.post.published")
     else
       redirect_to [:back, :system, @post], alert: I18n.t("view.alert.post.status_error")
@@ -109,8 +110,8 @@ class Back::System::PostsController < Back::SystemBaseController
   # 拒绝
   def reject
     if @post.status_waiting?
-      # TODO dairg 使用model box，填写理由
-      @post.update_attributes!({status: 'rejected', check_user_id: current_admin.id})
+      @post.update_attributes!({status: 'rejected', reject_reason: params[:post] && params[:post][:reject_reason],
+                               check_user_id: current_admin.id})
       redirect_to [:back, :system, @post], notice: I18n.t("view.notice.post.rejected")
     else
       redirect_to [:back, :system, @post], alert: I18n.t("view.alert.post.status_error")
@@ -152,6 +153,6 @@ class Back::System::PostsController < Back::SystemBaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :catagory_id, :content)
+      params.require(:post).permit(:title, :catagory_id, :content, :reject_reason)
     end
 end

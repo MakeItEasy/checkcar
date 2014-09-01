@@ -1,0 +1,21 @@
+<div class="modal modal-primary fade" id="rejectPostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">拒绝文章</h4>
+      </div>
+      <%= simple_form_for(@post, url: reject_back_system_post_path, html: {class: 'form-horizontal', role: 'form'} ) do |f| %>
+      <div class="modal-body">
+        <div class="alert alert-danger display_none" id="reject_box_alert"></div>
+        <div class='car-form-items'>
+          <%= f.input :reject_reason, input_html: {id: 'reject_reason_text'} %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit t('view.action.submit'), class: 'btn btn-primary', id: "btn_reject_submit" %>
+      </div>
+      <% end %>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

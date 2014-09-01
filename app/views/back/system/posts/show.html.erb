@@ -29,10 +29,9 @@
         <% end %>
       <% end %>
       <% if can? :reject, @post %>
-        <%= link_to reject_back_system_post_path(@post), {method: :patch,
-        data: { confirm: t('view.confirm.post.reject')}, class: 'btn btn-default'} do %>
+        <button class="btn btn-default" data-toggle="modal" data-target="#rejectPostModal">
           <i class="fa fa-reply"></i> <%= t('view.action.reject') %> 
-        <% end %>
+        </button>
       <% end %>
       <% if can? :lock, @post %>
         <%= link_to lock_back_system_post_path(@post), {method: :patch,
@@ -70,6 +69,10 @@
     <dd><%= @post.catagory.name %></dd>
     <dt><%= Post.human_attribute_name(:status) %></dt>
     <dd><%= @post.status_text %></dd>
+    <% if @post.status_rejected? %>
+      <dt><%= Post.human_attribute_name(:reject_reason) %></dt>
+      <dd><%= @post.reject_reason %></dd>
+    <% end %>
     <dt><%= Post.human_attribute_name(:create_user_id) %></dt>
     <dd><%= @post.admin.name %></dd>
     <dt><%= Post.human_attribute_name(:check_user_id) %></dt>
@@ -84,3 +87,8 @@
     <dd><%= l(@post.updated_at) %></dd>
   </dl>
 </div>
+
+<% if can? :reject, @post %>
+  <%= render "form_reject" %>
+<% end %>
+
