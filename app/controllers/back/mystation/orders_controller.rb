@@ -23,9 +23,9 @@ class Back::Mystation::OrdersController < Back::StationBaseController
   # GET
   # 根据order_no查找order信息
   def show_order_no
-    if params[:order_no]
+    if params[:order_no].present?
       _order = Order.accessible_by(current_ability).success
-        .where("order_no = ? or telephone = ? or car_number_detail like ?", params[:order_no],
+        .where("order_no like ? or telephone = ? or car_number_detail like ?", "%#{params[:order_no]}%",
                params[:order_no], "%#{params[:order_no]}%").first
       if _order.present?
         redirect_to back_mystation_order_path(_order)

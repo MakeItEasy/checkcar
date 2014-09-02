@@ -14,7 +14,9 @@ class Back::Mystation::StationSettingsController < Back::StationBaseController
   ## PUT
   def update_time_area
     if valid_time_area_settings? 
-      params[:station][:time_area_settings].collect! {|c| c.to_i}
+      params[:station][:time_area_settings].collect! do |c|
+        c.to_i > Car::Constants::TIME_AREA_SETTING_MAX ? Car::Constants::TIME_AREA_SETTING_MAX : c.to_i
+      end
       if @station.update(time_area_params)
         redirect_to back_mystation_station_settings_time_area_path, notice: I18n.t('view.notice.updated')
       else
@@ -32,7 +34,7 @@ private
     params.require(:station).permit(time_area_settings:[])
   end
 
-  ## TODO dairg 验证area settings
+  ## 验证area settings
   def valid_time_area_settings?
     true
   end

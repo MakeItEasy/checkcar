@@ -10,7 +10,7 @@ module Car
     ORDER_DEFAULT_ENABLE_DAYS = 10
 
     # 可取消预约天数(从今天开始?天以后)
-    # TODO dairg(客户确认) 可取消的天数限制
+    # TODO dairg(客户确认) 可取消的天数限制, 以及这里所有的设置都要确认
     ORDER_CANCEL_ENABLE_DAYS = 2
 
     # 用户可同时预约的数量
@@ -21,5 +21,8 @@ module Car
 
     # front前台每页展示的车检站数量
     PER_COUNT_FOR_FRONT_STATIONS = 10
+
+    # 车检站预约数量设置的最大值
+    TIME_AREA_SETTING_MAX = 20
   end
 end

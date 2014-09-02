@@ -1,1 +1,9 @@
-没有找到预约流水号，手机号，车牌号符合: <span class="important-info"><%= params[:order_no]%></span> 的记录！
+没有找到预约流水号，手机号，车牌号符合: 
+<span class="important-info">
+  <%= params[:order_no].present? ? params[:order_no] : "空白"%>
+</span> 
+并且
+<span class="important-info">
+预约成功
+</span> 
+的记录！

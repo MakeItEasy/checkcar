@@ -17,7 +17,8 @@
             </td>
             <td style="text-align: left;">
               <div class="data">
-                <input type="number" name="station[time_area_settings][]" value="<%= value %>" min="0" max="20">
+                <input type="number" name="station[time_area_settings][]" value="<%= value %>" 
+                  min="0" max="<%= Car::Constants::TIME_AREA_SETTING_MAX%>">
               </div>
             </td>
           </tr>
