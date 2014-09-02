@@ -5,8 +5,14 @@ Rails.application.routes.draw do
   mount ChinaCity::Engine => '/china_city'
   devise_for :admins
   devise_for :users, controllers: { sessions: "users/sessions",
-                                    registrations: 'users/registrations'}
+                                    registrations: 'users/registrations'}, :skip => [:registrations]
   devise_scope :user do
+    # registrations
+    # 这里没有用默认的route，因为不想要默认route中的cancel_user_registration, edit_user_registration 以及对应的update action
+    get 'users/signup' => 'users/registrations#new', :as => :new_user_registration
+    post 'users' => 'users/registrations#create', :as => :user_registration
+
+    # 手机动态登录相关route
     get "users/sign_in_by_telephone" => "users/sessions#new_by_telephone", as: 'new_by_telephone_user_session'
     post "users/sign_in_by_telephone" => "users/sessions#create_by_telephone", as: 'telephone_user_session'
   end
