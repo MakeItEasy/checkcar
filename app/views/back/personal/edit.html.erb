@@ -19,6 +19,7 @@
       </div>
       <%= f.input :name, placeholder: t('view.placeholder.name') %>
       <%= f.input :telephone, input_html: telephone_mask_hash %>
+      <%= f.input :sex, as: :radio_buttons %>
     </div>
     <div class="car-form-actions bg-gray">
       <div class='col-sm-offset-2 col-sm-10 button-wrapper'>

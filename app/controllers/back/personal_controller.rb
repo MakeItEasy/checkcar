@@ -61,6 +61,6 @@ class Back::PersonalController < BackController
     end
 
     def personal_params
-      params.require(@admin.class.to_s.underscore).permit(:name, :telephone)
+      params.require(@admin.class.to_s.underscore).permit(:name, :telephone, :sex)
     end
 end
