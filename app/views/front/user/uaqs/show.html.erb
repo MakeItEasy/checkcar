@@ -16,9 +16,17 @@
 
 <div class='box box-info car-content-box'>
   <dl class="dl-horizontal">
+    <dt><%= t('view.label.status')%></dt>
+    <dd>
+      <%=  render_question_status(@uaq.answered?) %>
+    </dd>
     <dt><%= Uaq.human_attribute_name(:question) %></dt>
     <dd><%= @uaq.question %></dd>
     <dt><%= Uaq.human_attribute_name(:answer) %></dt>
     <dd><%= @uaq.answer %></dd>
+    <dt><%= Uaq.human_attribute_name(:created_at) %></dt>
+    <dd><%= l(@uaq.created_at) %></dd>
+    <dt><%= Uaq.human_attribute_name(:updated_at) %></dt>
+    <dd><%= l(@uaq.updated_at) %></dd>
   </dl>
 </div>
