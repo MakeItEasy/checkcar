@@ -1,11 +1,6 @@
 <div class='box car-toolbox'>
   <div class="btn-toolbar" role="toolbar">
     <div class="btn-group">
-      <%= link_to edit_front_user_uaq_path(@uaq), {class: 'btn btn-default'} do %>
-        <i class="fa fa-edit"></i> <%= t('view.action.edit') %> 
-      <% end %>
-    </div>
-    <div class="btn-group">
       <%= link_to [:front, :user, @uaq], {method: :delete,
       data: { confirm: t('view.confirm.delete')},  class: 'btn btn-default'} do %>
         <i class="glyphicon glyphicon-remove"></i> <%= t('view.action.delete') %> 

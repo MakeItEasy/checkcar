@@ -46,7 +46,7 @@ Rails.application.routes.draw do
 
     namespace :user do
       root 'dashboard#index' 
-      resources :uaqs
+      resources :uaqs, only: [:index, :show, :create, :new, :destroy]
       resources :orders, only: [:index, :show] do
         member do
           patch :cancel

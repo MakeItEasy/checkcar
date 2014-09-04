@@ -6,10 +6,10 @@ class UserAbility
     alias_action :create, :read, :update, :destroy, :to => :crud
 
     ## 用户问题相关
-    can :read, Uaq, :create_user_id => user.id
+    can :read, Uaq, :user_id => user.id
     can :create, Uaq
-    can :update, Uaq, :create_user_id => user.id
-    can :destroy, Uaq, :create_user_id => user.id
+    # can :update, Uaq, :user_id => user.id
+    can :destroy, Uaq, :user_id => user.id
 
     can :read, Order, :user_id => user.id
 
