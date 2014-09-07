@@ -6,9 +6,9 @@ class Station < ActiveRecord::Base
 
   ## LOGO pictures
   has_attached_file :logo, :styles => { :medium => "140x90>", :thumb => "40x40>" },
-    :default_url => "/pictures/station/logo/:style/missing.png"
+    :default_url => "/pictures/station/defaultlogo/:style/missing.png"
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
-  validates_attachment_size :logo, :less_than => 300.kilobytes
+  validates_attachment_size :logo, :less_than => 1.megabytes
 
   ## Scopes
   default_scope { order(created_at: :asc) }
