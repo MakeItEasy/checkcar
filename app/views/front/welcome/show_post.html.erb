@@ -1,9 +1,5 @@
 <div class="row">
-  <div class="col-md-3">
-    <%= render "sidebar" %>
-  </div><!-- /.col -->
-
-  <div class="col-md-9 car-content-side car-info-list car-post">
+  <div class="car-content-side car-info-list car-post">
     <div class="car-title">
       <h4 class="text-center"><%= @post.title %></h4>
       <p class="text-center car-tips-date">
@@ -35,5 +31,9 @@
     <div class="car-post-content">
       <%= @post.content.html_safe %>
     </div>
-  </div>
+  </div><!-- /.content-side -->
+
+  <div class="car-right-side">
+    <%= render "front/right_side/hot_posts"%>
+  </div><!-- /.col -->
 </div><!-- /.row -->

@@ -1,9 +1,5 @@
 <div class="row">
-  <div class="col-md-3">
-    <%= render "sidebar" %>
-  </div><!-- /.col -->
-
-  <div class="col-md-9 car-content-side">
+  <div class="car-content-side">
     <div class="car-info-list">
       <div class="car-condition">
         <form action='<%= front_question_index_uaq_path%>' method='get'>
@@ -59,7 +55,12 @@
         </div><!-- nav-tabs-custom -->
       </div>
     </div>
-  </div>
+  </div><!-- /.content-side -->
+
+  <div class="car-right-side">
+    <%= render "front/right_side/hot_posts"%>
+  </div><!-- /.col -->
+
 </div><!-- /.row -->
 
 <% if current_user %>
