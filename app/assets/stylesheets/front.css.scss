@@ -18,12 +18,16 @@
 // 百度地图关联
 @import "baidu_map/SearchInfoWindow";
 
+// =====================================================
+// 我的css
+// =====================================================
 // car变量
 @import "front/_variables";
 @import "front/car_override";
 
-// 前端的通用样式
 @import "common/base";
 @import "common/order";
+
+// 前端的通用样式
 @import "front/all";
 
