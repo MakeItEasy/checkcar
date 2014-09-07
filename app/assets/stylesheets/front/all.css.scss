@@ -130,8 +130,8 @@ a.list-group-item:hover > * {
 // =========================================
 .car-condition {
   margin-bottom: 40px;
-  background-color: rgba(231, 227, 194, 0.7);
   padding: 10px 20px;
+  @extend .bg-success;
 }
 .car-condition {
   .car-header {
@@ -195,7 +195,7 @@ a.list-group-item:hover > * {
   padding: 10px 0px;
 }
 .car-list-result > .list-item:hover {
-  background-color: rgba(231, 227, 194, 0.7);
+  @extend .bg-success;
 }
 // logo区域
 .car-list-result > .list-item > .logo {
