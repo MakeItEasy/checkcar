@@ -18,6 +18,10 @@
     g.column name: StationAdmin.human_attribute_name(:id), attribute: "id"
     g.column name: StationAdmin.human_attribute_name(:email), attribute: "email"
     g.column name: StationAdmin.human_attribute_name(:name), attribute: "name"
+    g.column name: StationAdmin.human_attribute_name(:station), attribute: "station_id", allow_multiple_selection: false,
+      custom_filter: Station.all.collect {|s| [s.name, s.id]} do |item|
+      item.station.name
+    end
     g.column name: StationAdmin.human_attribute_name(:sex), attribute: "sex", 
       custom_filter: enum_list_for_view(Car::Code::SEX, :sex), allow_multiple_selection: false do |item|
       item.sex_text
