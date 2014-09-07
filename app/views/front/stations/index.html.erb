@@ -66,15 +66,12 @@
               <ul class='car-list-result'>
                 <% @stations.each do |s| %>
                 <li class='list-item'>
-                  <div class='logo'>
+                  <div class='logo col-xs-3'>
                     <a href="<%= front_station_path(s) %>" data-no-turbolink>
                       <%= image_tag s.logo.url(:medium), {class: 'img-thumbnail', title: t('view.label.click_to_detail')} %>
                     </a>
-                    <div class='action text-center'>
-                      <%= link_to t("view.action.order_online"), new_front_station_order_path(s), class: "btn btn-primary" %>
-                    </div>
                   </div>
-                  <div class='info'>
+                  <div class='info col-xs-6'>
                     <div class='title'>
                       <h4>
                         <%= link_to s.name, [:front, s], {"data-no-turbolink" => ""} %>
@@ -83,8 +80,11 @@
                     <p>详细地址：<%= s.address_text %>&nbsp;&nbsp;
                     [<%= link_to t("view.label.map"), front_station_path(s) + "#station_map", {"data-no-turbolink" => ""} %>]
                     </p>
-                    <p>联系电话：<%= s.telephone %></p>
-                    <p>简单介绍：<%= s.recommend.present? ? s.recommend : '暂无' %></p>
+                    <p>预约电话：<%= s.telephone %></p>
+                  </div>
+                  <div class='action col-xs-2'>
+                    <%= link_to t("view.action.order_online"), new_front_station_order_path(s), 
+                      class: "btn btn-success btn-lg" %>
                   </div>
                   <div class='clearfix'></div>
                 </li>

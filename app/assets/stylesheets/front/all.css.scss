@@ -212,9 +212,6 @@ a.list-group-item:focus {
     width: 140px;
     height: 90px;
   }
-  .action {
-    padding: 10px;
-  }
 }
 // 信息区域
 .car-list-result > .list-item > .info {
@@ -223,6 +220,11 @@ a.list-group-item:focus {
   .title > h4 {
     font-weight: bold;
   }
+}
+
+.car-list-result > .list-item > .action {
+  @extend .text-center;
+  margin-top: 20px;
 }
 
 // -----------------------------------------
