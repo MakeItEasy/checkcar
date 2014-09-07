@@ -1,57 +1,28 @@
-    <style>
-      footer {
-        background-color: #555;
-        color: #fff;
-      }
-      #main-content {
-        padding-top: 0px;
-      }
-
-      #main-content .container {
-        background: initial;
-      }
-
-      #main-jumbotron {
-        background: url(<%= asset_path 'welcome_bg.png' %>)
-                    repeat-x transparent 50% 50%;
-        height: 400px;
-        width: 100%;
-        color: white;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-    </style>
+<style>
+  #main-content {
+    padding-top: 0px;
+  }
+</style>
 
 <% content_for :header_area do %>
-    <!-- jumbotron -->
-        <!--
-    <div id="main-jumbotron" class="jumbotron wrapped-content">
-      <div class="container">
-        <h1 style="font-size:50px; margin-top:50px;">一站式服务</h1>
-        <h2 style="margin-top:30px;">
-          <p>轻松预约，不用排队，个性服务，保您满意</p>
-          <div class="bottom clearfix">
-            <p>
-              <a class="btn btn-lg btn-primary" href="#" role="button" style="font-size:30px;">在线预约检车 &raquo;</a>
-            </p>
-          </div>
-        </h2>
-      </div>
-    </div>
-        -->
-    <!-- END jumbotron -->
     <style>
-      .welcome_image {
-        background: url(<%= asset_path 'welcome_site.png' %>) no-repeat;
+      #welcome-site {
         height: 326px;
         width: 540px;
         position: absolute;
         right: 100px;
         bottom: 0px;
       }
-      .welcome-kefu {
-        background: url(<%= asset_path 'kefu.png' %>) no-repeat;
+      #welcome-kefu {
+        height: 326px;
+        width: 540px;
+        position: absolute;
+        left: 100px;
         bottom: 50px;
+      }
+      .welcome-area {
+        height: 450px;
+        position: relative;
       }
       .feather-des {
         position: absolute;
@@ -63,62 +34,32 @@
       .feather-des > h1 {
         font-size: 48px;
       }
-      .feather-des > button {
+      .feather-des > a {
         font-size: 36px;
       }
     </style>
-    <div class="container-fluid" style="height: 450px; background-color: #09B3CD; position: relative;">
+    <div class="container-fluid welcome-area" style="background-color: #09B3CD;">
       <div class="feather-des" style="left: 200px;">
         <h1>网上预约</h1>
         <h1>随到随检</h1>
         <br>
-        <button class="btn btn-danger btn-lg">
-          马上预约检车
-        </button>
+        <a class="btn btn-danger" href="<%= front_stations_path %>">马上预约检车</a>
       </div>
-      <div class="welcome_image"></div>
+      <%= image_tag asset_path('welcome_site.png'), id: "welcome-site" %>
     </div>
-    <div class="container-fluid" style="height: 450px; background-color: #F8931E; position: relative;">
+    <div class="container-fluid welcome-area" style="background-color: #F8931E;">
       <div class="feather-des" style="right: 300px;">
         <h1>一个电话</h1>
         <h1>轻松搞定</h1>
         <br>
-        <button class="btn btn-success btn-lg">
-          查看预约电话
-        </button>
+        <a class="btn btn-success" href="<%= front_stations_path %>">查看预约电话</a>
       </div>
-      <div class="welcome_image welcome-kefu" style="left: 100px;"></div>
+      <%= image_tag asset_path('kefu.png'), id: "welcome-kefu" %>
     </div>
-    <div class="container-fluid" style="height: 450px; background-color: #92278F; position: relative;text-align:center;">
+    <div class="container-fluid welcome-area" style="background-color: #92278F; text-align:center;">
       <%= image_tag asset_path('weixin4.png'), class: "img-circle", style: "margin-top: 100px;" %>
       <div style="position:absolute; top: 200px;color:#fff;text-align:center;width:100%;">
         <h1 style="font-size: 48px;">扫一扫，关注我们</h1>
       </div>
     </div>
-<%end%>
-
-<% if false %>
-    <div id="nav_circle" class="text-center">
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="car-big-nav-icon-telephone"></div>
-          <h2>手机预约</h2>
-          <p>ios, android应用.</p>
-          <p><a class="btn btn-success" href="#" role="button">进入 &raquo;</a></p>
-        </div><!-- /.col-sm-4 -->
-        <div class="col-sm-4">
-          <div class="car-big-nav-icon-call"></div>
-          <h2>电话预约</h2>
-          <p>拨打400-400-400.</p>
-          <p><a class="btn btn-success" href="#" role="button">进入 &raquo;</a></p>
-        </div><!-- /.col-sm-4 -->
-        <div class="col-sm-4">
-          <div class="car-big-nav-icon-weixin"></div>
-          <h2>官方微信</h2>
-          <p>扫一扫，关注我们.</p>
-          <p><a class="btn btn-success" href="#" role="button">进入 &raquo;</a></p>
-        </div><!-- /.col-sm-4 -->
-      </div><!-- /.row -->
-    </div><!-- /.nav_circle-->
 <%end%>
