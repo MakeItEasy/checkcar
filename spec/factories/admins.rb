@@ -1,10 +1,15 @@
 FactoryGirl.define do
+  sequence :email do |n|
+    "email#{n}@car.com"
+  end
+
+  sequence :telephone do |n|
+    "1810000000#{n}"
+  end
+
   factory :admin do
     password 'password'
     password_confirmation 'password'
     sex 'male'
-    factory :admin_with_role_editor do
-      roles ['editor']
-    end
   end
 end
