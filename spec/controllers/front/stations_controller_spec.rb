@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Front::StationController, :type => :controller do
+RSpec.describe Front::StationsController, :type => :controller do
 
   describe "GET 'index'" do
     it "returns http success" do
