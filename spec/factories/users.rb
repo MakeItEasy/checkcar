@@ -18,5 +18,10 @@ FactoryGirl.define do
       name '普通用户'
       email 'user2@car.com'
     end
+
+    factory :confirmed_user do
+      email 'confirm_user@car.com'
+      confirmed_at {1.day.ago}
+    end
   end
 end

@@ -32,6 +32,7 @@ module Checkcar
 
     # 加载自定义simple_navigation的render
     config.autoload_paths << "#{config.root}/app/navigation_renders" 
+    config.autoload_paths << "#{config.root}/lib" 
 
     # 默认不生成assets
     config.generators.assets = false
