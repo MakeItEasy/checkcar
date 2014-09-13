@@ -79,6 +79,7 @@ Rails.application.routes.draw do
       resources :catagories
       resources :faqs
       resources :uaqs, except: [:new, :create, :destroy]
+      resources :open_cities
       resources :posts do
         member do
           patch 'complete'

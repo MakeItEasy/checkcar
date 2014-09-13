@@ -8,8 +8,9 @@
         </div>
         <div class="modal-body">
           <%pre_province = nil%>
-          <% OpenCity.all.each do |item| %>
+          <% OpenCity.default_order.each do |item| %>
             <% if pre_province != item.province_code %>
+              <% pre_province = item.province_code%>
               <div class="clearfix"></div>
               <span class="province-label"><%= ChinaCity.get(item.province_code)%></span>
             <% end %>

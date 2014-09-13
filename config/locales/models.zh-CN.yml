@@ -13,6 +13,7 @@
       order_phone: "电话预约"
       order_net: "网上预约"
       picture: "图片"
+      open_city: "开通城市"
 
     attributes:
       default: &default
@@ -99,3 +100,8 @@
         <<: *default
       picture:
         data: 图片
+      open_city: 
+        name: 显示名称
+        province_code: 省份
+        city_code: 城市
+        short_name: 子域名

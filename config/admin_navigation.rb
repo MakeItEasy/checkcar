@@ -69,6 +69,7 @@ SimpleNavigation::Configuration.run do |navigation|
       sub_nav.item :uaqs, Uaq.model_name.human, back_system_uaqs_path,  if: ->{ can? :read, Uaq}
     end
     primary.item :stations, Station.model_name.human, back_system_stations_path, :opts => {icon: 'fa fa-bullseye' }, if: ->{ can? :read, Station}
+    primary.item :open_cities, OpenCity.model_name.human, back_system_open_cities_path, :opts => {icon: 'fa fa-check' }, if: ->{ can? :read, OpenCity}
     primary.item :personal, I18n.t('view.controller.personal'), nil, :opts => {icon: 'fa fa-th' } do |sub_nav|
       sub_nav.item :show, I18n.t('view.action.personal.show'), back_personal_show_path,
         :opts => { icon: '', badge_text: 'new', badge_class: 'bg-green' }

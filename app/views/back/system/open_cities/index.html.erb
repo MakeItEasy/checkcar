@@ -1,0 +1,43 @@
+<div class='box car-toolbox'>
+  <div class="btn-toolbar" role="toolbar">
+  <% if can? :create, OpenCity %>
+    <div class="btn-group">
+      <%= link_to new_back_system_open_city_path, {class: 'btn btn-default'} do%>
+        <i class="glyphicon glyphicon-plus"></i> <%= t('view.action.new') %> 
+      <% end -%>
+    </div>
+  <% end -%>
+  </div>
+</div>
+
+<div class='car-content-list'>
+
+  <%= grid @open_cities_grid do |g|
+    g.column name: OpenCity.human_attribute_name(:id), attribute: "id"
+    g.column name: OpenCity.human_attribute_name(:name), attribute: "name"
+    g.column name: OpenCity.human_attribute_name(:province_code), 
+      attribute: "province_code", filter: false do |item|
+      ChinaCity.get(item.province_code)
+    end
+    g.column name: OpenCity.human_attribute_name(:city_code),
+      attribute: "city_code", filter: false do |item|
+      ChinaCity.get(item.city_code)
+    end
+    g.column name: OpenCity.human_attribute_name(:short_name), attribute: "short_name"
+
+    g.column do |item|
+      links = []
+      if can? :read, item
+        links << link_to(I18n.t('view.action.show'), [:back, :system, item])
+      end
+      if can? :update, item
+        links << link_to(I18n.t('view.action.edit'), edit_back_system_open_city_path(item))
+      end
+      if can? :destroy, item
+        links << link_to(I18n.t('view.action.delete'), [:back, :system, item], method: :delete, data: { confirm: t('view.confirm.delete')})
+      end
+      links.join(t('view.label.links_split')).html_safe
+    end
+  end -%>
+
+</div>

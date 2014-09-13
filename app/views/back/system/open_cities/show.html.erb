@@ -1,0 +1,37 @@
+<div class='box car-toolbox'>
+  <div class="btn-toolbar" role="toolbar">
+  <% if can? :update, @open_city%>
+    <div class="btn-group">
+      <%= link_to edit_back_system_open_city_path(@open_city), {class: 'btn btn-default'} do %>
+        <i class="fa fa-edit"></i> <%= t('view.action.edit') %> 
+      <% end %>
+    </div>
+  <% end %>
+  <% if can? :destroy, @open_city %>
+    <div class="btn-group">
+      <%= link_to [:back, :system, @open_city], {method: :delete,
+      data: { confirm: t('view.confirm.delete')},  class: 'btn btn-default'} do %>
+        <i class="glyphicon glyphicon-remove"></i> <%= t('view.action.delete') %> 
+      <% end %>
+    </div>
+  <% end %>
+    <div class="btn-group pull-right">
+      <%= link_to back_system_open_cities_path, {class: 'btn btn-default'} do %>
+        <i class="fa fa-list"></i> <%= t('view.action.back_to_list') %> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class='box box-info car-content-box'>
+  <dl class="dl-horizontal">
+    <dt><%= OpenCity.human_attribute_name(:name) %></dt>
+    <dd><%= @open_city.name %></dd>
+    <dt><%= OpenCity.human_attribute_name(:province_code) %></dt>
+    <dd><%= ChinaCity.get(@open_city.province_code) %></dd>
+    <dt><%= OpenCity.human_attribute_name(:city_code) %></dt>
+    <dd><%= ChinaCity.get(@open_city.city_code) %></dd>
+    <dt><%= OpenCity.human_attribute_name(:short_name) %></dt>
+    <dd><%= @open_city.short_name %></dd>
+  </dl>
+</div>
