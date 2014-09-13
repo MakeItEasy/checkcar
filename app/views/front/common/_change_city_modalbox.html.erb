@@ -11,9 +11,9 @@
           <% OpenCity.all.each do |item| %>
             <% if pre_province != item.province_code %>
               <div class="clearfix"></div>
-              <h6 class="province-label"><%= ChinaCity.get(item.province_code)%></h6>
+              <span class="province-label"><%= ChinaCity.get(item.province_code)%></span>
             <% end %>
-            <a href="<%= root_url(subdomain: item.short_name)%>"><%= ChinaCity.get(item.city_code)%></a>
+            <a class="city-label" href="<%= root_url(subdomain: item.short_name)%>"><%= ChinaCity.get(item.city_code)%></a>
           <% end %>
         </div>
       </div><!-- /.modal-content -->

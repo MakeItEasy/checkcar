@@ -339,3 +339,18 @@ img.station-pictures {
   color: #fff;
 }
 
+// -----------------------------------------
+// 切换城市
+// -----------------------------------------
+#changeCityModal {
+  .province-label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    border-bottom: 1px dotted #000;
+    margin: 10px 0px;
+  }
+  .city-label {
+    margin: 5px;
+  }
+}

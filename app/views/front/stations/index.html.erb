@@ -9,7 +9,7 @@
           <dl>
             <dt>行政区域</dt>
             <dd>
-            <% ChinaCity.list('610100').each do |item| %>
+            <% ChinaCity.list(@current_open_city.city_code).each do |item| %>
               <% _district_class = session[:station_conditions]['district'] && 
               session[:station_conditions]['district'] == item[1] ? 'active' : '' %>
               <%= link_to item[0], front_stations_path({district: item[1]}),
