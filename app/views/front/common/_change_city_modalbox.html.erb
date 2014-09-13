@@ -1,0 +1,21 @@
+<div class="modal modal-primary fade" id="changeCityModal" tabindex="-1" role="dialog" 
+  aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">请选择城市</h4>
+        </div>
+        <div class="modal-body">
+          <%pre_province = nil%>
+          <% OpenCity.all.each do |item| %>
+            <% if pre_province != item.province_code %>
+              <div class="clearfix"></div>
+              <h6 class="province-label"><%= ChinaCity.get(item.province_code)%></h6>
+            <% end %>
+            <a href="<%= root_url(subdomain: item.short_name)%>"><%= ChinaCity.get(item.city_code)%></a>
+          <% end %>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->

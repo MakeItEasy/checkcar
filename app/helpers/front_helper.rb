@@ -7,5 +7,6 @@ module FrontHelper
       current_path.start_with?(path) ? 'active' : ''
     end
   end
+
 end
 

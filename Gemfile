@@ -99,3 +99,8 @@ gem 'rmagick', require: false
 
 # API client
 gem 'httparty'
+
+# subdomain
+# gem 'subdomain-fu', '1.0.0.beta2'
+
+

@@ -15,7 +15,13 @@
             <% end %>
           </div>
         </div>
-        <div class="navbar-collapse collapse">
+
+        <div class="current-city-area">
+          <span class="city-nale"><strong><%= current_open_city.name %></strong></span>
+          <span class="change-city"><a href="#" data-toggle="modal" data-target="#changeCityModal">[切换城市]</a></span>
+        </div>
+
+        <div class="navbar-collapse collapse pull-right">
           <ul class="nav navbar-nav">
             <li class="<%= current_nav_class(root_path) %>">
               <%= link_to t('view.label.homepage'), root_path %>
@@ -70,3 +76,5 @@
   <% if !current_user %>
     <%= render "front/common/sign_in_modalbox" %> 
   <% end %>
+  <%# 切换城市box %>
+  <%= render "front/common/change_city_modalbox" %> 

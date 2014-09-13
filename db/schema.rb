@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828013624) do
+ActiveRecord::Schema.define(version: 20140913060312) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -79,6 +79,18 @@ ActiveRecord::Schema.define(version: 20140828013624) do
 
   add_index "faqs", ["create_user_id"], name: "index_faqs_on_create_user_id", using: :btree
   add_index "faqs", ["question"], name: "index_faqs_on_question", using: :btree
+
+  create_table "open_cities", force: true do |t|
+    t.string   "name",          null: false
+    t.string   "province_code", null: false
+    t.string   "city_code",     null: false
+    t.string   "short_name",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "open_cities", ["city_code"], name: "index_open_cities_on_city_code", unique: true, using: :btree
+  add_index "open_cities", ["short_name"], name: "index_open_cities_on_short_name", unique: true, using: :btree
 
   create_table "orders", force: true do |t|
     t.string   "type",              null: false
@@ -189,10 +201,10 @@ ActiveRecord::Schema.define(version: 20140828013624) do
   add_index "uaqs", ["user_id"], name: "index_uaqs_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
+    t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "name"
-    t.string   "telephone",              default: "", null: false
+    t.string   "telephone"
     t.string   "sex"
     t.string   "login_type"
     t.string   "reset_password_token"

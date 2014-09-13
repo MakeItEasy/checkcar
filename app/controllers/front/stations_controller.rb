@@ -2,7 +2,7 @@ class Front::StationsController < FrontController
   before_action :set_station, only: [:show]
   def index
     # session[:station_c_classonditions] = nil
-    resultRelation = Station.reviewed
+    resultRelation = Station.reviewed.where(city: @current_open_city.city_code)
     session[:station_conditions] = session[:station_conditions] || {}
 
     ## unselect处理

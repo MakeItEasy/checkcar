@@ -1,3 +1,4 @@
 # Be sure to restart your server when you modify this file.
 
-Rails.application.config.session_store :cookie_store, key: '_checkcar_session'
+Rails.application.config.session_store :cookie_store, key: '_checkcar_session', domain: 'car.me'
+# , tld_length: 2
