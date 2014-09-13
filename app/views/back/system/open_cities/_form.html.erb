@@ -2,7 +2,7 @@
   <div class='car-form-items'>
     <div class="city-group">
       <%= f.input :province_code, as: :select, collection: ChinaCity.list, input_html: {class: 'city-select'} %>
-      <%= f.input :city_code, as: :select, collection: [], input_html: {class: 'city-select'} %>
+      <%= f.input :city_code, as: :select, collection: ChinaCity.list(@open_city.province_code), input_html: {class: 'city-select'} %>
     </div>
     <%= f.input :name %>
     <%= f.input :short_name %>

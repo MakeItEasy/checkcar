@@ -25,12 +25,12 @@
 
 <div class='box box-info car-content-box'>
   <dl class="dl-horizontal">
-    <dt><%= OpenCity.human_attribute_name(:name) %></dt>
-    <dd><%= @open_city.name %></dd>
     <dt><%= OpenCity.human_attribute_name(:province_code) %></dt>
     <dd><%= ChinaCity.get(@open_city.province_code) %></dd>
     <dt><%= OpenCity.human_attribute_name(:city_code) %></dt>
     <dd><%= ChinaCity.get(@open_city.city_code) %></dd>
+    <dt><%= OpenCity.human_attribute_name(:name) %></dt>
+    <dd><%= @open_city.name %></dd>
     <dt><%= OpenCity.human_attribute_name(:short_name) %></dt>
     <dd><%= @open_city.short_name %></dd>
   </dl>
