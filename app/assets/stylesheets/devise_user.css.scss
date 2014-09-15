@@ -20,9 +20,10 @@
 // -----------------------------------------
 // 
 // -----------------------------------------
-.header, .devise-body-content {
+body {
   background: asset-url('bg-site-front.gif') repeat;
 }
+
 .car-devise {
   background: #fff;
 }
@@ -85,4 +86,13 @@ form#new_user .car-error-tip {
   display: block;
   @extend .alert;
   @extend .alert-danger;
+}
+
+// -----------------------------------------
+// footer
+// -----------------------------------------
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
