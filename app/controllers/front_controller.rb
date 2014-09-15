@@ -52,7 +52,8 @@ private
   # 设置城市或者切换城市
   def set_current_city
     if subdomain_ok?
-      cookies[:current_city] = {value: request.subdomain, domain: Rails.env.development? ? 'car.me' : 'xiansc.cn'}
+      cookies[:current_city] = {value: request.subdomain, :expires => 1.year.from_now,
+        domain: Rails.env.development? ? 'car.me' : 'xiansc.cn'}
       @current_open_city = OpenCity.find_by_short_name(request.subdomain)
     else
       _open_city = OpenCity.find_by_short_name(cookies[:current_city])
