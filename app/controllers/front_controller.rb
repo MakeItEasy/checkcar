@@ -29,10 +29,18 @@ private
   # 默认的城市定位
   def default_current_city
     # IP查找城市
-    # city_name = Baidu::IpApi.find_city_by_ip(request.remote_ip)
-    city_name = Baidu::IpApi.find_city_by_ip('218.28.191.23')
-    # 默认城市，ID为1的城市，目前是西安
-    OpenCity.find_by(name: city_name.gsub('市', '')) || OpenCity.find(1)
+    if Rails.env.development?
+      city_name = Baidu::IpApi.find_city_by_ip(request.remote_ip)
+    else
+      city_name = Baidu::IpApi.find_city_by_ip('218.28.191.23')
+    end
+
+    if city_name.present?
+      OpenCity.find_by(name: city_name.gsub('市', '')) || OpenCity.find(1)
+    else
+      # 默认城市，ID为1的城市，目前是西安
+      OpenCity.find(1)
+    end
   end
 
   # 当前城市
