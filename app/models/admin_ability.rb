@@ -22,6 +22,8 @@ class AdminAbility
 
     ## 不能删除id为1的超级管理员
     cannot :destroy, SystemAdmin, :id => 1
+    cannot :destroy, OpenCity, :id => 1
+    cannot :update, OpenCity, :id => 1
 
     # Define abilities for the passed in user here. For example:
     #

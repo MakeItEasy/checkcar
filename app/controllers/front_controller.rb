@@ -28,9 +28,11 @@ private
 
   # 默认的城市定位
   def default_current_city
-    # TODO dairg IP查找
-    # TODO dairg default current city
-    OpenCity.find(1)
+    # IP查找城市
+    # city_name = Baidu::IpApi.find_city_by_ip(request.remote_ip)
+    city_name = Baidu::IpApi.find_city_by_ip('218.28.191.23')
+    # 默认城市，ID为1的城市，目前是西安
+    OpenCity.find_by(name: city_name.gsub('市', '')) || OpenCity.find(1)
   end
 
   # 当前城市
