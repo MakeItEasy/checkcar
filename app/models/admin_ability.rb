@@ -22,9 +22,8 @@ class AdminAbility
 
     ## 不能删除id为1的超级管理员
     cannot :destroy, SystemAdmin, :id => 1
-    # TODO dairg 这里权限要设置，默认开通城市
-    cannot :destroy, OpenCity, :id => 1
-    # cannot :update, OpenCity, :id => 1
+    # 不能删除默认开通城市
+    cannot :destroy, OpenCity, :id => Car::Constants::DEFAULT_OPEN_CITY_ID
 
     # Define abilities for the passed in user here. For example:
     #

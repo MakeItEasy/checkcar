@@ -24,5 +24,8 @@ module Car
 
     # 车检站预约数量设置的最大值
     TIME_AREA_SETTING_MAX = 20
+
+    # 默认开通城市ID
+    DEFAULT_OPEN_CITY_ID = 1
   end
 end

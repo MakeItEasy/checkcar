@@ -30,16 +30,18 @@ private
   def default_current_city
     # IP查找城市
     if Rails.env.development?
+      # 郑州市IP
       city_name = Baidu::IpApi.find_city_by_ip('218.28.191.23')
     else
       city_name = Baidu::IpApi.find_city_by_ip(request.remote_ip)
     end
 
     if city_name.present?
-      OpenCity.where("name like ?", "%#{city_name.gsub('市', '')}%").first || OpenCity.find(1)
+      OpenCity.where("name like ?", "%#{city_name.gsub('市', '')}%").first || 
+        OpenCity.find(Car::Constants::DEFAULT_OPEN_CITY_ID)
     else
       # 默认城市，ID为1的城市，目前是西安
-      OpenCity.find(1)
+      OpenCity.find(Car::Constants::DEFAULT_OPEN_CITY_ID)
     end
   end
 
@@ -52,11 +54,11 @@ private
   # 设置城市或者切换城市
   def set_current_city
     if subdomain_ok?
-      cookies[:current_city] = {value: request.subdomain, :expires => 1.year.from_now,
-        domain: Rails.env.development? ? 'car.me' : 'xiansc.cn'}
       @current_open_city = OpenCity.find_by_short_name(request.subdomain)
+      cookies[:current_city] = {value: @current_open_city.id, :expires => 1.year.from_now,
+        domain: Rails.env.development? ? 'car.me' : 'xiansc.cn'}
     else
-      _open_city = OpenCity.find_by_short_name(cookies[:current_city])
+      _open_city = OpenCity.find_by_id(cookies[:current_city])
       if _open_city.nil?
         _open_city = default_current_city
       end
