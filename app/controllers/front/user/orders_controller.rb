@@ -30,7 +30,7 @@ class Front::User::OrdersController < Front::UserBaseController
   # PATCH
   def cancel
     if can? :cancel, @order
-      @order.update_column(:status, 'cancel')
+      @order.update_attributes!({status: 'cancel'})
       # redirect_to front_user_order_path(@order), notice: I18n.t("view.notice.order.cancelled")
       redirect_to request.referer, notice: I18n.t("view.notice.order.cancelled")
     end

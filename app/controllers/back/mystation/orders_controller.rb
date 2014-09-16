@@ -44,7 +44,7 @@ class Back::Mystation::OrdersController < Back::StationBaseController
   # PATCH
   def cancel
     if can? :cancel, @order
-      @order.update_column(:status, 'cancel')
+      @order.update_attributes!({status: 'cancel'})
       redirect_to back_mystation_order_path(@order), notice: I18n.t("view.notice.order.cancelled")
     end
   end
@@ -53,7 +53,7 @@ class Back::Mystation::OrdersController < Back::StationBaseController
   # PATCH
   def check
     if can? :check, @order
-      @order.update_column(:status, 'checked')
+      @order.update_attributes!({status: 'checked'})
       redirect_to back_mystation_order_path(@order), notice: I18n.t("view.notice.modify_status_success")
     end
   end
@@ -62,7 +62,7 @@ class Back::Mystation::OrdersController < Back::StationBaseController
   # PATCH
   def missit
     if can? :missit, @order
-      @order.update_column(:status, 'missit')
+      @order.update_attributes!({status: 'missit'})
       redirect_to back_mystation_order_path(@order), notice: I18n.t("view.notice.modify_status_success")
     end
   end
