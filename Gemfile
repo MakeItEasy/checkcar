@@ -103,4 +103,6 @@ gem 'httparty'
 # subdomain
 # gem 'subdomain-fu', '1.0.0.beta2'
 
-
+# 定时任务
+# gem 'rufus-scheduler'
+gem 'whenever', :require => false
