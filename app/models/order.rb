@@ -10,6 +10,8 @@ class Order < ActiveRecord::Base
   scope :expired, -> { where("order_time < ?", Time.now) }
   scope :not_cancelled, -> { without_status(:cancel) }
   scope :success, -> { with_status(:success) }
+  # 过期并且满足自动batch处理条件，过期了X天
+  scope :expired_for_auto_process, -> { where("order_time < ?", Time.now - Car::Constants::EXPIRED_DAYS_TO_AUTO_PROCESS.days) }
 
   ## Associations
   belongs_to :station

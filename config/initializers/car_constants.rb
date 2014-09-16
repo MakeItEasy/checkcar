@@ -27,5 +27,8 @@ module Car
 
     # 默认开通城市ID
     DEFAULT_OPEN_CITY_ID = 1
+
+    # 过期三天后自动处理
+    EXPIRED_DAYS_TO_AUTO_PROCESS = 3
   end
 end
