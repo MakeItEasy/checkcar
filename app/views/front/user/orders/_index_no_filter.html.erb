@@ -4,6 +4,9 @@
       link_to(item.order_no, front_user_order_path(item))
     end
   end
+  g.column name: Order.human_attribute_name(:type), attribute: "type", filter: false do |item|
+    item.type.constantize.model_name.human
+  end
   g.column name: Order.human_attribute_name(:status), attribute: "status", detach_with_id: :status_filter do |item|
     render 'common/order/order_status_label', order: item
   end
