@@ -140,8 +140,12 @@ private
       can :update_picture, Station, id: user.station.id
       can :create, OrderPhone, station_id: user.station.id
       can :read, OrderPhone, station_id: user.station.id
-      # TODO dairg 编辑电话预约的条件，比如状态，以及预约时间范围
-      can :update, OrderPhone, station_id: user.station.id 
+      can :update, OrderPhone do |order|
+        order.station_id == user.station.id && 
+        # TODO dairg 到底几天前的phone order可以编辑, 以及状态
+        order.status_success? &&
+        order.order_time > (Time.now)
+      end
       can :read, Order, station_id: user.station.id
       can :cancel, OrderPhone do |order|
         order.station_id == user.station.id && 
