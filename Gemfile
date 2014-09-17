@@ -105,4 +105,7 @@ gem 'httparty'
 
 # 定时任务
 # gem 'rufus-scheduler'
-gem 'whenever', :require => false
+
+# TODO dairg whenever到底是用master分支还是0.9.2最新版本
+# gem 'whenever', :require => false
+gem 'whenever', :require => false, github: 'javan/whenever'

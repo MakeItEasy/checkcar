@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 # set :output, "/Users/moyan/01_work/rails_apps/checkcar/log/cron_log.log"
-set :output, {:error => 'cron_error.log', :standard => 'cron.log'}
+set :output, {:error => 'log/cron_error.log', :standard => 'log/cron.log'}
 
 every 1.minutes do
   rake "car:order:echo"
