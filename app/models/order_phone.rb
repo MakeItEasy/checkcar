@@ -15,9 +15,8 @@ class OrderPhone < Order
       validate_car_number
     else
       # 只有当以下相应的字段发生变更时才进行validate
-      _origin_order = OrderPhone.find(self.id)
-      validate_order_time if self.order_time != _origin_order.order_time
-      validate_car_number if self.car_number_area != _origin_order.car_number_area || self.car_number_detail != _origin_order.car_number_detail
+      validate_order_time if self.order_time_changed?
+      validate_car_number if self.car_number_area_changed? || self.car_number_detail_changed?
     end
   end
 
